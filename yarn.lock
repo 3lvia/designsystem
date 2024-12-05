@@ -9542,15 +9542,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"contentful-management@npm:^11.40.1":
-  version: 11.40.1
-  resolution: "contentful-management@npm:11.40.1"
+"contentful-management@npm:^11.40.2":
+  version: 11.40.2
+  resolution: "contentful-management@npm:11.40.2"
   dependencies:
     "@contentful/rich-text-types": "npm:^16.6.1"
     axios: "npm:^1.7.4"
     contentful-sdk-core: "npm:^9.0.1"
     fast-copy: "npm:^3.0.0"
-  checksum: 10/63961ceb8c0e82702e52a22649c48fcec206af9c1a9bbd58750f5fc51914058734b601b545a36a77cb14109cc6d9a4f880d4a6b6ac4c8bfc7055e1b95b404513
+  checksum: 10/69c8f5ceb5b88ad30869d847ece25124352ea2c691d6bbde8f61563c84e04f715c8279075135203690b8a2bb0151c8589caf5462c9f9ed6cd19008f48edebd90
   languageName: node
   linkType: hard
 
@@ -10484,7 +10484,7 @@ __metadata:
     "@types/safe-json-stringify": "npm:^1.1.5"
     angular-eslint: "npm:^19.0.0"
     contentful: "npm:^9.3.7"
-    contentful-management: "npm:^11.40.1"
+    contentful-management: "npm:^11.40.2"
     contentful-typescript-codegen: "npm:^3.4.0"
     dotenv: "npm:^16.4.6"
     eslint: "npm:^9.16.0"
@@ -10493,7 +10493,7 @@ __metadata:
     jszip: "npm:^3.10.1"
     natural-compare-lite: "npm:^1.4.0"
     opentype.js: "npm:^1.3.4"
-    prettier: "npm:^3.4.1"
+    prettier: "npm:^3.4.2"
     prismjs: "npm:^1.29.0"
     rxjs: "npm:^7.8.1"
     safe-json-stringify: "npm:^1.2.0"
@@ -16522,12 +16522,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.4.1":
-  version: 3.4.1
-  resolution: "prettier@npm:3.4.1"
+"prettier@npm:^3.4.2":
+  version: 3.4.2
+  resolution: "prettier@npm:3.4.2"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10/1ee4d1b1a9b6761cbb847cd81b9d87e51a0f4b2a4d5fe5755627c24828afe057a7ee9b764c3ee777d84abd46218d173d8a204ee9cb3acdd321ff9a6b25f99c1c
+  checksum: 10/a3e806fb0b635818964d472d35d27e21a4e17150c679047f5501e1f23bd4aa806adf660f0c0d35214a210d5d440da6896c2e86156da55f221a57938278dc326e
   languageName: node
   linkType: hard
 
@@ -17542,7 +17542,7 @@ __metadata:
     express: "npm:^4.21.1"
     globals: "npm:^15.13.0"
     postcss: "npm:^8.4.49"
-    prettier: "npm:^3.4.1"
+    prettier: "npm:^3.4.2"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
     react-is: "npm:^18.3.1"
