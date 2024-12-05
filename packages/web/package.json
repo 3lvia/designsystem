@@ -57,7 +57,7 @@
     "@elvia/elvis-tooltip": "workspace:*",
     "@elvia/elvis-typography": "workspace:*",
     "contentful": "^9.3.7",
-    "dotenv": "^16.4.6",
+    "dotenv": "^16.4.7",
     "file-saver": "^2.0.5",
     "fuse.js": "^7.0.0",
     "jszip": "^3.10.1",

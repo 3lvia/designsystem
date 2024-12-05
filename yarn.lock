@@ -10360,10 +10360,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^16.4.6":
-  version: 16.4.6
-  resolution: "dotenv@npm:16.4.6"
-  checksum: 10/86bf758c47ec2585cf171ded83f0ff8b7327d865116ab8a327ff9ec84e35cc8f7cd3f68cef7ce6ec2907310228a4ec4f310cf701615973aba4a9b57bdbb65c59
+"dotenv@npm:^16.4.7":
+  version: 16.4.7
+  resolution: "dotenv@npm:16.4.7"
+  checksum: 10/f13bfe97db88f0df4ec505eeffb8925ec51f2d56a3d0b6d916964d8b4af494e6fb1633ba5d09089b552e77ab2a25de58d70259b2c5ed45ec148221835fc99a0c
   languageName: node
   linkType: hard
 
@@ -10486,7 +10486,7 @@ __metadata:
     contentful: "npm:^9.3.7"
     contentful-management: "npm:^11.40.2"
     contentful-typescript-codegen: "npm:^3.4.0"
-    dotenv: "npm:^16.4.6"
+    dotenv: "npm:^16.4.7"
     eslint: "npm:^9.16.0"
     file-saver: "npm:^2.0.5"
     fuse.js: "npm:^7.0.0"
