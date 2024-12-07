@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 import { CopyComponent } from '../../../copy/copy.component';
 
@@ -9,8 +9,8 @@ import { CopyComponent } from '../../../copy/copy.component';
   imports: [CopyComponent],
 })
 export class ComponentSubsectionComponent {
-  @Input() sectionTitle = '';
-  @Input() propertiesClass = '';
-  @Input() figmaOnly = false;
-  @Input() sectionClass = '';
+  readonly sectionTitle = input('');
+  readonly propertiesClass = input('');
+  readonly figmaOnly = input(false);
+  readonly sectionClass = input('');
 }

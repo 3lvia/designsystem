@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CopyComponent } from '../../../copy/copy.component';
@@ -12,9 +12,9 @@ import { CopyComponent } from '../../../copy/copy.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentSectionComponent {
-  @Input() sectionTitle = '';
-  @Input() propertiesClass = '';
-  @Input() figmaOnly = false;
+  readonly sectionTitle = input('');
+  readonly propertiesClass = input('');
+  readonly figmaOnly = input(false);
 
   titleIsCopied = false;
 
@@ -28,7 +28,7 @@ export class ComponentSectionComponent {
   }
 
   get copyUrl() {
-    const modifiedAnchor = this.sectionTitle.replace(/ /g, '-');
+    const modifiedAnchor = this.sectionTitle().replace(/ /g, '-');
     let anchorUrl = location?.origin ?? 'https://design.elvia.io';
     if (this.router.url.includes('#')) {
       anchorUrl =

@@ -1,4 +1,4 @@
-import { Directive, Input, OnChanges } from '@angular/core';
+import { Directive, OnChanges, input } from '@angular/core';
 
 import { SearchResult } from '../../searcher';
 import { ComponentProp } from './types';
@@ -15,7 +15,7 @@ interface TableGroup {
   standalone: true,
 })
 export class PropertyTableBaseDirective implements OnChanges {
-  @Input() props: SearchResult<ComponentProp>[] = [];
+  readonly props = input<SearchResult<ComponentProp>[]>([]);
   groupedProps: TableGroup[] = [];
 
   ngOnChanges(): void {
@@ -23,19 +23,19 @@ export class PropertyTableBaseDirective implements OnChanges {
       {
         title: 'Properties',
         expanded: true,
-        rows: this.getInputProps(this.props),
+        rows: this.getInputProps(this.props()),
         description: "Properties can be used to customise the component's behaviour and appearance.",
       },
       {
         title: 'Events',
         expanded: true,
-        rows: this.getEventProps(this.props),
+        rows: this.getEventProps(this.props()),
         description: 'Events let the component communicate with your app, notifying it of changes.',
       },
       {
         title: 'Functions',
         expanded: true,
-        rows: this.getFunctionProps(this.props),
+        rows: this.getFunctionProps(this.props()),
         description:
           'Functions can be imported separately from the component, and can sometimes \nbe required for the component to work.',
       },

@@ -1,5 +1,5 @@
 import { TextFieldModule } from '@angular/cdk/text-field';
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { Modifier, Typographies } from '../typographies';
@@ -12,8 +12,8 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
   styleUrls: ['./typography-example-exhibit-list.component.scss'],
 })
 export class TypographyExampleExhibitListComponent {
-  @Input({ required: true }) typographies: Typographies;
-  @Input({ required: true }) modifier: Modifier;
+  readonly typographies = input.required<Typographies>();
+  readonly modifier = input.required<Modifier>();
 
   demoContent = 'The quick brown fox';
 }

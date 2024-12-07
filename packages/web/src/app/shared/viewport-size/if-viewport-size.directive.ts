@@ -19,6 +19,8 @@ import { BreakpointService, ScreenSize } from 'src/app/core/services/breakpoint.
 export class IfViewportSizeDirective implements OnDestroy {
   private subscription = new Subscription();
 
+  // TODO: Skipped for migration because:
+  //  Accessor inputs cannot be migrated as they are too complex.
   @Input('ifViewportSize') set size(values: ScreenSize[]) {
     this.subscription.unsubscribe();
     this.subscription = this.breakpointService.matches(values).subscribe(this.updateView);

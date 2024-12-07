@@ -179,7 +179,7 @@
 </ng-template>
 
 <!-- No accordion  -->
-@if (!hasAccordion || (changelog && changelog.length <= 2)) {
+@if (!hasAccordion() || (changelog && changelog.length <= 2)) {
   <ng-container *ngTemplateOutlet="changelogTemplateHeader"></ng-container>
   <ng-container *ngTemplateOutlet="changelogTemplateContent"></ng-container>
 } @else {

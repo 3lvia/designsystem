@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { CopyComponent } from '../../copy/copy.component';
@@ -17,7 +17,7 @@ import ComponentData from 'src/app/doc-pages/components/component-data.interface
   imports: [CopyComponent, TabToSegmentedControlItemPipe],
 })
 export class ComponentInstallationComponent implements OnInit {
-  @Input() componentData: ComponentData;
+  readonly componentData = input.required<ComponentData>();
   reactElementName: string;
   packageName: string;
   activeTabIndex = 0;
@@ -33,8 +33,8 @@ export class ComponentInstallationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.reactElementName = this.componentData.name;
-    this.packageName = getPackageName(this.componentData.name);
+    this.reactElementName = this.componentData().name;
+    this.packageName = getPackageName(this.componentData().name);
   }
 
   setActiveTab(newIndex: number): void {

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input, computed, inject } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 
 import { ColorPickerService } from '../color-picker.service';
 import { darkColors } from '../colors-dark';
@@ -15,7 +15,7 @@ import { NeedsBorderPipe } from '../needs-border.pipe';
   imports: [NgClass, NeedsBorderPipe],
 })
 export class ColorPickerColorListComponent {
-  @Input({ required: true }) category: 'primary' | 'secondary' | 'tertiary' | 'grey';
+  readonly category = input.required<'primary' | 'secondary' | 'tertiary' | 'grey'>();
 
   private colorPickerService = inject(ColorPickerService);
 
@@ -28,10 +28,11 @@ export class ColorPickerColorListComponent {
   }
 
   getColorsFromCategory = () => {
-    if (this.category === 'tertiary') {
-      return this.colorList()?.[this.category].slice(0, 6);
+    const category = this.category();
+    if (category === 'tertiary') {
+      return this.colorList()?.[category].slice(0, 6);
     }
-    return this.colorList()?.[this.category];
+    return this.colorList()?.[category];
   };
 
   isChosen = (colorName: ColorName) => {
@@ -43,7 +44,7 @@ export class ColorPickerColorListComponent {
   }
 
   getOpacityColor(i: number) {
-    return this.colorList()?.[this.category][i];
+    return this.colorList()?.[this.category()][i];
   }
 
   getContrast = (color: ColorElement) => {

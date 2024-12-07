@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output, input } from '@angular/core';
 
 import { RadioGroup } from '../../controlType';
 
@@ -10,7 +10,7 @@ let CEG_RADIO_GROUP_ID = 0;
   imports: [],
 })
 export class RadioGroupComponent {
-  @Input() radioGroup: RadioGroup;
+  readonly radioGroup = input.required<RadioGroup>();
   @Output() toggle = new EventEmitter<RadioGroup['value']>();
   readonly radioGroupId = `ceg-checkbox-${CEG_RADIO_GROUP_ID++}`;
 

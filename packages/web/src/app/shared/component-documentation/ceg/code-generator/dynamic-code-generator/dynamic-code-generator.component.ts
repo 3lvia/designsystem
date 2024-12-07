@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit, input } from '@angular/core';
 import { Observable, Subject, combineLatest } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -23,11 +23,11 @@ interface Prop {
 })
 export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject<void>();
-  @Input() controlManager: UnknownCegControlManager;
-  @Input() elementName = '';
-  @Input() componentSlots: Observable<string[]>;
-  @Input() reactSlotReplacement?: Partial<Record<string, string>>;
-  @Input() typeScriptCode: Observable<string> | undefined;
+  readonly controlManager = input.required<UnknownCegControlManager>();
+  readonly elementName = input('');
+  readonly componentSlots = input.required<Observable<string[]>>();
+  readonly reactSlotReplacement = input<Partial<Record<string, string>>>();
+  readonly typeScriptCode = input<Observable<string>>();
   initialProps: Prop[] = [];
   angularCode = '';
   reactCode = '';
@@ -37,17 +37,17 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.initialProps = this.getFlatPropList(
-      this.controlManager.getControlSnapshot() ?? {},
-      this.controlManager.getStaticPropsSnapshot() ?? {},
-      this.controlManager.getCurrentComponentTypeNameSnapshot(),
+      this.controlManager().getControlSnapshot() ?? {},
+      this.controlManager().getStaticPropsSnapshot() ?? {},
+      this.controlManager().getCurrentComponentTypeNameSnapshot(),
     );
 
     combineLatest([
-      this.controlManager.getCurrentControls(),
-      this.componentSlots,
-      this.controlManager.currentComponentTypeName,
-      this.controlManager.getStaticProps(),
-      this.controlManager.getDisabledControls(),
+      this.controlManager().getCurrentControls(),
+      this.componentSlots(),
+      this.controlManager().currentComponentTypeName,
+      this.controlManager().getStaticProps(),
+      this.controlManager().getDisabledControls(),
     ])
       .pipe(takeUntil(this.unsubscriber))
       .subscribe(([controls, slots, type, staticProps, disabledControls]) => {
@@ -190,7 +190,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   }
 
   private formatReactSlotReplacement(): string {
-    return Object.entries(this.reactSlotReplacement || {})
+    return Object.entries(this.reactSlotReplacement() || {})
       .map(([key, value]) => {
         return `${key}={${value}}`;
       })
@@ -198,7 +198,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   }
 
   private getReactSlots(slots: string[]): string {
-    if (this.reactSlotReplacement) {
+    if (this.reactSlotReplacement()) {
       return this.formatReactSlotReplacement();
     }
 
@@ -222,7 +222,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
 
   private createWebComponentCode(props: Prop[], slots: string[], frameworkSpec: FrameworkSpec): string {
     const propsToInclude = props.filter((prop) => this.propShouldBeIncluded(prop));
-    return `<elvia-${this.elementName} ${propsToInclude
+    return `<elvia-${this.elementName()} ${propsToInclude
       .map((prop) => {
         const propName = `${frameworkSpec.attributePrefix}${prop.name}${frameworkSpec.attributePostfix}`;
         switch (typeof prop.value) {
@@ -241,12 +241,12 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
           }
         }
       })
-      .join('')}>${this.getWebComponentSlots(slots)}</elvia-${this.elementName}>`;
+      .join('')}>${this.getWebComponentSlots(slots)}</elvia-${this.elementName()}>`;
   }
 
   private createReactCode(props: Prop[], slots: string[]): string {
     const propsToInclude = props.filter((prop) => this.propShouldBeIncluded(prop));
-    const elementName = this.elementName
+    const elementName = this.elementName()
       .split('-')
       .map((part) => `${part[0].toUpperCase()}${part.slice(1)}`)
       .join('');

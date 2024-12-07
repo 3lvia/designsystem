@@ -15,6 +15,9 @@ import { ThemeService } from 'src/app/core/services/theme.service';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentRelatedComponent {
+  // TODO: Skipped for migration because:
+  //  This input is used in a control flow expression (e.g. `@if` or `*ngIf`)
+  //  and migrating would break narrowing currently.
   @Input({ required: true }) relatedPages: DocPageName[];
 
   constructor(

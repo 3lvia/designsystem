@@ -4,8 +4,8 @@
       @if (!hideTabs) {
         <elvia-segmented-control
           [size]="(breakpointService.matches(['md', 'lg', 'xl']) | async) ? 'medium' : 'small'"
-          [items]="tabs | tabToSegmentedControlItem"
-          [value]="activeTabIndex"
+          [items]="tabs() | tabToSegmentedControlItem"
+          [value]="activeTabIndex()"
           (valueOnChange)="tabIndexChange.emit($any($event).detail.value)"
         />
       }
@@ -28,6 +28,6 @@
   }
 
   <div class="overflow-container">
-    <pre><code [innerHtml]="activeCode | formatCode:language | async | highlighter:language" class="ceg-code"></code></pre>
+    <pre><code [innerHtml]="activeCode() | formatCode:language | async | highlighter:language" class="ceg-code"></code></pre>
   </div>
 </div>

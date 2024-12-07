@@ -1,4 +1,4 @@
-import { Component, Input, booleanAttribute } from '@angular/core';
+import { Component, Input, booleanAttribute, input } from '@angular/core';
 
 import { SubMenuComponent } from '../../../navbar/sub-menu/sub-menu.component';
 import { IfViewportSizeDirective } from '../../../viewport-size/if-viewport-size.directive';
@@ -18,8 +18,11 @@ import ComponentData from 'src/app/doc-pages/components/component-data.interface
   ],
 })
 export class ComponentHeaderComponent {
-  @Input() figmaUrl?: string;
-  @Input() lastUpdated?: string;
+  figmaUrl = input<string>();
+  lastUpdated = input<string>();
+  // TODO: Skipped for migration because:
+  //  This input is used in a control flow expression (e.g. `@if` or `*ngIf`)
+  //  and migrating would break narrowing currently.
   @Input() componentData?: ComponentData;
-  @Input({ transform: booleanAttribute }) showCssLibraryTag = false;
+  readonly showCssLibraryTag = input(false, { transform: booleanAttribute });
 }

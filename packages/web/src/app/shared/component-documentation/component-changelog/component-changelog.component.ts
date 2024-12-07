@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -32,17 +32,22 @@ import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.
   styleUrls: ['./component-changelog.component.scss'],
 })
 export class ComponentChangelogComponent implements OnInit {
+  // TODO: Skipped for migration because:
+  //  Your application code writes to the input. This prevents migration.
   @Input() changelog?: Changelog;
   /**
    * If enabled the changelog-list will be in an accordion
    */
-  @Input() hasAccordion = true;
+  readonly hasAccordion = input(true);
   /**
    * The Elvis component to filter for (only display changelog for this component).
    * When set, the component will automatically use the Elvis Changelog.
    *
    * **NOTE**: Not intended for use with V2+ components.
    */
+  // TODO: Skipped for migration because:
+  //  This input is used in a control flow expression (e.g. `@if` or `*ngIf`)
+  //  and migrating would break narrowing currently.
   @Input() elvisComponentToFilter?: string;
 
   changelogRadioFilterItems: { label: string; value: ChangelogRadioFilter }[] = [

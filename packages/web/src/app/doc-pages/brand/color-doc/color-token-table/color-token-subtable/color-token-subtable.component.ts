@@ -1,5 +1,5 @@
 import { LowerCasePipe, NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { TableColorArray } from '../colors';
@@ -28,9 +28,11 @@ type Colors = {
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ColorTokenSubtableComponent implements OnInit {
-  @Input({ required: true }) colors: Colors;
-  @Input({ required: true }) title: string;
-  @Input({ required: true }) subtitle: string;
+  readonly colors = input.required<Colors>();
+  readonly title = input.required<string>();
+  readonly subtitle = input.required<string>();
+  // TODO: Skipped for migration because:
+  //  Accessor inputs cannot be migrated as they are too complex.
   @Input({ required: true }) set searchValue(value: string) {
     this.updateFilter(value);
   }
@@ -42,7 +44,7 @@ export class ColorTokenSubtableComponent implements OnInit {
   visibleColors: Colors;
 
   ngOnInit(): void {
-    this.colors.forEach((category) => {
+    this.colors().forEach((category) => {
       category.colors.forEach((color) => {
         if (typeof color.example !== 'undefined') {
           this.hasExampleColumn = true;
@@ -52,13 +54,13 @@ export class ColorTokenSubtableComponent implements OnInit {
         }
       });
     });
-    this.visibleColors = this.colors;
+    this.visibleColors = this.colors();
   }
 
   private updateFilter(value: string) {
     const parsedValue = value.trim().toLowerCase();
     if (value) {
-      this.visibleColors = this.colors.map((entry) => {
+      this.visibleColors = this.colors().map((entry) => {
         if (entry.title?.toLowerCase().includes(parsedValue)) {
           return entry;
         } else {
@@ -80,7 +82,7 @@ export class ColorTokenSubtableComponent implements OnInit {
         this.isVisible = false;
       }
     } else {
-      this.visibleColors = this.colors;
+      this.visibleColors = this.colors();
       this.isVisible = true;
       this.isOpen = false;
     }

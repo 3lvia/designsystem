@@ -8,15 +8,15 @@
       isFullwidth
     >
       <div slot="openLabel">
-        <h3 class="e-title-sm e-m-0 e-mb-8">{{ title }}</h3>
+        <h3 class="e-title-sm e-m-0 e-mb-8">{{ title() }}</h3>
         <p class="e-text-md e-m-0">
-          {{ subtitle }}
+          {{ subtitle() }}
         </p>
       </div>
       <div slot="closeLabel">
-        <h3 class="e-title-sm e-m-0 e-mb-8">{{ title }}</h3>
+        <h3 class="e-title-sm e-m-0 e-mb-8">{{ title() }}</h3>
         <p class="e-text-md e-m-0">
-          {{ subtitle }}
+          {{ subtitle() }}
         </p>
       </div>
       <div slot="content">
@@ -25,7 +25,7 @@
             <caption class="e-sr-only">
               Overview of available
               {{
-                title | lowercase
+                title() | lowercase
               }}
               color tokens
             </caption>
@@ -121,7 +121,7 @@
             <caption class="e-sr-only">
               Overview of available
               {{
-                title | lowercase
+                title() | lowercase
               }}
               color tokens
             </caption>

@@ -1,11 +1,11 @@
 <form class="e-form-field">
-  @for (radio of radioGroup.radios; track radio) {
+  @for (radio of radioGroup().radios; track radio) {
     <label class="e-radio e-radio--small">
       <input
         type="radio"
         [name]="radioGroupId"
         [value]="radio.value"
-        [checked]="radio.value === radioGroup.value"
+        [checked]="radio.value === radioGroup().value"
         (change)="onChange(radio.value)"
       />
       <span class="e-radio__mark"></span>

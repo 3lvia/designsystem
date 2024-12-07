@@ -3,10 +3,10 @@
     class="e-toggle__input"
     type="checkbox"
     role="switch"
-    [attr.aria-checked]="switch.value"
-    [checked]="switch.value"
+    [attr.aria-checked]="switch().value"
+    [checked]="switch().value"
     (change)="onChange(input.checked)"
     #input
   />
-  {{ switch.label }}
+  {{ switch().label }}
 </label>

@@ -1,22 +1,22 @@
 <div class="when e-mt-48 e-mb-n16">
-  @if (whens && whens[0] !== '') {
+  @if (whens().length) {
     <div class="when-to-use">
       <div class="e-title-caps" style="display: flex; flex-direction: row">
         <div class="e-mr-8">
           <e-icon name="checkCircle" size="xs" class="e-icon--color-positive" />
         </div>
         <div>
-          @if (locale === 'en-GB') {
+          @if (locale() === 'en-GB') {
             When to use:
           }
-          @if (locale === 'nb-NO') {
+          @if (locale() === 'nb-NO') {
             Riktig bruk:
           }
         </div>
       </div>
       <span class="e-text-md">
         <ul>
-          @for (when of whens; track when) {
+          @for (when of whens(); track when) {
             <li>
               {{ when }}
             </li>
@@ -25,24 +25,24 @@
       </span>
     </div>
   }
-  @if (whenNots && whenNots[0] !== '') {
+  @if (whenNots().length) {
     <div class="when-not-to-use">
       <div class="e-title-caps" style="display: flex; flex-direction: row">
         <div class="e-mr-8">
           <e-icon name="removeCircle" size="xs" class="e-icon--color-error" />
         </div>
         <div>
-          @if (locale === 'en-GB') {
+          @if (locale() === 'en-GB') {
             When not to use:
           }
-          @if (locale === 'nb-NO') {
+          @if (locale() === 'nb-NO') {
             Ikke riktig bruk:
           }
         </div>
       </div>
       <span class="e-text-md">
         <ul>
-          @for (whenNot of whenNots; track whenNot) {
+          @for (whenNot of whenNots(); track whenNot) {
             <li>
               {{ whenNot }}
             </li>

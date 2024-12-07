@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, ViewEncapsulation, booleanAttribute } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ViewEncapsulation, booleanAttribute, input } from '@angular/core';
 
 @Component({
   selector: 'app-copy',
@@ -10,9 +10,9 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, ViewEncapsulation, booleanAtt
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CopyComponent {
-  @Input() message = '';
-  @Input() smallElementAnimation = false;
-  @Input({ transform: booleanAttribute }) autoOverflow = false;
+  readonly message = input('');
+  readonly smallElementAnimation = input(false);
+  readonly autoOverflow = input(false, { transform: booleanAttribute });
 
   tooltipContent = 'Copy';
   copyTimeout: ReturnType<typeof setTimeout>;
