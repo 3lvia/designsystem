@@ -22,6 +22,6 @@ import { carouselData } from './carousel-data';
 })
 export class CarouselDocComponent {
   componentData = carouselData;
-  does = carouselData.does;
-  donts = carouselData.donts;
+  does = carouselData.does ?? [];
+  donts = carouselData.donts ?? [];
 }

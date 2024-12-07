@@ -12,7 +12,7 @@ import { ControlsComponent } from '../controls/controls.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ControlsPopoverComponent {
-  readonly controlManager = input<UnknownCegControlManager>();
+  readonly controlManager = input.required<UnknownCegControlManager>();
   @Output() propChange = new EventEmitter<{ propName: string; value: ControlValue }>();
   @Output() slotToggle = new EventEmitter<{ slotName: string; isVisible: boolean }>();
 

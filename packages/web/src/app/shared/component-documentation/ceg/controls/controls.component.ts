@@ -31,7 +31,7 @@ interface Group {
 })
 export class ControlsComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject<void>();
-  readonly controlManager = input<UnknownCegControlManager>();
+  readonly controlManager = input.required<UnknownCegControlManager>();
   @Output() propChange = new EventEmitter<{ propName: string; value: ControlValue }>();
   @Output() slotToggle = new EventEmitter<{ slotName: string; isVisible: boolean }>();
   disabledControls: string[] = [];

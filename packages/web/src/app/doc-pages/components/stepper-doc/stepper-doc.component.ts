@@ -22,6 +22,6 @@ import { stepperData } from './stepper-data';
 })
 export class StepperDocComponent {
   componentData = stepperData;
-  does = stepperData.does;
-  donts = stepperData.donts;
+  does = stepperData.does ?? [];
+  donts = stepperData.donts ?? [];
 }
