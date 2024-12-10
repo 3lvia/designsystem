@@ -23,6 +23,7 @@ test('should pass visual diff check', async ({ mount, page }) => {
         <Chip color="red" value="Red" type="legend" isSelected />
         <Chip color="violet" value="Violet" type="legend" isSelected />
         <Chip value="Chip" type="legend" isSelected />
+        <Chip value="Chip" type="legend" isSelected />
 
         <Chip value="Removable" type="removable" />
       </div>
