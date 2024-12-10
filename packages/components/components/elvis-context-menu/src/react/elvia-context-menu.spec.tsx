@@ -14,6 +14,7 @@ test('should render', async ({ mount }) => {
 });
 
 test('should look as expected (default)', async ({ mount, page }) => {
+  await page.waitForTimeout(1000);
   const component = await mount(
     <ContextMenu
       trigger={<button className="e-btn">Open menu</button>}
@@ -31,8 +32,9 @@ test('should look as expected (default)', async ({ mount, page }) => {
       }
     />,
   );
-
+  await page.waitForTimeout(1000);
   await component.getByRole('button').click();
+  await page.waitForTimeout(1000);
 
   await percySnapshot(page, 'Context menu: open');
 });
