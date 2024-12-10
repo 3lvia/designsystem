@@ -71,6 +71,10 @@ export const getLinks = (targetId: string): SystemLink[] => {
       name: 'Salesforce',
       url: `https://elvia.lightning.force.com/lightning/n/DirectLink?c__object=MeteringPoint__c&c__fieldName=MeteringPointID__c&c__fieldValue=${targetId}`,
     },
+    {
+      name: 'IFS',
+      url: `https://elvia.ifs.cloud/main/ifsapplications/web/page/FunctionalObjects/List;path=0.1531594057.1763480028.1343378454.563079726;$filter=%28startswith%28MchCode,%27${targetId}%27%29%29`,
+    },
   ].sort((a, b) => a.name.localeCompare(b.name));
 
   const currentEnvironment = getEnvironmentUrl();
