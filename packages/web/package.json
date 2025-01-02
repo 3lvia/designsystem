@@ -78,7 +78,7 @@
     "@angular/compiler-cli": "^19.0.5",
     "@angular/language-service": "^19.0.5",
     "@babel/core": "^7.26.0",
-    "@netlify/functions": "^2.8.2",
+    "@netlify/functions": "^3.0.0",
     "@types/file-saver": "^2.0.7",
     "@types/natural-compare-lite": "^1.4.2",
     "@types/node": "20.17.11",
