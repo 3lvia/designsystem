@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-icons",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "GPL-3.0-only",
   "homepage": "https://design.elvia.io/brand/icon",
   "repository": {
@@ -20,7 +20,7 @@
     "start": "tsup src/index.ts --sourcemap --dts --format esm --out-dir dist --watch"
   },
   "dependencies": {
-    "@lit/react": "^1.0.6",
+    "@lit/react": "^1.0.7",
     "dompurify": "^3.2.3",
     "lit": "^3.2.1",
     "lit-html": "^3.2.1"
