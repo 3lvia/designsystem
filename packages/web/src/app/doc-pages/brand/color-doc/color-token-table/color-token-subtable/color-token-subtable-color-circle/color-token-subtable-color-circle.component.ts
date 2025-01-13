@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, input } from '@angular/core';
 
 type ColorType = 'default' | 'black-white' | 'dark-black-white' | 'signal' | 'dark-signal';
 
@@ -10,12 +10,12 @@ type ColorType = 'default' | 'black-white' | 'dark-black-white' | 'signal' | 'da
   imports: [NgClass],
 })
 export class ColorTokenSubtableColorCircleComponent implements OnInit {
-  @Input() hex: string;
+  readonly hex = input<string>();
 
   colorType: ColorType = 'default';
 
   ngOnInit(): void {
-    switch (this.hex) {
+    switch (this.hex()) {
       case 'black/white':
         this.colorType = 'black-white';
         break;

@@ -1,6 +1,8 @@
-import { LowerCasePipe, NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core';
+import { JsonPipe, LowerCasePipe, NgClass } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, input } from '@angular/core';
+import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
+import { debounceTime, tap } from 'rxjs';
 
 import { TableColorArray } from '../colors';
 import { ColorTokenSubtableColorCircleComponent } from './color-token-subtable-color-circle/color-token-subtable-color-circle.component';
@@ -24,16 +26,15 @@ type Colors = {
     ColorTokenSubtableColorCircleComponent,
     LowerCasePipe,
     SafeHtmlPipe,
+    JsonPipe,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ColorTokenSubtableComponent implements OnInit {
-  @Input({ required: true }) colors: Colors;
-  @Input({ required: true }) title: string;
-  @Input({ required: true }) subtitle: string;
-  @Input({ required: true }) set searchValue(value: string) {
-    this.updateFilter(value);
-  }
+  readonly colors = input.required<Colors>();
+  readonly searchValue = input.required<string>();
+  readonly subtitle = input.required<string>();
+  readonly title = input.required<string>();
 
   isVisible = true;
   isOpen = false;
@@ -41,8 +42,18 @@ export class ColorTokenSubtableComponent implements OnInit {
   hasRoleColumn = false;
   visibleColors: Colors;
 
+  constructor() {
+    toObservable(this.searchValue)
+      .pipe(
+        debounceTime(300),
+        tap((value) => this.updateFilter(value)),
+        takeUntilDestroyed(),
+      )
+      .subscribe();
+  }
+
   ngOnInit(): void {
-    this.colors.forEach((category) => {
+    this.colors().forEach((category) => {
       category.colors.forEach((color) => {
         if (typeof color.example !== 'undefined') {
           this.hasExampleColumn = true;
@@ -52,13 +63,13 @@ export class ColorTokenSubtableComponent implements OnInit {
         }
       });
     });
-    this.visibleColors = this.colors;
+    this.visibleColors = this.colors();
   }
 
   private updateFilter(value: string) {
     const parsedValue = value.trim().toLowerCase();
     if (value) {
-      this.visibleColors = this.colors.map((entry) => {
+      this.visibleColors = this.colors().map((entry) => {
         if (entry.title?.toLowerCase().includes(parsedValue)) {
           return entry;
         } else {
@@ -80,7 +91,7 @@ export class ColorTokenSubtableComponent implements OnInit {
         this.isVisible = false;
       }
     } else {
-      this.visibleColors = this.colors;
+      this.visibleColors = this.colors();
       this.isVisible = true;
       this.isOpen = false;
     }

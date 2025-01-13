@@ -1,5 +1,5 @@
-@for (typography of typographies; track typography.class) {
-  @if (typography.modifier === modifier) {
+@for (typography of typographies(); track typography.class) {
+  @if (typography.modifier === modifier()) {
     <div class="typography-example">
       <div class="typography-demo">
         @switch (typography.details.fontStyle) {
