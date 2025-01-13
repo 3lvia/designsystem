@@ -22,6 +22,12 @@ import { stepperData } from './stepper-data';
 })
 export class StepperDocComponent {
   componentData = stepperData;
-  does = stepperData.does;
-  donts = stepperData.donts;
+  does: [
+    'Use a stepper in a process that’s split up in clear steps, where the user could benefit from a overview and/or navigation between the steps',
+  ];
+  donts: [
+    'If the process consists of less than three steps',
+    'If the process consists of more than ten steps (in this case, consider the possibility of using less steps by changing the flow)',
+    'If it is not a step-by-step process, for example a list',
+  ];
 }
