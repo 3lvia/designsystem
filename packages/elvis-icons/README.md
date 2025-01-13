@@ -1,7 +1,5 @@
 # Elvis Icon
 
-hello
-
 This package provides a way to use Elvia icons as web components in a tree-shakable way.
 
 This package does not provide the icons themselves, but rather a way of easily integrating SVGs from
