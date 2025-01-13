@@ -98,6 +98,4 @@ export default interface ComponentData<TComponentProps = Record<string, any>> {
    * Changes for component
    */
   changelog?: Array<ComponentChangelog>;
-  does?: string[];
-  donts?: string[];
 }
