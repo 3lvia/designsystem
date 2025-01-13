@@ -10,12 +10,12 @@
   <li>
     <strong>Install package</strong>
     <div class="e-mt-8">
-      <app-copy message="npm install {{ packageName }}">
-        <code>npm install {{ packageName }}</code>
+      <app-copy message="npm install {{ packageName() }}">
+        <code>npm install {{ packageName() }}</code>
       </app-copy>
       <span class="e-text-md e-m-8">or</span>
-      <app-copy message="yarn add {{ packageName }}">
-        <code>yarn add {{ packageName }}</code>
+      <app-copy message="yarn add {{ packageName() }}">
+        <code>yarn add {{ packageName() }}</code>
       </app-copy>
     </div>
   </li>
@@ -23,12 +23,12 @@
     <strong>Import component</strong>
     <div class="e-mt-8">
       @if (activeTabIndex === 1) {
-        <app-copy message="import &#123; {{ reactElementName }} &#125; from '{{ packageName }}/react';">
-          <code>import &#123; {{ reactElementName }} &#125; from '{{ packageName }}/react';</code>
+        <app-copy message="import &#123; {{ reactElementName() }} &#125; from '{{ packageName() }}/react';">
+          <code>import &#123; {{ reactElementName() }} &#125; from '{{ packageName() }}/react';</code>
         </app-copy>
       } @else {
-        <app-copy message="import '{{ packageName }}';">
-          <code>import '{{ packageName }}';</code>
+        <app-copy message="import '{{ packageName() }}';">
+          <code>import '{{ packageName() }}';</code>
         </app-copy>
       }
       <div class="e-text-md e-mt-8">
@@ -55,12 +55,14 @@
     <strong>Import types</strong><span class="e-text-small-light e-ml-8">(Optional)</span>
     <div class="e-mt-8">
       @if (activeTabIndex === 1) {
-        <app-copy message="import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';">
-          <code>import &#123; {{ reactElementName }}Props &#125; from '{{ packageName }}/react';</code>
+        <app-copy
+          message="import &#123; {{ reactElementName() }}Props &#125; from '{{ packageName() }}/react';"
+        >
+          <code>import &#123; {{ reactElementName() }}Props &#125; from '{{ packageName() }}/react';</code>
         </app-copy>
       } @else {
-        <app-copy message="import type &#123; ... &#125; from '{{ packageName }}';">
-          <code>import type &#123; ... &#125; from '{{ packageName }}';</code>
+        <app-copy message="import type &#123; ... &#125; from '{{ packageName() }}';">
+          <code>import type &#123; ... &#125; from '{{ packageName() }}';</code>
         </app-copy>
       }
       <div class="e-text-md e-mt-8">Advanced type interfaces can be imported from the component package.</div>

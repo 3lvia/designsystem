@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { CopyComponent } from '../../copy/copy.component';
@@ -16,10 +16,10 @@ import ComponentData from 'src/app/doc-pages/components/component-data.interface
   animations: [heightAnimation],
   imports: [CopyComponent, TabToSegmentedControlItemPipe],
 })
-export class ComponentInstallationComponent implements OnInit {
-  @Input() componentData: ComponentData;
-  reactElementName: string;
-  packageName: string;
+export class ComponentInstallationComponent {
+  readonly componentData = input.required<ComponentData>();
+  reactElementName = computed(() => this.componentData().name);
+  packageName = computed(() => getPackageName(this.componentData().name));
   activeTabIndex = 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
 
@@ -30,11 +30,6 @@ export class ComponentInstallationComponent implements OnInit {
       .subscribe((value) => {
         this.activeTabIndex = this.tabs.findIndex((tab) => tab.toLowerCase() === value);
       });
-  }
-
-  ngOnInit() {
-    this.reactElementName = this.componentData.name;
-    this.packageName = getPackageName(this.componentData.name);
   }
 
   setActiveTab(newIndex: number): void {
