@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, input } from '@angular/core';
 import data from '@elvia/elvis/.internal/classlist.json';
 import deprecated from '@elvia/elvis/.internal/deprecated-classes.json';
 
@@ -12,7 +12,7 @@ import { CopyComponent } from '../../copy/copy.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentPropertiesComponent implements OnInit {
-  @Input() componentName: keyof typeof data.block;
+  readonly componentName = input.required<keyof typeof data.block>();
 
   container: string;
   elements: { name: string; elementModifiers: string[] }[] = [];
@@ -39,7 +39,7 @@ export class ComponentPropertiesComponent implements OnInit {
 
   makePropertyLists(): void {
     Object.keys(data.block).forEach((block) => {
-      if (block === this.componentName) {
+      if (block === this.componentName()) {
         this.getDeprecatedClasses();
         this.getContainer();
         this.getAllElements();
@@ -50,7 +50,7 @@ export class ComponentPropertiesComponent implements OnInit {
   }
 
   getContainer(): void {
-    const component = data.block[this.componentName];
+    const component = data.block[this.componentName()];
     if ('container' in component) {
       Object.keys(component.container).forEach((el) => {
         this.container = el;
@@ -59,7 +59,7 @@ export class ComponentPropertiesComponent implements OnInit {
   }
 
   getAllElements(): void {
-    const component = data.block[this.componentName];
+    const component = data.block[this.componentName()];
     if ('element' in component) {
       const element = component.element;
       Object.keys(element).forEach((el) => {
@@ -80,7 +80,7 @@ export class ComponentPropertiesComponent implements OnInit {
   }
 
   getAllModifiers(): void {
-    const component = data.block[this.componentName];
+    const component = data.block[this.componentName()];
     if ('modifier' in component) {
       Object.keys(component.modifier).forEach((mod) => {
         if (!this.isCustom(mod) && !this.isDeprecated(mod)) {
@@ -91,7 +91,7 @@ export class ComponentPropertiesComponent implements OnInit {
   }
 
   getAllPsuedo(): void {
-    const component = data.block[this.componentName];
+    const component = data.block[this.componentName()];
     if ('psuedo' in component) {
       Object.keys(component.psuedo).forEach((psu) => {
         if (!this.isCustom(psu) && !this.isDeprecated(psu)) {
