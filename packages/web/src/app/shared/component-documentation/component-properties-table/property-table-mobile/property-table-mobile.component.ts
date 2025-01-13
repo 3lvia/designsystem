@@ -14,6 +14,6 @@ import { SearchResult } from 'src/app/shared/searcher';
 })
 export class PropertyTableMobileComponent extends PropertyTableBaseDirective {
   get itemsWithoutChildren(): SearchResult<ComponentProp>[] {
-    return this.props.filter((prop) => prop.item.level === 0);
+    return this.props().filter((prop) => prop.item.level === 0);
   }
 }
