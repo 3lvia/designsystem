@@ -1,4 +1,4 @@
-import { Component, Input, booleanAttribute } from '@angular/core';
+import { Component, booleanAttribute, input } from '@angular/core';
 
 import { SubMenuComponent } from '../../../navbar/sub-menu/sub-menu.component';
 import { IfViewportSizeDirective } from '../../../viewport-size/if-viewport-size.directive';
@@ -18,8 +18,8 @@ import ComponentData from 'src/app/doc-pages/components/component-data.interface
   ],
 })
 export class ComponentHeaderComponent {
-  @Input() figmaUrl?: string;
-  @Input() lastUpdated?: string;
-  @Input() componentData?: ComponentData;
-  @Input({ transform: booleanAttribute }) showCssLibraryTag = false;
+  readonly figmaUrl = input<string>('');
+  readonly lastUpdated = input<string>('');
+  readonly componentData = input<ComponentData>();
+  readonly showCssLibraryTag = input(false, { transform: booleanAttribute });
 }
