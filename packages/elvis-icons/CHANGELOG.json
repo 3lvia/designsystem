@@ -3,6 +3,16 @@
   "name": "elvis-icons",
   "content": [
     {
+      "date": "13.01.25",
+      "version": "1.0.2",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "19.11.24",
       "version": "1.0.1",
       "changelog": [
