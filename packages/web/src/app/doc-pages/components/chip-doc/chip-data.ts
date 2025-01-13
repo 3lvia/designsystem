@@ -62,10 +62,4 @@ export const chipData: ComponentData<BaseChipProps> = {
         'Gets called if an item is clicked and it should be deleted. Required on removable type and not necessary on any of the other types.',
     },
   },
-
-  does: [
-    'Used together with filter so the user has control and an overview of what is selected',
-    'Simple way for the user to toggle data on and off',
-  ],
-  donts: [''],
 };
