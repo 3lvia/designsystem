@@ -1,6 +1,6 @@
-@if (relatedPages) {
+@if (relatedPages()) {
   <div class="related-container">
-    @for (relatedPage of relatedPages; track relatedPage) {
+    @for (relatedPage of relatedPages(); track relatedPage) {
       <a [routerLink]="getRelatedPath(relatedPage)">
         <elvia-card [heading]="getRelatedTitle(relatedPage)" [maxHeadingLines]="2">
           <div slot="icon">
