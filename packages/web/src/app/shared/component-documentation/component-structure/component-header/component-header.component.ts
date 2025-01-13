@@ -18,8 +18,8 @@ import ComponentData from 'src/app/doc-pages/components/component-data.interface
   ],
 })
 export class ComponentHeaderComponent {
-  readonly figmaUrl = input<string>('');
-  readonly lastUpdated = input<string>('');
+  readonly figmaUrl = input<string>();
+  readonly lastUpdated = input<string>();
   readonly componentData = input<ComponentData>();
   readonly showCssLibraryTag = input(false, { transform: booleanAttribute });
 }
