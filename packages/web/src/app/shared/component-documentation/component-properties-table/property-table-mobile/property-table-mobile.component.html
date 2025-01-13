@@ -8,7 +8,7 @@
       <th class="e-table-mobile__cell" scope="col"></th>
     </tr>
   </thead>
-  @for (prop of itemsWithoutChildren; track prop) {
+  @for (prop of itemsWithoutChildren(); track prop) {
     <tbody>
       <tr>
         <th class="e-table-mobile__cell" scope="col" colspan="2">
