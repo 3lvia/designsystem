@@ -1,5 +1,5 @@
 <div class="when e-mt-48 e-mb-n16">
-  @if (whens().length) {
+  @if (whens() && whens().length) {
     <div class="when-to-use">
       <div class="e-title-caps" style="display: flex; flex-direction: row">
         <div class="e-mr-8">
@@ -25,7 +25,7 @@
       </span>
     </div>
   }
-  @if (whenNots().length) {
+  @if (whenNots() && whenNots().length) {
     <div class="when-not-to-use">
       <div class="e-title-caps" style="display: flex; flex-direction: row">
         <div class="e-mr-8">
