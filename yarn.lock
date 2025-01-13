@@ -2981,7 +2981,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-icons@workspace:packages/elvis-icons"
   dependencies:
-    "@lit/react": "npm:^1.0.6"
+    "@lit/react": "npm:^1.0.7"
     "@types/react": "npm:^18.3.18"
     dompurify: "npm:^3.2.3"
     lit: "npm:^3.2.1"
@@ -5091,12 +5091,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lit/react@npm:^1.0.6":
-  version: 1.0.6
-  resolution: "@lit/react@npm:1.0.6"
+"@lit/react@npm:^1.0.7":
+  version: 1.0.7
+  resolution: "@lit/react@npm:1.0.7"
   peerDependencies:
-    "@types/react": 17 || 18
-  checksum: 10/343d6574b1b514a547dfd39f55014c4caf06c48facfc19431013b34f22c693939fa9e89a8336f8a64360718c9a34adf955d786e6142d358ccd880a9deab0b3b0
+    "@types/react": 17 || 18 || 19
+  checksum: 10/9bdf90e233c91822065d0f09aa0d085544b5d70902b05bb6204075404f7e0e5a62a9a447eac55178761690ea1f707b1c13fecd8f8b109a25f978afe7a2c74fea
   languageName: node
   linkType: hard
 
