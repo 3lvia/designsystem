@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed } from '@angular/core';
 
 import { EscapeHTMLPipe } from '../../../pipes/escape-html.pipe';
 import { SearchHighlighterPipe } from '../../../search-highlighter.pipe';
@@ -13,7 +13,7 @@ import { SearchResult } from 'src/app/shared/searcher';
   imports: [PropertyExamplePopoverComponent, SearchHighlighterPipe, EscapeHTMLPipe],
 })
 export class PropertyTableMobileComponent extends PropertyTableBaseDirective {
-  get itemsWithoutChildren(): SearchResult<ComponentProp>[] {
-    return this.props().filter((prop) => prop.item.level === 0);
-  }
+  itemsWithoutChildren = computed<SearchResult<ComponentProp>[]>(() =>
+    this.props().filter((prop) => prop.item.level === 0),
+  );
 }
