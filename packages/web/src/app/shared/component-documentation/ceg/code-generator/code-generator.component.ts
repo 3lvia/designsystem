@@ -23,7 +23,7 @@ export class CodeGeneratorComponent implements OnInit {
   readonly angularCode = input('');
   readonly reactCode = input('');
   readonly vueCode = input('');
-  readonly hideReact = input<boolean, unknown>(undefined, { transform: booleanAttribute });
+  readonly hideReact = input(false, { transform: booleanAttribute });
 
   private _typeScriptCode = '';
   // TODO: Skipped for migration because:
