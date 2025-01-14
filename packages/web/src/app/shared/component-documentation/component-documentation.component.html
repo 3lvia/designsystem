@@ -37,8 +37,9 @@
 
   <!--INSTALLATION-->
   <app-component-section sectionTitle="Installation">
-    @if (!isElvis() && componentData()) {
-      <app-component-installation [componentData]="componentData()" />
+    @let data = componentData();
+    @if (!isElvis() && data) {
+      <app-component-installation [componentData]="data" />
     } @else {
       <p class="e-text-lg">
         This component is available through the CSS library package <code>&#64;elvia/elvis</code>.
@@ -73,9 +74,9 @@
   <!--CHANGELOG-->
   <app-component-section sectionTitle="Changelog">
     @defer {
-      @let data = componentData();
-      @if (!isElvis() && data) {
-        <app-component-changelog [changelog]="data.changelog" />
+      @let changelog = componentData()?.changelog;
+      @if (!isElvis() && changelog?.length) {
+        <app-component-changelog [changelog]="changelog" />
       }
       @if (isElvis()) {
         <app-component-changelog [elvisComponentToFilter]="title" />
