@@ -8,7 +8,7 @@
     "target": "ES2022",
     "outDir": "./dist/out-tsc",
     "strict": true,
-    "noImplicitThis": false, // TODO: Remove line -> fix errors
+    "noImplicitThis": true,
     "allowUnreachableCode": false,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
