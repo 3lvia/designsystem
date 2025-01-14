@@ -1,4 +1,4 @@
-import { Directive, EventEmitter, HostBinding, HostListener, Output } from '@angular/core';
+import { Directive, HostBinding, HostListener, output } from '@angular/core';
 
 @Directive({
   selector: '[appDnd]',
@@ -6,7 +6,7 @@ import { Directive, EventEmitter, HostBinding, HostListener, Output } from '@ang
 })
 export class DndDirective {
   @HostBinding('class.e-fileupload---hover') fileOver: boolean;
-  @Output() fileDropped = new EventEmitter<unknown>();
+  readonly fileDropped = output<unknown>();
 
   // Dragover listener
   @HostListener('dragover', ['$event']) onDragOver(evt: Event): void {
