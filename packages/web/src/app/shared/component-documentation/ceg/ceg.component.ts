@@ -80,6 +80,12 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
     private location: Location,
   ) {}
 
+  ngAfterContentInit(): void {
+    if (this.tsComponentExample) {
+      this.typeScriptCode = this.tsComponentExample.typeScript.pipe(takeUntil(this.unsubscriber));
+    }
+  }
+
   ngAfterViewInit(): void {
     this.setCegStateFromURL();
 
@@ -87,12 +93,6 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
       this.setUpSlotSubscription();
       this.setUpTypeChangeSubscription();
       this.setUpStaticPropSubscription();
-    }
-  }
-
-  ngAfterContentInit(): void {
-    if (this.tsComponentExample) {
-      this.typeScriptCode = this.tsComponentExample.typeScript.pipe(takeUntil(this.unsubscriber));
     }
   }
 
