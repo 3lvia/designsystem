@@ -1,5 +1,5 @@
 import { KeyValuePipe } from '@angular/common';
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output, input } from '@angular/core';
 import { Subject, combineLatest } from 'rxjs';
 import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
 
@@ -31,7 +31,7 @@ interface Group {
 })
 export class ControlsComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject<void>();
-  @Input() controlManager: UnknownCegControlManager;
+  readonly controlManager = input.required<UnknownCegControlManager>();
   @Output() propChange = new EventEmitter<{ propName: string; value: ControlValue }>();
   @Output() slotToggle = new EventEmitter<{ slotName: string; isVisible: boolean }>();
   disabledControls: string[] = [];
@@ -39,8 +39,8 @@ export class ControlsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     combineLatest([
-      this.controlManager.getCurrentControls(),
-      this.controlManager.getCurrentControlGroupOrder(),
+      this.controlManager().getCurrentControls(),
+      this.controlManager().getCurrentControlGroupOrder(),
     ])
       .pipe(
         takeUntil(this.unsubscriber),
@@ -55,7 +55,7 @@ export class ControlsComponent implements OnInit, OnDestroy {
         this.createControlGroups(controls, groupOrder);
       });
 
-    this.controlManager
+    this.controlManager()
       .getDisabledControls()
       .pipe(takeUntil(this.unsubscriber))
       .subscribe((controls) => (this.disabledControls = controls));
@@ -66,7 +66,7 @@ export class ControlsComponent implements OnInit, OnDestroy {
   }
 
   parentIsChecked(parentName?: string): boolean {
-    const control = this.controlManager.getControlSnapshot()?.[parentName || ''];
+    const control = this.controlManager().getControlSnapshot()?.[parentName || ''];
     if (!control) {
       return true;
     }
