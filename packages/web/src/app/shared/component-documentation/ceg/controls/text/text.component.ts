@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, EventEmitter, Output, computed, input } from '@angular/core';
+import { Component, EventEmitter, Output, input } from '@angular/core';
 
 import { Text } from '../../controlType';
 
@@ -17,7 +17,9 @@ export class TextComponent {
   @Output() valueChange = new EventEmitter<Text['value']>();
   readonly inputId = `ceg-input-${CEG_INPUT_ID++}`;
 
-  textValue = computed<string | null>(() => this.input().value ?? null);
+  get textValue(): string | null {
+    return this.input().value ?? null;
+  }
 
   onChange(newValue: Text['value']): void {
     this.valueChange.emit(newValue);

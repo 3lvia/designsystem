@@ -9,7 +9,7 @@
         [placeholder]="input().placeholder ?? ''"
         [attr.aria-label]="input().label"
         [disabled]="disabled()"
-        >{{ textValue() }}</textarea
+        >{{ textValue }}</textarea
       >
     </div>
   </div>
@@ -19,7 +19,7 @@
       <input
         autocomplete="off"
         [id]="inputId"
-        [value]="textValue()"
+        [value]="textValue"
         #domInput
         (input)="onChange(domInput.value)"
         [placeholder]="input().placeholder ?? ''"
