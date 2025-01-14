@@ -8,9 +8,10 @@
     "target": "ES2022",
     "outDir": "./dist/out-tsc",
     "strict": true,
-    "noImplicitThis": true,
     "allowUnreachableCode": false,
     "noFallthroughCasesInSwitch": true,
+    "noImplicitThis": true,
+    "noUncheckedIndexedAccess": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strictPropertyInitialization": false
