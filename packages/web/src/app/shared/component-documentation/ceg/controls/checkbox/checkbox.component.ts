@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output, input } from '@angular/core';
 
 import { Checkbox } from '../../controlType';
 
@@ -12,9 +12,9 @@ let CEG_CHECKBOX_ID = 0;
   imports: [NgClass],
 })
 export class CheckboxComponent {
-  @Input() checkbox: Checkbox;
-  @Input() isChild = false;
-  @Input() disabled = false;
+  readonly checkbox = input.required<Checkbox>();
+  readonly isChild = input(false);
+  readonly disabled = input(false);
   @Output() toggle = new EventEmitter<Checkbox['value']>();
   readonly checkboxId = `ceg-checkbox-${CEG_CHECKBOX_ID++}`;
 
