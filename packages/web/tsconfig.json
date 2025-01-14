@@ -9,12 +9,17 @@
     "outDir": "./dist/out-tsc",
     "strict": true,
     "noImplicitThis": false, // TODO: Remove line -> fix errors
+    "allowUnreachableCode": false,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "strictPropertyInitialization": false
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "strictInputAccessModifiers": true
   },
   "browserslist": [
     "> .01%",
