@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, EventEmitter, Output, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 import { Text } from '../../controlType';
 
@@ -14,7 +14,7 @@ let CEG_INPUT_ID = 0;
 export class TextComponent {
   readonly input = input.required<Text>();
   readonly disabled = input<boolean>();
-  @Output() valueChange = new EventEmitter<Text['value']>();
+  readonly valueChange = output<Text['value']>();
   readonly inputId = `ceg-input-${CEG_INPUT_ID++}`;
 
   get textValue(): string | null {

@@ -3,9 +3,8 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   Component,
   ElementRef,
-  EventEmitter,
-  Output,
   ViewChild,
+  output
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -19,7 +18,7 @@ import { FormsModule } from '@angular/forms';
 export class PropertySearchInputComponent {
   @ViewChild('searchInputElement') inputElement: ElementRef<HTMLInputElement>;
 
-  @Output() search = new EventEmitter<string>();
+  readonly search = output<string>();
 
   searchTerm = '';
 

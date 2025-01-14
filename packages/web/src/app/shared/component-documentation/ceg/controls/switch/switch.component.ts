@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 import { SlotToggle, Switch } from '../../controlType';
 
@@ -9,9 +9,9 @@ import { SlotToggle, Switch } from '../../controlType';
 })
 export class SwitchComponent {
   readonly switch = input.required<Switch | SlotToggle>();
-  @Output() toggle = new EventEmitter<boolean>();
+  readonly toggleChange = output<boolean>();
 
   onChange(isChecked: boolean): void {
-    this.toggle.emit(isChecked);
+    this.toggleChange.emit(isChecked);
   }
 }

@@ -10,14 +10,14 @@
           <app-checkbox
             [checkbox]="control.value"
             [disabled]="isDisabled(control.key) || !parentIsChecked(control.value.childOf)"
-            (toggle)="updateValue(control.key, $event)"
+            (toggleChange)="updateValue(control.key, $event)"
             [isChild]="!!control.value.childOf"
           />
         }
         @if (control.value.type === 'switch' || control.value.type === 'slotToggle') {
           <app-switch
             [switch]="control.value"
-            (toggle)="
+            (toggleChange)="
               control.value.type === 'switch'
                 ? updateValue(control.key, $event)
                 : slotToggleChange(control.key, $event)

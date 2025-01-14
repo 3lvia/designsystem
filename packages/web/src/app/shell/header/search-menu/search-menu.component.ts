@@ -5,11 +5,10 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   Component,
   ElementRef,
-  EventEmitter,
   HostListener,
   OnInit,
-  Output,
   ViewChild,
+  output
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
@@ -35,7 +34,7 @@ import { SearchResult, Searcher } from 'src/app/shared/searcher';
 })
 export class SearchMenuComponent implements OnInit, AfterViewInit {
   @ViewChild('searchInput') searchInputElement: ElementRef<HTMLInputElement>;
-  @Output() closeSearchMenu = new EventEmitter<void>();
+  readonly closeSearchMenu = output<void>();
   private mainMenu: CMSMenu;
   private searchItems: SearchItem[] = [];
   private locale: Locale;

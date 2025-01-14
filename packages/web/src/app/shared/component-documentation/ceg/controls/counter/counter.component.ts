@@ -1,5 +1,5 @@
 import { NgClass, NgStyle } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Output, input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, input, output } from '@angular/core';
 
 import { Counter } from '../../controlType';
 
@@ -13,7 +13,7 @@ import { Counter } from '../../controlType';
 export class CounterComponent {
   readonly counter = input.required<Counter>();
   readonly disabled = input(false);
-  @Output() valueChange = new EventEmitter<Counter['value']>();
+  readonly valueChange = output<Counter['value']>();
 
   updateValue(delta: Counter['value']): void {
     const newValue = this.counter().value + delta;
