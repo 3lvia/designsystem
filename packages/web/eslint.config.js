@@ -71,6 +71,7 @@ module.exports = tseslint.config(
           varsIgnorePattern: '^_',
         },
       ],
+      '@typescript-eslint/no-useless-constructor': 'error',
     },
   },
   {
