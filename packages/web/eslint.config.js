@@ -54,6 +54,17 @@ module.exports = tseslint.config(
       ...angular.configs.templateRecommended,
       // ...angular.configs.templateAccessibility // disabled because it's too strict
     ],
-    rules: {},
+    rules: {
+      '@angular-eslint/template/banana-in-box': 'error',
+      '@angular-eslint/template/eqeqeq': 'error',
+      '@angular-eslint/template/label-has-associated-control': 'warn',
+      '@angular-eslint/template/no-distracting-elements': 'error',
+      '@angular-eslint/template/no-duplicate-attributes': 'error',
+      '@angular-eslint/template/no-negated-async': 'warn',
+      '@angular-eslint/template/prefer-control-flow': 'error',
+      '@angular-eslint/template/role-has-required-aria': 'warn',
+      '@angular-eslint/template/table-scope': 'error',
+      '@angular-eslint/template/valid-aria': 'error',
+    },
   },
 );
