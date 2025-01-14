@@ -7,7 +7,7 @@
   <div slot="content">
     <app-controls
       class="ceg-controls"
-      [controlManager]="controlManager"
+      [controlManager]="controlManager()"
       (propChange)="onPropChange($event.propName, $event.value)"
       (slotToggle)="onSlotToggle($event.slotName, $event.isVisible)"
     />
