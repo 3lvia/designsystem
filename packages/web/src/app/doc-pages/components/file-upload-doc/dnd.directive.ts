@@ -5,6 +5,7 @@ import { Directive, HostBinding, HostListener, output } from '@angular/core';
   standalone: true,
 })
 export class DndDirective {
+  // @ts-expect-error TS2564 (LEGO-3683)
   @HostBinding('class.e-fileupload---hover') fileOver: boolean;
   readonly fileDropped = output<unknown>();
 

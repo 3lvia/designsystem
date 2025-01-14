@@ -44,6 +44,7 @@ export class TypographyExampleExhibitFilterComponent {
 
   emitNewActiveCategory = (index: number) => {
     this.emitNewModifier('regular');
+    // @ts-expect-error TS2345 (LEGO-3683)
     this.newActiveCategory.emit(this.categories[index]);
   };
 

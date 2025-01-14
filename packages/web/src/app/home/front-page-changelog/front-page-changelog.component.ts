@@ -32,5 +32,6 @@ export class FrontPageChangelogComponent {
     });
   }
   changelogs = createChangelogs();
-  componentIcons: ReturnType<typeof this.cmsService.getPageIcons>;
+  // @ts-expect-error TS2564 (LEGO-3683)
+  componentIcons: ReturnType<typeof this.cmsService.getPageIcons> | undefined = undefined;
 }

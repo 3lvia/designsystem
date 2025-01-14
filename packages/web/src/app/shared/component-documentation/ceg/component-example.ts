@@ -6,11 +6,13 @@ export abstract class ComponentExample<T extends Record<string, any> = any> {
    *
    * For the component &lt;elvia-datepicker-range&gt;, this would be "datepicker-range".
    * */
+  // @ts-expect-error TS2564 (LEGO-3683)
   readonly elementName: string;
 
   /**
    * The CEG configuration.
    */
+  // @ts-expect-error TS2564 (LEGO-3683)
   readonly cegContent: CegControlManager<T>;
 
   /**

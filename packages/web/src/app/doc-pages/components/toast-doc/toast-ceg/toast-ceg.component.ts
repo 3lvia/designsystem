@@ -20,6 +20,7 @@ import {
 })
 export class ToastCegComponent extends TypescriptComponentExample implements ComponentExample {
   elementName = 'toast';
+  // @ts-expect-error TS2564 (LEGO-3683)
   toastConfig: Record<string, string | boolean | number | undefined>;
   cegContent = new CegControlManager<ToastConfig>([
     {

@@ -72,6 +72,7 @@ const allChangelogs = [
 const toDateObject = (dateString: string) => {
   if (/\d\d\.\d\d\.\d\d/.test(dateString)) {
     const [day, month, year] = dateString.split('.');
+    // @ts-expect-error TS2345 (LEGO-3683)
     return new Date(parseInt(year) + 2000, parseInt(month) - 1, parseInt(day));
   } else {
     return new Date(dateString);
@@ -86,6 +87,7 @@ export const createChangelogs = () => {
     return {
       ...filteredChangelogs[0],
       name: changelog.name,
+      // @ts-expect-error TS2532 (LEGO-3683)
       date: toDateObject(filteredChangelogs[0].date),
       url: getChangelogUrl(changelog.name),
     } as ChangelogArrayType[number];

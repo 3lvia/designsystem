@@ -40,6 +40,7 @@ export class ColorTokenSubtableComponent implements OnInit {
   isOpen = false;
   hasExampleColumn = false;
   hasRoleColumn = false;
+  // @ts-expect-error TS2564 (LEGO-3683)
   visibleColors: Colors;
 
   constructor() {

@@ -19,7 +19,9 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SpotlightCegComponent implements ComponentExample, AfterViewInit {
+  // @ts-expect-error TS2564 (LEGO-3683)
   @ViewChild('spotlight') spotlight: ElementRef<ElvisComponentWrapper>;
+  // @ts-expect-error TS2564 (LEGO-3683)
   @ViewChild('trigger') trigger: ElementRef<HTMLButtonElement>;
 
   elementName = 'spotlight';

@@ -16,6 +16,7 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
 })
 export class MobileMenuComponent {
   readonly closeMenu = output<void>();
+  // @ts-expect-error TS2564 (LEGO-3683)
   mainMenu: CMSMenu;
   isLoaded = false;
 

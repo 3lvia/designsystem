@@ -63,6 +63,7 @@ export class ComponentChangelogComponent implements OnInit {
   private changelogIdPipe = new ChangelogIdPipe();
   private changelogTypePipe = new ChangelogTypePipe();
 
+  // @ts-expect-error TS2564 (LEGO-3683)
   private searcher: Searcher<ChangelogEntry>;
 
   constructor(private breakpointService: BreakpointService) {
@@ -187,6 +188,7 @@ export class ComponentChangelogComponent implements OnInit {
       return '';
     }
     // Add any part of the description that is before the first match
+    // @ts-expect-error TS2532 (LEGO-3683)
     let highlightedValue = value.substring(0, indices[0][0]);
 
     const longestMatch = indices.reduce((longest, current) => {
@@ -209,10 +211,12 @@ export class ComponentChangelogComponent implements OnInit {
 
       // If not the last match, add the part of the description upto next match
       if (index !== indices.length - 1) {
+        // @ts-expect-error TS2532 (LEGO-3683)
         highlightedValue += value.substring(matchEnd + 1, items[index + 1][0]);
       }
     });
     // Add the part after the last match
+    // @ts-expect-error TS2532 (LEGO-3683)
     highlightedValue += value.substring(indices[indices.length - 1][1] + 1, value.length);
     return highlightedValue;
   }

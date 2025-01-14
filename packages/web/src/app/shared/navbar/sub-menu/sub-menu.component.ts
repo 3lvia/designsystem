@@ -73,6 +73,7 @@ export class SubMenuComponent {
       )
       .subscribe(() => {
         this.anchors = this.getAnchors(localization.getCurrentLocalization());
+        // @ts-expect-error TS2322 (LEGO-3683)
         this.activeAnchor = this.anchors[0]?.name;
         changeDetectorRef.detectChanges();
       });

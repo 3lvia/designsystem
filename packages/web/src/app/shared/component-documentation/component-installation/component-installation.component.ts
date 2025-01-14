@@ -33,6 +33,7 @@ export class ComponentInstallationComponent {
   }
 
   setActiveTab(newIndex: number): void {
+    // @ts-expect-error TS2532 (LEGO-3683)
     this.preferredLanguageService.setPreferredLanguage(this.tabs[newIndex].toLowerCase() as LanguageType);
   }
 }

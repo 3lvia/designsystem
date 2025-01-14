@@ -38,11 +38,13 @@ const animationMotion = '320ms cubic-bezier(0.5, 0, 0.31, 1)';
 })
 export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit, OnDestroy {
   private unsubscriber = new Subject<void>();
+  // @ts-expect-error TS2564 (LEGO-3683)
   @ViewChild('scrollContainer') scrollContainer: ElementRef<HTMLDivElement>;
   listOverflows = false;
   activeRoute = location.pathname;
 
   get activeLandingPage(): string {
+    // @ts-expect-error TS2322 (LEGO-3683)
     return this.activeRoute.split('/')[1];
   }
 

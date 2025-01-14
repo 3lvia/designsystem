@@ -19,7 +19,9 @@ export class RouterService {
       startWith(null), // Start with a null value to make the first navigation pass the pairwise pipe (which requires two events to have been fired)
       pairwise(),
       map(([oldRoute, newRoute]) => {
+        // @ts-expect-error TS2532 (LEGO-3683)
         const oldPath = oldRoute?.urlAfterRedirects.split('#')[0].split('?')[0];
+        // @ts-expect-error TS2532 (LEGO-3683)
         const newPath = newRoute?.urlAfterRedirects.split('#')[0].split('?')[0];
 
         return [oldPath, newPath];
@@ -30,6 +32,7 @@ export class RouterService {
   }
 
   getCurrentUrlPath(): string {
+    // @ts-expect-error TS2322 (LEGO-3683)
     return this.router.url.split('#')[0].split('?')[0];
   }
 }

@@ -76,8 +76,10 @@ export class ComponentDocumentationComponent implements OnInit {
   get lastUpdatedDate(): string {
     const componentData = this.componentData();
     if (this.isElvis() && this.title) {
+      // @ts-expect-error TS2532 (LEGO-3683)
       return createElvisFilteredChangelog(this.title)[0].date;
     } else if (componentData?.changelog?.length) {
+      // @ts-expect-error TS2532 (LEGO-3683)
       return componentData.changelog[0].date;
     } else {
       return '';

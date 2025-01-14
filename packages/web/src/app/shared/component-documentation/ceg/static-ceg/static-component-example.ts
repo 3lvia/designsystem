@@ -15,6 +15,7 @@ export abstract class StaticComponentExample {
    * }
    * ```
    */
+  // @ts-expect-error TS2564 (LEGO-3683)
   html: string;
   comment?: string;
 }

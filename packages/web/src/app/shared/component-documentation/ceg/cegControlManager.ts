@@ -29,6 +29,7 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
     controls: ComponentType<TComponentProps>[],
   ) {
     this._componentTypes.next(controls);
+    // @ts-expect-error TS2532 (LEGO-3683)
     this._currentComponentTypeName.next(controls[0].type);
   }
 
@@ -100,6 +101,7 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
     return this.getCurrentControls().pipe(
       map((currentControls) => {
         const typeIndex = this.getCurrentComponentTypeIndex();
+        // @ts-expect-error TS2532 (LEGO-3683)
         const disableMap = this._componentTypes.value[typeIndex].disabledControls;
 
         if (!disableMap) {
@@ -132,6 +134,7 @@ export class CegControlManager<TComponentProps extends Record<string, any>> {
     const typeIndex = this.getCurrentComponentTypeIndex();
     const listClone = this.clone(this._componentTypes.value);
 
+    // @ts-expect-error TS2532 (LEGO-3683)
     const prop = listClone[typeIndex].controls[propName];
     if (prop) {
       prop.value = value;

@@ -33,11 +33,15 @@ import { SearchResult, Searcher } from 'src/app/shared/searcher';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SearchMenuComponent implements OnInit, AfterViewInit {
+  // @ts-expect-error TS2564 (LEGO-3683)
   @ViewChild('searchInput') searchInputElement: ElementRef<HTMLInputElement>;
   readonly closeSearchMenu = output<void>();
+  // @ts-expect-error TS2564 (LEGO-3683)
   private mainMenu: CMSMenu;
   private searchItems: SearchItem[] = [];
+  // @ts-expect-error TS2564 (LEGO-3683)
   private locale: Locale;
+  // @ts-expect-error TS2564 (LEGO-3683)
   private searcher: Searcher<SearchItem>;
   searchStatus: SearchStatus = 'loading';
   searchString = '';
@@ -119,6 +123,7 @@ export class SearchMenuComponent implements OnInit, AfterViewInit {
 
   onKeydown(event: KeyboardEvent): void {
     if (event?.code === 'Enter' && this.filteredResults.length) {
+      // @ts-expect-error TS2532 (LEGO-3683)
       this.router.navigate([this.filteredResults[0].item.absolutePath]);
       this.closeSearch();
     }

@@ -16,6 +16,7 @@ import { ShortcutModalContentComponent } from './shortcut-modal-content/shortcut
 export class ShortcutComponent {
   showShortcutGlossary = false;
   showShortcutGlossaryButton = false;
+  // @ts-expect-error TS2564 (LEGO-3683)
   private lastTriggerTimestamp: number;
   private shortcutGlossaryTimeoutId: number | undefined;
   private shortcutGlossaryButtonTimeoutId: number | undefined;

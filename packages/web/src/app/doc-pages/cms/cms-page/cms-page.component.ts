@@ -25,6 +25,7 @@ export class CMSPageComponent implements OnDestroy {
   showContentLoader = true;
   contentHTML: SafeHtml = '';
   descriptionHTML: SafeHtml = '';
+  // @ts-expect-error TS2564 (LEGO-3683)
   lastUpdated: string;
   isCmsPage = true;
   landingPage = false;
@@ -160,9 +161,12 @@ export class CMSPageComponent implements OnDestroy {
 
   checkIfPageExistsInProject(): void {
     const urlWithoutAnchor = this.router.url.split('#')[0];
+    // @ts-expect-error TS1804 (LEGO-3683)8
     const currentPath = urlWithoutAnchor.split('?')[0];
+    // @ts-expect-error TS1804 (LEGO-3683)8
     if (currentPath.split('/')[2]) {
       this.router.config.forEach((route) => {
+        // @ts-expect-error TS1804 (LEGO-3683)8
         if (route.path === currentPath.split('/')[1]) {
           this.isCmsPage = !route.children?.some(
             (childRoute) => '/' + route.path + '/' + childRoute.path === currentPath,

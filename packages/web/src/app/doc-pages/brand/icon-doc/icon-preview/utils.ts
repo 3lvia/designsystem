@@ -36,4 +36,5 @@ const getShortIconName = (iconName: string): string => {
 };
 
 export const kebabCaseToCamelCase = (str: string) =>
+  // @ts-expect-error TS2532 (LEGO-3683)
   str.replace(/[-_]([a-z0-9])/g, (g) => g[1].toUpperCase());

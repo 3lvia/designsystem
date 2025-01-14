@@ -14,6 +14,7 @@ import { CopyComponent } from '../../copy/copy.component';
 export class ComponentPropertiesComponent implements OnInit {
   readonly componentName = input.required<keyof typeof data.block>();
 
+  // @ts-expect-error TS2564 (LEGO-3683)
   container: string;
   elements: { name: string; elementModifiers: string[] }[] = [];
   modifiers: string[] = [];

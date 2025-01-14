@@ -29,6 +29,7 @@ import { ChipImageEmptyCegComponent } from './chip-image-empty-ceg/chip-image-em
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ChipDocComponent {
+  // @ts-expect-error TS2564 (LEGO-3683)
   does: [
     'Used together with a filter so the user has control and an overview of what is selected',
     'Simple way for the user to toggle data on and off',

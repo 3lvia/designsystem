@@ -46,6 +46,7 @@ export class TutorialComponent {
 
   setActiveTab(newIndex: number): void {
     this.activeTabName = this.tabs[newIndex];
+    // @ts-expect-error TS2532 (LEGO-3683)
     this.preferredLanguageService.setPreferredLanguage(this.tabs[newIndex].toLowerCase() as LanguageType);
   }
 }
