@@ -3,9 +3,9 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   Component,
   EventEmitter,
-  Input,
   Output,
   booleanAttribute,
+  input,
 } from '@angular/core';
 
 import { IfViewportSizeDirective } from '../../../../viewport-size/if-viewport-size.directive';
@@ -31,20 +31,20 @@ import { BreakpointService } from 'src/app/core/services/breakpoint.service';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CodeViewerComponent {
-  @Input() tabs: Tab[] = ['HTML'];
-  @Input() fileName = '';
-  @Input() activeCode = '';
-  @Input() activeTabIndex = 0;
+  readonly tabs = input<Tab[]>(['HTML']);
+  readonly fileName = input('');
+  readonly activeCode = input('');
+  readonly activeTabIndex = input(0);
   /** Hides tabs in the code viewer
    * NB: language must be specified in the 'tabs' property for syntax highlighting */
-  @Input({ transform: booleanAttribute }) hideTabs = false;
-  @Input({ transform: booleanAttribute }) hideCopy = false;
+  readonly hideTabs = input(false, { transform: booleanAttribute });
+  readonly hideCopy = input(false, { transform: booleanAttribute });
   @Output() tabIndexChange = new EventEmitter<number>();
 
   copyMessage = '';
 
   get language(): Language {
-    if (this.activeCode.toLowerCase().startsWith('<!doctype html>')) {
+    if (this.activeCode().toLowerCase().startsWith('<!doctype html>')) {
       return 'html';
     } else if (this.activeTab === 'React') {
       return 'jsx';
@@ -61,7 +61,7 @@ export class CodeViewerComponent {
   }
 
   get activeTab(): Tab {
-    return this.tabs[this.activeTabIndex];
+    return this.tabs()[this.activeTabIndex()];
   }
 
   constructor(
@@ -71,7 +71,7 @@ export class CodeViewerComponent {
 
   async copyCode() {
     await navigator.clipboard
-      .writeText(await this.codeFormatter.transform(this.activeCode, this.language))
+      .writeText(await this.codeFormatter.transform(this.activeCode(), this.language))
       .then(() => {
         this.copyMessage = 'Copied!';
         const copyTimeout = setTimeout(() => {

@@ -1,4 +1,4 @@
-@if (props.length > 0) {
+@if (props().length > 0) {
   <table
     class="e-table e-table--small e-table--no-stripes e-table--sticky-header e-table--sticky-column-header"
     aria-label="Property details and descriptions"
@@ -12,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (group of groupedProps; track group) {
+      @for (group of groupedProps(); track group) {
         @if (group.rows.length > 0) {
           <tr class="group-title-row">
             <th scope="row" class="title-cell">

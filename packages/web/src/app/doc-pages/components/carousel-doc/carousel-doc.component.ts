@@ -22,6 +22,13 @@ import { carouselData } from './carousel-data';
 })
 export class CarouselDocComponent {
   componentData = carouselData;
-  does = carouselData.does;
-  donts = carouselData.donts;
+
+  does: [
+    'Many items to display and the user only needs to focus on a few at once',
+    'Collection of related items',
+  ];
+  donts: [
+    'Should not be used on non-visual items such as links or paragraphs',
+    'More than five frames - It’s unlikely users will engage with more than that (Use a list instead)',
+  ];
 }

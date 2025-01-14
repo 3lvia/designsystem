@@ -31,10 +31,10 @@
 </ng-template>
 
 <ng-template #changelogTemplateHeader>
-  @if (elvisComponentToFilter) {
+  @if (elvisComponentToFilter()) {
     <p class="e-m-0 e-mb-48 e-text-sm">
       This changelog only contains Elvis versions that affected the
-      {{ elvisComponentToFilter | lowercase }} component and may thus appear incomplete. See the
+      {{ elvisComponentToFilter() | lowercase }} component and may thus appear incomplete. See the
       <a class="e-link e-link--inline" routerLink="/components/css-library" fragment="Changelog">
         complete CSS library changelog here
       </a>
@@ -179,7 +179,7 @@
 </ng-template>
 
 <!-- No accordion  -->
-@if (!hasAccordion || (changelog && changelog.length <= 2)) {
+@if (!hasAccordion() || (changelog && changelog.length <= 2)) {
   <ng-container *ngTemplateOutlet="changelogTemplateHeader"></ng-container>
   <ng-container *ngTemplateOutlet="changelogTemplateContent"></ng-container>
 } @else {

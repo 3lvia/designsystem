@@ -2,12 +2,11 @@
   <div
     class="circle border"
     [ngClass]="{
-      transparent: hex === 'transparent',
+      transparent: hex() === 'transparent',
     }"
-    [style]="{ backgroundColor: hex }"
+    [style]="{ backgroundColor: hex() }"
   ></div>
-}
-@if (colorType !== 'default') {
+} @else {
   <div
     class="circle"
     [ngClass]="{

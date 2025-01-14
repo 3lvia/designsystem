@@ -6,11 +6,11 @@ import {
   Component,
   ContentChild,
   ElementRef,
-  Input,
   NgZone,
   OnDestroy,
   ViewChild,
   booleanAttribute,
+  input,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
@@ -49,7 +49,7 @@ interface SlotMap {
   ],
 })
 export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy {
-  @Input({ transform: booleanAttribute }) fullWidth = false;
+  readonly fullWidth = input(false, { transform: booleanAttribute });
   @ViewChild('componentContainer') componentContainer: ElementRef<HTMLDivElement>;
   @ContentChild(ComponentExample, { static: true }) componentExample: ComponentExample;
   @ContentChild(TypescriptComponentExample, { static: true }) tsComponentExample: TypescriptComponentExample;

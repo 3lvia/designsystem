@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, input } from '@angular/core';
 
 import { getPackageName } from '../../../component-installation/getPackageName';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
@@ -12,10 +12,10 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentHeaderQuickInstallComponent {
-  @Input({ required: true }) componentData: ComponentData;
+  readonly componentData = input.required<ComponentData>();
 
-  get installLinks(): { npm: string; yarn: string } {
-    const packageName = getPackageName(this.componentData.name);
+  installLinks = computed<{ npm: string; yarn: string }>(() => {
+    const packageName = getPackageName(this.componentData().name);
     return { npm: `npm install ${packageName}`, yarn: `yarn add ${packageName}` };
-  }
+  });
 }

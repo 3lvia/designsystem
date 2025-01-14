@@ -2,10 +2,10 @@ import {
   CUSTOM_ELEMENTS_SCHEMA,
   Component,
   EventEmitter,
-  Input,
   OnDestroy,
   OnInit,
   Output,
+  input,
 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -26,20 +26,22 @@ interface DropdownOption {
 })
 export class TypeSwitcherComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject<void>();
-  @Input() controlManager: UnknownCegControlManager;
+  readonly controlManager = input.required<UnknownCegControlManager>();
   @Output() typeChange = new EventEmitter<string>();
   dropdownOptions: DropdownOption[] = [];
   selectedOption = '';
 
   ngOnInit() {
-    this.controlManager.componentTypes.pipe(takeUntil(this.unsubscriber)).subscribe((componentTypes) => {
-      this.dropdownOptions = componentTypes.map(
-        (option) => ({ label: option.type, value: option.type }) as DropdownOption,
-      );
-    });
+    this.controlManager()
+      .componentTypes.pipe(takeUntil(this.unsubscriber))
+      .subscribe((componentTypes) => {
+        this.dropdownOptions = componentTypes.map(
+          (option) => ({ label: option.type, value: option.type }) as DropdownOption,
+        );
+      });
 
-    this.controlManager.currentComponentTypeName
-      .pipe(takeUntil(this.unsubscriber))
+    this.controlManager()
+      .currentComponentTypeName.pipe(takeUntil(this.unsubscriber))
       .subscribe((componentType) => {
         this.selectedOption = componentType || '';
       });

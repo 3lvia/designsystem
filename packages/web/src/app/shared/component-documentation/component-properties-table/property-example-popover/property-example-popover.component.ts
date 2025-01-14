@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, input, signal } from '@angular/core';
 
 import { CodeViewerComponent } from '../../ceg/code-generator/code-viewer/code-viewer.component';
 
@@ -11,8 +11,8 @@ import { CodeViewerComponent } from '../../ceg/code-generator/code-viewer/code-v
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PropertyExamplePopoverComponent {
-  @Input({ required: true }) attribute: string;
-  @Input({ required: true }) example: string;
+  readonly attribute = input.required<string>();
+  readonly example = input.required<string>();
 
-  isOpen = false;
+  isOpen = signal(false);
 }

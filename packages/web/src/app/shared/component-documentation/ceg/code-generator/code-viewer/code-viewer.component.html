@@ -1,18 +1,18 @@
 <div class="code-container">
-  @if (!hideTabs || !hideCopy || fileName !== '') {
+  @if (!hideTabs() || !hideCopy() || fileName() !== '') {
     <div class="top-menu e-theme-dark">
-      @if (!hideTabs) {
+      @if (!hideTabs()) {
         <elvia-segmented-control
           [size]="(breakpointService.matches(['md', 'lg', 'xl']) | async) ? 'medium' : 'small'"
-          [items]="tabs | tabToSegmentedControlItem"
-          [value]="activeTabIndex"
+          [items]="tabs() | tabToSegmentedControlItem"
+          [value]="activeTabIndex()"
           (valueOnChange)="tabIndexChange.emit($any($event).detail.value)"
         />
       }
-      @if (fileName !== '') {
-        <div class="file-name e-text-small-mono">{{ fileName }}</div>
+      @if (fileName() !== '') {
+        <div class="file-name e-text-small-mono">{{ fileName() }}</div>
       }
-      @if (!hideCopy) {
+      @if (!hideCopy()) {
         <div class="copy-code" *ifViewportSize="['md', 'lg', 'xl']">
           <div class="e-mr-8">
             {{ copyMessage }}
@@ -28,6 +28,6 @@
   }
 
   <div class="overflow-container">
-    <pre><code [innerHtml]="activeCode | formatCode:language | async | highlighter:language" class="ceg-code"></code></pre>
+    <pre><code [innerHtml]="activeCode() | formatCode:language | async | highlighter:language" class="ceg-code"></code></pre>
   </div>
 </div>

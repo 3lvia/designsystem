@@ -2,7 +2,7 @@
 <app-component-header
   [figmaUrl]="figmaUrl"
   [lastUpdated]="lastUpdatedDate"
-  [componentData]="componentData"
+  [componentData]="componentData()"
   showCssLibraryTag
 >
   <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
@@ -37,8 +37,9 @@
 
   <!--INSTALLATION-->
   <app-component-section sectionTitle="Installation">
-    @if (!isElvis && componentData) {
-      <app-component-installation [componentData]="componentData" />
+    @let data = componentData();
+    @if (!isElvis() && data) {
+      <app-component-installation [componentData]="data" />
     } @else {
       <p class="e-text-lg">
         This component is available through the CSS library package <code>&#64;elvia/elvis</code>.
@@ -55,12 +56,13 @@
   </div>
 
   @if (!customApiDocs.children.length) {
-    @if (!isElvis && componentData) {
+    @let data = componentData();
+    @if (!isElvis() && data) {
       <app-component-section sectionTitle="API">
-        <app-component-properties-table [componentData]="componentData" />
+        <app-component-properties-table [componentData]="data" />
       </app-component-section>
     }
-    @if (isElvis && elvisClassName) {
+    @if (isElvis() && elvisClassName) {
       <app-component-section sectionTitle="API" [propertiesClass]="elvisClassName">
         <app-component-properties [componentName]="elvisClassName" />
       </app-component-section>
@@ -72,10 +74,11 @@
   <!--CHANGELOG-->
   <app-component-section sectionTitle="Changelog">
     @defer {
-      @if (!isElvis && componentData) {
-        <app-component-changelog [changelog]="componentData.changelog" />
+      @let changelog = componentData()?.changelog;
+      @if (!isElvis() && changelog?.length) {
+        <app-component-changelog [changelog]="changelog" />
       }
-      @if (isElvis) {
+      @if (isElvis()) {
         <app-component-changelog [elvisComponentToFilter]="title" />
       }
     }

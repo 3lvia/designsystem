@@ -2,25 +2,24 @@
   <div class="title-container e-mb-32">
     <h1 class="big-header e-m-0 title" data-url-fragment>
       <ng-content select="headerTitle" />
-      @if (figmaUrl) {
-        <a class="e-ml-16" [href]="figmaUrl" target="_blank" rel="noopener">
+      @if (figmaUrl()) {
+        <a class="e-ml-16" [href]="figmaUrl()" target="_blank" rel="noopener">
           <img src="assets/icons/figma-logo.svg" alt="Figma icon" />
         </a>
       }
     </h1>
     <ng-content select="headerLink" *ifViewportSize="['md', 'lg', 'xl']" />
-    @if (lastUpdated) {
+    @if (lastUpdated()) {
       <div class="e-text-micro e-color-text-2 last-updated">
-        Last updated {{ lastUpdated | DocumentationDatePipe }}
+        Last updated {{ lastUpdated() | DocumentationDatePipe }}
       </div>
     }
     <div>
-      @if (componentData) {
-        <app-component-header-quick-install class="e-none-sm" [componentData]="componentData" />
-      } @else {
-        @if (showCssLibraryTag) {
-          <div class="e-tag">CSS Library</div>
-        }
+      @let data = componentData();
+      @if (data) {
+        <app-component-header-quick-install class="e-none-sm" [componentData]="data" />
+      } @else if (showCssLibraryTag()) {
+        <div class="e-tag">CSS Library</div>
       }
     </div>
   </div>

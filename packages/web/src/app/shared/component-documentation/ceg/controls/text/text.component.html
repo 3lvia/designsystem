@@ -1,30 +1,30 @@
-@if (input.inputType === 'textarea') {
+@if (input().inputType === 'textarea') {
   <div class="e-form-field e-form-field--small ceg-input">
-    <div class="e-input" [ngClass]="{ 'e-input---disabled': disabled }">
+    <div class="e-input" [ngClass]="{ 'e-input---disabled': disabled() }">
       <textarea
         autocomplete="off"
         [id]="inputId"
         #domTextarea
         (input)="onChange(domTextarea.value)"
-        [placeholder]="input.placeholder ?? ''"
-        [attr.aria-label]="input.label"
-        [disabled]="disabled"
+        [placeholder]="input().placeholder ?? ''"
+        [attr.aria-label]="input().label"
+        [disabled]="disabled()"
         >{{ textValue }}</textarea
       >
     </div>
   </div>
 } @else {
   <div class="e-form-field e-form-field--small ceg-input">
-    <div class="e-input" [ngClass]="{ 'e-input---disabled': disabled }">
+    <div class="e-input" [ngClass]="{ 'e-input---disabled': disabled() }">
       <input
         autocomplete="off"
         [id]="inputId"
         [value]="textValue"
         #domInput
         (input)="onChange(domInput.value)"
-        [placeholder]="input.placeholder ?? ''"
-        [attr.aria-label]="input.label"
-        [disabled]="disabled"
+        [placeholder]="input().placeholder ?? ''"
+        [attr.aria-label]="input().label"
+        [disabled]="disabled()"
       />
     </div>
   </div>

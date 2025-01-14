@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-component-subsubsection',
@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   imports: [],
 })
 export class ComponentSubsubsectionComponent {
-  @Input() sectionTitle = '';
-  @Input() figmaOnly = false;
+  readonly sectionTitle = input('');
+  readonly figmaOnly = input(false);
 }

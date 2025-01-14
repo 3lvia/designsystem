@@ -3,13 +3,13 @@
 <div class="component-section documentation-section-animation">
   <div class="component-section__title">
     <h2 class="e-title-md e-mb-24 e-flex e-align-items-center" data-url-fragment>
-      <app-copy class="e-flex copy-container" [message]="copyUrl">
+      <app-copy class="e-flex copy-container" [message]="copyUrl()">
         <button class="icon" (click)="copyAnchor()" (keydown.enter)="copyAnchor()">
           <e-icon name="link" size="sm" [ngClass]="{ 'e-icon--color-positive': titleIsCopied }" />
         </button>
       </app-copy>
-      {{ sectionTitle }}
-      @if (figmaOnly) {
+      {{ sectionTitle() }}
+      @if (figmaOnly()) {
         <span class="e-ml-16">
           <label class="e-tag e-tag--orange">Figma only</label>
         </span>
@@ -17,9 +17,9 @@
       <ng-content select="headerIcon"></ng-content>
     </h2>
 
-    @if (propertiesClass !== '') {
-      <app-copy class="e-ml-16" [message]="propertiesClass">
-        <code class="e-flex">{{ propertiesClass }}</code>
+    @if (propertiesClass()) {
+      <app-copy class="e-ml-16" [message]="propertiesClass()">
+        <code class="e-flex">{{ propertiesClass() }}</code>
       </app-copy>
     }
   </div>

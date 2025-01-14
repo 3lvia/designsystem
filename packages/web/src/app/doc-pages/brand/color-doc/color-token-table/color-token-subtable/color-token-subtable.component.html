@@ -8,15 +8,15 @@
       isFullwidth
     >
       <div slot="openLabel">
-        <h3 class="e-title-sm e-m-0 e-mb-8">{{ title }}</h3>
+        <h3 class="e-title-sm e-m-0 e-mb-8">{{ title() }}</h3>
         <p class="e-text-md e-m-0">
-          {{ subtitle }}
+          {{ subtitle() }}
         </p>
       </div>
       <div slot="closeLabel">
-        <h3 class="e-title-sm e-m-0 e-mb-8">{{ title }}</h3>
+        <h3 class="e-title-sm e-m-0 e-mb-8">{{ title() }}</h3>
         <p class="e-text-md e-m-0">
-          {{ subtitle }}
+          {{ subtitle() }}
         </p>
       </div>
       <div slot="content">
@@ -25,7 +25,7 @@
             <caption class="e-sr-only">
               Overview of available
               {{
-                title | lowercase
+                title() | lowercase
               }}
               color tokens
             </caption>
@@ -43,7 +43,7 @@
               </tr>
             </thead>
             <tbody>
-              @for (tablePart of visibleColors; track tablePart) {
+              @for (tablePart of visibleColors; track $index) {
                 @if (tablePart.title) {
                   <tr class="title-row">
                     <td [colSpan]="3 + (hasRoleColumn ? 1 : 0) + (hasExampleColumn ? 1 : 0)">
@@ -52,7 +52,7 @@
                     </td>
                   </tr>
                 }
-                @for (color of tablePart.colors; track color) {
+                @for (color of tablePart.colors; track $index) {
                   <tr>
                     <app-copy [message]="'--e-color-' + color.token">
                       <td class="token-font" [ngClass]="{ 'small-column': hasRoleColumn }">
@@ -69,7 +69,7 @@
                         <div>
                           <p class="e-text-sm e-m-0">{{ color.role }}</p>
                           <div>
-                            @for (link of color.links; track link) {
+                            @for (link of color.links; track $index) {
                               <a
                                 class="e-link e-link--new-tab e-link--sm e-mr-8"
                                 target="_blank"
@@ -121,7 +121,7 @@
             <caption class="e-sr-only">
               Overview of available
               {{
-                title | lowercase
+                title() | lowercase
               }}
               color tokens
             </caption>
@@ -131,7 +131,7 @@
               </tr>
             </thead>
             <tbody>
-              @for (tablePart of visibleColors; track tablePart) {
+              @for (tablePart of visibleColors; track $index) {
                 @if (tablePart.title) {
                   <tr class="title-row">
                     <td>
@@ -141,7 +141,7 @@
                   </tr>
                 }
                 @if (tablePart.colors) {
-                  @for (color of tablePart.colors; track color) {
+                  @for (color of tablePart.colors; track $index) {
                     <tr>
                       <td>
                         <div class="token-wrapper">

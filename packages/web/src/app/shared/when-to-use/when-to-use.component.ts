@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, input } from '@angular/core';
 
 import { Locale } from 'src/app/core/services/localization.service';
 
@@ -10,7 +10,7 @@ import { Locale } from 'src/app/core/services/localization.service';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class WhenToUseComponent {
-  @Input() whens? = [''];
-  @Input() whenNots? = [''];
-  @Input() locale: Locale = 'en-GB';
+  readonly whens = input<string[]>([]);
+  readonly whenNots = input<string[]>([]);
+  readonly locale = input<Locale>('en-GB');
 }

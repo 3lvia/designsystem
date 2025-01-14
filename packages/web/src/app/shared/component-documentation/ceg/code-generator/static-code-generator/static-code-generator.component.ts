@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
+import { Component, OnInit, booleanAttribute, input } from '@angular/core';
 
 import { CodeGeneratorComponent } from '../code-generator.component';
 
@@ -9,24 +9,25 @@ import { CodeGeneratorComponent } from '../code-generator.component';
   imports: [CodeGeneratorComponent],
 })
 export class StaticCodeGeneratorComponent implements OnInit {
-  @Input() staticContent = '';
-  @Input({ transform: booleanAttribute }) hideReact: boolean;
-  @Input() comment?: string;
+  readonly staticContent = input.required<string>();
+  readonly hideReact = input(false, { transform: booleanAttribute });
+  readonly comment = input<string>();
 
   angularCode = '';
   reactCode = '';
   vueCode = '';
 
   ngOnInit() {
-    let code = this.addNewLinesBetweenTags(this.staticContent);
+    let code = this.addNewLinesBetweenTags(this.staticContent());
     code = this.cleanSrcAttribute(code);
     code = this.cleanCheckedAttribute(code);
-    this.angularCode = this.comment ? `<!--${this.comment}-->\n${code}` : code;
+    const comment = this.comment();
+    this.angularCode = comment ? `<!--${comment}-->\n${code}` : code;
 
     const cleanCode = this.removeAngularSpecificAttributes(code);
     this.vueCode = this.createVueCodeFromStaticContent(cleanCode);
 
-    if (!this.hideReact) {
+    if (!this.hideReact()) {
       this.reactCode = this.createReactCodeFromStaticContent(cleanCode);
     }
   }
@@ -62,8 +63,9 @@ export class StaticCodeGeneratorComponent implements OnInit {
       'v-for="$1 in $2"',
     );
     const vueEventSyntax = ngForReplaced.replace(/ \(([a-zA-Z]+)\)="/g, ' @$1="');
-    if (this.comment) {
-      return `<!--${this.comment}-->\n${vueEventSyntax}`;
+    const comment = this.comment();
+    if (comment) {
+      return `<!--${comment}-->\n${vueEventSyntax}`;
     }
     return vueEventSyntax;
   }
@@ -200,8 +202,9 @@ export class StaticCodeGeneratorComponent implements OnInit {
       reactCode = `<>${reactCode}</>`;
     }
 
-    if (this.comment) {
-      reactCode = '// ' + this.comment.replace(/\n/g, '\n// ') + '\n' + reactCode;
+    const comment = this.comment();
+    if (comment) {
+      reactCode = '// ' + comment.replace(/\n/g, '\n// ') + '\n' + reactCode;
     }
 
     return reactCode;

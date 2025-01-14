@@ -29,8 +29,11 @@ import { ChipImageEmptyCegComponent } from './chip-image-empty-ceg/chip-image-em
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ChipDocComponent {
-  does = chipData.does;
-  donts = chipData.donts;
+  does: [
+    'Used together with a filter so the user has control and an overview of what is selected',
+    'Simple way for the user to toggle data on and off',
+  ];
+
   componentData = chipData;
 
   deletableChipsList = [

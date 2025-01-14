@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, booleanAttribute } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, booleanAttribute, input } from '@angular/core';
 
 import { SearchResult, Searcher } from '../../searcher';
 import { PropertySearchInputComponent } from './property-search-input/property-search-input.component';
@@ -15,8 +15,9 @@ import ComponentData, { NestedProp } from 'src/app/doc-pages/components/componen
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentPropertiesTableComponent implements OnInit {
-  @Input() componentData: ComponentData;
-  @Input({ transform: booleanAttribute }) ignoreDefaultProps: boolean;
+  readonly componentData = input.required<ComponentData>();
+  readonly ignoreDefaultProps = input(false, { transform: booleanAttribute });
+
   filteredComponentProps: SearchResult<ComponentProp>[] = [];
 
   private searcher: Searcher<ComponentProp>;
@@ -49,7 +50,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
 
     for (const prop of componentProps) {
       flatComponentProps.push(prop);
-      const propData = this.componentData.attributes[prop.item.attribute];
+      const propData = this.componentData()?.attributes[prop.item.attribute];
       if (propData && 'children' in propData) {
         flatComponentProps = this.flattenPropsRecursive(propData, 1, flatComponentProps);
       }
@@ -80,8 +81,8 @@ export class ComponentPropertiesTableComponent implements OnInit {
   }
 
   private getRootPropArray(): ComponentProp[] {
-    const componentProps: ComponentProp[] = Object.keys(this.componentData.attributes).map((prop) => {
-      const propData = this.componentData.attributes[prop];
+    const componentProps: ComponentProp[] = Object.keys(this.componentData().attributes).map((prop) => {
+      const propData = this.componentData().attributes[prop];
       return {
         attribute: prop,
         ...propData,
@@ -92,7 +93,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
 
     componentProps.sort(this.sortProps);
 
-    if (!this.ignoreDefaultProps) {
+    if (!this.ignoreDefaultProps()) {
       componentProps.push(...this.getCommonProps());
     }
     return componentProps;

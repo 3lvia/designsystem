@@ -5,6 +5,7 @@ import {
   OnInit,
   booleanAttribute,
   effect,
+  input,
   signal,
 } from '@angular/core';
 
@@ -19,12 +20,14 @@ import { CodeViewerComponent } from './code-viewer/code-viewer.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CodeGeneratorComponent implements OnInit {
-  @Input() angularCode = '';
-  @Input() reactCode = '';
-  @Input() vueCode = '';
-  @Input({ transform: booleanAttribute }) hideReact: boolean;
+  readonly angularCode = input('');
+  readonly reactCode = input('');
+  readonly vueCode = input('');
+  readonly hideReact = input(false, { transform: booleanAttribute });
 
   private _typeScriptCode = '';
+  // TODO: Skipped for migration because:
+  //  Accessor inputs cannot be migrated as they are too complex.
   @Input()
   get typeScriptCode() {
     return this._typeScriptCode;
@@ -54,7 +57,7 @@ export class CodeGeneratorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.hideReact) {
+    if (this.hideReact()) {
       this.tabs.update((old) => old.filter((tab) => tab !== 'React'));
     }
 
@@ -73,13 +76,13 @@ export class CodeGeneratorComponent implements OnInit {
 
   get activeCode() {
     if (this.activeTab === 'Angular') {
-      return this.angularCode;
+      return this.angularCode();
     } else if (this.activeTab === 'React') {
-      return this.reactCode;
+      return this.reactCode();
     } else if (this.activeTab === 'Typescript') {
       return this.typeScriptCode;
     } else {
-      return this.vueCode;
+      return this.vueCode();
     }
   }
 

@@ -1,4 +1,4 @@
-<app-copy [message]="installLinks.npm">
+<app-copy [message]="installLinks().npm">
   <button class="e-btn e-btn--tertiary e-btn--sm" aria-label="copy install command for npm">
     <span class="e-btn__icon">
       <e-icon name="copy" />
@@ -6,7 +6,7 @@
     <span class="e-btn__title mono-text">npm i</span>
   </button>
 </app-copy>
-<app-copy [message]="installLinks.yarn">
+<app-copy [message]="installLinks().yarn">
   <button class="e-btn e-btn--tertiary e-btn--sm" aria-label="copy install command for yarn">
     <span class="e-btn__icon">
       <e-icon name="copy" />

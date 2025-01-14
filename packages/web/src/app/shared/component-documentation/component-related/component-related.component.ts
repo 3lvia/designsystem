@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { getDocPage } from '../../doc-pages';
@@ -15,7 +15,7 @@ import { ThemeService } from 'src/app/core/services/theme.service';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentRelatedComponent {
-  @Input({ required: true }) relatedPages: DocPageName[];
+  readonly relatedPages = input.required<DocPageName[]>();
 
   constructor(
     private cmsService: CMSService,
