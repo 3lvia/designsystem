@@ -32,6 +32,8 @@ import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.
   styleUrls: ['./component-changelog.component.scss'],
 })
 export class ComponentChangelogComponent implements OnInit {
+  // TODO: Skipped for migration because:
+  //  Your application code writes to the input. This prevents migration.
   @Input() changelog?: Changelog;
   /**
    * If enabled the changelog-list will be in an accordion

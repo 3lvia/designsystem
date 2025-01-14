@@ -26,6 +26,8 @@ export class CodeGeneratorComponent implements OnInit {
   readonly hideReact = input<boolean, unknown>(undefined, { transform: booleanAttribute });
 
   private _typeScriptCode = '';
+  // TODO: Skipped for migration because:
+  //  Accessor inputs cannot be migrated as they are too complex.
   @Input()
   get typeScriptCode() {
     return this._typeScriptCode;
