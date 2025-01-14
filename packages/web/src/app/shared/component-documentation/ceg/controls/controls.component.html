@@ -1,7 +1,7 @@
 @for (group of groups; track group) {
   <fieldset class="e-strip-fieldset">
     <legend class="fieldset-legend e-text-sm-strong">{{ group.name }}</legend>
-    @for (control of group.controls | keyvalue: noSort; track control) {
+    @for (control of group.controls | keyvalue: null; track control) {
       @if (control.value) {
         @if (control.value.type === 'radioGroup') {
           <app-radio-group [radioGroup]="control.value" (toggle)="updateValue(control.key, $event)" />

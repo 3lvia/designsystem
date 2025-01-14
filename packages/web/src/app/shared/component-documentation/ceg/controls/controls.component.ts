@@ -131,7 +131,4 @@ export class ControlsComponent implements OnInit, OnDestroy {
   slotToggleChange(slotName: string, isVisible: boolean): void {
     this.slotToggle.emit({ slotName, isVisible });
   }
-
-  // Reset the default sorting provided by the 'keyvalue' pipe.
-  noSort = () => 0;
 }
