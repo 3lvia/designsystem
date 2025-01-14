@@ -8,7 +8,7 @@ import {
   HostListener,
   OnInit,
   ViewChild,
-  output
+  output,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
