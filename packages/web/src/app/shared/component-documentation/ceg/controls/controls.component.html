@@ -17,7 +17,7 @@
         @if (control.value.type === 'switch' || control.value.type === 'slotToggle') {
           <app-switch
             [switch]="control.value"
-            (toggle)="
+            (toggleChange)="
               control.value.type === 'switch'
                 ? updateValue(control.key, $event)
                 : slotToggleChange(control.key, $event)

@@ -9,9 +9,9 @@ import { SlotToggle, Switch } from '../../controlType';
 })
 export class SwitchComponent {
   readonly switch = input.required<Switch | SlotToggle>();
-  readonly toggle = output<boolean>();
+  readonly toggleChange = output<boolean>();
 
   onChange(isChecked: boolean): void {
-    this.toggle.emit(isChecked);
+    this.toggleChange.emit(isChecked);
   }
 }
