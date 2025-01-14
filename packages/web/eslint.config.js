@@ -58,7 +58,12 @@ module.exports = tseslint.config(
       '@angular-eslint/no-outputs-metadata-property': 'error',
       '@angular-eslint/no-pipe-impure': 'error',
       '@angular-eslint/prefer-output-readonly': 'warn',
-      '@angular-eslint/prefer-signals': 'warn',
+      '@angular-eslint/prefer-signals': [
+        'warn',
+        {
+          preferReadonlySignalProperties: false,
+        },
+      ],
       '@angular-eslint/prefer-standalone': 'error',
       '@angular-eslint/relative-url-prefix': 'error',
       '@angular-eslint/sort-lifecycle-methods': 'warn',
