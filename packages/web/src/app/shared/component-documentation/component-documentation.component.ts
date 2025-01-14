@@ -77,7 +77,7 @@ export class ComponentDocumentationComponent implements OnInit {
     const componentData = this.componentData();
     if (this.isElvis() && this.title) {
       return createElvisFilteredChangelog(this.title)[0].date;
-    } else if (componentData && componentData.changelog) {
+    } else if (componentData?.changelog?.length) {
       return componentData.changelog[0].date;
     } else {
       return '';
