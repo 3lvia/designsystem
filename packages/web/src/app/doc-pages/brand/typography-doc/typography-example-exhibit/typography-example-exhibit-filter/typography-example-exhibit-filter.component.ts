@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Output, input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, input, output } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import '@elvia/elvis-radio-filter';
 import '@elvia/elvis-segmented-control';
@@ -18,10 +18,10 @@ type DisplayCategories = 'Title' | 'Body' | 'Body text' | 'Special' | 'Special t
 })
 export class TypographyExampleExhibitFilterComponent {
   readonly activeCategory = input.required<Category>();
-  @Output() newActiveCategory = new EventEmitter<Category>();
+  readonly newActiveCategory = output<Category>();
 
   readonly modifiers = input.required<Modifier[]>();
-  @Output() newModifiers = new EventEmitter<Modifier>();
+  readonly newModifiers = output<Modifier>();
   currentModifier: Modifier = 'regular';
 
   displayCategories: { label: DisplayCategories }[] = [

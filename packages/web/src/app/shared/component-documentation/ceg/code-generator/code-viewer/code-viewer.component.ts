@@ -2,10 +2,9 @@ import { AsyncPipe } from '@angular/common';
 import {
   CUSTOM_ELEMENTS_SCHEMA,
   Component,
-  EventEmitter,
-  Output,
   booleanAttribute,
   input,
+  output
 } from '@angular/core';
 
 import { IfViewportSizeDirective } from '../../../../viewport-size/if-viewport-size.directive';
@@ -39,7 +38,7 @@ export class CodeViewerComponent {
    * NB: language must be specified in the 'tabs' property for syntax highlighting */
   readonly hideTabs = input(false, { transform: booleanAttribute });
   readonly hideCopy = input(false, { transform: booleanAttribute });
-  @Output() tabIndexChange = new EventEmitter<number>();
+  readonly tabIndexChange = output<number>();
 
   copyMessage = '';
 

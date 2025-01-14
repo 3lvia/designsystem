@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Output, input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, input, output } from '@angular/core';
 
 import { UnknownCegControlManager } from '../cegControlManager';
 import { ControlValue } from '../controlType';
@@ -13,8 +13,14 @@ import { ControlsComponent } from '../controls/controls.component';
 })
 export class ControlsPopoverComponent {
   readonly controlManager = input.required<UnknownCegControlManager>();
-  @Output() propChange = new EventEmitter<{ propName: string; value: ControlValue }>();
-  @Output() slotToggle = new EventEmitter<{ slotName: string; isVisible: boolean }>();
+  readonly propChange = output<{
+    propName: string;
+    value: ControlValue;
+}>();
+  readonly slotToggle = output<{
+    slotName: string;
+    isVisible: boolean;
+}>();
 
   popoverIsOpen = false;
 

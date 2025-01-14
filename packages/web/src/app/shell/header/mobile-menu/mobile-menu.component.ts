@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, EventEmitter, Output } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, output } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 
@@ -15,7 +15,7 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MobileMenuComponent {
-  @Output() closeMenu = new EventEmitter<void>();
+  readonly closeMenu = output<void>();
   mainMenu: CMSMenu;
   isLoaded = false;
 

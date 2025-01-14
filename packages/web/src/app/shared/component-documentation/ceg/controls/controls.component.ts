@@ -1,5 +1,5 @@
 import { KeyValuePipe } from '@angular/common';
-import { Component, EventEmitter, OnDestroy, OnInit, Output, input } from '@angular/core';
+import { Component, OnDestroy, OnInit, input, output } from '@angular/core';
 import { Subject, combineLatest } from 'rxjs';
 import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
 
@@ -32,8 +32,14 @@ interface Group {
 export class ControlsComponent implements OnInit, OnDestroy {
   private unsubscriber = new Subject<void>();
   readonly controlManager = input.required<UnknownCegControlManager>();
-  @Output() propChange = new EventEmitter<{ propName: string; value: ControlValue }>();
-  @Output() slotToggle = new EventEmitter<{ slotName: string; isVisible: boolean }>();
+  readonly propChange = output<{
+    propName: string;
+    value: ControlValue;
+}>();
+  readonly slotToggle = output<{
+    slotName: string;
+    isVisible: boolean;
+}>();
   disabledControls: string[] = [];
   groups: Group[] = [];
 
