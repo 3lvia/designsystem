@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, booleanAttribute } from '@angular/core';
+import { Component, OnInit, booleanAttribute, input } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import data from '@elvia/elvis/.internal/classlist.json';
@@ -45,9 +45,9 @@ import { getComponent } from 'src/app/shared/doc-pages';
   ],
 })
 export class ComponentDocumentationComponent implements OnInit {
-  @Input({ required: true }) docUrl: DocPageName;
-  @Input({ transform: booleanAttribute }) isElvis = false;
-  @Input() componentData: ComponentData | undefined;
+  readonly docUrl = input.required<DocPageName>();
+  readonly isElvis = input(false, { transform: booleanAttribute });
+  readonly componentData = input<ComponentData>();
 
   title: string | undefined;
   description: string | undefined;
@@ -58,15 +58,15 @@ export class ComponentDocumentationComponent implements OnInit {
   constructor(private titleService: Title) {}
 
   ngOnInit() {
-    const docPage = getComponent(this.docUrl);
+    const docPage = getComponent(this.docUrl());
     this.title = docPage.title;
     this.description = docPage.description;
     this.figmaUrl = docPage.figmaUrl;
     this.relatedPages = docPage.relatedPages;
-    if (this.isElvis) {
+    if (this.isElvis()) {
       this.elvisClassName = docPage.elvisClassName;
       if (!this.elvisClassName) {
-        this.elvisClassName = ('e-' + this.docUrl) as keyof typeof data.block;
+        this.elvisClassName = ('e-' + this.docUrl()) as keyof typeof data.block;
       }
     }
 
@@ -74,10 +74,11 @@ export class ComponentDocumentationComponent implements OnInit {
   }
 
   get lastUpdatedDate(): string {
-    if (this.isElvis && this.title) {
+    const componentData = this.componentData();
+    if (this.isElvis() && this.title) {
       return createElvisFilteredChangelog(this.title)[0].date;
-    } else if (this.componentData && this.componentData.changelog) {
-      return this.componentData.changelog[0].date;
+    } else if (componentData && componentData.changelog) {
+      return componentData.changelog[0].date;
     } else {
       return '';
     }
