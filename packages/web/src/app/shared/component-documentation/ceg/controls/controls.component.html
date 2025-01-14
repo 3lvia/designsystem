@@ -10,7 +10,7 @@
           <app-checkbox
             [checkbox]="control.value"
             [disabled]="isDisabled(control.key) || !parentIsChecked(control.value.childOf)"
-            (toggle)="updateValue(control.key, $event)"
+            (toggleChange)="updateValue(control.key, $event)"
             [isChild]="!!control.value.childOf"
           />
         }
