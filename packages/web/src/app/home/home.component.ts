@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   pages = homeMenu;
   fontLoaded = false;
   holiday: Holiday = 'None';
+  // @ts-expect-error TS2564 (LEGO-3683)
   locale: Locale;
   currentTheme = inject(ThemeService).listenTheme();
   isMobileScreenWidth = inject(BreakpointService).matches(['xs']);

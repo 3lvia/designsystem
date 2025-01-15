@@ -70,9 +70,11 @@ export class CMSService {
    */
   async getPageSysId(localization: Locale): Promise<string> {
     const urlFull = this.router.url.split('#')[0];
+    // @ts-expect-error TS1804 (LEGO-3683)8
     const urlWithoutAnchor = urlFull.split('/');
     let pageId = '';
     await this.getMenu(localization).then((menu) => {
+      // @ts-expect-error TS2532 (LEGO-3683)
       const pages = menu['pages'][0].entry.fields.pages;
       const localeKey = (Object.keys(pages!)[localization as any] ?? 'en-GB') as LOCALE_CODE;
       const subMenu = menu['pages'].find((subMenu) => subMenu.path === urlWithoutAnchor[1]);

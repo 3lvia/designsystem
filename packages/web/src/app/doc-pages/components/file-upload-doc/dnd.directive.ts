@@ -1,12 +1,13 @@
-import { Directive, EventEmitter, HostBinding, HostListener, Output } from '@angular/core';
+import { Directive, HostBinding, HostListener, output } from '@angular/core';
 
 @Directive({
   selector: '[appDnd]',
   standalone: true,
 })
 export class DndDirective {
+  // @ts-expect-error TS2564 (LEGO-3683)
   @HostBinding('class.e-fileupload---hover') fileOver: boolean;
-  @Output() fileDropped = new EventEmitter<unknown>();
+  readonly fileDropped = output<unknown>();
 
   // Dragover listener
   @HostListener('dragover', ['$event']) onDragOver(evt: Event): void {

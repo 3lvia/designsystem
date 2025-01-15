@@ -248,6 +248,7 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
     const propsToInclude = props.filter((prop) => this.propShouldBeIncluded(prop));
     const elementName = this.elementName()
       .split('-')
+      // @ts-expect-error TS2532 (LEGO-3683)
       .map((part) => `${part[0].toUpperCase()}${part.slice(1)}`)
       .join('');
 

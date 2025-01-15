@@ -13,6 +13,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TimepickerCegComponent implements ComponentExample {
+  // @ts-expect-error TS2564 (LEGO-3683)
   @ViewChild('timepicker') timepicker: ElementRef<ElvisComponentWrapper>;
 
   elementName = 'timepicker';
@@ -60,13 +61,18 @@ export class TimepickerCegComponent implements ComponentExample {
     // Slightly hacky way to disable the "hasSecondPicker"-checkbox depending on the "minuteInterval"-prop.
     this.cegContent.componentTypes.pipe(takeUntilDestroyed()).subscribe((types) => {
       const propState = types[0];
+      // @ts-expect-error TS1804 (LEGO-3683)8
       if (propState.controls.minuteInterval?.value === '60') {
+        // @ts-expect-error TS1804 (LEGO-3683)8
         if (!(propState.disabledControls as any).hasSecondPicker?.includes('minuteInterval')) {
+          // @ts-expect-error TS1804 (LEGO-3683)8
           (propState.disabledControls as any).hasSecondPicker = ['minuteInterval']; // Disables the checkbox
+          // @ts-expect-error TS1804 (LEGO-3683)8
           (propState.controls.hasSecondPicker as any).value = false; // Resets the checkbox
           this.timepicker?.nativeElement?.setProps({ hasSecondPicker: false }); // Updates the prop on the component
         }
       } else {
+        // @ts-expect-error TS1804 (LEGO-3683)8
         (propState.disabledControls as any).hasSecondPicker = [];
       }
     });

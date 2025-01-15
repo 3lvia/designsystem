@@ -35,11 +35,11 @@ export class ControlsComponent implements OnInit, OnDestroy {
   readonly propChange = output<{
     propName: string;
     value: ControlValue;
-}>();
+  }>();
   readonly slotToggle = output<{
     slotName: string;
     isVisible: boolean;
-}>();
+  }>();
   disabledControls: string[] = [];
   groups: Group[] = [];
 
@@ -107,6 +107,7 @@ export class ControlsComponent implements OnInit, OnDestroy {
          * We assume that the group lists are identical.
          * This is considered safe, since both lists passed the groupListsAreAlike-check.
          */
+        // @ts-expect-error TS2532 (LEGO-3683)
         const newValue = newGroups[groupIndex].controls[controlName]?.value;
         if (control && control.value !== newValue) {
           control.value = newValue;

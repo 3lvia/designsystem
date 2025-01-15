@@ -15,6 +15,7 @@ export class CopyComponent {
   readonly autoOverflow = input(false, { transform: booleanAttribute });
 
   tooltipContent = 'Copy';
+  // @ts-expect-error TS2564 (LEGO-3683)
   copyTimeout: ReturnType<typeof setTimeout>;
 
   copyMessage(copyMessage: string): void {

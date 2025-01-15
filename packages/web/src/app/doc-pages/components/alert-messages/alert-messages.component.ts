@@ -42,6 +42,7 @@ import { AlertRoleStatusCegComponent } from './alert-role-status-ceg/alert-role-
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AlertMessagesComponent {
+  // @ts-expect-error TS2564 (LEGO-3683)
   @ViewChild('alertAccordionExample') alertAccordionExample: ElementRef;
 
   doesAlertDefault = [

@@ -64,6 +64,7 @@ const replacePathFillCssVariablesWithHex = (svgElement: SVGElement, incomingSvgE
     const fill = path.getAttribute('fill');
 
     // Get the variable name from: var(--e-color-icon-stroke-1, var(--e-color-icon-stroke-1, #000000))
+    // @ts-expect-error TS2532 (LEGO-3683)
     const variableName = fill?.split(',')[0].split('(')[1];
 
     if (fill && variableName && fill.startsWith('var(--')) {

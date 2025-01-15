@@ -86,12 +86,14 @@ export class TeamSymbolGeneratorComponent {
         this.updateBackgroundCircle();
       };
       reader.readAsText(file);
+      // @ts-expect-error TS2532 (LEGO-3683)
       this.stepStates['1'].isCompleted = true;
     }
   }
 
   removeFile() {
     this.generatedSvg = '';
+    // @ts-expect-error TS2532 (LEGO-3683)
     this.stepStates['1'].isCompleted = false;
   }
 
@@ -107,6 +109,7 @@ export class TeamSymbolGeneratorComponent {
 
   async handleNextClick() {
     if (this.currentStep === 3 && this.teamName !== '') {
+      // @ts-expect-error TS2532 (LEGO-3683)
       this.stepStates['3'].isCompleted = true;
       this.isFinished = true;
       this.svgWithTeamName = await createTeamSymbol(
@@ -119,8 +122,11 @@ export class TeamSymbolGeneratorComponent {
   }
 
   reset() {
+    // @ts-expect-error TS2532 (LEGO-3683)
     this.stepStates['1'].isCompleted = false;
+    // @ts-expect-error TS2532 (LEGO-3683)
     this.stepStates['2'].isCompleted = false;
+    // @ts-expect-error TS2532 (LEGO-3683)
     this.stepStates['3'].isCompleted = false;
     this.isFinished = false;
     this.currentStep = 1;
@@ -140,6 +146,7 @@ export class TeamSymbolGeneratorComponent {
     this.chosenColor = color;
     this.generatedSvg = await createTeamSymbol(this.svgContent, this.theme, color);
     if (color) {
+      // @ts-expect-error TS2532 (LEGO-3683)
       this.stepStates['2'].isCompleted = true;
     }
   }

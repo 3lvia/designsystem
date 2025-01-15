@@ -23,10 +23,12 @@ import { carouselData } from './carousel-data';
 export class CarouselDocComponent {
   componentData = carouselData;
 
+  // @ts-expect-error TS2564 (LEGO-3683)
   does: [
     'Many items to display and the user only needs to focus on a few at once',
     'Collection of related items',
   ];
+  // @ts-expect-error TS2564 (LEGO-3683)
   donts: [
     'Should not be used on non-visual items such as links or paragraphs',
     'More than five frames - It’s unlikely users will engage with more than that (Use a list instead)',

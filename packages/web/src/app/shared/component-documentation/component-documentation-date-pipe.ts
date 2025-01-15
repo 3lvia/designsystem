@@ -11,6 +11,7 @@ export class ComponentDocumentationDatePipe implements PipeTransform {
       // Check if value is in format DD.MM.YY
       if (/\d\d\.\d\d\.\d\d/.test(value)) {
         const [day, month, year] = value.split('.');
+        // @ts-expect-error TS2345 (LEGO-3683)
         date = new Date(parseInt(year) + 2000, parseInt(month) - 1, parseInt(day));
       } else {
         date = new Date(value);

@@ -144,6 +144,7 @@ export class StaticCodeGeneratorComponent implements OnInit {
       .flatMap((elviaTag) => elviaTag.split(/(<\/?)e-/))
       .map((elviaTag) => {
         const tagParts = elviaTag.split(' ');
+        // @ts-expect-error TS2532 (LEGO-3683)
         if (tagParts[0].length > 1) {
           const componentName = tagParts.shift() || '';
           const titleCase = componentName

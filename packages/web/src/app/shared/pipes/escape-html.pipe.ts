@@ -14,6 +14,7 @@ export class EscapeHTMLPipe implements PipeTransform {
       '"': '&#34;',
     };
 
+    // @ts-expect-error TS2769 (LEGO-3683)
     return value.replace(/[&<>"]/g, (match) => escapeMap[match]);
   }
 }

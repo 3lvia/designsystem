@@ -32,5 +32,6 @@ export class FrontPageChangelogComponent {
     });
   }
   changelogs = createChangelogs();
+  // @ts-expect-error TS2564 (LEGO-3683)
   componentIcons: ReturnType<typeof this.cmsService.getPageIcons>;
 }

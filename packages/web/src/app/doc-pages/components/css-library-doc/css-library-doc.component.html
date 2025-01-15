@@ -1,4 +1,4 @@
-<app-component-header [lastUpdated]="changelog[0].date" [componentData]="componentData">
+<app-component-header [lastUpdated]="changelog[0]?.date" [componentData]="componentData">
   <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
   <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
 </app-component-header>

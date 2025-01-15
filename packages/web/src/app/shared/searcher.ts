@@ -29,6 +29,7 @@ export type SearchResult<T> = {
  * this.searcher.search(value);
  */
 export class Searcher<T> {
+  // @ts-expect-error TS2564 (LEGO-3683)
   searchResults: SearchResult<T>[];
   isInitialized = false;
 

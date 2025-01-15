@@ -20,6 +20,7 @@ export class ComponentPropertiesTableComponent implements OnInit {
 
   filteredComponentProps: SearchResult<ComponentProp>[] = [];
 
+  // @ts-expect-error TS2564 (LEGO-3683)
   private searcher: Searcher<ComponentProp>;
 
   ngOnInit(): void {
@@ -65,14 +66,17 @@ export class ComponentPropertiesTableComponent implements OnInit {
   ): SearchResult<ComponentProp>[] {
     for (const prop in nestedComponentProp.children) {
       const propData = nestedComponentProp.children[prop];
+      // @ts-expect-error TS2322 (LEGO-3683)
       const componentProp: ComponentProp = {
         attribute: prop,
         ...propData,
+        // @ts-expect-error TS1804 (LEGO-3683)8
         description: propData.description || '',
         specialType: nestedComponentProp.specialType,
         level,
       };
       componentProps.push({ item: componentProp });
+      // @ts-expect-error TS1804 (LEGO-3683)8
       if ('children' in propData) {
         componentProps = this.flattenPropsRecursive(propData, level + 1, componentProps);
       }
@@ -81,11 +85,13 @@ export class ComponentPropertiesTableComponent implements OnInit {
   }
 
   private getRootPropArray(): ComponentProp[] {
+    // @ts-expect-error TS2322 (LEGO-3683)
     const componentProps: ComponentProp[] = Object.keys(this.componentData().attributes).map((prop) => {
       const propData = this.componentData().attributes[prop];
       return {
         attribute: prop,
         ...propData,
+        // @ts-expect-error TS1804 (LEGO-3683)8
         description: propData.description || '',
         level: 0,
       };

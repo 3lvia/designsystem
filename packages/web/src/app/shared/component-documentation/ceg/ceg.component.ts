@@ -50,8 +50,11 @@ interface SlotMap {
 })
 export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy {
   readonly fullWidth = input(false, { transform: booleanAttribute });
+  // @ts-expect-error TS2564 (LEGO-3683)
   @ViewChild('componentContainer') componentContainer: ElementRef<HTMLDivElement>;
+  // @ts-expect-error TS2564 (LEGO-3683)
   @ContentChild(ComponentExample, { static: true }) componentExample: ComponentExample;
+  // @ts-expect-error TS2564 (LEGO-3683)
   @ContentChild(TypescriptComponentExample, { static: true }) tsComponentExample: TypescriptComponentExample;
   private unsubscriber = new Subject<void>();
   private _componentSlots = new BehaviorSubject<Slot[]>([]);
@@ -80,6 +83,12 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
     private location: Location,
   ) {}
 
+  ngAfterContentInit(): void {
+    if (this.tsComponentExample) {
+      this.typeScriptCode = this.tsComponentExample.typeScript.pipe(takeUntil(this.unsubscriber));
+    }
+  }
+
   ngAfterViewInit(): void {
     this.setCegStateFromURL();
 
@@ -87,12 +96,6 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
       this.setUpSlotSubscription();
       this.setUpTypeChangeSubscription();
       this.setUpStaticPropSubscription();
-    }
-  }
-
-  ngAfterContentInit(): void {
-    if (this.tsComponentExample) {
-      this.typeScriptCode = this.tsComponentExample.typeScript.pipe(takeUntil(this.unsubscriber));
     }
   }
 
@@ -159,6 +162,7 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
     const params = new HttpParams({
       fromObject: merge ? this.getNewestParamMap() : {},
     }).set(propName, value ?? '');
+    // @ts-expect-error TS2345 (LEGO-3683)
     this.location.replaceState(currentUrl, params.toString());
   }
 

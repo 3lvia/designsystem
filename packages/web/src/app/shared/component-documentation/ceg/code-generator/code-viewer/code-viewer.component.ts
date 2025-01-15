@@ -1,11 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import {
-  CUSTOM_ELEMENTS_SCHEMA,
-  Component,
-  booleanAttribute,
-  input,
-  output
-} from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, booleanAttribute, input, output } from '@angular/core';
 
 import { IfViewportSizeDirective } from '../../../../viewport-size/if-viewport-size.directive';
 import { TabToSegmentedControlItemPipe } from '../../../tabToSegmentedControlItem.pipe';
@@ -60,6 +54,7 @@ export class CodeViewerComponent {
   }
 
   get activeTab(): Tab {
+    // @ts-expect-error TS2322 (LEGO-3683)
     return this.tabs()[this.activeTabIndex()];
   }
 

@@ -1,24 +1,27 @@
-<div>
-  <label class="e-form-field__label">Medium</label>
-  <label class="e-checkbox e-checkbox--indeterminate">
-    <input type="checkbox" />
-    <span class="e-checkbox__mark"></span>
-    <span class="e-checkbox__label">Ubestemt</span>
-  </label>
-  <div class="e-form-field__nested e-mb-40">
-    <label class="e-checkbox">
-      <input type="checkbox" checked />
-      <span class="e-checkbox__mark"></span>
-      <span class="e-checkbox__label">Avmerket</span>
-    </label>
-    <label class="e-checkbox">
+<div class="e-flex e-flex-direction-column e-gap-32">
+  <fieldset class="e-strip-fieldset e-form-field">
+    <legend class="e-form-field__label">Medium</legend>
+    <label class="e-checkbox e-checkbox--indeterminate">
       <input type="checkbox" />
       <span class="e-checkbox__mark"></span>
-      <span class="e-checkbox__label">Ikke avmerket</span>
+      <span class="e-checkbox__label">Ubestemt</span>
     </label>
-  </div>
-  <div class="e-form-field">
-    <label class="e-form-field__label">Small</label>
+    <div class="e-form-field__nested">
+      <label class="e-checkbox">
+        <input type="checkbox" checked />
+        <span class="e-checkbox__mark"></span>
+        <span class="e-checkbox__label">Avmerket</span>
+      </label>
+      <label class="e-checkbox">
+        <input type="checkbox" />
+        <span class="e-checkbox__mark"></span>
+        <span class="e-checkbox__label">Ikke avmerket</span>
+      </label>
+    </div>
+  </fieldset>
+
+  <fieldset class="e-strip-fieldset e-form-field">
+    <legend class="e-form-field__label">Small</legend>
     <label class="e-checkbox e-checkbox--small e-checkbox--indeterminate">
       <input type="checkbox" />
       <span class="e-checkbox__mark"></span>
@@ -36,5 +39,5 @@
         <span class="e-checkbox__label">Ikke avmerket</span>
       </label>
     </div>
-  </div>
+  </fieldset>
 </div>

@@ -37,6 +37,7 @@ import { extractLocale } from './extractLocale';
 export class CMSTransformService {
   private locale: LOCALE_CODE = 'en-GB'; // Fallback
   private currentTheme: ThemeName = 'light';
+  // @ts-expect-error TS2564 (LEGO-3683)
   private subMenu: CMSSubMenu[];
   private options: Options = {
     renderMark: {
@@ -204,6 +205,7 @@ export class CMSTransformService {
         .replace('/>', '')
         .replace('cms-image', 'e-none cms-image');
     });
+    // @ts-expect-error TS2532 (LEGO-3683)
     if (bulletIcons[0].includes('src=')) {
       let returnString = '<ol class="e-list e-list--icons e-text-lg">';
       for (let liIndex = 0; liIndex <= liStrings.length - 1; liIndex++) {

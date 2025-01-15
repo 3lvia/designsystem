@@ -51,6 +51,7 @@ import { InputValidationCegComponent } from './input-validation-ceg/input-valida
   ],
 })
 export class InputDocComponent {
+  // @ts-expect-error TS2564 (LEGO-3683)
   @ViewChild('validationExample') validationExample: ElementRef;
 
   showPassword = false;

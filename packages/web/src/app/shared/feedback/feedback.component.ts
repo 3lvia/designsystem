@@ -16,11 +16,13 @@ import { ScrollNotifierService } from './scroll-notifier.service';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class FeedbackComponent {
+  // @ts-expect-error TS2564 (LEGO-3683)
   @ViewChild('feedbackContainer') feedbackContainer: ElementRef<HTMLDivElement>;
 
   isEmoji = true;
   isComment = false;
   isSent = false;
+  // @ts-expect-error TS2564 (LEGO-3683)
   currentEmoji: string;
 
   constructor(

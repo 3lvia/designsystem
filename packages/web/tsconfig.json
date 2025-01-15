@@ -8,12 +8,18 @@
     "target": "ES2022",
     "outDir": "./dist/out-tsc",
     "strict": true,
-    "noImplicitThis": false, // TODO: Remove line -> fix errors
-    "strictPropertyInitialization": false
+    "allowUnreachableCode": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitThis": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictPropertyInitialization": true
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
   "browserslist": [

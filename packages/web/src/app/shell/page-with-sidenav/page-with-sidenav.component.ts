@@ -47,6 +47,7 @@ export class PageWithSidenavComponent {
   }
 
   private setCurrentRoute(url: string): void {
+    // @ts-expect-error TS2345 (LEGO-3683)
     this.currentRoute.set(url.split('/')[1]);
     this.backBtn.set(this.currentRoute().replace('-', ' '));
   }

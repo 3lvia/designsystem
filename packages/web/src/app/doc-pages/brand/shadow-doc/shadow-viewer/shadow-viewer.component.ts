@@ -31,7 +31,7 @@ export class ShadowViewerComponent {
     { title: 'Medium', token: 'e-shadow-medium', blur: 40, opacity: 6 },
     { title: 'Hard', token: 'e-shadow-hard', blur: 30, opacity: 8 },
   ];
-  noShadowOnDarkThemeTexts: Record<string, Record<Locale, string>> = {
+  noShadowOnDarkThemeTexts = {
     title: {
       'en-GB': 'Not in dark mode',
       'nb-NO': 'Ingen skygger i mørkt tema',
@@ -46,7 +46,7 @@ export class ShadowViewerComponent {
       'en-GB': 'Example',
       'nb-NO': 'Eksempel',
     },
-  };
+  } as const satisfies Record<string, Record<Locale, string>>;
 
   constructor(breakpointService: BreakpointService, localeService: LocalizationService) {
     this.isMobile = breakpointService.matches(['sm']);
