@@ -66,7 +66,7 @@
     "prettier": "^3.4.2",
     "prismjs": "^1.29.0",
     "rxjs": "^7.8.1",
-    "sass": "^1.83.1",
+    "sass": "^1.83.4",
     "tslib": "^2.8.1",
     "zone.js": "~0.15.0"
   },
@@ -86,12 +86,12 @@
     "@types/prismjs": "^1.26.5",
     "@types/safe-json-stringify": "^1.1.5",
     "angular-eslint": "^19.0.2",
-    "contentful-management": "^11.40.5",
+    "contentful-management": "^11.41.0",
     "contentful-typescript-codegen": "^3.4.0",
     "eslint": "^9.18.0",
     "safe-json-stringify": "^1.2.0",
     "ts-node": "^10.9.2",
     "typescript": "~5.5.4",
-    "typescript-eslint": "^8.19.1"
+    "typescript-eslint": "^8.20.0"
   }
 }
