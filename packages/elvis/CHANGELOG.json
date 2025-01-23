@@ -3,6 +3,19 @@
   "name": "elvis",
   "content": [
     {
+      "version": "20.2.4",
+      "date": "January 23, 2025",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Set <code>list-style: initial</code> for unordered lists in Alert component to preserve default bullets after CSS reset"
+          ],
+          "components": [{ "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }]
+        }
+      ]
+    },
+    {
       "version": "20.2.3",
       "date": "November 4, 2024",
       "changelog": [
