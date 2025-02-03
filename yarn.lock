@@ -17978,7 +17978,7 @@ __metadata:
     react-dom: "npm:^18.3.1"
     sass: "npm:^1.83.4"
     typescript: "npm:~5.5.4"
-    vite: "npm:^5.4.12"
+    vite: "npm:^6.0.11"
   languageName: unknown
   linkType: soft
 
@@ -21349,7 +21349,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:6.0.11":
+"vite@npm:6.0.11, vite@npm:^6.0.11":
   version: 6.0.11
   resolution: "vite@npm:6.0.11"
   dependencies:
@@ -21401,7 +21401,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.4.12, vite@npm:^5.4.14":
+"vite@npm:^5.4.14":
   version: 5.4.14
   resolution: "vite@npm:5.4.14"
   dependencies:
@@ -21496,7 +21496,7 @@ __metadata:
     "@vitejs/plugin-vue": "npm:^5.2.1"
     sass: "npm:^1.83.4"
     typescript: "npm:~5.5.4"
-    vite: "npm:^5.4.12"
+    vite: "npm:^6.0.11"
     vue: "npm:^3.5.13"
     vue-router: "npm:^4.5.0"
     vue-tsc: "npm:^2.2.0"
