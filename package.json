@@ -33,7 +33,7 @@
     "lint": "eslint"
   },
   "engines": {
-    "node": ">=20.18.2"
+    "node": ">=22.13.1"
   },
   "dependencies": {
     "prettier": "^3.4.2"
