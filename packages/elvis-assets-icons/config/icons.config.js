@@ -4,7 +4,7 @@ for renaming/deprecating icons add the following:
 - newIconName : reference to new icon to be displayed
 
 for keeping licensing in order
-- thidpary {
+- thidparty {
   name: name of which thirdparty supplier of icons we use, f.ex "streamline" 
   duplicate: If we modify an icon with a valid license, reference to which icon we modified and has a valid license
 }
@@ -168,7 +168,9 @@ module.exports = [
   { name: 'bookmark', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'bookmark-filled', terms: [], thirdparty: { name: ['streamline'], duplicate: ['bookmark'] } },
   { name: 'bookshelf', terms: ['library', 'bookcase'], thirdparty: { name: ['streamline'] } },
+  { name: 'bot-filled', terms: ['chat', 'feedback'] },
   { name: 'box', terms: ['shipment', 'package', 'cardboard'], thirdparty: { name: ['streamline'] } },
+  { name: 'browse', terms: ['arrow', 'expand', 'navigation', 'chevron', 'open'] },
   { name: 'business-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'cabin', terms: ['cottage', 'house', 'outside', 'woods'], thirdparty: { name: ['streamline'] } },
   { name: 'cable', terms: ['cord', 'wire', 'power line', 'electricity'] },
@@ -349,8 +351,11 @@ module.exports = [
   },
   {
     name: 'electricity_tower',
-    terms: ['energy', 'high tension', 'tower', 'power', 'electricity'],
-    thirdparty: { name: ['streamline'] },
+    terms: ['energy', 'high tension', 'tower', 'power', 'electricity', 'transmission', 'pylon'],
+  },
+  {
+    name: 'electricity_tower-color',
+    terms: ['energy', 'high tension', 'tower', 'power', 'electricity', 'transmission', 'pylon'],
   },
   { name: 'elsmart-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'equal-bold', terms: ['same', 'identical', 'sign', 'equals', 'total'] },
@@ -371,6 +376,7 @@ module.exports = [
   },
   { name: 'fearless', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'feedback', terms: ['smiley'], thirdparty: { name: ['streamline'] } },
+  { name: 'feedback-filled-color', terms: ['smiley'], thirdparty: { name: ['streamline'] } },
   { name: 'filter', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'filter-filled', terms: [], thirdparty: { name: ['streamline'], duplicate: ['filter'] } },
   { name: 'flag', terms: [], thirdparty: { name: ['streamline'] } },
