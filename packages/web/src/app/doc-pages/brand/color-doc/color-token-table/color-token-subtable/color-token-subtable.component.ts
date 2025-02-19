@@ -1,4 +1,4 @@
-import { JsonPipe, LowerCasePipe, NgClass } from '@angular/common';
+import { LowerCasePipe, NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, input } from '@angular/core';
 import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
@@ -26,7 +26,6 @@ type Colors = {
     ColorTokenSubtableColorCircleComponent,
     LowerCasePipe,
     SafeHtmlPipe,
-    JsonPipe,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
