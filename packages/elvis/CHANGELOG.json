@@ -3,6 +3,24 @@
   "name": "elvis",
   "content": [
     {
+      "version": "20.3.4",
+      "date": "June 21, 2024",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added new icons <code>bot-filled</code>, <code>browse</code>, <code>electricity_tower-color</code>, <code>feedback-filled-color</code>."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/tools/icon" }]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated icon <code>electricity_tower</code>."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/tools/icon" }]
+        }
+      ]
+    },
+    {
       "version": "20.2.4",
       "date": "January 23, 2025",
       "changelog": [
