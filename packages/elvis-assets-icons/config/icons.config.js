@@ -4,7 +4,7 @@ for renaming/deprecating icons add the following:
 - newIconName : reference to new icon to be displayed
 
 for keeping licensing in order
-- thidpary {
+- thidparty {
   name: name of which thirdparty supplier of icons we use, f.ex "streamline" 
   duplicate: If we modify an icon with a valid license, reference to which icon we modified and has a valid license
 }
