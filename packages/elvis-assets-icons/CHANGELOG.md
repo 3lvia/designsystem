@@ -1,5 +1,15 @@
 # Elvis-assets-icon
 
+## 3.12.0 (19.02.25)
+
+### New feature
+
+- Added the `bot-filled`, `browse`, `electricity_tower-color` and `feedback-filled-color` icons.
+
+### Patch
+
+- Updated the `electricity_tower` icon.
+
 ## 3.11.1 (23.08.24)
 
 ### Patch
