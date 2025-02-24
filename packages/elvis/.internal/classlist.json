@@ -187,13 +187,12 @@
 				"e-input---disabled": {},
 				"e-input---loading": {}
 			},
-			"modifier": {
-				"e-input--placeholder": {},
-				"e-input--small": {}
-			},
 			"element": {
 				"e-input__icon": {},
 				"e-input__suffix": {}
+			},
+			"modifier": {
+				"e-input--small": {}
 			}
 		},
 		"e-checkbox": {
@@ -984,7 +983,6 @@
 		"e-fileupload__description": {},
 		"e-fileupload__input": {},
 		"e-fileupload--dragover": {},
-		"e-input--placeholder": {},
 		"e-input__icon": {},
 		"e-input__suffix": {},
 		"e-input---active": {},

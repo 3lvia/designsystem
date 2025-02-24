@@ -23,10 +23,5 @@
     "deprecateChildren": true,
     "version": "20.0.0",
     "sunset": "February 2025"
-  },
-  "e-input--placeholder": {
-    "deprecateChildren": true,
-    "version": "20.0.0",
-    "sunset": "February 2025"
   }
 }
