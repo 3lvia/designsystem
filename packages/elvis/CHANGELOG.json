@@ -3,15 +3,17 @@
   "name": "elvis",
   "content": [
     {
-      "version": "xxx",
-      "date": "xxx",
+      "version": "",
+      "date": "",
       "private": true,
       "changelog": [
         {
           "type": "breaking_changes",
           "changes": ["Removed the class <code>.e-table-footnote</code>."],
           "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }],
-          "fixes": ["Replace the class <code>.e-table-footnote</code> with <code>.e-table__footnote</code>."]
+          "fixes": [
+            "Replace all instances of <code>.e-table-footnote</code> with <code>.e-table__footnote</code>."
+          ]
         },
         {
           "type": "bug_fix",
