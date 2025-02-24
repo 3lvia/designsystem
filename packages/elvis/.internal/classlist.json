@@ -6,7 +6,6 @@
 				"e-alert__title": {},
 				"e-alert__text": {},
 				"e-alert__actions": {},
-				"e-alert__links": {},
 				"e-alert__close": {}
 			},
 			"modifier": {
@@ -805,7 +804,6 @@
 		"e-alert__title": {},
 		"e-alert__text": {},
 		"e-alert__actions": {},
-		"e-alert__links": {},
 		"e-alert__close": {},
 		"e-alert--global": {},
 		"e-alert--error": {},

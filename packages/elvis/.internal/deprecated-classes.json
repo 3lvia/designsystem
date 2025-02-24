@@ -1,14 +1,4 @@
 {
-  "e-alert__links": {
-    "deprecateChildren": true,
-    "version": "20.0.0",
-    "sunset": "February 2025",
-    "replacement": {
-      "name": "e-alert__actions",
-      "type": "class",
-      "documentation": "https://design.elvia.io/components/alert"
-    }
-  },
   "e-alert--actions": {
     "deprecateChildren": true,
     "version": "20.0.0",
