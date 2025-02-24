@@ -3,6 +3,36 @@
   "name": "elvis",
   "content": [
     {
+      "version": "",
+      "date": "",
+      "private": true,
+      "changelog": [
+        {
+          "type": "breaking_changes",
+          "changes": ["Removed the class <code>.e-table-footnote</code>."],
+          "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }],
+          "fixes": [
+            "Replace all instances of <code>.e-table-footnote</code> with <code>.e-table__footnote</code>."
+          ]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where input fields within a table with the <code>.e-input---invalid</code> class did not display the correct border color.",
+            "Fixed a bug where input fields within a table with the <code>.e-input---readonly</code> class did get the correct styles."
+          ],
+          "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }]
+        },
+        {
+          "type": "patch",
+          "changes": [
+            "Updated fallback fonts for <code>.e-text-mono</code> class in tables from Verdana/sans-serif to Courier/monospace."
+          ],
+          "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }]
+        }
+      ]
+    },
+    {
       "version": "20.3.4",
       "date": "February 19, 2025",
       "changelog": [
