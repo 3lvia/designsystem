@@ -363,6 +363,10 @@ $table-invalid-padding: 8px 16px;
     &:has(textarea:focus) {
       --border-color: var(--e-color-background-hover-1);
     }
+
+    &.e-input---invalid {
+      --border-color: var(--e-color-signal-danger);
+    }
   }
 }
 .e-table.e-table--small .e-table__input,
