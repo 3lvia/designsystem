@@ -161,7 +161,6 @@
 				"e-table--sticky-column-header": {}
 			}
 		},
-		"e-table-footnote": {},
 		"e-table-mobile": {
 			"modifier": {
 				"e-table-mobile--small": {},
@@ -899,7 +898,6 @@
 		"e-list__icon": {},
 		"e-outline": {},
 		"e-table-container": {},
-		"e-table-footnote": {},
 		"e-table__footnote": {},
 		"e-table__footnote--small": {},
 		"e-table": {},
