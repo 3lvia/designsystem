@@ -1,9 +1,6 @@
 @use '../utilities/mixins';
 @use '../utilities/breakpoints';
 
-// DEPRECATED CLASSES
-// .e-alert__content can be removed february 2025
-// .e-alert__links can be removed february 2025
 .e-alert {
   --alert-color: var(--e-color-signal-danger);
 
@@ -22,12 +19,6 @@
   padding: 24px 32px 24px 24px;
   border-radius: 8px;
   box-shadow: inset 0 0 0 2px var(--alert-color);
-
-  // This allows us to use CSS grid on e-alert, and
-  // makes the old DOM structure work with the new CSS.
-  .e-alert__content {
-    display: contents;
-  }
 
   .e-alert__icon {
     --icon-size: 32px;

@@ -2,7 +2,6 @@
 	"block": {
 		"e-alert": {
 			"element": {
-				"e-alert__content": {},
 				"e-alert__icon": {},
 				"e-alert__title": {},
 				"e-alert__text": {},
@@ -802,7 +801,6 @@
 	},
 	"flat": {
 		"e-alert": {},
-		"e-alert__content": {},
 		"e-alert__icon": {},
 		"e-alert__title": {},
 		"e-alert__text": {},
