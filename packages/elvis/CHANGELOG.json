@@ -9,10 +9,14 @@
       "changelog": [
         {
           "type": "breaking_changes",
-          "changes": ["Removed the class <code>.e-table-footnote</code>."],
+          "changes": [
+            "Removed the class <code>.e-table-footnote</code>.",
+            "Removed all CSS custom properties for spacing (e.g. <code>--e-spacing-8</code>, <code>--e-spacing-16</code>, etc.). Use pixel values directly instead."
+          ],
           "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }],
           "fixes": [
-            "Replace all instances of <code>.e-table-footnote</code> with <code>.e-table__footnote</code>."
+            "Replace all instances of <code>.e-table-footnote</code> with <code>.e-table__footnote</code>.",
+            "Replace all spacing custom properties with their direct pixel values (e.g. <code>--e-spacing-8</code> becomes <code>8px</code>)"
           ]
         },
         {
