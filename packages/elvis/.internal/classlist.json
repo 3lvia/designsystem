@@ -316,13 +316,6 @@
 				"e-radio---invalid": {}
 			}
 		},
-		"e-search": {
-			"modifier": {
-				"e-search--instant": {},
-				"e-search--searched": {},
-				"e-search--on-submit": {}
-			}
-		},
 		"e-toggle": {
 			"modifier": {
 				"e-toggle--inverted": {},
@@ -1010,10 +1003,6 @@
 		"e-radio---disabled-checked": {},
 		"e-radio---disabled": {},
 		"e-radio---invalid": {},
-		"e-search": {},
-		"e-search--instant": {},
-		"e-search--searched": {},
-		"e-search--on-submit": {},
 		"e-toggle": {},
 		"e-toggle--inverted": {},
 		"e-toggle__input": {},
