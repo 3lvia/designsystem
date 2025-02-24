@@ -11,6 +11,7 @@ import { AlertCegComponent } from './alert-ceg/alert-ceg.component';
 import { AlertGlobalActionsCegComponent } from './alert-global-actions-ceg/alert-global-actions-ceg.component';
 import { AlertGlobalCegComponent } from './alert-global-ceg/alert-global-ceg.component';
 import { AlertGlobalClosableCegComponent } from './alert-global-closable-ceg/alert-global-closable-ceg.component';
+import { AlertLocalActionsCegComponent } from './alert-local-actions-ceg/alert-local-actions-ceg.component';
 import { AlertLocalCegComponent } from './alert-local-ceg/alert-local-ceg.component';
 import { AlertLocalClosableCegComponent } from './alert-local-closable-ceg/alert-local-closable-ceg.component';
 import { AlertRoleAlertCegComponent } from './alert-role-alert-ceg/alert-role-alert-ceg.component';
@@ -38,6 +39,7 @@ import { AlertRoleStatusCegComponent } from './alert-role-status-ceg/alert-role-
     AlertRoleAlertCegComponent,
     AlertRoleStatusCegComponent,
     AlertRoleNoteCegComponent,
+    AlertLocalActionsCegComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
