@@ -161,7 +161,6 @@
 				"e-table--sticky-column-header": {}
 			}
 		},
-		"e-table-footnote": {},
 		"e-table-mobile": {
 			"modifier": {
 				"e-table-mobile--small": {},
@@ -181,9 +180,9 @@
 		"e-text-mono": {},
 		"e-input": {
 			"psuedo": {
+				"e-input---readonly": {},
 				"e-input---focus": {},
 				"e-input---invalid": {},
-				"e-input---readonly": {},
 				"e-input---active": {},
 				"e-input---disabled": {},
 				"e-input---loading": {}
@@ -899,7 +898,6 @@
 		"e-list__icon": {},
 		"e-outline": {},
 		"e-table-container": {},
-		"e-table-footnote": {},
 		"e-table__footnote": {},
 		"e-table__footnote--small": {},
 		"e-table": {},
@@ -919,7 +917,9 @@
 		"e-table__input": {},
 		"e-table-mobile__input": {},
 		"e-input": {},
+		"e-input---readonly": {},
 		"e-input---focus": {},
+		"e-input---invalid": {},
 		"e-table__button": {},
 		"e-table-mobile__button": {},
 		"e-table__checkbox": {},
@@ -994,8 +994,6 @@
 		"e-input--placeholder": {},
 		"e-input__icon": {},
 		"e-input__suffix": {},
-		"e-input---invalid": {},
-		"e-input---readonly": {},
 		"e-input---active": {},
 		"e-input---disabled": {},
 		"e-input---loading": {},
