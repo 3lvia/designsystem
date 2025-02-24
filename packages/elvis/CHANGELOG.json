@@ -23,9 +23,13 @@
           "type": "bug_fix",
           "changes": [
             "Fixed a bug where input fields within a table with the <code>.e-input---invalid</code> class did not display the correct border color.",
-            "Fixed a bug where input fields within a table with the <code>.e-input---readonly</code> class did get the correct styles."
+            "Fixed a bug where input fields within a table with the <code>.e-input---readonly</code> class did get the correct styles.",
+            "Fixed a bug where buttons and links inside the the <code>.e-alert__actions</code> class would not wrap and, therefore, cause overflow on narrow screens."
           ],
-          "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }]
+          "components": [
+            { "displayName": "Table", "url": "https://design.elvia.io/components/table" },
+            { "displayName": "Alert", "url": "https://design.elvia.io/components/alert" }
+          ]
         },
         {
           "type": "patch",
