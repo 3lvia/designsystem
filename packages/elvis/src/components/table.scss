@@ -358,14 +358,27 @@ $table-invalid-padding: 8px 16px;
     --border-color: var(--e-color-border-6);
     background: transparent;
 
-    &.e-input---focus,
-    &:has(input:focus),
-    &:has(textarea:focus) {
-      --border-color: var(--e-color-background-hover-1);
+    &:not(.e-input---readonly) {
+      &.e-input---focus,
+      &:has(input:focus):not(.e-input---readonly),
+      &:has(textarea:focus) {
+        --border-color: var(--e-color-background-hover-1);
+      }
     }
 
     &.e-input---invalid {
       --border-color: var(--e-color-signal-danger);
+    }
+
+    &.e-input---readonly {
+      --border-color: transparent;
+
+      > :is(input, textarea),
+      > :is(input, textarea):focus,
+      > :is(input, textarea):read-only,
+      > :is(input, textarea):read-only:focus {
+        color: var(--e-color-text-2);
+      }
     }
   }
 }

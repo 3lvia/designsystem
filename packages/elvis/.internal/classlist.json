@@ -180,9 +180,9 @@
 		"e-text-mono": {},
 		"e-input": {
 			"psuedo": {
+				"e-input---readonly": {},
 				"e-input---focus": {},
 				"e-input---invalid": {},
-				"e-input---readonly": {},
 				"e-input---active": {},
 				"e-input---disabled": {},
 				"e-input---loading": {}
@@ -917,6 +917,7 @@
 		"e-table__input": {},
 		"e-table-mobile__input": {},
 		"e-input": {},
+		"e-input---readonly": {},
 		"e-input---focus": {},
 		"e-input---invalid": {},
 		"e-table__button": {},
@@ -993,7 +994,6 @@
 		"e-input--placeholder": {},
 		"e-input__icon": {},
 		"e-input__suffix": {},
-		"e-input---readonly": {},
 		"e-input---active": {},
 		"e-input---disabled": {},
 		"e-input---loading": {},
