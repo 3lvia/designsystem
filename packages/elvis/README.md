@@ -71,7 +71,7 @@ Read about the
 
   - To deprecate an Elvis class, add it to the `deprecated-classes.json` file located at
     `packages/elvis/.internal/deprecated-classes.json`. Do not include the period prefix in the deprecated
-    class name.
+    class name. If the file is empty, there are no deprecated classes at that time.
   - Set the sunset dates to a date at least 6 months in the future and then every 6th month remove the classes
     that are deprecated from the deprecated file as well as the actual classes and code dependencies. <br/>Do
     not remove the class from the library before the sunset date. <br/>

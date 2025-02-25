@@ -2,12 +2,10 @@
 	"block": {
 		"e-alert": {
 			"element": {
-				"e-alert__content": {},
 				"e-alert__icon": {},
 				"e-alert__title": {},
 				"e-alert__text": {},
 				"e-alert__actions": {},
-				"e-alert__links": {},
 				"e-alert__close": {}
 			},
 			"modifier": {
@@ -187,13 +185,12 @@
 				"e-input---disabled": {},
 				"e-input---loading": {}
 			},
-			"modifier": {
-				"e-input--placeholder": {},
-				"e-input--small": {}
-			},
 			"element": {
 				"e-input__icon": {},
 				"e-input__suffix": {}
+			},
+			"modifier": {
+				"e-input--small": {}
 			}
 		},
 		"e-checkbox": {
@@ -314,13 +311,6 @@
 				"e-radio---disabled-checked": {},
 				"e-radio---disabled": {},
 				"e-radio---invalid": {}
-			}
-		},
-		"e-search": {
-			"modifier": {
-				"e-search--instant": {},
-				"e-search--searched": {},
-				"e-search--on-submit": {}
 			}
 		},
 		"e-toggle": {
@@ -810,12 +800,10 @@
 	},
 	"flat": {
 		"e-alert": {},
-		"e-alert__content": {},
 		"e-alert__icon": {},
 		"e-alert__title": {},
 		"e-alert__text": {},
 		"e-alert__actions": {},
-		"e-alert__links": {},
 		"e-alert__close": {},
 		"e-alert--global": {},
 		"e-alert--error": {},
@@ -991,7 +979,6 @@
 		"e-fileupload__description": {},
 		"e-fileupload__input": {},
 		"e-fileupload--dragover": {},
-		"e-input--placeholder": {},
 		"e-input__icon": {},
 		"e-input__suffix": {},
 		"e-input---active": {},
@@ -1010,10 +997,6 @@
 		"e-radio---disabled-checked": {},
 		"e-radio---disabled": {},
 		"e-radio---invalid": {},
-		"e-search": {},
-		"e-search--instant": {},
-		"e-search--searched": {},
-		"e-search--on-submit": {},
 		"e-toggle": {},
 		"e-toggle--inverted": {},
 		"e-toggle__input": {},
