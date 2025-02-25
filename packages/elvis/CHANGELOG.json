@@ -3,9 +3,8 @@
   "name": "elvis",
   "content": [
     {
-      "version": "",
-      "date": "",
-      "private": true,
+      "version": "21.0.0",
+      "date": "February 25, 2025",
       "changelog": [
         {
           "type": "breaking_changes",
@@ -39,7 +38,9 @@
         {
           "type": "patch",
           "changes": [
-            "Updated fallback fonts for <code>.e-text-mono</code> class in tables from Verdana/sans-serif to Courier/monospace."
+            "Updated fallback fonts for <code>.e-text-mono</code> class in tables from Verdana/sans-serif to Courier/monospace.",
+            "Updated internal <code>@elvia/elvis-colors</code> to <code>^4.4.2</code>.",
+            "Updated internal <code>@elvia/elvis-typography</code> to <code>^3.1.1</code>."
           ],
           "components": [{ "displayName": "Table", "url": "https://design.elvia.io/components/table" }]
         }
