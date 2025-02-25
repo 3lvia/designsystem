@@ -10,7 +10,7 @@
         {
           "type": "breaking_changes",
           "changes": [
-            "Removed all CSS custom properties for spacing (e.g. <code>--e-spacing-8</code>, <code>--e-spacing-16</code>, etc.). Use pixel values directly instead.",
+            "Removed all CSS custom properties for spacing (e.g. <code>--e-spacing-8</code>, <code>--e-spacing-16</code>, etc.).",
             "Removed the classes <code>.e-alert--actions</code>, <code>.e-alert--local</code>, <code>.e-alert__content</code>, <code>.e-alert__links</code>, <code>.e-input--placeholder</code>, <code>.e-search</code>, <code>.e-search--instant</code>, <code>.e-search--on-submit</code>, <code>.e-search--searched</code>, and <code>.e-table-footnote</code>."
           ],
           "components": [
