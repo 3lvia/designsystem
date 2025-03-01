@@ -3,6 +3,17 @@
   "name": "elvis",
   "content": [
     {
+      "version": "21.1.0",
+      "date": "March 3, 2025",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added the <code>money</code> icon."],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/tools/icon" }]
+        }
+      ]
+    },
+    {
       "version": "21.0.0",
       "date": "February 25, 2025",
       "changelog": [
