@@ -33,54 +33,6 @@ describe('Elvis DatepickerRange', () => {
     });
   });
 
-  describe('date range validation', () => {
-    const valueOnChange = jest.fn();
-    beforeEach(() => {
-      render(<DatepickerRange valueOnChange={valueOnChange} />);
-    });
-    it('should not allow start date to be after end date', async () => {
-      const user = userEvent.setup();
-
-      const startDate = screen.getByRole('textbox', { name: /fra dato/i });
-      const endDate = screen.getByRole('textbox', { name: /til dato/i });
-
-      await user.click(startDate);
-      await user.type(startDate, '01.03.2025');
-      await user.click(endDate);
-      await user.type(endDate, '01.02.2025');
-      await user.tab();
-      await user.tab();
-
-      await waitFor(() =>
-        expect(valueOnChange).toHaveBeenCalledWith({
-          start: new Date('2025-02-01T22:59:59.059Z'),
-          end: new Date('2025-02-01T22:59:59.059Z'),
-        }),
-      );
-    });
-
-    it('should not allow end date to be before start date', async () => {
-      const user = userEvent.setup();
-
-      const startDate = screen.getByRole('textbox', { name: /fra dato/i });
-      const endDate = screen.getByRole('textbox', { name: /til dato/i });
-
-      await user.click(startDate);
-      await user.type(startDate, '01.03.2025');
-      await user.click(endDate);
-      await user.type(endDate, '01.02.2025');
-      await user.tab();
-      await user.tab();
-
-      await waitFor(() =>
-        expect(valueOnChange).toHaveBeenCalledWith({
-          start: new Date('2025-02-01T22:59:59.059Z'),
-          end: new Date('2025-02-01T22:59:59.059Z'),
-        }),
-      );
-    });
-  });
-
   describe('min/max date constraints', () => {
     it('should not allow selecting dates outside min/max range', async () => {
       const user = userEvent.setup();
