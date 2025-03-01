@@ -398,7 +398,9 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             />
           )}
         </RowContainer>
-        {currentErrorMessages.start && <DatepickerRangeError errorText={currentErrorMessages.start} />}
+        {!mergedErrorOptions.start?.text &&
+          !mergedErrorOptions.start?.hideText &&
+          currentErrorMessages.start && <DatepickerRangeError errorText={currentErrorMessages.start} />}
       </FormFieldContainer>
       <FormFieldContainer isFullWidth={isFullWidth}>
         <RowContainer size={size}>
@@ -466,9 +468,10 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
             />
           )}
         </RowContainer>
-        {currentErrorMessages.end && !currentErrorMessages.start && (
-          <DatepickerRangeError errorText={currentErrorMessages.end} />
-        )}
+        {!mergedErrorOptions.end?.text &&
+          !mergedErrorOptions.end?.hideText &&
+          currentErrorMessages.end &&
+          !currentErrorMessages.start && <DatepickerRangeError errorText={currentErrorMessages.end} />}
       </FormFieldContainer>
     </DatepickerRangeWrapper>
   );
