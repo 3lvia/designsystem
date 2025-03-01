@@ -544,6 +544,11 @@ module.exports = [
     thirdparty: { name: ['streamline'] },
   },
   {
+    name: 'money',
+    terms: ['finance', 'cash', 'coins', 'payment', 'pay', 'cost'],
+    thirdparty: { name: ['streamline'] },
+  },
+  {
     name: 'money-color',
     terms: ['finance', 'cash', 'coins', 'payment', 'pay', 'cost'],
     thirdparty: { name: ['streamline'] },

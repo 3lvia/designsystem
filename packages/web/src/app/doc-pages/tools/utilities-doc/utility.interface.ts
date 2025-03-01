@@ -5,7 +5,7 @@ export interface UtilityGroup {
   classes: UtilityClass[];
 }
 export interface UtilityClass {
-  className: string;
-  description: string;
+  className: `e-${string}`;
+  description: `${string}.`;
   styling: string;
 }

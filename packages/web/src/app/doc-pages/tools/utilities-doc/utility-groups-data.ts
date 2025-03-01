@@ -43,7 +43,7 @@ export const utilityGroups: UtilityGroup[] = [
       },
       {
         className: 'e-color-text-token',
-        description: 'Sets the text to an available color in Elvis',
+        description: 'Sets the text to an available color in Elvis.',
         styling: 'color: #colorname',
       },
     ],
@@ -146,13 +146,28 @@ export const utilityGroups: UtilityGroup[] = [
         styling: 'align-items: flex-end',
       },
       {
+        className: 'e-align-self-center',
+        description: 'Put the item around the center.',
+        styling: 'align-self: center',
+      },
+      {
+        className: 'e-align-self-start',
+        description: 'Put the flex item at the start.',
+        styling: 'align-self: flex-start',
+      },
+      {
+        className: 'e-align-self-end',
+        description: 'Put the flex item at the end.',
+        styling: 'align-self: flex-end',
+      },
+      {
         className: 'e-flex-wrap',
-        description: 'Wrap the items',
+        description: 'Wrap the items.',
         styling: 'flex-wrap: wrap',
       },
       {
         className: 'e-flex-wrap-reverse',
-        description: 'Wrap the items in reverse',
+        description: 'Wrap the items in reverse.',
         styling: 'flex-wrap: wrap-reverse',
       },
       {
@@ -277,7 +292,7 @@ export const utilityGroups: UtilityGroup[] = [
       {
         className: 'e-m-nnumber',
         description:
-          'Set margin negative, from 0-112 following 8px multiplication. All margin classes can be used e.g. e-mr-n8',
+          'Set margin negative, from 0-112 following 8px multiplication. All margin classes can be used e.g. e-mr-n8.',
         styling: 'margin-right: -number',
       },
     ],

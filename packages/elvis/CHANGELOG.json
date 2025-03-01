@@ -3,6 +3,23 @@
   "name": "elvis",
   "content": [
     {
+      "version": "21.1.0",
+      "date": "March 3, 2025",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added the <code>money</code> icon.",
+            "Added the classes <code>.e-align-self-center</code>, <code>.e-align-self-end</code>, <code>.e-align-self-start</code>."
+          ],
+          "pages": [
+            { "displayName": "Icons", "url": "https://design.elvia.io/tools/icon" },
+            { "displayName": "Utility Classes", "url": "https://design.elvia.io/brand/utilities" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "21.0.0",
       "date": "February 25, 2025",
       "changelog": [
