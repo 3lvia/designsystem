@@ -365,7 +365,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
               }))
             }
             hasSelectDateOnOpen={false}
-          ></Datepicker>
+          />
           {hasTimepickers && (
             <Timepicker
               label=""
@@ -433,7 +433,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
               }))
             }
             hasSelectDateOnOpen={false}
-          ></Datepicker>
+          />
           {hasTimepickers && (
             <Timepicker
               label=""
