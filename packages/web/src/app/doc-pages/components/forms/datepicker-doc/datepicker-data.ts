@@ -83,6 +83,7 @@ const datepickerData: ComponentData<Omit<DatepickerProps, 'dateRangeProps' | 'on
     resetTime: {
       type: 'boolean',
       description: 'Whether to reset the time value in the emitted Date object to 00:00:00.',
+      default: 'false',
     },
     placeholder: {
       type: 'string',
