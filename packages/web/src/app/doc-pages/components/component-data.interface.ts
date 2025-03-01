@@ -6,7 +6,9 @@ type ChildlessType = PrimitiveType | EventType;
 type BaseType<T> = T extends (infer U)[] ? U : T;
 
 interface PropBase {
-  // Indicates whether a prop is required for the component.
+  /**
+   * Indicates whether a prop is required for the component.
+   */
   isRequired?: boolean;
 
   /**
@@ -18,6 +20,13 @@ interface PropBase {
    * '"left" | "center" | "right"'
    */
   type: string;
+  /**
+   * The default value the prop will have if not set by the user.
+   * @example
+   * 'true'
+   * 'dd.mm.åååå'
+   * 'green'
+   */
   default?: string | number | boolean;
   /** An example of how the prop can be used. Typed as a string, but should be a valid ts code example.
    * @example
