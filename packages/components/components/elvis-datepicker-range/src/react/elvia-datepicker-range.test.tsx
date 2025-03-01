@@ -8,7 +8,7 @@ import { DatepickerRange } from './elvia-datepicker-range';
 describe('Elvis DatepickerRange', () => {
   describe('Default', () => {
     beforeEach(() => {
-      render(<DatepickerRange></DatepickerRange>);
+      render(<DatepickerRange />);
     });
 
     it('should have two children', () => {
@@ -24,7 +24,7 @@ describe('Elvis DatepickerRange', () => {
 
   describe('with vertical alignment', () => {
     beforeEach(() => {
-      render(<DatepickerRange isVertical></DatepickerRange>);
+      render(<DatepickerRange isVertical />);
     });
 
     it('should have vertical stacking', () => {
@@ -33,9 +33,74 @@ describe('Elvis DatepickerRange', () => {
     });
   });
 
+  describe('date range validation', () => {
+    const valueOnChange = jest.fn();
+    beforeEach(() => {
+      render(<DatepickerRange valueOnChange={valueOnChange} />);
+    });
+    it('should not allow start date to be after end date', async () => {
+      const user = userEvent.setup();
+
+      const startDate = screen.getByRole('textbox', { name: /fra dato/i });
+      const endDate = screen.getByRole('textbox', { name: /til dato/i });
+
+      await user.click(startDate);
+      await user.type(startDate, '01.03.2025');
+      await user.click(endDate);
+      await user.type(endDate, '01.02.2025');
+      await user.tab();
+      await user.tab();
+
+      await waitFor(() =>
+        expect(valueOnChange).toHaveBeenCalledWith({
+          start: new Date('2025-02-01T22:59:59.059Z'),
+          end: new Date('2025-02-01T22:59:59.059Z'),
+        }),
+      );
+    });
+
+    it('should not allow end date to be before start date', async () => {
+      const user = userEvent.setup();
+
+      const startDate = screen.getByRole('textbox', { name: /fra dato/i });
+      const endDate = screen.getByRole('textbox', { name: /til dato/i });
+
+      await user.click(startDate);
+      await user.type(startDate, '01.03.2025');
+      await user.click(endDate);
+      await user.type(endDate, '01.02.2025');
+      await user.tab();
+      await user.tab();
+
+      await waitFor(() =>
+        expect(valueOnChange).toHaveBeenCalledWith({
+          start: new Date('2025-02-01T22:59:59.059Z'),
+          end: new Date('2025-02-01T22:59:59.059Z'),
+        }),
+      );
+    });
+  });
+
+  describe('min/max date constraints', () => {
+    it('should not allow selecting dates outside min/max range', async () => {
+      const user = userEvent.setup();
+
+      render(<DatepickerRange minDate={new Date('2022-10-21')} maxDate={new Date('2024-04-19')} />);
+
+      const startDate = screen.getByRole('textbox', { name: /fra dato/i });
+      await user.type(startDate, '10.11.2017');
+      await user.tab();
+      await user.tab();
+
+      const errors = screen.getAllByTestId('error');
+      expect(errors).toHaveLength(1);
+      expect(errors[0]).toHaveTextContent(/tidligste dato er 21.10.2022/i);
+    });
+  });
+
   describe('with time picker', () => {
     beforeEach(() => {
-      render(<DatepickerRange hasTimepickers></DatepickerRange>);
+      render(<DatepickerRange hasTimepickers />);
     });
 
     it('should display a start- and end-time picker', () => {
@@ -43,9 +108,62 @@ describe('Elvis DatepickerRange', () => {
     });
   });
 
+  describe('with errorOptions', () => {
+    it('should display custom error messages for both datepickers', async () => {
+      const errorOptions = {
+        start: { text: 'Start error' },
+        end: { text: 'End error' },
+      };
+
+      render(<DatepickerRange errorOptions={errorOptions} />);
+
+      const errors = screen.getAllByTestId('error');
+      expect(errors).toHaveLength(2);
+      expect(errors[0]).toHaveTextContent('Start error');
+      expect(errors[1]).toHaveTextContent('End error');
+    });
+
+    it('should not show internal errors if the errorOptions are set', async () => {
+      const errorOptions = {
+        start: { text: 'Start error' },
+        end: { text: 'End error' },
+      };
+
+      const user = userEvent.setup();
+      render(<DatepickerRange errorOptions={errorOptions} />);
+
+      const startDate = screen.getByRole('textbox', { name: /fra dato/i });
+      await user.click(startDate);
+      await user.type(startDate, '11.11.1111'); // invalid date
+      await user.tab();
+      await user.tab();
+
+      const errors = screen.getAllByTestId('error');
+      expect(errors).toHaveLength(2);
+      expect(errors[0]).toHaveTextContent('Start error');
+      expect(errors[1]).toHaveTextContent('End error');
+    });
+
+    it('should show default required error message when no errorOptions', async () => {
+      const user = userEvent.setup();
+
+      render(<DatepickerRange isRequired />);
+
+      const startDate = screen.getByRole('textbox', { name: /fra dato/i });
+      await user.click(startDate);
+      await user.type(startDate, ' ');
+      await user.tab();
+      await user.tab();
+
+      const errors = screen.getAllByTestId('error');
+      expect(errors).toHaveLength(1);
+      expect(errors[0]).toHaveTextContent(/velg dato/i);
+    });
+  });
+
   describe('className and inlineStyle passed to wrapper', () => {
     beforeEach(() => {
-      render(<DatepickerRange className="testclass" inlineStyle={{ paddingTop: '24px' }}></DatepickerRange>);
+      render(<DatepickerRange className="testclass" inlineStyle={{ paddingTop: '24px' }} />);
     });
 
     it('should have classname', () => {
@@ -61,7 +179,7 @@ describe('Elvis DatepickerRange', () => {
 
   describe('passes props to both underlying date pickers', () => {
     beforeEach(() => {
-      render(<DatepickerRange isDisabled isFullWidth></DatepickerRange>);
+      render(<DatepickerRange isDisabled isFullWidth />);
     });
 
     it('should have both date pickers disabled', () => {
