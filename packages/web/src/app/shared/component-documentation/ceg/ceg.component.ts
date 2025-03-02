@@ -57,7 +57,7 @@ export class CegComponent implements AfterViewInit, AfterContentInit {
   readonly componentExample = contentChild.required(ComponentExample);
   readonly tsComponentExample = contentChild(TypescriptComponentExample);
 
-  private destroyRef = inject(DestroyRef);
+  private readonly destroyRef = inject(DestroyRef);
 
   private _componentSlots = new BehaviorSubject<Slot[]>([]);
   readonly componentSlots = this._componentSlots
