@@ -1,14 +1,14 @@
 import { CdkTrapFocus } from '@angular/cdk/a11y';
 import { AsyncPipe, NgClass } from '@angular/common';
 import {
-  AfterViewInit,
   CUSTOM_ELEMENTS_SCHEMA,
   Component,
   ElementRef,
   HostListener,
   OnInit,
-  ViewChild,
+  effect,
   output,
+  viewChild,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
@@ -32,9 +32,8 @@ import { SearchResult, Searcher } from 'src/app/shared/searcher';
   imports: [CdkTrapFocus, FormsModule, NgClass, RouterLink, AsyncPipe, SearchHighlighterPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class SearchMenuComponent implements OnInit, AfterViewInit {
-  // @ts-expect-error TS2564 (LEGO-3683)
-  @ViewChild('searchInput') searchInputElement: ElementRef<HTMLInputElement>;
+export class SearchMenuComponent implements OnInit {
+  private readonly searchInputElement = viewChild.required<ElementRef<HTMLInputElement>>('searchInput');
   readonly closeSearchMenu = output<void>();
   // @ts-expect-error TS2564 (LEGO-3683)
   private mainMenu: CMSMenu;
@@ -90,9 +89,9 @@ export class SearchMenuComponent implements OnInit, AfterViewInit {
       .then(() => this.onSearch());
   }
 
-  ngAfterViewInit(): void {
-    this.searchInputElement.nativeElement.focus();
-  }
+  focusSearchInput = effect(() => {
+    this.searchInputElement().nativeElement.focus();
+  });
 
   /**
    * Gets called every time the content of the search field is changed. If the search is not yet initialized, return without performing any search.
@@ -138,7 +137,7 @@ export class SearchMenuComponent implements OnInit, AfterViewInit {
     this.filteredResults = [];
     this.filteredResults = [];
     this.synonymComponents = [];
-    this.searchInputElement.nativeElement.focus();
+    this.searchInputElement().nativeElement.focus();
   }
 
   private async initializeSearchItems(): Promise<void> {

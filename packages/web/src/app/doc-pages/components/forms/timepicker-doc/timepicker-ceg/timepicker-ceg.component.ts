@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, ViewChild } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, viewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { TimepickerProps } from '@elvia/elvis-timepicker/react';
@@ -13,8 +13,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TimepickerCegComponent implements ComponentExample {
-  // @ts-expect-error TS2564 (LEGO-3683)
-  @ViewChild('timepicker') timepicker: ElementRef<ElvisComponentWrapper>;
+  private readonly timepicker = viewChild.required<ElementRef<ElvisComponentWrapper>>('timepicker');
 
   elementName = 'timepicker';
   cegContent = new CegControlManager<TimepickerProps>([
@@ -69,7 +68,7 @@ export class TimepickerCegComponent implements ComponentExample {
           (propState.disabledControls as any).hasSecondPicker = ['minuteInterval']; // Disables the checkbox
           // @ts-expect-error TS1804 (LEGO-3683)8
           (propState.controls.hasSecondPicker as any).value = false; // Resets the checkbox
-          this.timepicker?.nativeElement?.setProps({ hasSecondPicker: false }); // Updates the prop on the component
+          this.timepicker().nativeElement?.setProps({ hasSecondPicker: false }); // Updates the prop on the component
         }
       } else {
         // @ts-expect-error TS1804 (LEGO-3683)8

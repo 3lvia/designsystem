@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, ViewChild } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, viewChild } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router, RoutesRecognized } from '@angular/router';
 
@@ -16,8 +16,7 @@ import { ScrollNotifierService } from './scroll-notifier.service';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class FeedbackComponent {
-  // @ts-expect-error TS2564 (LEGO-3683)
-  @ViewChild('feedbackContainer') feedbackContainer: ElementRef<HTMLDivElement>;
+  private readonly feedbackContainer = viewChild.required<ElementRef<HTMLDivElement>>('feedbackContainer');
 
   isEmoji = true;
   isComment = false;
@@ -37,7 +36,7 @@ export class FeedbackComponent {
     });
 
     this.scrollNotifierService.onScroll.pipe(takeUntilDestroyed()).subscribe(() => {
-      this.feedbackContainer.nativeElement.scrollIntoView({ behavior: 'smooth' });
+      this.feedbackContainer().nativeElement.scrollIntoView({ behavior: 'smooth' });
     });
   }
 

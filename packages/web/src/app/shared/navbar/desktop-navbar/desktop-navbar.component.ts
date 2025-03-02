@@ -4,14 +4,15 @@ import {
   AfterViewInit,
   CUSTOM_ELEMENTS_SCHEMA,
   Component,
+  DestroyRef,
   ElementRef,
   NgZone,
-  OnDestroy,
-  ViewChild,
+  inject,
+  viewChild,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { Subject, fromEvent, merge, switchMap, take, takeUntil } from 'rxjs';
+import { fromEvent, merge, switchMap, take } from 'rxjs';
 
 import { LocalePickerComponent } from '../locale-picker/locale-picker.component';
 import { NavbarBase } from '../navbar-base';
@@ -36,10 +37,11 @@ const animationMotion = '320ms cubic-bezier(0.5, 0, 0.31, 1)';
   imports: [NgClass, RouterLinkActive, RouterLink, SubMenuComponent, LocalePickerComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit, OnDestroy {
-  private unsubscriber = new Subject<void>();
-  // @ts-expect-error TS2564 (LEGO-3683)
-  @ViewChild('scrollContainer') scrollContainer: ElementRef<HTMLDivElement>;
+export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit {
+  private readonly destroyRef = inject(DestroyRef);
+
+  private readonly scrollContainer = viewChild.required<ElementRef<HTMLDivElement>>('scrollContainer');
+
   listOverflows = false;
   activeRoute = location.pathname;
 
@@ -66,14 +68,9 @@ export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit,
   }
 
   ngAfterViewInit(): void {
-    merge(fromEvent(this.scrollContainer.nativeElement, 'scroll'), fromEvent(window, 'resize'))
-      .pipe(takeUntil(this.unsubscriber))
+    merge(fromEvent(this.scrollContainer().nativeElement, 'scroll'), fromEvent(window, 'resize'))
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(() => this.setListOverflow());
-  }
-
-  ngOnDestroy(): void {
-    this.unsubscriber.next();
-    this.unsubscriber.complete();
   }
 
   private setActiveRoute(): void {
@@ -84,8 +81,9 @@ export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit,
   }
 
   private setListOverflow(): void {
-    if (this.scrollContainer?.nativeElement) {
-      const element = this.scrollContainer.nativeElement;
+    const scrollContainer = this.scrollContainer();
+    if (scrollContainer?.nativeElement) {
+      const element = scrollContainer.nativeElement;
       const scrollBottom = element.scrollHeight - (element.clientHeight + element.scrollTop);
       this.listOverflows = scrollBottom > 10;
     }
