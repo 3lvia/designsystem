@@ -4,7 +4,7 @@ import {
   Component,
   ElementRef,
   HostListener,
-  ViewChild,
+  viewChild,
 } from '@angular/core';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { BaseSpotlightProps } from '@elvia/elvis-spotlight/react';
@@ -19,10 +19,8 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SpotlightCegComponent implements ComponentExample, AfterViewInit {
-  // @ts-expect-error TS2564 (LEGO-3683)
-  @ViewChild('spotlight') spotlight: ElementRef<ElvisComponentWrapper>;
-  // @ts-expect-error TS2564 (LEGO-3683)
-  @ViewChild('trigger') trigger: ElementRef<HTMLButtonElement>;
+  private readonly spotlight = viewChild.required<ElementRef<ElvisComponentWrapper>>('spotlight');
+  private readonly trigger = viewChild.required<ElementRef<HTMLButtonElement>>('trigger');
 
   elementName = 'spotlight';
   cegContent = new CegControlManager<BaseSpotlightProps>([
@@ -57,16 +55,16 @@ export class SpotlightCegComponent implements ComponentExample, AfterViewInit {
       this.isSpotlight = !this.isSpotlight;
     }
 
-    const isHidden = this.spotlight.nativeElement.classList.toggle('e-none');
-    this.spotlight.nativeElement.setProps({ hasLockBodyScroll: !isHidden });
+    const isHidden = this.spotlight().nativeElement.classList.toggle('e-none');
+    this.spotlight().nativeElement.setProps({ hasLockBodyScroll: !isHidden });
     this.updateSpotlightPosition();
   }
 
   @HostListener('window:resize')
   @HostListener('window:scroll')
   private updateSpotlightPosition() {
-    const { left, top, width, height } = this.trigger.nativeElement.getBoundingClientRect();
-    this.spotlight.nativeElement.setProps({
+    const { left, top, width, height } = this.trigger().nativeElement.getBoundingClientRect();
+    this.spotlight().nativeElement.setProps({
       position: { horizontal: left + width / 2, vertical: top + height / 2 },
     });
   }

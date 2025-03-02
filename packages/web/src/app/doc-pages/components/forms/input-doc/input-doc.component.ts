@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { StaticCegComponent } from '../../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
@@ -51,9 +51,6 @@ import { InputValidationCegComponent } from './input-validation-ceg/input-valida
   ],
 })
 export class InputDocComponent {
-  // @ts-expect-error TS2564 (LEGO-3683)
-  @ViewChild('validationExample') validationExample: ElementRef;
-
   showPassword = false;
 
   does = [

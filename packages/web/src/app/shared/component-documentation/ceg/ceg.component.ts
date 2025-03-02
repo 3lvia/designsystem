@@ -4,18 +4,20 @@ import {
   AfterContentInit,
   AfterViewInit,
   Component,
-  ContentChild,
+  DestroyRef,
   ElementRef,
   NgZone,
-  OnDestroy,
-  ViewChild,
   booleanAttribute,
+  contentChild,
+  inject,
   input,
+  viewChild,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute } from '@angular/router';
 import type { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { debounceTime, first, map, switchMap, takeUntil } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { debounceTime, first, map, switchMap } from 'rxjs/operators';
 
 import { DynamicCodeGeneratorComponent } from './code-generator/dynamic-code-generator/dynamic-code-generator.component';
 import { ComponentExample } from './component-example';
@@ -48,15 +50,15 @@ interface SlotMap {
     AsyncPipe,
   ],
 })
-export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy {
+export class CegComponent implements AfterViewInit, AfterContentInit {
   readonly fullWidth = input(false, { transform: booleanAttribute });
-  // @ts-expect-error TS2564 (LEGO-3683)
-  @ViewChild('componentContainer') componentContainer: ElementRef<HTMLDivElement>;
-  // @ts-expect-error TS2564 (LEGO-3683)
-  @ContentChild(ComponentExample, { static: true }) componentExample: ComponentExample;
-  // @ts-expect-error TS2564 (LEGO-3683)
-  @ContentChild(TypescriptComponentExample, { static: true }) tsComponentExample: TypescriptComponentExample;
-  private unsubscriber = new Subject<void>();
+
+  readonly componentContainer = viewChild.required<ElementRef<HTMLDivElement>>('componentContainer');
+  readonly componentExample = contentChild.required(ComponentExample);
+  readonly tsComponentExample = contentChild(TypescriptComponentExample);
+
+  private destroyRef = inject(DestroyRef);
+
   private _componentSlots = new BehaviorSubject<Slot[]>([]);
   readonly componentSlots = this._componentSlots
     .asObservable()
@@ -65,16 +67,18 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
   typeScriptCode: Observable<string> | undefined;
 
   get hasMultipleComponentTypes() {
-    return this.componentExample.cegContent.componentTypes.pipe(
+    return this.componentExample().cegContent.componentTypes.pipe(
       map((componentTypes) => componentTypes.length > 1),
     );
   }
 
   get hasControlsForType(): Observable<boolean> {
-    return this.componentExample.cegContent.getCurrentControls().pipe(
-      map((controls) => !!(controls && Object.keys(controls).length > 0)),
-      takeUntil(this.unsubscriber),
-    );
+    return this.componentExample()
+      .cegContent.getCurrentControls()
+      .pipe(
+        map((controls) => !!(controls && Object.keys(controls).length > 0)),
+        takeUntilDestroyed(this.destroyRef),
+      );
   }
 
   constructor(
@@ -84,8 +88,9 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
   ) {}
 
   ngAfterContentInit(): void {
-    if (this.tsComponentExample) {
-      this.typeScriptCode = this.tsComponentExample.typeScript.pipe(takeUntil(this.unsubscriber));
+    const tsComponentExample = this.tsComponentExample();
+    if (tsComponentExample) {
+      this.typeScriptCode = tsComponentExample.typeScript.pipe(takeUntilDestroyed(this.destroyRef));
     }
   }
 
@@ -99,13 +104,8 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
     }
   }
 
-  ngOnDestroy(): void {
-    this.unsubscriber.next();
-    this.unsubscriber.complete();
-  }
-
   setPropValue(propName: string, value: ControlValue): void {
-    const updatedProp = this.componentExample.cegContent.setPropValue(propName, value);
+    const updatedProp = this.componentExample().cegContent.setPropValue(propName, value);
 
     if (updatedProp) {
       if (!updatedProp.excludedFromDOM) {
@@ -116,29 +116,30 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
   }
 
   toggleSlot(slotName: string, isVisible: boolean) {
-    this.componentExample.cegContent.setPropValue(slotName, isVisible);
+    this.componentExample().cegContent.setPropValue(slotName, isVisible);
     this.patchPropValueInUrl(slotName, isVisible);
   }
 
   setComponentType(typeName: string): void {
-    const initialValues = this.componentExample.cegContent.getChangedPropsWithInitialValues();
+    const initialValues = this.componentExample().cegContent.getChangedPropsWithInitialValues();
     this.getWebComponent().setProps(initialValues);
 
-    this.componentExample.cegContent.setActiveComponentTypeName(typeName);
+    this.componentExample().cegContent.setActiveComponentTypeName(typeName);
     this.patchPropValueInUrl('type', typeName, false);
   }
 
   private setCegStateFromURL(): void {
-    this.zone.onStable.pipe(takeUntil(this.unsubscriber), first()).subscribe(() => {
+    this.zone.onStable.pipe(takeUntilDestroyed(this.destroyRef), first()).subscribe(() => {
       const componentType = this.route.snapshot.queryParamMap.get('type');
       if (componentType) {
-        this.componentExample.cegContent.setActiveComponentTypeName(componentType);
+        this.componentExample().cegContent.setActiveComponentTypeName(componentType);
       }
 
       Object.entries(this.getNewestParamMap())
         .filter(([propName]) => propName !== 'type')
         .forEach(([propName, value]) => {
-          const control = this.componentExample.cegContent.getControlSnapshot()?.[propName];
+          const componentExample = this.componentExample();
+          const control = componentExample.cegContent.getControlSnapshot()?.[propName];
           const controlType = control?.type;
 
           let parsedValue: ControlValue = value;
@@ -148,7 +149,7 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
             parsedValue = value === 'true';
           }
 
-          const propWasUpdated = this.componentExample.cegContent.setPropValue(propName, parsedValue);
+          const propWasUpdated = componentExample.cegContent.setPropValue(propName, parsedValue);
 
           if (propWasUpdated && controlType !== 'slotToggle' && !control?.excludedFromDOM) {
             this.getWebComponent().setProps({ [propName]: parsedValue });
@@ -207,9 +208,9 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
     /** We need to wait in order to prevent ExpressionChangeAfterChecked error */
     this.zone.onStable
       .pipe(
-        takeUntil(this.unsubscriber),
         debounceTime(50),
-        switchMap(() => this.componentExample.cegContent.getSlotVisibility()),
+        switchMap(() => this.componentExample().cegContent.getSlotVisibility()),
+        takeUntilDestroyed(this.destroyRef),
       )
       .subscribe((slots) => {
         const slotList = this.getUpdatedSlotList(slots);
@@ -227,10 +228,10 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
   }
 
   private setUpTypeChangeSubscription() {
-    this.componentExample.cegContent.currentComponentTypeName
-      .pipe(takeUntil(this.unsubscriber))
+    this.componentExample()
+      .cegContent.currentComponentTypeName.pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((type) => {
-        const controls = this.componentExample.cegContent.getControlSnapshot();
+        const controls = this.componentExample().cegContent.getControlSnapshot();
         if (type) {
           this.getWebComponent().setProps({ type: type.toLowerCase() });
         }
@@ -241,9 +242,9 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
   }
 
   private setUpStaticPropSubscription() {
-    this.componentExample.cegContent
-      .getStaticProps()
-      .pipe(takeUntil(this.unsubscriber))
+    this.componentExample()
+      .cegContent.getStaticProps()
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe((props) => {
         if (!props) {
           return;
@@ -271,13 +272,13 @@ export class CegComponent implements AfterViewInit, AfterContentInit, OnDestroy 
   }
 
   private hasWebComponent() {
-    const tagName = `elvia-${this.componentExample.elementName}`;
-    return !!this.componentContainer.nativeElement.querySelector(tagName);
+    const tagName = `elvia-${this.componentExample().elementName}`;
+    return !!this.componentContainer().nativeElement.querySelector(tagName);
   }
 
   private getWebComponent() {
-    const tagName = `elvia-${this.componentExample.elementName}`;
-    const element = this.componentContainer.nativeElement.querySelector(tagName) as ElvisComponentWrapper;
+    const tagName = `elvia-${this.componentExample().elementName}`;
+    const element = this.componentContainer().nativeElement.querySelector(tagName) as ElvisComponentWrapper;
 
     if (!element) {
       throw new Error(

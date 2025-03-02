@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, ViewChild } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 
 import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
@@ -44,9 +44,6 @@ import { AlertRoleStatusCegComponent } from './alert-role-status-ceg/alert-role-
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AlertMessagesComponent {
-  // @ts-expect-error TS2564 (LEGO-3683)
-  @ViewChild('alertAccordionExample') alertAccordionExample: ElementRef;
-
   doesAlertDefault = [
     'Message related to the content of the page.',
     'To correct a problem.',

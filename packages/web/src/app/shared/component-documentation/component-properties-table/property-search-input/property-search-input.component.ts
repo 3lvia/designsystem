@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, ViewChild, output } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, output, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -10,8 +10,7 @@ import { FormsModule } from '@angular/forms';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PropertySearchInputComponent {
-  // @ts-expect-error TS2564 (LEGO-3683)
-  @ViewChild('searchInputElement') inputElement: ElementRef<HTMLInputElement>;
+  private readonly inputElement = viewChild.required<ElementRef<HTMLInputElement>>('searchInputElement');
 
   readonly search = output<string>();
 
@@ -24,6 +23,6 @@ export class PropertySearchInputComponent {
   clearSearchField(): void {
     this.searchTerm = '';
     this.emitSearch();
-    this.inputElement.nativeElement?.focus();
+    this.inputElement().nativeElement?.focus();
   }
 }
