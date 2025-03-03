@@ -11,6 +11,10 @@
           "changes": [
             "Fixed a bug where the Date Picker Range would show its internal error even when the <code>hideText</code> prop was set to <code>true</code>."
           ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
         }
       ]
     },
