@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 3.13.0 (03.03.25)
+
+### New feature
+
+- Added the `money` icon.
+
 ## 3.12.0 (19.02.25)
 
 ### New feature
