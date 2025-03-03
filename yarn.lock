@@ -1893,7 +1893,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@elvia/elvis-assets-icons@npm:*, @elvia/elvis-assets-icons@npm:^3.10.0, @elvia/elvis-assets-icons@npm:^3.11.0, @elvia/elvis-assets-icons@npm:^3.11.1, @elvia/elvis-assets-icons@workspace:*, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
+"@elvia/elvis-assets-icons@npm:*, @elvia/elvis-assets-icons@npm:^3.10.0, @elvia/elvis-assets-icons@npm:^3.11.0, @elvia/elvis-assets-icons@npm:^3.11.1, @elvia/elvis-assets-icons@npm:^3.13.0, @elvia/elvis-assets-icons@workspace:*, @elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
@@ -1908,15 +1908,6 @@ __metadata:
     typescript: "npm:~5.5.4"
   languageName: unknown
   linkType: soft
-
-"@elvia/elvis-assets-icons@npm:^3.13.0":
-  version: 3.13.0
-  resolution: "@elvia/elvis-assets-icons@npm:3.13.0"
-  dependencies:
-    "@elvia/elvis-colors": "npm:^4.1.0"
-  checksum: 10/1dc49685f52fc037758629f9e15f546b795d5eedfc518c7ae6c7b738dcd9b9736d68eda2a2d439916dfb7ee411fe574ff6a254a741efde48081b502d1edf011e
-  languageName: node
-  linkType: hard
 
 "@elvia/elvis-autocomplete@npm:*, @elvia/elvis-autocomplete@workspace:*, @elvia/elvis-autocomplete@workspace:packages/components/components/elvis-autocomplete":
   version: 0.0.0-use.local
@@ -7342,7 +7333,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"browserslist@npm:^4.23.0, browserslist@npm:^4.23.3, browserslist@npm:^4.24.0, browserslist@npm:^4.24.3":
+"browserslist@npm:^4.23.0, browserslist@npm:^4.23.3, browserslist@npm:^4.24.0, browserslist@npm:^4.24.4":
   version: 4.24.4
   resolution: "browserslist@npm:4.24.4"
   dependencies:
@@ -7984,11 +7975,11 @@ __metadata:
   linkType: hard
 
 "core-js-compat@npm:^3.40.0":
-  version: 3.40.0
-  resolution: "core-js-compat@npm:3.40.0"
+  version: 3.41.0
+  resolution: "core-js-compat@npm:3.41.0"
   dependencies:
-    browserslist: "npm:^4.24.3"
-  checksum: 10/3dd3d717b3d4ae0d9c2930d39c0f2a21ca6f195fcdd5711bda833557996c4d9f90277eab576423478e95689257e2de8d1a2623d6618084416bd224d10d5df9a4
+    browserslist: "npm:^4.24.4"
+  checksum: 10/a59da111fc437cc7ed1a1448dae6883617cabebd7731433d27ad75e0ff77df5f411204979bd8eb5668d2600f99db46eedf6f87e123109b6de728bef489d4229a
   languageName: node
   linkType: hard
 
