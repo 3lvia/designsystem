@@ -3,6 +3,22 @@
   "name": "elvis-datepicker-range",
   "content": [
     {
+      "date": "03.03.25",
+      "version": "5.1.2",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug where the Date Picker Range would show its internal error even when the <code>hideText</code> prop was set to <code>true</code>."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "11.11.24",
       "version": "5.1.1",
       "changelog": [
