@@ -1909,6 +1909,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@elvia/elvis-assets-icons@npm:^3.13.0":
+  version: 3.13.0
+  resolution: "@elvia/elvis-assets-icons@npm:3.13.0"
+  dependencies:
+    "@elvia/elvis-colors": "npm:^4.1.0"
+  checksum: 10/1dc49685f52fc037758629f9e15f546b795d5eedfc518c7ae6c7b738dcd9b9736d68eda2a2d439916dfb7ee411fe574ff6a254a741efde48081b502d1edf011e
+  languageName: node
+  linkType: hard
+
 "@elvia/elvis-autocomplete@npm:*, @elvia/elvis-autocomplete@workspace:*, @elvia/elvis-autocomplete@workspace:packages/components/components/elvis-autocomplete":
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-autocomplete@workspace:packages/components/components/elvis-autocomplete"
@@ -2187,8 +2196,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-datepicker-range@workspace:packages/components/components/elvis-datepicker-range"
   dependencies:
-    "@elvia/elvis-assets-icons": "npm:^3.11.1"
-    "@elvia/elvis-component-wrapper": "npm:^4.2.0"
+    "@elvia/elvis-assets-icons": "npm:^3.13.0"
+    "@elvia/elvis-component-wrapper": "npm:^4.3.0"
     "@elvia/elvis-datepicker": "npm:^9.1.1"
     "@elvia/elvis-timepicker": "npm:^5.2.0"
     "@elvia/elvis-toolbox": "npm:^12.1.0"
