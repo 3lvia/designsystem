@@ -36,7 +36,8 @@
     margin-right: 0%;
   }
 }
-.tableRow {
+
+.table__Row {
   display: flex;
   justify-content: space-between;
   margin-bottom: 16px;
@@ -46,7 +47,7 @@
   }
 }
 
-.rowTitle {
+.row__title {
   width: 19%;
   margin-right: 24px;
 
@@ -90,7 +91,7 @@
   }
 }
 
-.cssContent {
+.css__content {
   width: 20%;
   margin-left: 16px;
   @include breakpoints.breakpoint-up(Mobile) {

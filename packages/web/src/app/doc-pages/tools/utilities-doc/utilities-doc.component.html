@@ -10,10 +10,10 @@
 <div class="page-body">
   <!--TABLE OF CLASSES-->
   <app-component-subsection>
-    @for (group of utilityGroups; track $index) {
+    @for (group of utilityGroups; track group.title) {
       <div class="utility-container">
         @if (group.path) {
-          <h3 class="rowTitle e-title-xs">
+          <h3 class="row__title e-title-xs">
             <a
               class="e-link e-link--lg"
               [routerLink]="[group.path]"
@@ -24,20 +24,20 @@
             </a>
           </h3>
         } @else {
-          <h3 class="rowTitle e-title-xs" data-url-fragment>
+          <h3 class="row__title e-title-xs" data-url-fragment>
             {{ group.title }}
           </h3>
         }
         <div class="e-text-md" style="width: 100%">
-          @for (class of group.classes; track $index) {
-            <div class="tableRow">
+          @for (class of group.classes; track class.className) {
+            <div class="table__Row">
               <span class="class">
                 <app-copy [message]="class.className">
                   <code class="code-text">{{ class.className }}</code>
                 </app-copy>
               </span>
-              <span class="description">{{ class.description }}</span>
-              <span class="cssContent">{{ class.styling }}</span>
+              <p class="e-m-0 description">{{ class.description }}</p>
+              <span class="css__content">{{ class.styling }}</span>
             </div>
           }
         </div>
