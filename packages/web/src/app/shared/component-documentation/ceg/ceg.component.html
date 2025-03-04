@@ -2,7 +2,7 @@
   @if (hasMultipleComponentTypes | async) {
     <div class="ceg-header e-mb-8">
       <app-type-switcher
-        [controlManager]="componentExample.cegContent"
+        [controlManager]="componentExample().cegContent"
         (typeChange)="setComponentType($event)"
       />
     </div>
@@ -17,7 +17,7 @@
     @if (hasControlsForType | async) {
       <div class="ceg-floating-toolbar">
         <app-controls-popover
-          [controlManager]="componentExample.cegContent"
+          [controlManager]="componentExample().cegContent"
           (propChange)="setPropValue($event.propName, $event.value)"
           (slotToggle)="toggleSlot($event.slotName, $event.isVisible)"
         />
@@ -27,7 +27,7 @@
 
   <app-controls
     class="ceg-desktop-controls"
-    [controlManager]="componentExample.cegContent"
+    [controlManager]="componentExample().cegContent"
     (propChange)="setPropValue($event.propName, $event.value)"
     (slotToggle)="toggleSlot($event.slotName, $event.isVisible)"
   />
@@ -35,10 +35,10 @@
   <app-dynamic-code-generator
     class="code-generator"
     [ngClass]="{ 'full-width-example': (hasControlsForType | async) === false && fullWidth() }"
-    [controlManager]="componentExample.cegContent"
-    [elementName]="componentExample.elementName"
+    [controlManager]="componentExample().cegContent"
+    [elementName]="componentExample().elementName"
     [componentSlots]="componentSlots"
-    [reactSlotReplacement]="componentExample.reactSlotReplacement"
+    [reactSlotReplacement]="componentExample().reactSlotReplacement"
     [typeScriptCode]="typeScriptCode"
   />
 </div>
