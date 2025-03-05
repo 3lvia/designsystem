@@ -4661,29 +4661,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/functions@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@netlify/functions@npm:3.0.0"
+"@netlify/functions@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "@netlify/functions@npm:3.0.1"
   dependencies:
-    "@netlify/serverless-functions-api": "npm:1.30.1"
-  checksum: 10/1d73ce12d214b1f21e4dec17ea0b2c28ed35d94c663b7d1502958a41193232b2c8fb1b0bfc0895f2ae4830a4ff02cde03495d6bd6c8adb9384ef0f787e9007e7
+    "@netlify/serverless-functions-api": "npm:1.35.0"
+  checksum: 10/c796a09f5929a646684277cfde528d89eee02f98762f56cfc95cee18623208657cd7d55ecb3fa3dfd977ac92d9b412b989889d12d006151cbcf098fe8c9d64ad
   languageName: node
   linkType: hard
 
-"@netlify/node-cookies@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@netlify/node-cookies@npm:0.1.0"
-  checksum: 10/4399905eb90967a40c485b5b44aa5425e32f9db968fe9fca9180c169b924091cc8c635104c132ba700041479c75198f9e41781780706ec3df45f2862641c6414
-  languageName: node
-  linkType: hard
-
-"@netlify/serverless-functions-api@npm:1.30.1":
-  version: 1.30.1
-  resolution: "@netlify/serverless-functions-api@npm:1.30.1"
-  dependencies:
-    "@netlify/node-cookies": "npm:^0.1.0"
-    urlpattern-polyfill: "npm:8.0.2"
-  checksum: 10/2f586e34f677f7070f26f802367d0c060fcf7599bf91757c10a257fefce653bf89df420a33625fb36c853e212a55267aae8406e752e202815c75b406c92aa859
+"@netlify/serverless-functions-api@npm:1.35.0":
+  version: 1.35.0
+  resolution: "@netlify/serverless-functions-api@npm:1.35.0"
+  checksum: 10/f7dc5b031566312e5a2c62b4ef2f6c4ddb47b8dabfa1a94c53938d9e951b6efd1595dd8d0812974850c7b2a064369f49ed42ba9c059c4273a1443196e5933566
   languageName: node
   linkType: hard
 
@@ -8719,7 +8709,7 @@ __metadata:
     "@elvia/elvis-toast": "workspace:*"
     "@elvia/elvis-tooltip": "workspace:*"
     "@elvia/elvis-typography": "workspace:*"
-    "@netlify/functions": "npm:^3.0.0"
+    "@netlify/functions": "npm:^3.0.1"
     "@types/file-saver": "npm:^2.0.7"
     "@types/natural-compare-lite": "npm:^1.4.2"
     "@types/node": "npm:22.13.9"
@@ -16848,13 +16838,6 @@ __metadata:
     querystringify: "npm:^2.1.1"
     requires-port: "npm:^1.0.0"
   checksum: 10/c9e96bc8c5b34e9f05ddfeffc12f6aadecbb0d971b3cc26015b58d5b44676a99f50d5aeb1e5c9e61fa4d49961ae3ab1ae997369ed44da51b2f5ac010d188e6ad
-  languageName: node
-  linkType: hard
-
-"urlpattern-polyfill@npm:8.0.2":
-  version: 8.0.2
-  resolution: "urlpattern-polyfill@npm:8.0.2"
-  checksum: 10/fd86b5c55473f3abbf9ed317b953c9cbb4fa6b3f75f681a1d982fe9c17bbc8d9bcf988f4cf3bda35e2e5875984086c97e177f97f076bb80dfa2beb85d1dd7b23
   languageName: node
   linkType: hard
 
