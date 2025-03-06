@@ -86,7 +86,7 @@
     "@types/prismjs": "^1.26.5",
     "@types/safe-json-stringify": "^1.1.5",
     "angular-eslint": "^19.2.0",
-    "contentful-management": "^11.47.3",
+    "contentful-management": "^11.48.0",
     "contentful-typescript-codegen": "^3.4.0",
     "eslint": "^9.21.0",
     "safe-json-stringify": "^1.2.0",
