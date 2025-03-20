@@ -2461,7 +2461,7 @@ __metadata:
   resolution: "@elvia/elvis-icons@workspace:packages/elvis-icons"
   dependencies:
     "@lit/react": "npm:^1.0.7"
-    "@types/react": "npm:^18.3.18"
+    "@types/react": "npm:^18.3.19"
     dompurify: "npm:^3.2.4"
     lit: "npm:^3.2.1"
     lit-html: "npm:^3.2.1"
@@ -6225,13 +6225,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.2.28, @types/react@npm:^18.3.18":
+"@types/react@npm:^18.2.28":
   version: 18.3.18
   resolution: "@types/react@npm:18.3.18"
   dependencies:
     "@types/prop-types": "npm:*"
     csstype: "npm:^3.0.2"
   checksum: 10/7fdd8b853e0d291d4138133f93f8d5c333da918e5804afcea61a923aab4bdfc9bb15eb21a5640959b452972b8715ddf10ffb12b3bd071898b9e37738636463f2
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:^18.3.19":
+  version: 18.3.19
+  resolution: "@types/react@npm:18.3.19"
+  dependencies:
+    "@types/prop-types": "npm:*"
+    csstype: "npm:^3.0.2"
+  checksum: 10/4b40a4adf7a59390541dc24059c09d95a777e8e8025fab13d660e1929a88e78efadde8ec94ebd357c5cc80b25590645e81c5b621661700f40496e7833b3d2983
   languageName: node
   linkType: hard
 
@@ -14428,7 +14438,7 @@ __metadata:
     "@elvia/elvis-toast": "npm:*"
     "@elvia/elvis-tooltip": "npm:*"
     "@elvia/elvis-typography": "npm:*"
-    "@types/react": "npm:^18.3.18"
+    "@types/react": "npm:^18.3.19"
     "@types/react-dom": "npm:^18.3.5"
     "@vitejs/plugin-react": "npm:^4.3.4"
     react: "npm:^18.3.1"
