@@ -4787,12 +4787,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/functions@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "@netlify/functions@npm:3.0.1"
+"@netlify/functions@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "@netlify/functions@npm:3.0.2"
   dependencies:
     "@netlify/serverless-functions-api": "npm:1.35.0"
-  checksum: 10/c796a09f5929a646684277cfde528d89eee02f98762f56cfc95cee18623208657cd7d55ecb3fa3dfd977ac92d9b412b989889d12d006151cbcf098fe8c9d64ad
+  checksum: 10/44dca1ebbb464821af6f6dd70a968d248dbc6436dd8ab80d40332a2d1c4696a48bde508f30f0ccc1285f4576aa411a0149b72c9273cce31baa177b00d0caabc2
   languageName: node
   linkType: hard
 
@@ -8845,7 +8845,7 @@ __metadata:
     "@elvia/elvis-toast": "workspace:*"
     "@elvia/elvis-tooltip": "workspace:*"
     "@elvia/elvis-typography": "workspace:*"
-    "@netlify/functions": "npm:^3.0.1"
+    "@netlify/functions": "npm:^3.0.2"
     "@types/file-saver": "npm:^2.0.7"
     "@types/natural-compare-lite": "npm:^1.4.2"
     "@types/node": "npm:22.13.10"
