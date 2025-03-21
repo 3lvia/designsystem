@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-input-validation-ceg',
   templateUrl: './input-validation-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: InputValidationCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class InputValidationCegComponent implements StaticComponentExample, AfterViewInit {

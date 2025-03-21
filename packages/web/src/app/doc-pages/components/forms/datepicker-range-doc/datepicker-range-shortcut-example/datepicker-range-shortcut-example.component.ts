@@ -6,7 +6,6 @@ type Shortcut = 'custom' | 'today' | 'yesterday' | 'lastWeek' | 'lastMonth';
   selector: 'app-datepicker-range-shortcut-example',
   templateUrl: './datepicker-range-shortcut-example.component.html',
   styleUrls: ['./datepicker-range-shortcut-example.component.scss'],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DatepickerRangeShortcutExampleComponent {

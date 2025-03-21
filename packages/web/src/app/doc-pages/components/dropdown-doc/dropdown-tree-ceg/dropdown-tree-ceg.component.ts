@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-dropdown-tree-ceg',
   templateUrl: './dropdown-tree-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: DropdownTreeCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DropdownTreeCegComponent implements StaticComponentExample {

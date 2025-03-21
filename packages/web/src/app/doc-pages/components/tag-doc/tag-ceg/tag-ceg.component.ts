@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-tag-ceg',
   templateUrl: './tag-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: TagCegComponent }],
-  standalone: true,
 })
 export class TagCegComponent implements StaticComponentExample {
   html = template.default;

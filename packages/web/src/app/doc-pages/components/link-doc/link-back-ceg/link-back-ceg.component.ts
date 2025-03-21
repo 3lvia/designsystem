@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-link-back-ceg',
   templateUrl: './link-back-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: LinkBackCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LinkBackCegComponent implements StaticComponentExample {

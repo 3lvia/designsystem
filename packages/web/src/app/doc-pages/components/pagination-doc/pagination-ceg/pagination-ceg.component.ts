@@ -7,7 +7,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-pagination-ceg',
   templateUrl: './pagination-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: PaginationCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PaginationCegComponent implements ComponentExample {

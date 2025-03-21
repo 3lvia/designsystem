@@ -7,7 +7,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-progressbar-ceg',
   templateUrl: './progressbar-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: ProgressbarCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ProgressbarCegComponent implements ComponentExample {

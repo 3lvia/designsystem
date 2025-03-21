@@ -8,7 +8,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-radio-filter-icon-ceg',
   templateUrl: './radio-filter-icon-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: RadioFilterIconCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class RadioFilterIconCegComponent implements StaticComponentExample {

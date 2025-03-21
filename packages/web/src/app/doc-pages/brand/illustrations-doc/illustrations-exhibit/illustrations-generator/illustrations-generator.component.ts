@@ -5,7 +5,6 @@ import { IllustrationName } from '../illustrations-exhibit-data';
 
 @Component({
   selector: 'app-illustrations-generator',
-  standalone: true,
   template: '',
 })
 export class IllustrationsGeneratorComponent {

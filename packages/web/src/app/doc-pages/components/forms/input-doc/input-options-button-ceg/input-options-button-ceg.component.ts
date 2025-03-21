@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-input-options-button-ceg',
   templateUrl: './input-options-button-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: InputOptionsButtonCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class InputOptionsButtonCegComponent implements StaticComponentExample {

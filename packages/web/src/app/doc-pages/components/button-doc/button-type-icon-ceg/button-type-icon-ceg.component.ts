@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-button-type-icon-ceg',
   templateUrl: './button-type-icon-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: ButtonTypeIconCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ButtonTypeIconCegComponent implements StaticComponentExample {

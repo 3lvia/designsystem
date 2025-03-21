@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-dropdown-empty-ceg',
   templateUrl: './dropdown-empty-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: DropdownEmptyCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DropdownEmptyCegComponent implements StaticComponentExample {

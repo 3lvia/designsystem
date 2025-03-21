@@ -8,7 +8,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   templateUrl: './table-detailed-information-tooltip-ceg.component.html',
   styleUrls: ['./table-detailed-information-tooltip-ceg.component.scss'],
   providers: [{ provide: StaticComponentExample, useExisting: TableExtraInformationTooltipCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TableExtraInformationTooltipCegComponent implements StaticComponentExample {

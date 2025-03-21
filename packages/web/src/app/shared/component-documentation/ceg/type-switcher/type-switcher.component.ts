@@ -1,11 +1,4 @@
-import {
-  CUSTOM_ELEMENTS_SCHEMA,
-  Component,
-  OnDestroy,
-  OnInit,
-  input,
-  output
-} from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, OnDestroy, OnInit, input, output } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -20,7 +13,6 @@ interface DropdownOption {
   selector: 'app-type-switcher',
   templateUrl: './type-switcher.component.html',
   styleUrls: ['./type-switcher.component.scss'],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TypeSwitcherComponent implements OnInit, OnDestroy {

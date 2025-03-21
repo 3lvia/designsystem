@@ -7,7 +7,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-datepicker-ceg',
   templateUrl: './datepicker-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: DatepickerCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DatepickerCegComponent implements ComponentExample {

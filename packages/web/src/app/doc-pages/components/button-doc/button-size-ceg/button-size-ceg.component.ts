@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-button-size-ceg',
   templateUrl: './button-size-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: ButtonSizeCegComponent }],
-  standalone: true,
 })
 export class ButtonSizeCegComponent implements StaticComponentExample {
   html = template.default;

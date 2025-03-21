@@ -9,7 +9,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-timepicker-ceg',
   templateUrl: './timepicker-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: TimepickerCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TimepickerCegComponent implements ComponentExample {

@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-search-on-submit-searched-ceg',
   templateUrl: './search-on-submit-searched-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: SearchOnSubmitSearchedCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SearchOnSubmitSearchedCegComponent implements StaticComponentExample {

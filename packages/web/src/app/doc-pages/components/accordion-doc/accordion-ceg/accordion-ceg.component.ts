@@ -8,7 +8,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   templateUrl: './accordion-ceg.component.html',
   styleUrls: ['./accordion-ceg.component.scss'],
   providers: [{ provide: ComponentExample, useExisting: AccordionCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AccordionCegComponent implements ComponentExample {

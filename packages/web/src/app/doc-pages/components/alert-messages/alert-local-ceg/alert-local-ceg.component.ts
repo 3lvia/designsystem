@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-alert-local-ceg',
   templateUrl: './alert-local-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: AlertLocalCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AlertLocalCegComponent implements StaticComponentExample {

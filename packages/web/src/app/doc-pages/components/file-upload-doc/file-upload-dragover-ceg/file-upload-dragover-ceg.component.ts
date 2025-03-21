@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-file-upload-dragover-ceg',
   templateUrl: './file-upload-dragover-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: FileUploadDragoverCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class FileUploadDragoverCegComponent implements StaticComponentExample {

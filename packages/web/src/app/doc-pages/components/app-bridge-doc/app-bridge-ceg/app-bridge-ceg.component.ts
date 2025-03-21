@@ -5,7 +5,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
 
 @Component({
   selector: 'app-app-bridge-ceg',
-  standalone: true,
   templateUrl: './app-bridge-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: AppBridgeCegComponent }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

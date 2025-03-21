@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-breadcrumb-event-ceg',
   templateUrl: './breadcrumb-event-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: BreadcrumbEventCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class BreadcrumbEventCegComponent implements StaticComponentExample {

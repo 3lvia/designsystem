@@ -7,7 +7,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-segmented-control-ceg',
   templateUrl: './segmented-control-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: SegmentedControlCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SegmentedControlCegComponent implements ComponentExample {

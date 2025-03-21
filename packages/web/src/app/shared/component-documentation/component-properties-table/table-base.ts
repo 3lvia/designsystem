@@ -12,7 +12,6 @@ interface TableGroup {
 
 @Directive({
   selector: '[appPropertyTableBase]',
-  standalone: true,
 })
 export class PropertyTableBaseDirective {
   readonly props = input<SearchResult<ComponentProp>[]>([]);

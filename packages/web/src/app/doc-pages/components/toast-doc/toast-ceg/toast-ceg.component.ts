@@ -16,7 +16,6 @@ import {
     { provide: ComponentExample, useExisting: ToastCegComponent },
     { provide: TypescriptComponentExample, useExisting: ToastCegComponent },
   ],
-  standalone: true,
 })
 export class ToastCegComponent extends TypescriptComponentExample implements ComponentExample {
   elementName = 'toast';

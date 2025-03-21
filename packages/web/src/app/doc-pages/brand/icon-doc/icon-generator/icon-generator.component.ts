@@ -4,7 +4,6 @@ import { kebabCaseToCamelCase } from '../icon-preview/utils';
 
 @Component({
   selector: 'app-icon-generator',
-  standalone: true,
   template: `<e-icon [name]="transformedName()" [size]="size()" />`,
   styles: [':host { line-height: 0; }'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

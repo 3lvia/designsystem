@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-alert-global-closable-ceg',
   templateUrl: './alert-global-closable-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: AlertGlobalClosableCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AlertGlobalClosableCegComponent implements StaticComponentExample {
