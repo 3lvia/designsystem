@@ -4787,19 +4787,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/functions@npm:^3.0.2":
-  version: 3.0.2
-  resolution: "@netlify/functions@npm:3.0.2"
+"@netlify/functions@npm:^3.0.4":
+  version: 3.0.4
+  resolution: "@netlify/functions@npm:3.0.4"
   dependencies:
-    "@netlify/serverless-functions-api": "npm:1.35.0"
-  checksum: 10/44dca1ebbb464821af6f6dd70a968d248dbc6436dd8ab80d40332a2d1c4696a48bde508f30f0ccc1285f4576aa411a0149b72c9273cce31baa177b00d0caabc2
+    "@netlify/serverless-functions-api": "npm:1.36.0"
+  checksum: 10/02abb3cb2a0620ccb80155db2073e7bc32400b48574db2f770ae18e08b14adb3e98867c65a11d5cb98c6aa60941b7cf71a955c76a6857147f8234bfd19b39ef0
   languageName: node
   linkType: hard
 
-"@netlify/serverless-functions-api@npm:1.35.0":
-  version: 1.35.0
-  resolution: "@netlify/serverless-functions-api@npm:1.35.0"
-  checksum: 10/f7dc5b031566312e5a2c62b4ef2f6c4ddb47b8dabfa1a94c53938d9e951b6efd1595dd8d0812974850c7b2a064369f49ed42ba9c059c4273a1443196e5933566
+"@netlify/serverless-functions-api@npm:1.36.0":
+  version: 1.36.0
+  resolution: "@netlify/serverless-functions-api@npm:1.36.0"
+  checksum: 10/bdbc266ef0dc640b96f0ec1244c417f24edab95711947fc702ebd61893ec383e135dcbb9ec8a06c6e6bf3036d23e2f2fd161b376120a30fa4fe20eb1bfe32578
   languageName: node
   linkType: hard
 
@@ -8845,7 +8845,7 @@ __metadata:
     "@elvia/elvis-toast": "workspace:*"
     "@elvia/elvis-tooltip": "workspace:*"
     "@elvia/elvis-typography": "workspace:*"
-    "@netlify/functions": "npm:^3.0.2"
+    "@netlify/functions": "npm:^3.0.4"
     "@types/file-saver": "npm:^2.0.7"
     "@types/natural-compare-lite": "npm:^1.4.2"
     "@types/node": "npm:22.13.10"
