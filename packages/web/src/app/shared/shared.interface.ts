@@ -10,7 +10,7 @@ export interface DocPage {
   absolutePath?: string;
   docUrl: DocPageName;
   figmaUrl?: string;
-  type?: 'About' | 'Brand' | 'Component' | 'Patterns' | 'Tools';
+  type: 'About' | 'Brand' | 'Component' | 'Patterns' | 'Tools';
   searchTerms?: string[];
   elvisClassName?: keyof typeof data.block;
   relatedPages?: DocPageName[];
