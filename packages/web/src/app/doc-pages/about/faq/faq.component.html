@@ -1,0 +1,64 @@
+<!--HEADER-->
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    <p>{{ description }}</p>
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <p class="e-text-lg">
+    Slack:
+    <app-designsystem-slack-link />
+  </p>
+  <app-component-subsection sectionTitle="Do you provide a template?">
+    <p>
+      No. We do not provide code templates because this requires a lot of maintenance and is dependent on the
+      framework used. Please <a class="e-link e-link--inline" [routerLink]="['/about/contact']">Contact</a> us
+      if you want us to assist with setting up a new project with the design system. On the
+      <a class="e-link e-link--inline" [routerLink]="['/about/get-started']">get started</a> page you can read
+      the step-by-step guide for getting started.
+    </p>
+  </app-component-subsection>
+  <app-component-subsection sectionTitle="Can I use the design system in a Blazor app?">
+    <p>
+      Yes. It's possible to use the design system's components in a Blazor WebAssembly app. You need to
+      install the components via npm and use the components as web components together with ASP.NET Core
+      Blazor JavaScript interoperability (JS interop).
+    </p>
+    <p>
+      Elvis – our style-only components – can be used as normal. On the
+      <a class="e-link e-link--inline" [routerLink]="['/about/get-started']">get started</a> page, you can
+      read the step-by-step guide for getting started.
+    </p>
+    <p>
+      See Microsoft's
+      <a
+        class="e-link e-link--inline e-link--new-tab"
+        target="_blank"
+        rel="noopener"
+        href="https://learn.microsoft.com/en-us/aspnet/core/blazor/javascript-interoperability/?view=aspnetcore-9.0"
+      >
+        ASP.NET Core Blazor JavaScript interoperability (JS interop)</a
+      >
+      documentation for more details and up-to-date best practices for using JS in your Blazor app.
+    </p>
+  </app-component-subsection>
+  <app-component-subsection sectionTitle="How do I report bugs?">
+    <p>
+      Come in contact with us with any requests or reports of bugs or issues on Slack
+      <app-designsystem-slack-link /> or you can
+      <a class="e-link e-link--inline" [routerLink]="['/about/contact']">Contact</a> us directly.
+    </p>
+  </app-component-subsection>
+  <app-component-subsection sectionTitle="Which browsers are supported?">
+    <p>Components are actively tested for these browsers and only minor visual differences should occur:</p>
+    <ul class="e-list">
+      <li>Chrome - latest</li>
+      <li>Edge - latest</li>
+      <li>Firefox - latest</li>
+      <li>Safari - latest</li>
+    </ul>
+  </app-component-subsection>
+</div>
