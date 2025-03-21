@@ -15,7 +15,6 @@ type DatepickerRangePropsWithFixedRequired = Omit<BaseDatepickerRangeProps, 'isR
   selector: 'app-datepicker-range-ceg',
   templateUrl: './datepicker-range-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: DatepickerRangeCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DatepickerRangeCegComponent implements ComponentExample {

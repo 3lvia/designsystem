@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-input-size-medium-ceg',
   templateUrl: './input-size-medium-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: InputSizeMediumCegComponent }],
-  standalone: true,
 })
 export class InputSizeMediumCegComponent implements StaticComponentExample {
   html = template.default;

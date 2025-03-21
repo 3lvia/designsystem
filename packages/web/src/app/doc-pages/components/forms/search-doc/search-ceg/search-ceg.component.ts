@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-search-ceg',
   templateUrl: './search-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: SearchCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SearchCegComponent implements StaticComponentExample, AfterViewInit {

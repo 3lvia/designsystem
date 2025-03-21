@@ -8,7 +8,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   templateUrl: './layout-alignment-ceg.component.html',
   styleUrls: ['./../layout-doc.component.scss'],
   providers: [{ provide: StaticComponentExample, useExisting: LayoutAlignmentCegComponent }],
-  standalone: true,
 })
 export class LayoutAlignmentCegComponent implements StaticComponentExample {
   html = template.default;

@@ -7,7 +7,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-tabs-ceg',
   templateUrl: './tabs-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: TabsCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TabsCegComponent implements ComponentExample {

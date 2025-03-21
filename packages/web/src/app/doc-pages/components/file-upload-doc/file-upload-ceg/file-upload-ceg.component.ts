@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-file-upload-ceg',
   templateUrl: './file-upload-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: FileUploadCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class FileUploadCegComponent implements StaticComponentExample {

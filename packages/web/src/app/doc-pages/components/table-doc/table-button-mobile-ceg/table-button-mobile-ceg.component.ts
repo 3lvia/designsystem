@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-table-button-mobile-ceg',
   templateUrl: './table-button-mobile-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: TableButtonMobileCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TableButtonMobileCegComponent implements StaticComponentExample {

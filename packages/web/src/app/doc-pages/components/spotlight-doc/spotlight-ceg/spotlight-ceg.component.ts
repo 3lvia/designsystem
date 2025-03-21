@@ -15,7 +15,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-spotlight-ceg',
   templateUrl: './spotlight-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: SpotlightCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SpotlightCegComponent implements ComponentExample, AfterViewInit {

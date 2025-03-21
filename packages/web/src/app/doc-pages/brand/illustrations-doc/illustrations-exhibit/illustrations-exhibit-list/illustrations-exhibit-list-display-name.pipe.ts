@@ -2,7 +2,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'illustrationsExhibitListDisplayName',
-  standalone: true,
 })
 export class IllustrationsExhibitListDisplayNamePipe implements PipeTransform {
   transform(value: string): string {

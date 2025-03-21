@@ -7,7 +7,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-dropdown-ceg',
   templateUrl: './dropdown-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: DropdownCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DropdownCegComponent implements ComponentExample {

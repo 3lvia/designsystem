@@ -8,7 +8,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   templateUrl: './thumbnail-selected-ceg.component.html',
   styleUrls: ['./thumbnail-selected-ceg.component.scss'],
   providers: [{ provide: StaticComponentExample, useExisting: ThumbnailSelectedCegComponent }],
-  standalone: true,
 })
 export class ThumbnailSelectedCegComponent implements StaticComponentExample {
   html = template.default;

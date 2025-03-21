@@ -8,7 +8,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   templateUrl: './stepper-ceg.component.html',
   styleUrls: ['./stepper-ceg.component.scss'],
   providers: [{ provide: ComponentExample, useExisting: StepperCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class StepperCegComponent implements ComponentExample {

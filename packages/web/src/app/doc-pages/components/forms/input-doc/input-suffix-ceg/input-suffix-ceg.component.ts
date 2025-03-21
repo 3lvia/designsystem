@@ -8,7 +8,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   templateUrl: './input-suffix-ceg.component.html',
   styleUrls: ['./input-suffix-ceg.component.scss'],
   providers: [{ provide: StaticComponentExample, useExisting: InputSuffixCegComponent }],
-  standalone: true,
 })
 export class InputSuffixCegComponent implements StaticComponentExample {
   html = template.default;

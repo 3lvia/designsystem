@@ -8,7 +8,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   templateUrl: './carousel-ceg.component.html',
   styleUrls: ['./carousel-ceg.component.scss'],
   providers: [{ provide: ComponentExample, useExisting: CarouselCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CarouselCegComponent implements ComponentExample<BaseCarouselProps> {

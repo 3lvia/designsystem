@@ -8,7 +8,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-autocomplete-ceg',
   templateUrl: './autocomplete-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: AutocompleteCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AutocompleteCegComponent implements ComponentExample {

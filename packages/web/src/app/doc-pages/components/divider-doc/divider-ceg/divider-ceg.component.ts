@@ -7,7 +7,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-divider-ceg',
   templateUrl: './divider-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: DividerCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DividerCegComponent implements ComponentExample {

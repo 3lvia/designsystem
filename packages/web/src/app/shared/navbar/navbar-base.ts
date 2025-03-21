@@ -15,7 +15,6 @@ import { RouterService } from 'src/app/core/services/router.service';
  */
 @Directive({
   selector: '[appNavbarBase]',
-  standalone: true,
 })
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class NavbarBase {

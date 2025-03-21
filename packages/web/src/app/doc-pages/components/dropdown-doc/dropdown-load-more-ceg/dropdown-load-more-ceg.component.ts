@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-dropdown-load-more-ceg',
   templateUrl: './dropdown-load-more-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: DropdownLoadMoreCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DropdownLoadMoreCegComponent implements StaticComponentExample {

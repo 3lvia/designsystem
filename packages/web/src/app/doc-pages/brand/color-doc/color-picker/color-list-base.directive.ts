@@ -2,7 +2,6 @@ import { Directive, ElementRef, HostBinding, HostListener } from '@angular/core'
 
 @Directive({
   selector: '[appColorListBase]',
-  standalone: true,
 })
 export class ColorListBaseDirective {
   @HostBinding('class.overflow-right') showGradient = true;

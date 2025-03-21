@@ -3,7 +3,6 @@ import { DarkThemeColorName, LightThemeColorName, ThemeName } from '@elvia/elvis
 
 @Pipe({
   name: 'needsBorder',
-  standalone: true,
 })
 export class NeedsBorderPipe implements PipeTransform {
   transform(colorName: LightThemeColorName | DarkThemeColorName | undefined, theme: ThemeName): boolean {

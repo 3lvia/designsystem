@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-button-badge-ceg',
   templateUrl: './button-badge-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: ButtonBadgeCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ButtonBadgeCegComponent implements StaticComponentExample {

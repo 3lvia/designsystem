@@ -7,7 +7,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-slider-ceg',
   templateUrl: './slider-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: SliderCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SliderCegComponent implements ComponentExample {

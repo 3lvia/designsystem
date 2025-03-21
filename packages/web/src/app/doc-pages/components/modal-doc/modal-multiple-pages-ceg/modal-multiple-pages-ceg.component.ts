@@ -8,7 +8,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   styleUrls: ['./modal-multiple-pages-ceg.component.scss'],
   templateUrl: './modal-multiple-pages-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: ModalMultiplePagesCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ModalMultiplePagesCegComponent implements ComponentExample {

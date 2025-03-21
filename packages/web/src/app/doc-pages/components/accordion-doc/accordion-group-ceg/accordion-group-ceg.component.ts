@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-accordion-group-ceg',
   templateUrl: './accordion-group-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: AccordionGroupCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AccordionGroupCegComponent implements StaticComponentExample {

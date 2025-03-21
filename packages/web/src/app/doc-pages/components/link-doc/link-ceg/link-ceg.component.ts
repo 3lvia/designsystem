@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-link-ceg',
   templateUrl: './link-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: LinkCegComponent }],
-  standalone: true,
 })
 export class LinkCegComponent implements StaticComponentExample {
   html = template.default;

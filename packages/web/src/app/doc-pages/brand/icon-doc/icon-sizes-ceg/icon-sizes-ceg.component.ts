@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-icon-sizes-ceg',
   templateUrl: './icon-sizes-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: IconSizesCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IconSizesCegComponent implements StaticComponentExample {

@@ -2,7 +2,6 @@ import { Directive, HostBinding, HostListener, output } from '@angular/core';
 
 @Directive({
   selector: '[appDnd]',
-  standalone: true,
 })
 export class DndDirective {
   // @ts-expect-error TS2564 (LEGO-3683)

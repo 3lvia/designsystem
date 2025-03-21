@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-table-select-mobile-ceg',
   templateUrl: './table-select-mobile-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: TableSelectMobileCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TableSelectMobileCegComponent implements StaticComponentExample {

@@ -4,7 +4,6 @@ import { SearchResult } from './searcher';
 
 @Pipe({
   name: 'searchHighlighter',
-  standalone: true,
 })
 export class SearchHighlighterPipe<T> implements PipeTransform {
   transform(

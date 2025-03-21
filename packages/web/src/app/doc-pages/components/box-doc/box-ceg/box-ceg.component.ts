@@ -8,7 +8,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   templateUrl: './box-ceg.component.html',
   styleUrls: ['./box-ceg.component.scss'],
   providers: [{ provide: ComponentExample, useExisting: BoxCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class BoxCegComponent implements ComponentExample {

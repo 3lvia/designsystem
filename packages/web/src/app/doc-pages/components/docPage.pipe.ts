@@ -5,7 +5,6 @@ import { DocPageName } from 'src/app/shared/shared.enum';
 
 @Pipe({
   name: 'docPage',
-  standalone: true,
 })
 export class DocPagePipe implements PipeTransform {
   transform(docUrl: DocPageName) {

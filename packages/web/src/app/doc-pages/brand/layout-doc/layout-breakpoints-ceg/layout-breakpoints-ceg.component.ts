@@ -8,7 +8,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   templateUrl: './layout-breakpoints-ceg.component.html',
   styleUrls: ['./../layout-doc.component.scss'],
   providers: [{ provide: StaticComponentExample, useExisting: LayoutBreakpointsCegComponent }],
-  standalone: true,
 })
 export class LayoutBreakpointsCegComponent implements StaticComponentExample {
   html = template.default;

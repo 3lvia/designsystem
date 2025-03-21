@@ -7,7 +7,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-chip-ceg',
   templateUrl: './chip-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: ChipCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ChipCegComponent implements ComponentExample {

@@ -7,7 +7,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-badge-ceg',
   templateUrl: './badge-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: BadgeCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class BadgeCegComponent implements ComponentExample {

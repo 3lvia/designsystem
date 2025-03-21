@@ -7,7 +7,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-modal-ceg',
   templateUrl: './modal-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: ModalCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ModalCegComponent implements ComponentExample {

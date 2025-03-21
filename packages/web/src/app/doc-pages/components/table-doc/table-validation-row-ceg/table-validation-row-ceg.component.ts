@@ -7,7 +7,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-table-validation-row-ceg',
   templateUrl: './table-validation-row-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: TableValidationRowCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TableValidationRowCegComponent implements StaticComponentExample {

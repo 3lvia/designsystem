@@ -7,7 +7,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-modal-initial-focus-ceg',
   templateUrl: './modal-initial-focus-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: ModalInitialFocusCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ModalInitialFocusCegComponent implements ComponentExample {

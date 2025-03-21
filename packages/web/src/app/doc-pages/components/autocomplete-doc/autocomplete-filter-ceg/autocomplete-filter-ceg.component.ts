@@ -17,7 +17,6 @@ const DEMO_API_URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
   selector: 'app-autocomplete-filter-ceg',
   templateUrl: './autocomplete-filter-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: AutocompleteFilterCegComponent }],
-  standalone: true,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AutocompleteFilterCegComponent implements StaticComponentExample {
