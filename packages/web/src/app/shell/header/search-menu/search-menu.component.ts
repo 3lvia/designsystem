@@ -22,7 +22,7 @@ import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { utilityGroups } from 'src/app/doc-pages/tools/utilities-doc/utility-groups-data';
-import { componentsDocPages, docPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { allDocPages, docPagesComponents } from 'src/app/shared/doc-pages';
 import { SearchResult, Searcher } from 'src/app/shared/searcher';
 
 @Component({
@@ -142,7 +142,7 @@ export class SearchMenuComponent implements OnInit {
 
   private async initializeSearchItems(): Promise<void> {
     this.searchItems = this.searchItems.concat(
-      componentsDocPages.map((docPage) => {
+      docPagesComponents.map((docPage) => {
         return {
           title: docPage.title,
           description: docPage.description?.replace(/<.*?>/g, ''),
@@ -151,7 +151,7 @@ export class SearchMenuComponent implements OnInit {
           searchTerms: docPage.searchTerms,
         };
       }),
-      docPagesNotFromCMS.map((docPage) => {
+      allDocPages.map((docPage) => {
         return {
           title: docPage.title,
           description: docPage.description?.replace(/<.*?>/g, ''),

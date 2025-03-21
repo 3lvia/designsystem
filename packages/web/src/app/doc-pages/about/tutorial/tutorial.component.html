@@ -1,7 +1,7 @@
 <!--HEADER-->
 <app-component-header>
-  <ng-container ngProjectAs="headerTitle">Tutorial</ng-container>
-  <div ngProjectAs="headerDescription" [innerHTML]="description ?? '' | safeHtml"></div>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description | safeHtml"></div>
 </app-component-header>
 
 <!--BODY-->

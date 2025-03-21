@@ -16,9 +16,9 @@ import { LayoutGuttersNoCegComponent } from './layout-gutters-no-ceg/layout-gutt
 import { LayoutLevelsCegComponent } from './layout-levels-ceg/layout-levels-ceg.component';
 import { LayoutOrderingCegComponent } from './layout-ordering-ceg/layout-ordering-ceg.component';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { getDocPage } from 'src/app/shared/doc-pages';
 
-const docPage = getDocPagesNotFromCMS('layout');
+const docPage = getDocPage('layout');
 @Component({
   selector: 'app-layout-doc',
   templateUrl: './layout-doc.component.html',

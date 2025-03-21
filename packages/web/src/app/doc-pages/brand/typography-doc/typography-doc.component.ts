@@ -15,9 +15,9 @@ import { TypographyOutlineExampleComponent } from './typography-outline-example/
 import { TypographyTitleExampleComponent } from './typography-title-example/typography-title-example.component';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { StaticCegComponent } from 'src/app/shared/component-documentation/ceg';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { getDocPage } from 'src/app/shared/doc-pages';
 
-const docPage = getDocPagesNotFromCMS('typography');
+const docPage = getDocPage('typography');
 @Component({
   selector: 'app-typography-doc',
   templateUrl: './typography-doc.component.html',

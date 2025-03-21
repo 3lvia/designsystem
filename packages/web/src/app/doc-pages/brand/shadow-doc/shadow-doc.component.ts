@@ -9,9 +9,9 @@ import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.comp
 import { ShadowViewerComponent } from './shadow-viewer/shadow-viewer.component';
 import { doAndDont, styleText } from './texts';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { getDocPage } from 'src/app/shared/doc-pages';
 
-const docPage = getDocPagesNotFromCMS('shadow');
+const docPage = getDocPage('shadow');
 @Component({
   selector: 'app-shadow-doc',
   templateUrl: './shadow-doc.component.html',

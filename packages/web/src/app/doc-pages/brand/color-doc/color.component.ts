@@ -15,9 +15,9 @@ import { ColorTokenTableComponent } from './color-token-table/color-token-table.
 import { PurposeTokenIllustrationComponent } from './illustrations/purpose-token-illustration/purpose-token-illustration.component';
 import { ThemeTokenIllustrationComponent } from './illustrations/theme-token-illustration/theme-token-illustration.component';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { getDocPage } from 'src/app/shared/doc-pages';
 
-const docPage = getDocPagesNotFromCMS('color');
+const docPage = getDocPage('color');
 @Component({
   selector: 'app-color',
   templateUrl: './color.component.html',

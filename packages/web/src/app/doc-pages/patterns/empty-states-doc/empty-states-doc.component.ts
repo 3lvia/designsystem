@@ -10,9 +10,9 @@ import { EmptyStatesTopExampleComponent } from './empty-states-top-example/empty
 import { ComponentHeaderComponent } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.component';
 import { ComponentSectionComponent } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.component';
 import { ComponentSubsectionComponent } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { getDocPage } from 'src/app/shared/doc-pages';
 
-const emptyStatesDocPage = getDocPagesNotFromCMS('empty-states');
+const docPage = getDocPage('empty-states');
 
 @Component({
   selector: 'app-empty-states-doc',
@@ -31,7 +31,7 @@ const emptyStatesDocPage = getDocPagesNotFromCMS('empty-states');
   templateUrl: './empty-states-doc.component.html',
 })
 export class EmptyStatesDocComponent {
-  title = emptyStatesDocPage.title;
-  description = emptyStatesDocPage.description;
-  figmaUrl = emptyStatesDocPage.figmaUrl;
+  title = docPage.title;
+  description = docPage.description;
+  figmaUrl = docPage.figmaUrl;
 }

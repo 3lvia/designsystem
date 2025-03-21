@@ -6,9 +6,9 @@ import { ComponentHeaderComponent } from '../../../shared/component-documentatio
 import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
 import { CopyComponent } from '../../../shared/copy/copy.component';
 import { utilityGroups } from './utility-groups-data';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { getDocPage } from 'src/app/shared/doc-pages';
 
-const docPage = getDocPagesNotFromCMS('utility-classes');
+const docPage = getDocPage('utility-classes');
 @Component({
   selector: 'app-utilities-doc',
   templateUrl: './utilities-doc.component.html',

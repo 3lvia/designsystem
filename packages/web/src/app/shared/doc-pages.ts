@@ -35,12 +35,13 @@ export const homeMenu: HomeMenuCard[] = [
   },
 ];
 
-export const componentsDocPages: DocPage[] = [
+export const docPagesComponents: DocPage[] = [
   {
     title: 'CSS Library',
     description: `The CSS library <code>@elvia/elvis</code> consists of the most basic components like links, tags and inputs as well as utilities like colors, typography, icons and logos.`,
     docUrl: Pages.CssLibrary,
     absolutePath: '/components/' + Pages.CssLibrary,
+    type: 'Component',
   },
   {
     title: 'Accordion',
@@ -552,171 +553,8 @@ export const componentsDocPages: DocPage[] = [
   },
 ];
 
-// Brand pages
-export const docPagesBrand: DocPage[] = [
-  {
-    title: 'The Concept',
-    docUrl: Pages.TheConcept,
-    absolutePath: '/brand/' + Pages.TheConcept,
-  },
-  {
-    title: 'Colors',
-    docUrl: Pages.Color,
-    absolutePath: '/brand/' + Pages.Color,
-  },
-  {
-    title: 'Icons',
-    docUrl: Pages.Icon,
-    absolutePath: '/brand/' + Pages.Icon,
-  },
-  {
-    title: 'Images',
-    docUrl: Pages.Images,
-    absolutePath: '/brand/' + Pages.Images,
-  },
-  {
-    title: 'Layout',
-    docUrl: Pages.Layout,
-    absolutePath: '/brand/' + Pages.Layout,
-  },
-  {
-    title: 'Logo',
-    docUrl: Pages.Logo,
-    absolutePath: '/brand/' + Pages.Logo,
-  },
-  {
-    title: 'Tone of Voice',
-    docUrl: Pages.ToneOfVoice,
-    absolutePath: '/brand/' + Pages.ToneOfVoice,
-  },
-  {
-    title: 'Typography',
-    docUrl: Pages.Typography,
-    absolutePath: '/brand/' + Pages.Typography,
-  },
-  {
-    title: 'Illustrations',
-    docUrl: Pages.Illustration,
-    absolutePath: '/brand/' + Pages.Illustration,
-  },
-];
-
-// Pattern pages
-export const docPagesPattern: DocPage[] = [
-  {
-    title: 'Comments',
-    docUrl: Pages.Comments,
-    absolutePath: '/patterns/' + Pages.Comments,
-  },
-  {
-    title: 'Cookies',
-    docUrl: Pages.Cookies,
-    absolutePath: '/patterns/' + Pages.Cookies,
-  },
-  {
-    title: 'Empty States',
-    docUrl: Pages.EmptyStates,
-    absolutePath: '/patterns/' + Pages.EmptyStates,
-  },
-  {
-    title: 'Filters',
-    docUrl: Pages.Filters,
-    absolutePath: '/patterns/' + Pages.Filters,
-  },
-  {
-    title: 'Forms',
-    docUrl: Pages.Forms,
-    absolutePath: '/patterns/' + Pages.Forms,
-  },
-  {
-    title: 'Groups',
-    docUrl: Pages.Groups,
-    absolutePath: '/patterns/' + Pages.Groups,
-  },
-  {
-    title: 'Onboarding',
-    docUrl: Pages.Onboarding,
-    absolutePath: '/patterns/' + Pages.Onboarding,
-  },
-  {
-    title: 'Validations',
-    docUrl: Pages.Validations,
-    absolutePath: '/patterns/' + Pages.Validations,
-  },
-  {
-    title: 'Graph',
-    docUrl: Pages.Graph,
-    absolutePath: '/patterns/' + Pages.Graph,
-  },
-];
-
-// Accessibility
-export const docPagesTools: DocPage[] = [
-  {
-    title: 'Accessibility',
-    docUrl: Pages.Accessibility,
-    absolutePath: '/tools/' + Pages.Accessibility,
-  },
-  {
-    title: 'Design Process',
-    docUrl: Pages.DesignProcess,
-    absolutePath: '/tools/' + Pages.DesignProcess,
-  },
-  {
-    title: 'Evaluation',
-    docUrl: Pages.Evaluation,
-    absolutePath: '/tools/' + Pages.Evaluation,
-  },
-  {
-    title: 'Icebreakers',
-    docUrl: Pages.Icebreakers,
-    absolutePath: '/tools/' + Pages.Icebreakers,
-  },
-  {
-    title: 'Ideation',
-    docUrl: Pages.Ideation,
-    absolutePath: '/tools/' + Pages.Ideation,
-  },
-  {
-    title: 'Personas',
-    docUrl: Pages.Personas,
-    absolutePath: '/tools/' + Pages.Personas,
-  },
-  {
-    title: 'Templates',
-    docUrl: Pages.Templates,
-    absolutePath: '/tools/' + Pages.Templates,
-  },
-  {
-    title: 'User Feedback',
-    docUrl: Pages.UserFeedback,
-    absolutePath: '/tools/' + Pages.UserFeedback,
-  },
-  {
-    title: 'Utility Classes',
-    docUrl: Pages.UtilityClasses,
-    absolutePath: '/tools/' + Pages.UtilityClasses,
-  },
-];
-
-// Only pages not in Contentful except the component-pages
-export const docPagesNotFromCMS: DocPage[] = [
-  {
-    title: 'The Design System',
-    description:
-      'Elvia’s design system - or Elvis, for short - is a scalable system of visual language, components and design assets which enables us to work together towards an ultimate brand experience.',
-    docUrl: Pages.TheDesignSystem,
-
-    absolutePath: '/about/' + Pages.TheDesignSystem,
-  },
-  {
-    title: 'Empty States',
-    docUrl: Pages.EmptyStates,
-    absolutePath: '/patterns/' + Pages.EmptyStates,
-    description:
-      'Empty states are moments when there is no data and nothing to display. In these cases, the user needs to be informed of what’s happening and what to do about it. You can benefit from a good empty state to boost engagement, delight, and teach users.',
-    figmaUrl: 'https://www.figma.com/file/vzIO9S7owUHPlDYpWKRaWW/?node-id=0%3A1',
-  },
+// About pages
+export const docPagesAbout: DocPage[] = [
   {
     title: 'Get started',
     description: `We are an open-source design system to be used for Elvia’s external and internal systems to provide a
@@ -724,6 +562,15 @@ export const docPagesNotFromCMS: DocPage[] = [
     like accessibility guidelines and design principles.`,
     docUrl: Pages.GetStarted,
     absolutePath: '/about/' + Pages.GetStarted,
+    type: 'About',
+  },
+  {
+    title: 'The Design System',
+    description:
+      'Elvia’s design system – Elvis – is a scalable system of visual language, components, and design assets that enables us to work together towards an ultimate brand experience.',
+    docUrl: Pages.TheDesignSystem,
+    absolutePath: '/about/' + Pages.TheDesignSystem,
+    type: 'About',
   },
   {
     title: 'Tutorial',
@@ -733,6 +580,82 @@ export const docPagesNotFromCMS: DocPage[] = [
       </a>. You may want to check that your packages are up to date.`,
     docUrl: Pages.Tutorial,
     absolutePath: '/about/' + Pages.Tutorial,
+    type: 'About',
+  },
+  {
+    title: 'Contact',
+    description: `Currently, no dedicated team is working on the design system. If you have any questions, please use our Slack channel <a class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
+    <span class="e-link__title">#designsystemet</span>
+    </a> or contact Tom Schrier.`,
+    docUrl: Pages.Contact,
+    absolutePath: '/about/' + Pages.Contact,
+    type: 'About',
+  },
+  {
+    title: 'FAQ',
+    description:
+      'We try to answer the most asked questions. If you can’t find the answers you were looking for, contact us on Slack.',
+    docUrl: Pages.Faq,
+    absolutePath: '/about/' + Pages.Faq,
+    type: 'About',
+  },
+];
+
+// Brand pages
+export const docPagesBrand: DocPage[] = [
+  {
+    title: 'The Concept',
+    docUrl: Pages.TheConcept,
+    absolutePath: '/brand/' + Pages.TheConcept,
+    type: 'Brand',
+  },
+  {
+    title: 'Colors',
+    docUrl: Pages.Color,
+    absolutePath: '/brand/' + Pages.Color,
+    type: 'Brand',
+  },
+  {
+    title: 'Icons',
+    docUrl: Pages.Icon,
+    absolutePath: '/brand/' + Pages.Icon,
+    type: 'Brand',
+  },
+  {
+    title: 'Images',
+    docUrl: Pages.Images,
+    absolutePath: '/brand/' + Pages.Images,
+    type: 'Brand',
+  },
+  {
+    title: 'Layout',
+    docUrl: Pages.Layout,
+    absolutePath: '/brand/' + Pages.Layout,
+    type: 'Brand',
+  },
+  {
+    title: 'Logo',
+    docUrl: Pages.Logo,
+    absolutePath: '/brand/' + Pages.Logo,
+    type: 'Brand',
+  },
+  {
+    title: 'Tone of Voice',
+    docUrl: Pages.ToneOfVoice,
+    absolutePath: '/brand/' + Pages.ToneOfVoice,
+    type: 'Brand',
+  },
+  {
+    title: 'Typography',
+    docUrl: Pages.Typography,
+    absolutePath: '/brand/' + Pages.Typography,
+    type: 'Brand',
+  },
+  {
+    title: 'Illustrations',
+    docUrl: Pages.Illustration,
+    absolutePath: '/brand/' + Pages.Illustration,
+    type: 'Brand',
   },
   {
     title: 'Shadow',
@@ -789,6 +712,7 @@ export const docPagesNotFromCMS: DocPage[] = [
     descriptionNo: `En illustrasjon kan bidra til å formidle et budskap visuelt og gi siden personlighet. Bruk av illustrasjoner er et effektivt verktøy når brukerne er frustrerte, har gått seg vill eller når noe har gått galt. Se <a class="e-link e-link--inline" href="/patterns/${Pages.EmptyStates}">empty states</a> for retningslinjer.`,
     searchTerms: [],
     relatedPages: [],
+    type: 'Brand',
   },
   {
     title: 'Layout',
@@ -799,7 +723,7 @@ export const docPagesNotFromCMS: DocPage[] = [
       'Layout gir regler for å gi design konsekvent rytme i applikasjonen, samt på tvers av applikasjoner for å sikre et helhetlig design i Elvia. Layouten består av rutenett, mellomrom og boksdesign.',
     figmaUrl: 'https://www.figma.com/file/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=8936%3A67993',
     docUrl: 'layout',
-    absolutePath: '/brand/' + 'layout',
+    absolutePath: '/brand/' + Pages.Layout,
     type: 'Brand',
   },
   {
@@ -812,22 +736,138 @@ export const docPagesNotFromCMS: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/hvQucRpSHYZtSiIKM7NgBo/Typography?node-id=0%3A1',
     type: 'Brand',
   },
+];
+
+// Pattern pages
+export const docPagesPattern: DocPage[] = [
+  {
+    title: 'Comments',
+    docUrl: Pages.Comments,
+    absolutePath: '/patterns/' + Pages.Comments,
+    type: 'Patterns',
+  },
+  {
+    title: 'Cookies',
+    docUrl: Pages.Cookies,
+    absolutePath: '/patterns/' + Pages.Cookies,
+    type: 'Patterns',
+  },
+  {
+    title: 'Empty States',
+    docUrl: Pages.EmptyStates,
+    absolutePath: '/patterns/' + Pages.EmptyStates,
+    type: 'Patterns',
+  },
+  {
+    title: 'Filters',
+    docUrl: Pages.Filters,
+    absolutePath: '/patterns/' + Pages.Filters,
+    type: 'Patterns',
+  },
+  {
+    title: 'Forms',
+    docUrl: Pages.Forms,
+    absolutePath: '/patterns/' + Pages.Forms,
+    type: 'Patterns',
+  },
+  {
+    title: 'Groups',
+    docUrl: Pages.Groups,
+    absolutePath: '/patterns/' + Pages.Groups,
+    type: 'Patterns',
+  },
+  {
+    title: 'Onboarding',
+    docUrl: Pages.Onboarding,
+    absolutePath: '/patterns/' + Pages.Onboarding,
+    type: 'Patterns',
+  },
+  {
+    title: 'Validations',
+    docUrl: Pages.Validations,
+    absolutePath: '/patterns/' + Pages.Validations,
+    type: 'Patterns',
+  },
+  {
+    title: 'Graph',
+    docUrl: Pages.Graph,
+    absolutePath: '/patterns/' + Pages.Graph,
+    type: 'Patterns',
+  },
+  {
+    title: 'Empty States',
+    docUrl: Pages.EmptyStates,
+    absolutePath: '/patterns/' + Pages.EmptyStates,
+    description:
+      'Empty states are moments when there is no data and nothing to display. In these cases, the user needs to be informed of what’s happening and what to do about it. You can benefit from a good empty state to boost engagement, delight, and teach users.',
+    figmaUrl: 'https://www.figma.com/file/vzIO9S7owUHPlDYpWKRaWW/?node-id=0%3A1',
+    type: 'Patterns',
+  },
+];
+
+// Accessibility
+export const docPagesTools: DocPage[] = [
+  {
+    title: 'Accessibility',
+    docUrl: Pages.Accessibility,
+    absolutePath: '/tools/' + Pages.Accessibility,
+    type: 'Tools',
+  },
+  {
+    title: 'Design Process',
+    docUrl: Pages.DesignProcess,
+    absolutePath: '/tools/' + Pages.DesignProcess,
+    type: 'Tools',
+  },
+  {
+    title: 'Evaluation',
+    docUrl: Pages.Evaluation,
+    absolutePath: '/tools/' + Pages.Evaluation,
+    type: 'Tools',
+  },
+  {
+    title: 'Icebreakers',
+    docUrl: Pages.Icebreakers,
+    absolutePath: '/tools/' + Pages.Icebreakers,
+    type: 'Tools',
+  },
+  {
+    title: 'Ideation',
+    docUrl: Pages.Ideation,
+    absolutePath: '/tools/' + Pages.Ideation,
+    type: 'Tools',
+  },
+  {
+    title: 'Personas',
+    docUrl: Pages.Personas,
+    absolutePath: '/tools/' + Pages.Personas,
+    type: 'Tools',
+  },
+  {
+    title: 'Templates',
+    docUrl: Pages.Templates,
+    absolutePath: '/tools/' + Pages.Templates,
+    type: 'Tools',
+  },
+  {
+    title: 'User Feedback',
+    docUrl: Pages.UserFeedback,
+    absolutePath: '/tools/' + Pages.UserFeedback,
+    type: 'Tools',
+  },
   {
     title: 'Utility Classes',
-    description:
-      'Elvis offers several utility classes that can be applied on elements without making any extra CSS classes or modifications in your project.',
     docUrl: Pages.UtilityClasses,
     absolutePath: '/tools/' + Pages.UtilityClasses,
     type: 'Tools',
   },
   {
-    title: 'Contact',
-    description: `Currently, no dedicated team is working on the design system. If you have any questions, please use our Slack channel <a class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
-    <span class="e-link__title">#designsystemet</span>
-    </a> or contact Tom Schrier.`,
-    docUrl: Pages.Contact,
-    absolutePath: '/about/' + Pages.Contact,
-    type: 'About',
+    title: 'Utility Classes',
+    description:
+      'Elvis offers utility classes that can be applied to elements without making extra CSS classes or modifications in your project.',
+    docUrl: Pages.UtilityClasses,
+    absolutePath: '/tools/' + Pages.UtilityClasses,
+    type: 'Tools',
   },
   {
     title: 'Team symbol',
@@ -839,28 +879,24 @@ export const docPagesNotFromCMS: DocPage[] = [
   },
 ];
 
+export const allDocPages: DocPage[] = [
+  ...docPagesComponents,
+  ...docPagesAbout,
+  ...docPagesBrand,
+  ...docPagesPattern,
+  ...docPagesTools,
+];
+
 export function getComponent(docUrl: DocPageName) {
-  const page = componentsDocPages.find((component) => component.docUrl === docUrl);
+  const page = docPagesComponents.find((component) => component.docUrl === docUrl);
   if (!page) {
     throw new Error(`Component not found: ${docUrl}`);
   }
   return page;
 }
-export function getDocPagesNotFromCMS(docUrl: DocPageName) {
-  const page = docPagesNotFromCMS.find((component) => component.docUrl === docUrl);
-  if (!page) {
-    throw new Error(`Page not found: ${docUrl}`);
-  }
-  return page;
-}
+
 export function getDocPage(docUrl: DocPageName) {
-  const allDocPages: DocPage[] = [
-    ...componentsDocPages,
-    ...docPagesBrand,
-    ...docPagesPattern,
-    ...docPagesTools,
-  ];
-  const page = allDocPages.find((component) => component.docUrl === docUrl);
+  const page = allDocPages.find((page) => page.docUrl === docUrl);
   if (!page) {
     throw new Error(`Page not found: ${docUrl}`);
   }

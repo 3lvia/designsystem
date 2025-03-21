@@ -16,10 +16,10 @@ import { ComponentHeaderComponent } from 'src/app/shared/component-documentation
 import { ComponentSectionComponent } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.component';
 import { ComponentSubsectionComponent } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.component';
 import { CopyComponent } from 'src/app/shared/copy/copy.component';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { getDocPage } from 'src/app/shared/doc-pages';
 import { SafeHtmlPipe } from 'src/app/shared/safeHtml.pipe';
 
-const docPage = getDocPagesNotFromCMS('icon');
+const docPage = getDocPage('icon');
 
 @Component({
   selector: 'app-icon-doc',
