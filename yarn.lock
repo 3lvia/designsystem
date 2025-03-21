@@ -286,9 +286,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/cdk@npm:^19.2.4":
-  version: 19.2.4
-  resolution: "@angular/cdk@npm:19.2.4"
+"@angular/cdk@npm:^19.2.5":
+  version: 19.2.5
+  resolution: "@angular/cdk@npm:19.2.5"
   dependencies:
     parse5: "npm:^7.1.2"
     tslib: "npm:^2.3.0"
@@ -299,7 +299,7 @@ __metadata:
   dependenciesMeta:
     parse5:
       optional: true
-  checksum: 10/660e8bdb5a5d36bfa047a40fd94cff20a042c2fb59476477acc64719f7a75e0d5879569908c37f0de4fdfb7ca528d749d8061e744337990fdbdbde14ec211953
+  checksum: 10/5896832634d3b72b69378e9b3944975a3649d92c13d016f3e2a87a70b74755a4dce3b0158071388d758ea2271f80f0bb7702375fab7a3b0fbefdd6c6f1b9ab15
   languageName: node
   linkType: hard
 
@@ -8920,7 +8920,7 @@ __metadata:
     "@angular-devkit/schematics": "npm:^19.2.4"
     "@angular/animations": "npm:^19.2.3"
     "@angular/build": "npm:^19.2.4"
-    "@angular/cdk": "npm:^19.2.4"
+    "@angular/cdk": "npm:^19.2.5"
     "@angular/cli": "npm:^19.2.4"
     "@angular/common": "npm:^19.2.3"
     "@angular/compiler": "npm:^19.2.3"
