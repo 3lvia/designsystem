@@ -21,11 +21,6 @@ export class FooterComponent {
   currentYear = new Date().getFullYear();
   links: IconLink[] = [
     {
-      url: 'https://app.contentful.com/spaces/zez3t3t1iiwd/home',
-      imgSrc: 'assets/icons/contentful-logo.svg',
-      alt: 'Contentful icon',
-    },
-    {
       url: 'https://www.figma.com/files/880078299274452916/project/5995782/Designsystem-(Elvis)',
       imgSrc: 'assets/icons/figma-logo.svg',
       alt: 'Figma icon',
