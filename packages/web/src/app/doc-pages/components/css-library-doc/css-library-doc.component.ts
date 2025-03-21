@@ -9,9 +9,9 @@ import { ComponentSubsectionComponent } from '../../../shared/component-document
 import { CopyComponent } from '../../../shared/copy/copy.component';
 import ComponentData from '../component-data.interface';
 import { CssLibraryIllustrationComponent } from './css-library-illustration/css-library-illustration.component';
-import { getComponent } from 'src/app/shared/doc-pages';
+import { getDocPage } from 'src/app/shared/doc-pages';
 
-const docPage = getComponent('css-library');
+const docPage = getDocPage('css-library');
 @Component({
   selector: 'app-css-library-doc',
   templateUrl: './css-library-doc.component.html',

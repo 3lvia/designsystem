@@ -13,7 +13,7 @@ import { ComponentRelatedComponent } from './component-related/component-related
 import { ComponentHeaderComponent } from './component-structure/component-header/component-header.component';
 import { ComponentSectionComponent } from './component-structure/component-section/component-section.component';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
-import { getComponent } from 'src/app/shared/doc-pages';
+import { getDocPage } from 'src/app/shared/doc-pages';
 
 /**
  * Builds a standard documentation page for a component.
@@ -58,7 +58,7 @@ export class ComponentDocumentationComponent implements OnInit {
   constructor(private titleService: Title) {}
 
   ngOnInit() {
-    const docPage = getComponent(this.docUrl());
+    const docPage = getDocPage(this.docUrl());
     this.title = docPage.title;
     this.description = docPage.description;
     this.figmaUrl = docPage.figmaUrl;

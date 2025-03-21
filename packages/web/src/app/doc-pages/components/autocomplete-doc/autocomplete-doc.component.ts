@@ -11,9 +11,9 @@ import { AutocompleteCegComponent } from './autocomplete-ceg/autocomplete-ceg.co
 import { autocompleteData } from './autocomplete-data';
 import { AutocompleteFilterCegComponent } from './autocomplete-filter-ceg/autocomplete-filter-ceg.component';
 import { AutocompleteLabelCegComponent } from './autocomplete-label-ceg/autocomplete-label-ceg.component';
-import { getComponent } from 'src/app/shared/doc-pages';
+import { getDocPage } from 'src/app/shared/doc-pages';
 
-const docPage = getComponent('autocomplete');
+const docPage = getDocPage('autocomplete');
 @Component({
   selector: 'app-autocomplete-doc',
   templateUrl: './autocomplete-doc.component.html',

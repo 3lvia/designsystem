@@ -887,14 +887,6 @@ export const allDocPages: DocPage[] = [
   ...docPagesTools,
 ];
 
-export function getComponent(docUrl: DocPageName) {
-  const page = docPagesComponents.find((component) => component.docUrl === docUrl);
-  if (!page) {
-    throw new Error(`Component not found: ${docUrl}`);
-  }
-  return page;
-}
-
 export function getDocPage(docUrl: DocPageName) {
   const page = allDocPages.find((page) => page.docUrl === docUrl);
   if (!page) {
