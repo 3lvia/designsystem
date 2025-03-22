@@ -669,73 +669,6 @@ export const docPagesBrand: DocPage[] = [
     type: 'Brand',
     figmaUrl: 'https://www.figma.com/file/E2yRkpqSSuRnq8RDXO4Mly/Shadow?node-id=90%3A24',
   },
-  {
-    title: 'Colors',
-    titleNo: 'Farger',
-    description:
-      'Elvia colors are a reference for energy and light. It plays an important part to bring the concept ON/OFF to life. For consistency, you shall use the defined color palette throughout our interface.',
-    descriptionNo:
-      'Elvia-fargene er en referanse for energi og lys. Det spiller en viktig rolle for å gi konseptet PÅ/AV liv. For konsistens skal du bruke den definerte fargepaletten i hele grensesnittet vårt.',
-    docUrl: Pages.Color,
-    absolutePath: '/brand/' + Pages.Color,
-    type: 'Brand',
-    figmaUrl: 'https://www.figma.com/file/Q4bR2dykeg5bSC2VGPZRAL/Colours?node-id=0%3A1',
-  },
-  {
-    title: 'Icons',
-    titleNo: 'Ikoner',
-    description: `In our icon library, you’ll find all available icons in the design system, 
-    as well guides on how to use them. Missing a specific icon? Let us know on our Slack channel 
-  <a class="e-link e-link--inline e-link--new-tab e-mr-8" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" rel="noopener">
-  <span class="e-link__title">#designsystemet</span>
-  <span class="e-link__icon"><e-icon name="newTabBold"></e-icon></span>
-</a>
-   and we’ll look into adding it to the library.`,
-    descriptionNo: `I ikonbiblioteket vårt finner du alle tilgjengelige ikoner i designsystemet, samt veiledninger om hvordan du bruker dem. Savner du et bestemt ikon? Gi oss beskjed på vår Slack-kanal 
-   <a class="e-link e-link--inline e-link--new-tab e-mr-8" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" rel="noopener">
-   <span class="e-link__title">#designsystemet</span>
-   <span class="e-link__icon"><e-icon name="newTabBold"></e-icon></span>
- </a>
-   så skal vi se på muligheten for å legge det til i biblioteket.`,
-    docUrl: Pages.Icon,
-    absolutePath: '/brand/' + Pages.Icon,
-    figmaUrl: 'https://www.figma.com/file/0RM10vUNKdYVlW5BuXwqQK/Icons?node-id=0%3A1',
-    type: 'Brand',
-  },
-  {
-    title: 'Illustrations',
-    titleNo: 'Illustrasjoner',
-    docUrl: Pages.Illustration,
-    figmaUrl: 'https://www.figma.com/file/twcgKk3NMXmi2uBjMdZSKo/?node-id=1%3A11',
-    absolutePath: '/brand/' + Pages.Illustration,
-    description: `An illustration can help to communicate a message visually and add personality to the page. Using illustration is a powerful tool when users are frustrated, lost or something went wrong. See <a class="e-link e-link--inline" href="/patterns/${Pages.EmptyStates}">empty states</a> for guidelines.`,
-    descriptionNo: `En illustrasjon kan bidra til å formidle et budskap visuelt og gi siden personlighet. Bruk av illustrasjoner er et effektivt verktøy når brukerne er frustrerte, har gått seg vill eller når noe har gått galt. Se <a class="e-link e-link--inline" href="/patterns/${Pages.EmptyStates}">empty states</a> for retningslinjer.`,
-    searchTerms: [],
-    relatedPages: [],
-    type: 'Brand',
-  },
-  {
-    title: 'Layout',
-    titleNo: 'Layout',
-    description:
-      'Layout provides rules to give designs consistent rhythm in the application, as well as across applications to ensure a holistic design in Elvia. The layout consist of grid, spacing and box design.',
-    descriptionNo:
-      'Layout gir regler for å gi design konsekvent rytme i applikasjonen, samt på tvers av applikasjoner for å sikre et helhetlig design i Elvia. Layouten består av rutenett, mellomrom og boksdesign.',
-    figmaUrl: 'https://www.figma.com/file/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=8936%3A67993',
-    docUrl: 'layout',
-    absolutePath: '/brand/' + Pages.Layout,
-    type: 'Brand',
-  },
-  {
-    title: 'Typography',
-    titleNo: 'Typografi',
-    description: `Elvia has a profile font called Red Hat that should be used throughout all material. The Red Hat font family includes two types: Display and Text. `,
-    descriptionNo: `Elvia har en typografi kalt Red Hat som skal brukes i alt materiale. Skriftfamilien Red Hat inneholder tre typer: Display and Text. `,
-    docUrl: Pages.Typography,
-    absolutePath: '/brand/' + Pages.Typography,
-    figmaUrl: 'https://www.figma.com/file/hvQucRpSHYZtSiIKM7NgBo/Typography?node-id=0%3A1',
-    type: 'Brand',
-  },
 ];
 
 // Pattern pages
@@ -771,6 +704,12 @@ export const docPagesPattern: DocPage[] = [
     type: 'Patterns',
   },
   {
+    title: 'Graph',
+    docUrl: Pages.Graph,
+    absolutePath: '/patterns/' + Pages.Graph,
+    type: 'Patterns',
+  },
+  {
     title: 'Groups',
     docUrl: Pages.Groups,
     absolutePath: '/patterns/' + Pages.Groups,
@@ -786,21 +725,6 @@ export const docPagesPattern: DocPage[] = [
     title: 'Validations',
     docUrl: Pages.Validations,
     absolutePath: '/patterns/' + Pages.Validations,
-    type: 'Patterns',
-  },
-  {
-    title: 'Graph',
-    docUrl: Pages.Graph,
-    absolutePath: '/patterns/' + Pages.Graph,
-    type: 'Patterns',
-  },
-  {
-    title: 'Empty States',
-    docUrl: Pages.EmptyStates,
-    absolutePath: '/patterns/' + Pages.EmptyStates,
-    description:
-      'Empty states are moments when there is no data and nothing to display. In these cases, the user needs to be informed of what’s happening and what to do about it. You can benefit from a good empty state to boost engagement, delight, and teach users.',
-    figmaUrl: 'https://www.figma.com/file/vzIO9S7owUHPlDYpWKRaWW/?node-id=0%3A1',
     type: 'Patterns',
   },
 ];
@@ -853,12 +777,6 @@ export const docPagesTools: DocPage[] = [
     title: 'User Feedback',
     docUrl: Pages.UserFeedback,
     absolutePath: '/tools/' + Pages.UserFeedback,
-    type: 'Tools',
-  },
-  {
-    title: 'Utility Classes',
-    docUrl: Pages.UtilityClasses,
-    absolutePath: '/tools/' + Pages.UtilityClasses,
     type: 'Tools',
   },
   {
