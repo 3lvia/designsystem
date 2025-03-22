@@ -1,9 +1,9 @@
-import { Directive, HostBinding } from '@angular/core';
+import { Directive, HostBinding, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Subject, distinctUntilChanged, map, startWith, switchMap } from 'rxjs';
+import { Subject, distinctUntilChanged, filter, map, startWith } from 'rxjs';
 
-import { CMSNavbarItem } from 'src/app/core/services/cms/cms.interface';
-import { CMSService } from 'src/app/core/services/cms/cms.service';
+import { allDocPages } from '../doc-pages';
+import { DocPage } from '../shared.interface';
 import { LocalizationService } from 'src/app/core/services/localization.service';
 import { RouterService } from 'src/app/core/services/router.service';
 
@@ -20,14 +20,11 @@ import { RouterService } from 'src/app/core/services/router.service';
 export class NavbarBase {
   private navbarListChangedSubject = new Subject<void>();
   @HostBinding('attr.role') hostRole = 'navigation';
-  navbarList: CMSNavbarItem[] = [];
+  navbarList: DocPage[] = [];
   navbarListChange = this.navbarListChangedSubject.asObservable();
+  currentLocale = inject(LocalizationService).listenLocalization();
 
-  constructor(
-    private cmsService: CMSService,
-    private localeService: LocalizationService,
-    protected routerService: RouterService,
-  ) {
+  constructor(protected routerService: RouterService) {
     this.getNavItemsOnLocaleOrUrlChange();
   }
 
@@ -35,36 +32,16 @@ export class NavbarBase {
     this.routerService
       .urlPathChange()
       .pipe(
+        startWith(this.routerService.getCurrentUrlPath()), // Start with empty to ensure that we get navbar items on initial render
+        map((path) => path.match(/\/[^/]+/)?.[0]), // Extract first segment (e.g., "/about")
+        filter((path): path is string => !!path),
+        distinctUntilChanged(), // Only get new items when root path changes
+        map((path) => allDocPages.filter((page) => page.absolutePath?.startsWith(path)) ?? []),
         takeUntilDestroyed(),
-        map((path) => path.split('/')[1]), // Only get new items when root path changes
-        distinctUntilChanged(),
-        startWith(''), // Start with empty to ensure that we get navbar items on initial render
-        switchMap(() => this.localeService.listenLocalization()),
-        switchMap((locale) => this.cmsService.getSubMenuList(locale)),
       )
       .subscribe((navbarItems) => {
-        /**
-         * Just map over the new titles, if the navbar just changed locale.
-         */
-        if (this.localeChangedForExistingNavItems(navbarItems)) {
-          this.navbarList.forEach(
-            (item) =>
-              (item.title =
-                navbarItems.find((newItem) => newItem.fullPath === item.fullPath)?.title ?? item.title),
-          );
-        } else {
-          this.navbarList = navbarItems;
-          this.navbarListChangedSubject.next();
-        }
+        this.navbarList = navbarItems;
+        this.navbarListChangedSubject.next();
       });
-  }
-
-  private localeChangedForExistingNavItems(newItems: CMSNavbarItem[]): boolean {
-    return (
-      this.navbarList.length > 0 &&
-      this.navbarList.every((existingItem) =>
-        newItems.find((newItem) => newItem.fullPath === existingItem.fullPath),
-      )
-    );
   }
 }
