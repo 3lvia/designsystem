@@ -42,6 +42,7 @@ export const docPagesComponents: DocPage[] = [
     docUrl: Pages.CssLibrary,
     absolutePath: '/components/' + Pages.CssLibrary,
     type: 'Component',
+    isMainPage: true,
   },
   {
     title: 'Accordion',
@@ -563,6 +564,7 @@ export const docPagesAbout: DocPage[] = [
     docUrl: Pages.GetStarted,
     absolutePath: '/about/' + Pages.GetStarted,
     type: 'About',
+    isMainPage: true,
   },
   {
     title: 'The Design System',
@@ -608,6 +610,7 @@ export const docPagesBrand: DocPage[] = [
     docUrl: Pages.TheConcept,
     absolutePath: '/brand/' + Pages.TheConcept,
     type: 'Brand',
+    isMainPage: true,
   },
   {
     title: 'Colors',
@@ -653,6 +656,7 @@ export const docPagesBrand: DocPage[] = [
   },
   {
     title: 'Illustrations',
+    titleNo: 'Illustrasjoner',
     docUrl: Pages.Illustration,
     absolutePath: '/brand/' + Pages.Illustration,
     type: 'Brand',

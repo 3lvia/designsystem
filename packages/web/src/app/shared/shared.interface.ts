@@ -14,6 +14,7 @@ export interface DocPage {
   searchTerms?: string[];
   elvisClassName?: keyof typeof data.block;
   relatedPages?: DocPageName[];
+  isMainPage?: true;
 }
 
 export interface HomeMenuCard {
