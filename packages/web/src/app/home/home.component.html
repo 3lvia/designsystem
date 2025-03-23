@@ -82,8 +82,8 @@
             [description]="(isMobileScreenWidth | async) ? null : page.description"
             [heading]="page.title"
           >
-            <app-inline-svg slot="icon" [path]="page.imageUrl" />
-            <app-inline-svg slot="iconHover" [path]="page.imageUrlOn" />
+            <app-inline-svg slot="icon" [src]="page.imageUrl" />
+            <app-inline-svg slot="iconHover" [src]="page.imageUrlOn" />
           </elvia-card>
         </a>
       }

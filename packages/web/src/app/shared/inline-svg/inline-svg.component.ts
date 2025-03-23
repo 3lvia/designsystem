@@ -20,7 +20,7 @@ export class InlineSvgComponent {
    * Path to the SVG file to be loaded.
    * @example '/assets/icons/icon.svg'
    */
-  path = input.required<string>();
+  src = input.required<string>();
 
   protected svgIcon = signal<SafeHtml>('');
 
@@ -31,18 +31,18 @@ export class InlineSvgComponent {
   }
 
   private loadSVG(): void {
-    const path = this.path();
+    const src = this.src();
 
-    if (!path) {
-      console.error('No SVG path provided!');
+    if (!src) {
+      console.error('No SVG src provided!');
       return;
     }
-    this.http.get(path, { responseType: 'text' }).subscribe({
+    this.http.get(src, { responseType: 'text' }).subscribe({
       next: (value) => {
         this.svgIcon.set(this.sanitizer.bypassSecurityTrustHtml(value));
       },
       error: (e) => {
-        console.error(`Could not load SVG from ${path}`, e);
+        console.error(`Could not load SVG from ${src}`, e);
       },
     });
   }
