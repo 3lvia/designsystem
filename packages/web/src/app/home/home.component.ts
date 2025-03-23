@@ -1,4 +1,4 @@
-import { AsyncPipe, NgClass } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
@@ -6,6 +6,7 @@ import { RouterLink } from '@angular/router';
 
 import { BreakpointService } from '../core/services/breakpoint.service';
 import { ThemeService } from '../core/services/theme.service';
+import { InlineSvgComponent } from '../shared/inline-svg/inline-svg.component';
 import { FrontPageChangelogComponent } from './front-page-changelog/front-page-changelog.component';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { homeMenu } from 'src/app/shared/doc-pages';
@@ -16,7 +17,7 @@ type Holiday = 'Birthday' | 'Christmas' | 'Halloween' | 'Pride' | 'ConstitutionD
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  imports: [NgClass, RouterLink, FrontPageChangelogComponent, AsyncPipe],
+  imports: [AsyncPipe, FrontPageChangelogComponent, RouterLink, InlineSvgComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomeComponent implements OnInit {

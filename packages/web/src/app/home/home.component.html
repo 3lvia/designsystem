@@ -4,9 +4,7 @@
       <h1 class="big-header e-m-0">
         @if (fontLoaded) {
           <div>
-            <span class="title" [ngClass]="{ 'green-dot': holiday !== 'ConstitutionDay' }">{{
-              pageTitle
-            }}</span>
+            <span class="title" [class.green-dot]="holiday !== 'ConstitutionDay'">{{ pageTitle }}</span>
             @if (holiday === 'ConstitutionDay') {
               <span class="e-ml-8" style="color: var(--e-color-brand-accent)">!</span>
             }
@@ -82,26 +80,17 @@
   @for (page of pages; track page) {
     @if (!fontLoaded) {
       <div class="card-link e-content-loader" style="height: 100%"></div>
-    }
-    @if (page.absolutePath && fontLoaded) {
-      <a [routerLink]="[page.absolutePath]" class="card-link">
-        <elvia-card
-          [description]="(isMobileScreenWidth | async) ? null : page.description"
-          [heading]="page.title"
-        >
-          <img
-            slot="icon"
-            src="{{ (currentTheme | async) === 'dark' ? page.imageUrlDark : page.imageUrl }}"
-            alt=""
-          />
-          <div slot="iconHover">
-            <img
-              src="{{ (currentTheme | async) === 'dark' ? page.imageUrlOnDark : page.imageUrlOn }}"
-              alt=""
-            />
-          </div>
-        </elvia-card>
-      </a>
+    } @else {
+      @if (page.absolutePath) {
+        <a [routerLink]="[page.absolutePath]" class="card-link">
+          <elvia-card
+            [description]="(isMobileScreenWidth | async) ? null : page.description"
+            [heading]="page.title"
+          >
+            <app-inline-svg slot="icon" [path]="page.imageUrl" />
+          </elvia-card>
+        </a>
+      }
     }
   }
 </div>
