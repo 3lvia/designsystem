@@ -1,25 +1,12 @@
 <div class="elvia-curve"></div>
-<footer class="e-color-background-3" [ngClass]="bgClass">
+<footer class="e-color-background-3">
   <div class="footer">
-    <div class="e-text-sm contact">
+    <p class="e-text-sm contact">
       Have questions? Reach out to us on Slack
-      <a
-        class="e-link e-link--inline e-link--new-tab e-link--sm"
-        href="https://elvia-group.slack.com/archives/C01C1DU9X1Q"
-        target="_blank"
-        rel="noopener"
-      >
-        <span class="e-link__title">#designsystemet</span>
-        <span class="e-link__icon">
-          <e-icon name="newTabBold" />
-        </span>
-      </a>
-      or
-      <a class="e-link e-link--inline e-link--sm" [routerLink]="['/about/contact']">contact</a>
-      one of us in the team.
-    </div>
+      <app-designsystem-slack-link />
+    </p>
 
-    <div class="e-text-micro copyright">Copyright © {{ currentYear }} Elvia</div>
+    <div class="e-text-micro copyright e-color-text-2">Copyright © {{ currentYear }} Elvia</div>
 
     <div class="links">
       @for (link of links; track link) {
