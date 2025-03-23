@@ -825,11 +825,15 @@ export const allDocPages: DocPage[] = [
 export function getDocPage(docUrl: DocPageName) {
   const page = allDocPages.find((page) => page.docUrl === docUrl);
   if (!page) {
-    throw new Error(`Page not found: ${docUrl}`);
+    throw new Error(`Page not found: '${docUrl}'`);
   }
   return page;
 }
 
 export function getDocPagesByType(type: DocPageType) {
-  return allDocPages.filter((page) => page.type === type);
+  const pages = allDocPages.filter((page) => page.type === type);
+  if (!pages.length) {
+    throw new Error(`Pages not found for type: '${type}'`);
+  }
+  return pages;
 }
