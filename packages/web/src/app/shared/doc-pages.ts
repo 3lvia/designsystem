@@ -29,7 +29,7 @@ export const homeMenu: HomeMenuCard[] = [
   },
 ];
 
-export const docPagesComponents: DocPage[] = [
+const docPagesComponents: DocPage[] = [
   {
     title: 'CSS Library',
     description: `The CSS library <code>@elvia/elvis</code> consists of the most basic components like links, tags and inputs as well as utilities like colors, typography, icons and logos.`,
@@ -549,7 +549,7 @@ export const docPagesComponents: DocPage[] = [
 ];
 
 // About pages
-export const docPagesAbout: DocPage[] = [
+const docPagesAbout: DocPage[] = [
   {
     title: 'Get started',
     titleNo: 'Kom i gang',
@@ -607,7 +607,7 @@ export const docPagesAbout: DocPage[] = [
 ];
 
 // Brand pages
-export const docPagesBrand: DocPage[] = [
+const docPagesBrand: DocPage[] = [
   {
     title: 'The Concept',
     docUrl: Pages.TheConcept,
@@ -679,7 +679,7 @@ export const docPagesBrand: DocPage[] = [
 ];
 
 // Pattern pages
-export const docPagesPattern: DocPage[] = [
+const docPagesPattern: DocPage[] = [
   {
     title: 'Comments',
     docUrl: Pages.Comments,
@@ -736,8 +736,8 @@ export const docPagesPattern: DocPage[] = [
   },
 ];
 
-// Accessibility
-export const docPagesTools: DocPage[] = [
+// Tools
+const docPagesTools: DocPage[] = [
   {
     title: 'Accessibility',
     description:
