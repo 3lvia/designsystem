@@ -13,16 +13,14 @@ import {
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 import { SearchHighlighterPipe } from '../../../shared/search-highlighter.pipe';
 import { SearchItem, SearchStatus } from './search-menu.interface';
 import { BreakpointService } from 'src/app/core/services/breakpoint.service';
 import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
-import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { utilityGroups } from 'src/app/doc-pages/tools/utilities-doc/utility-groups-data';
-import { allDocPages, docPagesComponents } from 'src/app/shared/doc-pages';
+import { allDocPages } from 'src/app/shared/doc-pages';
 import { SearchResult, Searcher } from 'src/app/shared/searcher';
 
 @Component({
@@ -48,7 +46,6 @@ export class SearchMenuComponent implements OnInit {
   synonymComponents: SearchItem[] = [];
 
   constructor(
-    private cmsService: CMSService,
     private localizationService: LocalizationService,
     private router: Router,
     public breakpointService: BreakpointService,
@@ -58,9 +55,6 @@ export class SearchMenuComponent implements OnInit {
       .pipe(takeUntilDestroyed())
       .subscribe((locale) => {
         this.locale = locale;
-        this.cmsService.getMenu(locale).then((data) => {
-          this.mainMenu = data;
-        });
       });
   }
 
@@ -142,15 +136,6 @@ export class SearchMenuComponent implements OnInit {
 
   private async initializeSearchItems(): Promise<void> {
     this.searchItems = this.searchItems.concat(
-      docPagesComponents.map((docPage) => {
-        return {
-          title: docPage.title,
-          description: docPage.description?.replace(/<.*?>/g, ''),
-          type: docPage.type?.substring(0, docPage.type.length - (docPage.type.endsWith('s') ? 1 : 0)),
-          absolutePath: docPage.absolutePath,
-          searchTerms: docPage.searchTerms,
-        };
-      }),
       allDocPages.map((docPage) => {
         return {
           title: docPage.title,
@@ -171,37 +156,9 @@ export class SearchMenuComponent implements OnInit {
           };
         });
       }),
-      await this.getSearchItemsFromCMS(),
     );
     this.searchItems = this.removeDuplicateSearchItems(this.searchItems);
     this.searchItems = this.removeSearchItemsWithoutPath(this.searchItems);
-  }
-
-  private async getSearchItemsFromCMS(): Promise<SearchItem[]> {
-    await this.cmsService.getMenu(this.locale).then((data) => {
-      this.mainMenu = data;
-    });
-
-    const mappedCMSItems: SearchItem[] = [];
-    this.mainMenu.pages.forEach((subMenu) => {
-      subMenu.entry.fields.pages?.[this.locale]?.forEach((documentationPage) => {
-        let description: string | undefined;
-        if (documentationPage.fields.pageDescription) {
-          description = documentToHtmlString(documentationPage.fields.pageDescription[this.locale]!);
-          description = description.replace(/<.*?>/g, '');
-        }
-
-        if (!mappedCMSItems.find((item) => item.title === documentationPage.fields.title[this.locale])) {
-          mappedCMSItems.push({
-            title: documentationPage.fields.title[this.locale]!,
-            description: description,
-            type: subMenu.title.substring(0, subMenu.title.length - (subMenu.title.endsWith('s') ? 1 : 0)),
-            absolutePath: subMenu.path + '/' + documentationPage.fields.path[this.locale],
-          });
-        }
-      });
-    });
-    return mappedCMSItems;
   }
 
   private removeDuplicateSearchItems(items: SearchItem[]): SearchItem[] {
