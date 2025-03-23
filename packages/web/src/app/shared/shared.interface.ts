@@ -2,6 +2,8 @@ import data from '@elvia/elvis/.internal/classlist.json';
 
 import { DocPageName } from './shared.enum';
 
+export type DocPageType = 'About' | 'Brand' | 'Component' | 'Patterns' | 'Tools';
+
 export interface DocPage {
   title: string;
   titleNo?: string;
@@ -10,11 +12,12 @@ export interface DocPage {
   absolutePath?: string;
   docUrl: DocPageName;
   figmaUrl?: string;
-  type: 'About' | 'Brand' | 'Component' | 'Patterns' | 'Tools';
+  type: DocPageType;
   searchTerms?: string[];
   elvisClassName?: keyof typeof data.block;
   relatedPages?: DocPageName[];
   isMainPage?: true;
+  imageUrl?: `assets/doc-page-icons/${string}`;
 }
 
 export interface HomeMenuCard {
@@ -22,8 +25,6 @@ export interface HomeMenuCard {
   description: string;
   docUrl: DocPageName;
   absolutePath: string;
-  imageUrl: string;
-  imageUrlOn: string;
-  imageUrlDark: string;
-  imageUrlOnDark: string;
+  imageUrl: `assets/${string}`;
+  imageUrlOn: `assets/${string}`;
 }

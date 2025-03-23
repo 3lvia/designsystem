@@ -1,5 +1,5 @@
 import { DocPageName, Pages } from './shared.enum';
-import { DocPage, HomeMenuCard } from './shared.interface';
+import { DocPage, DocPageType, HomeMenuCard } from './shared.interface';
 
 // Used for shortcuts at home page
 export const homeMenu: HomeMenuCard[] = [
@@ -10,8 +10,6 @@ export const homeMenu: HomeMenuCard[] = [
     absolutePath: '/components/',
     imageUrl: 'assets/doc-page-icons/shortcut-icons/Component.svg',
     imageUrlOn: 'assets/doc-page-icons/shortcut-icons/ComponentOn.svg',
-    imageUrlDark: 'assets/doc-page-icons/shortcut-icons/ComponentDark.svg',
-    imageUrlOnDark: 'assets/doc-page-icons/shortcut-icons/ComponentOnDark.svg',
   },
   {
     title: 'The Concept',
@@ -20,8 +18,6 @@ export const homeMenu: HomeMenuCard[] = [
     absolutePath: '/brand/the-concept/',
     imageUrl: 'assets/doc-page-icons/shortcut-icons/Concept.svg',
     imageUrlOn: 'assets/doc-page-icons/shortcut-icons/ConceptOn.svg',
-    imageUrlDark: 'assets/doc-page-icons/shortcut-icons/ConceptDark.svg',
-    imageUrlOnDark: 'assets/doc-page-icons/shortcut-icons/ConceptOnDark.svg',
   },
   {
     title: 'Accessibility',
@@ -30,8 +26,6 @@ export const homeMenu: HomeMenuCard[] = [
     absolutePath: '/tools/accessibility/',
     imageUrl: 'assets/doc-page-icons/shortcut-icons/Accessibility.svg',
     imageUrlOn: 'assets/doc-page-icons/shortcut-icons/AccessibilityOn.svg',
-    imageUrlDark: 'assets/doc-page-icons/shortcut-icons/AccessibilityDark.svg',
-    imageUrlOnDark: 'assets/doc-page-icons/shortcut-icons/AccessibilityOnDark.svg',
   },
 ];
 
@@ -558,6 +552,7 @@ export const docPagesComponents: DocPage[] = [
 export const docPagesAbout: DocPage[] = [
   {
     title: 'Get started',
+    titleNo: 'Kom i gang',
     description: `We are an open-source design system to be used for Elvia’s external and internal systems to provide a
     comprehensive and user-friendly experience. We offer classes, variables and components, as well as tools
     like accessibility guidelines and design principles.`,
@@ -565,14 +560,28 @@ export const docPagesAbout: DocPage[] = [
     absolutePath: '/about/' + Pages.GetStarted,
     type: 'About',
     isMainPage: true,
+    imageUrl: 'assets/doc-page-icons/about/get_started.svg',
+  },
+  {
+    title: 'Contact',
+    titleNo: 'Kontakt',
+    description: `Currently, no dedicated team is working on the design system. If you have any questions, please use our Slack channel <a class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
+    <span class="e-link__title">#designsystemet</span>
+    </a> or contact Tom Schrier.`,
+    docUrl: Pages.Contact,
+    absolutePath: '/about/' + Pages.Contact,
+    type: 'About',
+    imageUrl: 'assets/doc-page-icons/about/contact.svg',
   },
   {
     title: 'The Design System',
+    titleNo: 'Designsystemet',
     description:
       'Elvia’s design system – Elvis – is a scalable system of visual language, components, and design assets that enables us to work together towards an ultimate brand experience.',
     docUrl: Pages.TheDesignSystem,
     absolutePath: '/about/' + Pages.TheDesignSystem,
     type: 'About',
+    imageUrl: 'assets/doc-page-icons/about/the_design_system.svg',
   },
   {
     title: 'Tutorial',
@@ -583,23 +592,17 @@ export const docPagesAbout: DocPage[] = [
     docUrl: Pages.Tutorial,
     absolutePath: '/about/' + Pages.Tutorial,
     type: 'About',
-  },
-  {
-    title: 'Contact',
-    description: `Currently, no dedicated team is working on the design system. If you have any questions, please use our Slack channel <a class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
-    <span class="e-link__title">#designsystemet</span>
-    </a> or contact Tom Schrier.`,
-    docUrl: Pages.Contact,
-    absolutePath: '/about/' + Pages.Contact,
-    type: 'About',
+    imageUrl: 'assets/doc-page-icons/about/tutorial.svg',
   },
   {
     title: 'FAQ',
+    titleNo: 'Vanlige spørsmål',
     description:
       'We try to answer the most asked questions. If you can’t find the answers you were looking for, contact us on Slack.',
     docUrl: Pages.Faq,
     absolutePath: '/about/' + Pages.Faq,
     type: 'About',
+    imageUrl: 'assets/doc-page-icons/about/faq.svg',
   },
 ];
 
@@ -737,48 +740,58 @@ export const docPagesPattern: DocPage[] = [
 export const docPagesTools: DocPage[] = [
   {
     title: 'Accessibility',
+    description:
+      'We design inclusive solutions that ensure all users, regardless of permanent, temporary, or situational disabilities, can fully engage with the user experience.',
     docUrl: Pages.Accessibility,
     absolutePath: '/tools/' + Pages.Accessibility,
     type: 'Tools',
   },
   {
     title: 'Design Process',
+    description: '',
     docUrl: Pages.DesignProcess,
     absolutePath: '/tools/' + Pages.DesignProcess,
     type: 'Tools',
   },
   {
     title: 'Evaluation',
+    description:
+      'Evaluation is the method of analyzing your results and making the best selections through unbiased appraisal. Use an evaluation method when you already have a set of ideas to choose from.',
     docUrl: Pages.Evaluation,
     absolutePath: '/tools/' + Pages.Evaluation,
     type: 'Tools',
   },
   {
     title: 'Icebreakers',
+    description: '',
     docUrl: Pages.Icebreakers,
     absolutePath: '/tools/' + Pages.Icebreakers,
     type: 'Tools',
   },
   {
     title: 'Ideation',
+    description: '',
     docUrl: Pages.Ideation,
     absolutePath: '/tools/' + Pages.Ideation,
     type: 'Tools',
   },
   {
     title: 'Personas',
+    description: '',
     docUrl: Pages.Personas,
     absolutePath: '/tools/' + Pages.Personas,
     type: 'Tools',
   },
   {
     title: 'Templates',
+    description: '',
     docUrl: Pages.Templates,
     absolutePath: '/tools/' + Pages.Templates,
     type: 'Tools',
   },
   {
     title: 'User Feedback',
+    description: '',
     docUrl: Pages.UserFeedback,
     absolutePath: '/tools/' + Pages.UserFeedback,
     type: 'Tools',
@@ -815,4 +828,8 @@ export function getDocPage(docUrl: DocPageName) {
     throw new Error(`Page not found: ${docUrl}`);
   }
   return page;
+}
+
+export function getDocPagesByType(type: DocPageType) {
+  return allDocPages.filter((page) => page.type === type);
 }
