@@ -1,0 +1,96 @@
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body">
+  <figure class="figure--center">
+    <img
+      class="theme-image-background"
+      src="assets/doc-pages/tools/design_process/double_diamond.png"
+      alt=""
+    />
+  </figure>
+  <app-component-section sectionTitle="Double diamond">
+    <p>
+      The diamonds represent a recurring focus switch from divergent thinking to convergent thinking. Although
+      each stage is well defined, the process is highly iterative and always adaptable depending on context.
+    </p>
+    <figure class="figure--center">
+      <img [src]="`assets/doc-pages/tools/design_process/design_process_${theme | async}.png`" alt="" />
+    </figure>
+  </app-component-section>
+  <app-component-section sectionTitle="Discover">
+    <p>In the discovery phase, user research is in focus. Some suggested methods could be:</p>
+    <ul class="e-list">
+      <li>Stakeholder mapping</li>
+      <li>Five whys</li>
+      <li>Journey mapping</li>
+      <li>Interviews</li>
+      <li>Observations</li>
+      <li>
+        Quantitative user research (see
+        <a class="e-link e-link--inline e-link--new-tab" routerLink="/tools/user-feedback">
+          <span class="e-link__title">User Feedback</span></a
+        >)
+      </li>
+    </ul>
+  </app-component-section>
+  <app-component-section sectionTitle="Define">
+    <p>
+      When defining the problem, the goal is to find the essence and prioritize it. Some suggested methods
+      could be:
+    </p>
+    <ul class="e-list">
+      <li>Personas</li>
+      <li>Workshops</li>
+      <li>Use case</li>
+      <li>MoSCoW method (must, should, could, won’t)</li>
+      <li>Affinity mapping</li>
+      <li>Empathy mapping</li>
+    </ul>
+  </app-component-section>
+  <app-component-section sectionTitle="Develop">
+    <p>
+      We develop concepts with both low- and high fidelity, depending on where in the iterative process the
+      project is at the time. Some suggested methods could be:
+    </p>
+    <ul class="e-list">
+      <li>Storyboards</li>
+      <li>Sketches</li>
+      <li>Wireframes</li>
+      <li>Prototypes</li>
+      <li>MVP</li>
+    </ul>
+  </app-component-section>
+  <app-component-section sectionTitle="Deliver">
+    <p>
+      In the deliver (and test) phase, we iterate and fine-tune our solutions until we’re sure that they meet
+      our requirement specification and the concept can be handed over. Some suggested methods could be:
+    </p>
+    <ul class="e-list">
+      <li>High-fidelity prototyping</li>
+      <li>User testing, A/B testing</li>
+      <li>Design documentation</li>
+      <li>Pitch</li>
+      <li>Graphics or illustrations</li>
+    </ul>
+  </app-component-section>
+  <app-component-section sectionTitle="Design in Elvia">
+    <p>
+      To help each other deliver the best solutions, we frequently meet to discuss, inspire and grow together.
+      Designers gather regularly to share ideas and thoughts, and meet up with content creators weekly to make
+      sure our products and ideas keep a high quality and are in line with our principles.
+    </p>
+    <app-component-subsection sectionTitle="Elvia's design principles ">
+      <p>Through our design language, we are:</p>
+      <ul class="e-list">
+        <li>Spacious</li>
+        <li>Bright</li>
+        <li>Clear</li>
+        <li>Contrast</li>
+        <li>Soft</li>
+      </ul>
+    </app-component-subsection>
+  </app-component-section>
+</div>

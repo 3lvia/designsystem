@@ -813,8 +813,8 @@ const docPagesTools: DocPage[] = [
     imageUrl: `assets/doc-page-icons/tools/accessibility.svg`,
   },
   {
-    title: 'Elvias design prosess',
-    titleNo: 'Elvias designprosess',
+    title: 'Design Process',
+    titleNo: 'Designprosess',
     description:
       'In Elvia, we strive towards working after the Double diamond design process and its four stages: discover, define, develop and deliver. We do this to make sure that we deliver solutions well suited for our end users.',
     descriptionNo:

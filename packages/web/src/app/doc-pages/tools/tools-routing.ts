@@ -13,6 +13,11 @@ export const routes: Routes = [
       import('./accessibility-doc/accessibility-doc.component').then((m) => m.AccessibilityDocComponent),
   },
   {
+    path: Pages.DesignProcess,
+    loadComponent: () =>
+      import('./design-process-doc/design-process-doc.component').then((m) => m.DesignProcessDocComponent),
+  },
+  {
     path: Pages.UtilityClasses,
     loadComponent: () =>
       import('./utilities-doc/utilities-doc.component').then((m) => m.UtilitiesDocComponent),
