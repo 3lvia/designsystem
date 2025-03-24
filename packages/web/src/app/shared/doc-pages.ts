@@ -37,6 +37,7 @@ const docPagesComponents: DocPage[] = [
     absolutePath: '/components/' + Pages.CssLibrary,
     type: 'Component',
     isMainPage: true,
+    imageUrl: 'assets/doc-page-icons/components/css_library.svg',
   },
   {
     title: 'Accordion',
@@ -48,6 +49,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['expandable', 'disclosure', 'pocket', 'collapse'],
     relatedPages: ['button', 'groups'],
+    imageUrl: 'assets/doc-page-icons/components/accordion.svg',
   },
   {
     title: 'Alert',
@@ -59,6 +61,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['notifications', 'feedback', 'banner', 'flag', 'snackbar', 'message', 'confirmation'],
     relatedPages: ['toast', 'badge', 'cookies', 'validations'],
+    imageUrl: 'assets/doc-page-icons/components/alert.svg',
   },
   {
     title: 'App Bridge',
@@ -69,6 +72,7 @@ const docPagesComponents: DocPage[] = [
     figmaUrl: 'https://www.figma.com/design/g0Dva16HcsfI0JUmSJY2lE/App-bridge?node-id=1-539&m=dev',
     type: 'Component',
     searchTerms: ['internal', 'application', 'link', 'open'],
+    imageUrl: 'assets/doc-page-icons/components/app_bridge.svg',
   },
   {
     title: 'Autocomplete',
@@ -80,6 +84,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['predictive', 'word completion', 'combobox', 'suggest', 'filter'],
     relatedPages: ['input', 'dropdown', 'search', 'filters'],
+    imageUrl: 'assets/doc-page-icons/components/autocomplete.svg',
   },
   {
     title: 'Badge',
@@ -91,6 +96,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['notification', 'mark', 'counter'],
     relatedPages: ['tag', 'chip', 'alert'],
+    imageUrl: 'assets/doc-page-icons/components/badge.svg',
   },
   {
     title: 'Box',
@@ -102,6 +108,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['tile'],
     relatedPages: ['card', 'popover', 'layout'],
+    imageUrl: 'assets/doc-page-icons/components/box.svg',
   },
   {
     title: 'Button',
@@ -114,6 +121,7 @@ const docPagesComponents: DocPage[] = [
     searchTerms: ['cta', 'call to action', 'click'],
     elvisClassName: 'e-btn',
     relatedPages: ['context-menu', 'toggle', 'link', 'icon'],
+    imageUrl: 'assets/doc-page-icons/components/button.svg',
   },
   {
     title: 'Breadcrumb',
@@ -125,6 +133,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['navigation', 'path'],
     relatedPages: ['link', 'header'],
+    imageUrl: 'assets/doc-page-icons/components/breadcrumb.svg',
   },
   {
     title: 'Card',
@@ -136,6 +145,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['collection', 'tile'],
     relatedPages: ['link', 'box', 'groups'],
+    imageUrl: 'assets/doc-page-icons/components/card.svg',
   },
   {
     title: 'Carousel',
@@ -147,6 +157,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['horizontal', 'scroll', 'viewer', 'gallery'],
     relatedPages: ['button', 'stepper', 'thumbnail', 'images'],
+    imageUrl: 'assets/doc-page-icons/components/carousel.svg',
   },
   {
     title: 'Chip',
@@ -158,6 +169,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['legend', 'pills', 'filter'],
     relatedPages: ['badge', 'radio-filter', 'tag', 'filters'],
+    imageUrl: 'assets/doc-page-icons/components/chip.svg',
   },
   {
     title: 'Checkbox',
@@ -170,6 +182,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['tick', 'select', 'option', 'selection', 'multiselect'],
     relatedPages: ['radiobutton', 'toggle', 'filters', 'forms'],
+    imageUrl: 'assets/doc-page-icons/components/checkbox.svg',
   },
   {
     title: 'Content Loader',
@@ -181,6 +194,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['placeholder', 'skeleton', 'loading', 'shimmer', 'loader'],
     relatedPages: ['progressbar', 'illustration', 'empty-states'],
+    imageUrl: 'assets/doc-page-icons/components/content_loader.svg',
   },
   {
     title: 'Context Menu',
@@ -193,6 +207,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['menu', 'popup', 'more', 'actions'],
     relatedPages: ['button', 'popover', 'icon'],
+    imageUrl: 'assets/doc-page-icons/components/context_menu.svg',
   },
   {
     title: 'Datepicker',
@@ -204,6 +219,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['calendar', 'date', 'time', 'input'],
     relatedPages: ['datepicker-range', 'timepicker', 'forms', 'filters'],
+    imageUrl: 'assets/doc-page-icons/components/datepicker.svg',
   },
   {
     title: 'Datepicker Range',
@@ -215,6 +231,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['calendar', 'date', 'time', 'input'],
     relatedPages: ['timepicker', 'datepicker', 'forms', 'filters'],
+    imageUrl: 'assets/doc-page-icons/components/datepicker_range.svg',
   },
   {
     title: 'Drag & Drop',
@@ -226,6 +243,7 @@ const docPagesComponents: DocPage[] = [
     searchTerms: ['file', 'upload'],
     elvisClassName: 'e-dragdrop',
     relatedPages: ['file-upload', 'forms', 'groups'],
+    imageUrl: 'assets/doc-page-icons/components/drag_and_drop.svg',
   },
   {
     title: 'Divider',
@@ -236,6 +254,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['line', 'separator', 'section', 'hr', 'br'],
     relatedPages: ['layout', 'groups'],
+    imageUrl: 'assets/doc-page-icons/components/divider.svg',
   },
   {
     title: 'Dropdown',
@@ -247,6 +266,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['select', 'option', 'multiselect', 'pull-down', 'combobox'],
     relatedPages: ['autocomplete', 'radiobutton', 'forms'],
+    imageUrl: 'assets/doc-page-icons/components/dropdown.svg',
   },
   {
     title: 'File Upload',
@@ -258,6 +278,7 @@ const docPagesComponents: DocPage[] = [
     searchTerms: ['file', 'upload'],
     elvisClassName: 'e-fileupload',
     relatedPages: ['drag-and-drop', 'thumbnail', 'forms', 'groups'],
+    imageUrl: 'assets/doc-page-icons/components/file_upload.svg',
   },
   {
     title: 'Header',
@@ -269,6 +290,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['navigation', 'menu', 'top', 'bar', 'logo', 'title', 'toolbar', 'sidebar', 'topbar'],
     relatedPages: ['breadcrumb', 'link', 'onboarding'],
+    imageUrl: 'assets/doc-page-icons/components/header.svg',
   },
   {
     title: 'Text Field',
@@ -279,6 +301,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['input', 'text', 'number', 'email', 'password', 'textarea'],
     relatedPages: ['dropdown', 'autocomplete', 'comments', 'forms'],
+    imageUrl: 'assets/doc-page-icons/components/input.svg',
   },
   {
     title: 'Tag',
@@ -290,6 +313,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['label', 'lozenge', 'status', 'ribbon', 'category', 'categorize', 'organize'],
     relatedPages: ['chip', 'badge', 'graph'],
+    imageUrl: 'assets/doc-page-icons/components/tag.svg',
   },
   {
     title: 'Link',
@@ -301,6 +325,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['anchor', 'url', 'href', 'navigate', 'navigation', 'click'],
     relatedPages: ['breadcrumb', 'card', 'header', 'groups'],
+    imageUrl: 'assets/doc-page-icons/components/link.svg',
   },
   {
     title: 'List',
@@ -312,6 +337,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['bullet', 'numbered', 'unordered', 'ordered', 'ul', 'ol', 'li'],
     relatedPages: ['icon', 'groups'],
+    imageUrl: 'assets/doc-page-icons/components/list.svg',
   },
   {
     title: 'Modal',
@@ -323,6 +349,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['dialog', 'popup', 'confirm', 'prompt', 'window', 'layer', 'overlay'],
     relatedPages: ['popover', 'context-menu', 'tooltip'],
+    imageUrl: 'assets/doc-page-icons/components/modal.svg',
   },
   {
     title: 'Outline',
@@ -333,6 +360,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['keyboard', 'focus', 'accessibility', 'a11y', 'outline', 'focus-visible'],
     relatedPages: ['accessibility'],
+    imageUrl: 'assets/doc-page-icons/components/outline.svg',
   },
   {
     title: 'Pagination',
@@ -344,6 +372,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['page', 'navigation', 'next', 'previous'],
     relatedPages: ['table', 'stepper', 'accordion'],
+    imageUrl: 'assets/doc-page-icons/components/pagination.svg',
   },
   {
     title: 'Popover',
@@ -365,6 +394,7 @@ const docPagesComponents: DocPage[] = [
       'callout',
     ],
     relatedPages: ['modal', 'context-menu', 'tooltip'],
+    imageUrl: 'assets/doc-page-icons/components/popover.svg',
   },
   {
     title: 'Progressbar',
@@ -386,6 +416,7 @@ const docPagesComponents: DocPage[] = [
       'meter',
     ],
     relatedPages: ['content-loader', 'file-upload', 'empty-states'],
+    imageUrl: 'assets/doc-page-icons/components/progressbar.svg',
   },
   {
     title: 'Radio Button',
@@ -399,6 +430,7 @@ const docPagesComponents: DocPage[] = [
     searchTerms: ['choice', 'option', 'select', 'toggle'],
     elvisClassName: 'e-radio',
     relatedPages: ['checkbox', 'dropdown', 'forms', 'filters'],
+    imageUrl: 'assets/doc-page-icons/components/radio_button.svg',
   },
   {
     title: 'Radio Filter',
@@ -411,6 +443,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['choice', 'option', 'select', 'filter'],
     relatedPages: ['segmented-control', 'chip', 'forms', 'filters'],
+    imageUrl: 'assets/doc-page-icons/components/radio_filter.svg',
   },
   {
     title: 'Search',
@@ -423,6 +456,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['find', 'filter'],
     relatedPages: ['autocomplete', 'forms', 'filters', 'empty-states'],
+    imageUrl: 'assets/doc-page-icons/components/search.svg',
   },
   {
     title: 'Segmented Control',
@@ -434,6 +468,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['content switch', 'choice', 'option', 'select', 'filter'],
     relatedPages: ['radio-filter', 'tabs', 'radiobutton', 'filters'],
+    imageUrl: 'assets/doc-page-icons/components/segmented_control.svg',
   },
   {
     title: 'Slider',
@@ -445,6 +480,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['range', 'input', 'adjust', 'value', 'number', 'handle', 'track'],
     relatedPages: ['input', 'radiobutton', 'forms'],
+    imageUrl: 'assets/doc-page-icons/components/slider.svg',
   },
   {
     title: 'Spotlight',
@@ -456,6 +492,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['highlight', 'focus'],
     relatedPages: ['box', 'onboarding', 'illustration'],
+    imageUrl: 'assets/doc-page-icons/components/spotlight.svg',
   },
   {
     title: 'Stepper',
@@ -467,6 +504,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['steps', 'progress', 'process'],
     relatedPages: ['carousel', 'pagination', 'tabs', 'forms'],
+    imageUrl: 'assets/doc-page-icons/components/stepper.svg',
   },
   {
     title: 'Tabs',
@@ -478,6 +516,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['pivot', 'choice', 'option', 'view', 'filter'],
     relatedPages: ['segmented-control', 'radio-filter', 'stepper'],
+    imageUrl: 'assets/doc-page-icons/components/tabs.svg',
   },
   {
     title: 'Table',
@@ -489,6 +528,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['data', 'row', 'column', 'th', 'td', 'tr', 'tbody', 'thead', 'tfoot'],
     relatedPages: ['pagination', 'chip', 'filters', 'graph'],
+    imageUrl: 'assets/doc-page-icons/components/table.svg',
   },
   {
     title: 'Toggle',
@@ -501,6 +541,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['switch', 'on', 'off', 'option', 'state', 'radio', 'lever'],
     relatedPages: ['checkbox', 'radiobutton', 'segmented-control', 'forms'],
+    imageUrl: 'assets/doc-page-icons/components/toggle.svg',
   },
   {
     title: 'Timepicker',
@@ -512,6 +553,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['clock', 'hour', 'minute', 'interval', 'duration', 'period', 'input'],
     relatedPages: ['datepicker', 'datepicker-range', 'popover', 'forms'],
+    imageUrl: 'assets/doc-page-icons/components/timepicker.svg',
   },
   {
     title: 'Thumbnail',
@@ -523,6 +565,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['image', 'preview', 'picture', 'photo', 'gallery'],
     relatedPages: ['carousel', 'file-upload', 'images'],
+    imageUrl: 'assets/doc-page-icons/components/thumbnail.svg',
   },
   {
     title: 'Toast',
@@ -534,6 +577,7 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['notifications', 'feedback', 'flag', 'snackbar', 'message', 'confirmation'],
     relatedPages: ['alert', 'popover'],
+    imageUrl: 'assets/doc-page-icons/components/toast.svg',
   },
   {
     title: 'Tooltip',
@@ -545,10 +589,11 @@ const docPagesComponents: DocPage[] = [
     type: 'Component',
     searchTerms: ['info', 'infotip', 'help', 'hint', 'popup'],
     relatedPages: ['popover', 'icon', 'button'],
+    imageUrl: 'assets/doc-page-icons/components/tooltip.svg',
   },
 ];
 
-// About pages
+// About pages (FERDIG)
 const docPagesAbout: DocPage[] = [
   {
     title: 'Get started',
@@ -614,48 +659,56 @@ const docPagesBrand: DocPage[] = [
     absolutePath: '/brand/' + Pages.TheConcept,
     type: 'Brand',
     isMainPage: true,
+    imageUrl: 'assets/doc-page-icons/brand/the_concept.svg',
   },
   {
     title: 'Colors',
     docUrl: Pages.Color,
     absolutePath: '/brand/' + Pages.Color,
     type: 'Brand',
+    imageUrl: 'assets/doc-page-icons/brand/colors.svg',
   },
   {
     title: 'Icons',
     docUrl: Pages.Icon,
     absolutePath: '/brand/' + Pages.Icon,
     type: 'Brand',
+    imageUrl: 'assets/doc-page-icons/brand/icons.svg',
   },
   {
     title: 'Images',
     docUrl: Pages.Images,
     absolutePath: '/brand/' + Pages.Images,
     type: 'Brand',
+    imageUrl: 'assets/doc-page-icons/brand/images.svg',
   },
   {
     title: 'Layout',
     docUrl: Pages.Layout,
     absolutePath: '/brand/' + Pages.Layout,
     type: 'Brand',
+    imageUrl: 'assets/doc-page-icons/brand/layout.svg',
   },
   {
     title: 'Logo',
     docUrl: Pages.Logo,
     absolutePath: '/brand/' + Pages.Logo,
     type: 'Brand',
+    imageUrl: 'assets/doc-page-icons/brand/logo.svg',
   },
   {
     title: 'Tone of Voice',
     docUrl: Pages.ToneOfVoice,
     absolutePath: '/brand/' + Pages.ToneOfVoice,
     type: 'Brand',
+    imageUrl: 'assets/doc-page-icons/brand/tone_of_voice.svg',
   },
   {
     title: 'Typography',
     docUrl: Pages.Typography,
     absolutePath: '/brand/' + Pages.Typography,
     type: 'Brand',
+    imageUrl: 'assets/doc-page-icons/brand/typography.svg',
   },
   {
     title: 'Illustrations',
@@ -663,6 +716,7 @@ const docPagesBrand: DocPage[] = [
     docUrl: Pages.Illustration,
     absolutePath: '/brand/' + Pages.Illustration,
     type: 'Brand',
+    imageUrl: 'assets/doc-page-icons/brand/illustrations.svg',
   },
   {
     title: 'Shadow',
@@ -675,6 +729,7 @@ const docPagesBrand: DocPage[] = [
     absolutePath: '/brand/' + Pages.Shadow,
     type: 'Brand',
     figmaUrl: 'https://www.figma.com/file/E2yRkpqSSuRnq8RDXO4Mly/Shadow?node-id=90%3A24',
+    imageUrl: 'assets/doc-page-icons/brand/shadow.svg',
   },
 ];
 
@@ -685,54 +740,63 @@ const docPagesPattern: DocPage[] = [
     docUrl: Pages.Comments,
     absolutePath: '/patterns/' + Pages.Comments,
     type: 'Patterns',
+    imageUrl: 'assets/doc-page-icons/patterns/comments.svg',
   },
   {
     title: 'Cookies',
     docUrl: Pages.Cookies,
     absolutePath: '/patterns/' + Pages.Cookies,
     type: 'Patterns',
+    imageUrl: 'assets/doc-page-icons/patterns/cookies.svg',
   },
   {
     title: 'Empty States',
     docUrl: Pages.EmptyStates,
     absolutePath: '/patterns/' + Pages.EmptyStates,
     type: 'Patterns',
+    imageUrl: 'assets/doc-page-icons/patterns/empty_states.svg',
   },
   {
     title: 'Filters',
     docUrl: Pages.Filters,
     absolutePath: '/patterns/' + Pages.Filters,
     type: 'Patterns',
+    imageUrl: 'assets/doc-page-icons/patterns/filters.svg',
   },
   {
     title: 'Forms',
     docUrl: Pages.Forms,
     absolutePath: '/patterns/' + Pages.Forms,
     type: 'Patterns',
+    imageUrl: 'assets/doc-page-icons/patterns/forms.svg',
   },
   {
     title: 'Graph',
     docUrl: Pages.Graph,
     absolutePath: '/patterns/' + Pages.Graph,
     type: 'Patterns',
+    imageUrl: 'assets/doc-page-icons/patterns/graph.svg',
   },
   {
     title: 'Groups',
     docUrl: Pages.Groups,
     absolutePath: '/patterns/' + Pages.Groups,
     type: 'Patterns',
+    imageUrl: 'assets/doc-page-icons/patterns/groups.svg',
   },
   {
     title: 'Onboarding',
     docUrl: Pages.Onboarding,
     absolutePath: '/patterns/' + Pages.Onboarding,
     type: 'Patterns',
+    imageUrl: 'assets/doc-page-icons/patterns/onboarding.svg',
   },
   {
     title: 'Validations',
     docUrl: Pages.Validations,
     absolutePath: '/patterns/' + Pages.Validations,
     type: 'Patterns',
+    imageUrl: 'assets/doc-page-icons/patterns/validations.svg',
   },
 ];
 
@@ -740,11 +804,13 @@ const docPagesPattern: DocPage[] = [
 const docPagesTools: DocPage[] = [
   {
     title: 'Accessibility',
+    titleNo: 'Tilgjengelighet',
     description:
       'We design inclusive solutions that ensure all users, regardless of permanent, temporary, or situational disabilities, can fully engage with the user experience.',
     docUrl: Pages.Accessibility,
     absolutePath: '/tools/' + Pages.Accessibility,
     type: 'Tools',
+    imageUrl: `assets/doc-page-icons/tools/accessibility.svg`,
   },
   {
     title: 'Design Process',
@@ -752,6 +818,7 @@ const docPagesTools: DocPage[] = [
     docUrl: Pages.DesignProcess,
     absolutePath: '/tools/' + Pages.DesignProcess,
     type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/design_process.svg',
   },
   {
     title: 'Evaluation',
@@ -760,6 +827,7 @@ const docPagesTools: DocPage[] = [
     docUrl: Pages.Evaluation,
     absolutePath: '/tools/' + Pages.Evaluation,
     type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/evaluation.svg',
   },
   {
     title: 'Icebreakers',
@@ -767,6 +835,7 @@ const docPagesTools: DocPage[] = [
     docUrl: Pages.Icebreakers,
     absolutePath: '/tools/' + Pages.Icebreakers,
     type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/icebreakers.svg',
   },
   {
     title: 'Ideation',
@@ -774,6 +843,7 @@ const docPagesTools: DocPage[] = [
     docUrl: Pages.Ideation,
     absolutePath: '/tools/' + Pages.Ideation,
     type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/ideation.svg',
   },
   {
     title: 'Personas',
@@ -781,6 +851,7 @@ const docPagesTools: DocPage[] = [
     docUrl: Pages.Personas,
     absolutePath: '/tools/' + Pages.Personas,
     type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/personas.svg',
   },
   {
     title: 'Templates',
@@ -788,6 +859,7 @@ const docPagesTools: DocPage[] = [
     docUrl: Pages.Templates,
     absolutePath: '/tools/' + Pages.Templates,
     type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/templates.svg',
   },
   {
     title: 'User Feedback',
@@ -795,6 +867,7 @@ const docPagesTools: DocPage[] = [
     docUrl: Pages.UserFeedback,
     absolutePath: '/tools/' + Pages.UserFeedback,
     type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/user_feedback.svg',
   },
   {
     title: 'Utility Classes',
@@ -803,6 +876,7 @@ const docPagesTools: DocPage[] = [
     docUrl: Pages.UtilityClasses,
     absolutePath: '/tools/' + Pages.UtilityClasses,
     type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/utility_classes.svg',
   },
   {
     title: 'Team symbol',
@@ -811,6 +885,7 @@ const docPagesTools: DocPage[] = [
     docUrl: Pages.TeamSymbol,
     absolutePath: '/tools/' + Pages.TeamSymbol,
     type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/team_symbol.svg',
   },
 ];
 

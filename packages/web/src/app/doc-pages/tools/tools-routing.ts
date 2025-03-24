@@ -5,7 +5,12 @@ import { Pages } from 'src/app/shared/shared.enum';
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('../cms/cms-page/cms-page.component').then((m) => m.CMSPageComponent),
+    loadComponent: () => import('./tools-doc.component').then((m) => m.ToolsDocComponent),
+  },
+  {
+    path: Pages.Accessibility,
+    loadComponent: () =>
+      import('./accessibility-doc/accessibility-doc.component').then((m) => m.AccessibilityDocComponent),
   },
   {
     path: Pages.UtilityClasses,
