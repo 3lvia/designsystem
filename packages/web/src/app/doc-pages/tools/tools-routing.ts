@@ -23,6 +23,11 @@ export const routes: Routes = [
       import('./evaluation-doc/evaluation-doc.component').then((m) => m.EvaluationDocComponent),
   },
   {
+    path: Pages.Icebreakers,
+    loadComponent: () =>
+      import('./icebreaker-doc/icebreaker-doc.component').then((m) => m.IcebreakerDocComponent),
+  },
+  {
     path: Pages.UtilityClasses,
     loadComponent: () =>
       import('./utilities-doc/utilities-doc.component').then((m) => m.UtilitiesDocComponent),

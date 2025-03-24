@@ -835,7 +835,8 @@ const docPagesTools: DocPage[] = [
   },
   {
     title: 'Icebreakers',
-    description: '',
+    description:
+      'Icebreakers are warm-up exercises that can help group participants get to know each other, spark innovation for workshops or meetings, or just get everyone talking.',
     docUrl: Pages.Icebreakers,
     absolutePath: '/tools/' + Pages.Icebreakers,
     type: 'Tools',
