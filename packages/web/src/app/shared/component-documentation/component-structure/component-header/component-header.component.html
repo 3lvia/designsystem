@@ -2,18 +2,14 @@
   <div class="title-container e-mb-32">
     <h1 class="big-header e-m-0 title" data-url-fragment>
       <ng-content select="headerTitle" />
-      @if (figmaUrl()) {
-        <a class="e-ml-16" [href]="figmaUrl()" target="_blank" rel="noopener">
-          <img src="assets/icons/figma-logo.svg" alt="Figma icon" />
-        </a>
-      }
     </h1>
-    <ng-content select="headerLink" *ifViewportSize="['md', 'lg', 'xl']" />
-    @if (lastUpdated()) {
-      <div class="e-text-micro e-color-text-2 last-updated">
-        Last updated {{ lastUpdated() | DocumentationDatePipe }}
-      </div>
+    @if (figmaUrl()) {
+      <a [href]="figmaUrl()" target="_blank" rel="noopener">
+        <img src="assets/icons/figma-logo.svg" alt="Figma icon" />
+      </a>
     }
+    <ng-content select="headerLink" *ifViewportSize="['md', 'lg', 'xl']" />
+
     <div>
       @let data = componentData();
       @if (data) {

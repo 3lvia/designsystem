@@ -11,10 +11,6 @@
   grid-column: 1 / -1;
 }
 
-.last-updated {
-  white-space: nowrap;
-}
-
 .title {
   @include breakpoints.breakpoint-up(Mobile) {
     grid-column: 1 / -1;

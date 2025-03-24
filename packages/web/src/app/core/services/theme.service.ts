@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { ThemeName as Theme } from '@elvia/elvis-colors';
 import { BehaviorSubject, Observable, distinctUntilChanged, map } from 'rxjs';
 
@@ -23,6 +24,8 @@ export class ThemeService {
       }
     }),
   );
+
+  themeSignal = toSignal(this.themeObservable, { initialValue: 'light' });
 
   constructor() {
     const preferredTheme = localStorage.getItem(THEME_STORAGE_KEY) ?? 'light';
