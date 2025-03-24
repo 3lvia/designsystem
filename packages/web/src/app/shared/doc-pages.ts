@@ -880,7 +880,8 @@ const docPagesTools: DocPage[] = [
   },
   {
     title: 'User Feedback',
-    description: '',
+    description:
+      'There’s a number of tools we use recurrently to analyze behaviour and test our solutions on real users. Whether it’s for user research or testing solutions, we have summarized a list of the most popular tools in Elvia below.',
     docUrl: Pages.UserFeedback,
     absolutePath: '/tools/' + Pages.UserFeedback,
     type: 'Tools',

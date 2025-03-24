@@ -50,4 +50,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./templates-doc/templates-doc.component').then((m) => m.TemplatesDocComponent),
   },
+  {
+    path: Pages.UserFeedback,
+    loadComponent: () =>
+      import('./user-feedback-doc/user-feedback-doc.component').then((m) => m.UserFeedbackDocComponent),
+  },
 ];
