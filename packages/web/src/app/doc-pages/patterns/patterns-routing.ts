@@ -5,7 +5,7 @@ import { Pages } from 'src/app/shared/shared.enum';
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () => import('../cms/cms-page/cms-page.component').then((m) => m.CMSPageComponent),
+    loadComponent: () => import('./patterns-doc.component').then((m) => m.PatternsDocComponent),
   },
   {
     path: Pages.EmptyStates,

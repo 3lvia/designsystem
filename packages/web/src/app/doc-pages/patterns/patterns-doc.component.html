@@ -1,0 +1,14 @@
+<h1 class="e-title-md e-mb-40 e-mt-0">Patterns</h1>
+<nav>
+  <ul class="components-overview-cards">
+    @for (page of docPagesAbout; track page.title) {
+      <li>
+        <a [routerLink]="page.absolutePath">
+          <elvia-card [heading]="page.title" maxHeadingLines="2">
+            <app-inline-svg slot="icon" [src]="page.imageUrl" />
+          </elvia-card>
+        </a>
+      </li>
+    }
+  </ul>
+</nav>
