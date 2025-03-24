@@ -1,4 +1,4 @@
-import { NgClass } from '@angular/common';
+import { NgClass, TitleCasePipe } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, input, signal } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -8,7 +8,7 @@ import { CopyComponent } from '../../../copy/copy.component';
   selector: 'app-component-section',
   templateUrl: './component-section.component.html',
   styleUrls: ['./component-section.component.scss'],
-  imports: [CopyComponent, NgClass],
+  imports: [CopyComponent, NgClass, TitleCasePipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentSectionComponent {

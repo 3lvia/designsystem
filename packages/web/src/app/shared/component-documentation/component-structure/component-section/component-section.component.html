@@ -8,7 +8,7 @@
           <e-icon name="link" size="sm" [ngClass]="{ 'e-icon--color-positive': titleIsCopied }" />
         </button>
       </app-copy>
-      {{ sectionTitle() }}
+      {{ sectionTitle() | titlecase }}
       @if (figmaOnly()) {
         <span class="e-ml-16">
           <span class="e-tag e-tag--orange">Figma only</span>
