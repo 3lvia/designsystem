@@ -18,6 +18,11 @@ export const routes: Routes = [
       import('./design-process-doc/design-process-doc.component').then((m) => m.DesignProcessDocComponent),
   },
   {
+    path: Pages.Evaluation,
+    loadComponent: () =>
+      import('./evaluation-doc/evaluation-doc.component').then((m) => m.EvaluationDocComponent),
+  },
+  {
     path: Pages.UtilityClasses,
     loadComponent: () =>
       import('./utilities-doc/utilities-doc.component').then((m) => m.UtilitiesDocComponent),
