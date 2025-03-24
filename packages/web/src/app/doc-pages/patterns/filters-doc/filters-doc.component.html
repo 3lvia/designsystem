@@ -1,0 +1,46 @@
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-section sectionTitle="Usage">
+    <p>
+      Filters are made by combining input components to either a top or side filter. Typical components for
+      the most usual filter patterns are:
+    </p>
+    <ul class="e-list">
+      <li><a class="e-link" routerLink="/components/dropdown">Dropdown</a></li>
+      <li><a class="e-link" routerLink="/components/checkbox">Checkbox</a></li>
+      <li><a class="e-link" routerLink="/components/search">Search</a></li>
+      <li><a class="e-link" routerLink="/components/autocomplete">Autocomplete</a></li>
+      <li><a class="e-link" routerLink="/components/datepicker">Date picker</a></li>
+    </ul>
+  </app-component-section>
+  <app-component-section sectionTitle="Layout">
+    <app-component-subsection sectionTitle="Top filters">
+      <p>Top filters are used on top of tables or lists as an easy way to filter quickly.</p>
+      <figure>
+        <img
+          [src]="`assets/doc-pages/patterns/filters/top_${theme()}.png`"
+          alt="Example of a cookie banner in full width at the bottom"
+        />
+        <figcaption class="e-text-img">Example of how you can have filter in a top bar.</figcaption>
+      </figure>
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Side filters">
+      <p>
+        Side filters are another way to organize filters and are extra helpful in the scenarios of large sets
+        of data or filters. Filters are collected in a side panel next to the data and can be closed to save
+        space.
+      </p>
+      <figure>
+        <img
+          [src]="`assets/doc-pages/patterns/filters/side_${theme()}.png`"
+          alt="Example of a cookie banner in full width at the bottom"
+        />
+        <figcaption class="e-text-img">Example of how you can have filter in a right side menu.</figcaption>
+      </figure>
+    </app-component-subsection>
+  </app-component-section>
+</div>

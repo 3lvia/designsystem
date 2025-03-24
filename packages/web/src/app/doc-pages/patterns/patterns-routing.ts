@@ -20,4 +20,8 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./empty-states-doc/empty-states-doc.component').then((m) => m.EmptyStatesDocComponent),
   },
+  {
+    path: Pages.Filters,
+    loadComponent: () => import('./filters-doc/filters-doc.component').then((m) => m.FiltersDocComponent),
+  },
 ];

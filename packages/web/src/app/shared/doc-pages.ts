@@ -757,16 +757,22 @@ const docPagesPattern: DocPage[] = [
   },
   {
     title: 'Empty States',
+    description:
+      'Empty states are moments when there is no data and nothing to display. In these cases, the user needs to be informed of what’s happening and what to do about it. You can benefit from a good empty state to boost engagement, delight, and teach users.',
     docUrl: Pages.EmptyStates,
     absolutePath: '/patterns/' + Pages.EmptyStates,
     type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/file/vzIO9S7owUHPlDYpWKRaWW/?node-id=0%3A1',
     imageUrl: 'assets/doc-page-icons/patterns/empty_states.svg',
   },
   {
     title: 'Filters',
+    description:
+      'Use filter patterns to filter groups of items or objects. Although usually used alongside complex tables, filtering can be done in different ways and can be as simple as an input field.',
     docUrl: Pages.Filters,
     absolutePath: '/patterns/' + Pages.Filters,
     type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/file/vzIO9S7owUHPlDYpWKRaWW/?node-id=583%3A25052',
     imageUrl: 'assets/doc-page-icons/patterns/filters.svg',
   },
   {
