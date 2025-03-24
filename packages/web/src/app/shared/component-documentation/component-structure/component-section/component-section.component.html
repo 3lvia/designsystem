@@ -5,7 +5,7 @@
     <h2 class="e-title-md e-mb-24 e-flex e-align-items-center" data-url-fragment>
       <app-copy class="e-flex copy-container" [message]="copyUrl()">
         <button class="icon" (click)="copyAnchor()" (keydown.enter)="copyAnchor()">
-          <e-icon name="link" size="sm" [ngClass]="{ 'e-icon--color-positive': titleIsCopied }" />
+          <e-icon name="link" size="sm" [ngClass]="{ 'e-icon--color-positive': titleIsCopied() }" />
         </button>
       </app-copy>
       {{ sectionTitle() | titlecase }}
