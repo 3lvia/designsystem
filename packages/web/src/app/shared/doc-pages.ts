@@ -813,8 +813,12 @@ const docPagesTools: DocPage[] = [
     imageUrl: `assets/doc-page-icons/tools/accessibility.svg`,
   },
   {
-    title: 'Design Process',
-    description: '',
+    title: 'Elvias design prosess',
+    titleNo: 'Elvias designprosess',
+    description:
+      'In Elvia, we strive towards working after the Double diamond design process and its four stages: discover, define, develop and deliver. We do this to make sure that we deliver solutions well suited for our end users.',
+    descriptionNo:
+      'Elvia utvikler interne systemer som brukes av ansatte og løsninger som brukes av eksterne som leverandører, bedrifter og privatkunder. Vi leverer også tjenester relatert til det å bygge ut, drifte og vedlikeholde strømnettet. Når vi utvikler systemer og tjenester etterstreber vi å bruke designprosess der det gir mening.',
     docUrl: Pages.DesignProcess,
     absolutePath: '/tools/' + Pages.DesignProcess,
     type: 'Tools',
@@ -854,6 +858,15 @@ const docPagesTools: DocPage[] = [
     imageUrl: 'assets/doc-page-icons/tools/personas.svg',
   },
   {
+    title: 'Team symbol',
+    description:
+      "Team symbols are like secret badges meant just for us within Elvia. They are meant to help show off the team's unique identity. This generator will help you create a personalized symbol for your team.",
+    docUrl: Pages.TeamSymbol,
+    absolutePath: '/tools/' + Pages.TeamSymbol,
+    type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/team_symbol.svg',
+  },
+  {
     title: 'Templates',
     description: '',
     docUrl: Pages.Templates,
@@ -877,15 +890,6 @@ const docPagesTools: DocPage[] = [
     absolutePath: '/tools/' + Pages.UtilityClasses,
     type: 'Tools',
     imageUrl: 'assets/doc-page-icons/tools/utility_classes.svg',
-  },
-  {
-    title: 'Team symbol',
-    description:
-      "Team symbols are like secret badges meant just for us within Elvia. They are meant to help show off the team's unique identity. This generator will help you create a personalized symbol for your team.",
-    docUrl: Pages.TeamSymbol,
-    absolutePath: '/tools/' + Pages.TeamSymbol,
-    type: 'Tools',
-    imageUrl: 'assets/doc-page-icons/tools/team_symbol.svg',
   },
 ];
 
