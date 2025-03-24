@@ -737,16 +737,22 @@ const docPagesBrand: DocPage[] = [
 const docPagesPattern: DocPage[] = [
   {
     title: 'Comments',
+    description:
+      'With a comment, users can leave notes for themselves or others. The comment is linked to your profile with date and time stamp.',
     docUrl: Pages.Comments,
     absolutePath: '/patterns/' + Pages.Comments,
     type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/file/vzIO9S7owUHPlDYpWKRaWW/?node-id=514%3A19826',
     imageUrl: 'assets/doc-page-icons/patterns/comments.svg',
   },
   {
     title: 'Cookies',
+    description:
+      'Web cookies are data files we can use to keep track of visitors’ preferences or identities, but we have to ask for consent to be able to use them.',
     docUrl: Pages.Cookies,
     absolutePath: '/patterns/' + Pages.Cookies,
     type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/file/vzIO9S7owUHPlDYpWKRaWW/?node-id=259%3A4034',
     imageUrl: 'assets/doc-page-icons/patterns/cookies.svg',
   },
   {

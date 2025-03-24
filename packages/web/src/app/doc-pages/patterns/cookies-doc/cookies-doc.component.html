@@ -1,0 +1,38 @@
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-section sectionTitle="Usage">
+    <p>
+      Make it easy for the user to accept the use of cookies. If we collect more cookies than necessary,
+      ensure to provide the user with multiple options, and a possibility to read about what we collect and
+      make further adjustments. The website should also be accessible without making a cookie selection, and
+      we will not collect cookies until the visitor has approved.
+    </p>
+  </app-component-section>
+  <app-component-section sectionTitle="Layout">
+    <p>
+      Use the style of a
+      <a class="e-link e-link--inline" routerLink="/components/alert">global alert message</a>.
+    </p>
+  </app-component-section>
+  <app-component-section sectionTitle="Examples">
+    <p>Examples of Elvia.no cookie banner and settings flow:</p>
+    <figure class="e-mt-24">
+      <img
+        [src]="`assets/doc-pages/patterns/cookies/example_1.png`"
+        alt="Example of a cookie banner in full width at the bottom"
+      />
+      <figcaption class="e-text-img">Cookie banner in full width at the bottom</figcaption>
+    </figure>
+    <figure class="e-mt-24">
+      <img
+        [src]="`assets/doc-pages/patterns/cookies/example_2.png`"
+        alt="Example of cookie settings flow in a Modal"
+      />
+      <figcaption class="e-text-img">Cookie settings flow in a Modal</figcaption>
+    </figure>
+  </app-component-section>
+</div>
