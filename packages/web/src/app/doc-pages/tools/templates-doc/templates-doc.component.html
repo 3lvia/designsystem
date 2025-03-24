@@ -1,0 +1,38 @@
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-section sectionTitle="Office">
+    <p>
+      Elvia offers Office templates for presentations, meetings and notes in Elvia that can be accessed inside
+      the Office programs. Read about how to use the templates at
+      <a
+        class="e-link e-link--inline e-link--new-tab"
+        href="https://3lvia.sharepoint.com/sites/Kvalitetsportal/SitePages/Maler(1).aspx"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="e-link__title">Kvalitetsportalen - Office maler</span>
+        <span class="e-link__icon">
+          <e-icon name="newTabBold" />
+        </span>
+      </a>
+    </p>
+  </app-component-section>
+  <app-component-section sectionTitle="Figma">
+    <p>It is also possible to access presentation templates in Figma.</p>
+    <a
+      class="e-link e-link--lg e-link--new-tab"
+      href="https://www.figma.com/file/BSBiKZUhJFppSmZkgB9pK8/?node-id=709%3A5489"
+      target="_blank"
+      rel="noopener"
+    >
+      <span class="e-link__title">Power point template in Figma</span>
+      <span class="e-link__icon">
+        <e-icon name="newTabBold" />
+      </span>
+    </a>
+  </app-component-section>
+</div>

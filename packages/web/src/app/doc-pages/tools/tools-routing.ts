@@ -45,4 +45,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./team-symbol-doc/team-symbol-doc.component').then((m) => m.TeamSymbolDocComponent),
   },
+  {
+    path: Pages.Templates,
+    loadComponent: () =>
+      import('./templates-doc/templates-doc.component').then((m) => m.TemplatesDocComponent),
+  },
 ];

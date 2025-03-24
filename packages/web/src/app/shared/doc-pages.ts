@@ -871,7 +871,8 @@ const docPagesTools: DocPage[] = [
   },
   {
     title: 'Templates',
-    description: '',
+    description:
+      'Here you can find a collection of Elvia’s templates. These are maintained and updated regularly.',
     docUrl: Pages.Templates,
     absolutePath: '/tools/' + Pages.Templates,
     type: 'Tools',
