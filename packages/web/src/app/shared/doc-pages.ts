@@ -777,6 +777,8 @@ const docPagesPattern: DocPage[] = [
   },
   {
     title: 'Forms',
+    description:
+      'A form is a group of input fields and selections for users to enter data. Forms can be simple or complex, but always try to make it easy, clear and quickly for the user to use.',
     docUrl: Pages.Forms,
     absolutePath: '/patterns/' + Pages.Forms,
     type: 'Patterns',

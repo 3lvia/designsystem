@@ -1,0 +1,79 @@
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-section sectionTitle="Usage">
+    <app-component-subsection sectionTitle="Complex forms">
+      <p>
+        Long, complex forms can can put some users off. Improve the experience by grouping related inputs and
+        breaking the form into steps. Use a
+        <a class="e-link e-link--inline" routerLink="/components/stepper">stepper</a> to show progress. Keep
+        it simple—remove non-essential fields and ask only for necessary information.
+      </p>
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Mark optional">
+      <p>
+        Some input fields are optional, others required. At Elvia, we mark optional fields by adding
+        “optional” after the label. Since most fields are required, this reduces visual noise and keeps a
+        positive tone. Learn more in our
+        <a class="e-link e-link--inline" routerLink="/patterns/validations">validation patterns</a> guide.
+      </p>
+    </app-component-subsection>
+  </app-component-section>
+  <app-component-section sectionTitle="Layout">
+    <app-component-subsection sectionTitle="Layout and length of the column">
+      <p>
+        For better scanability, inputs are stacked vertically in a single column. Closely related fields
+        (e.g., start and end date) can be grouped. Columns should be full or half-width, matching the expected
+        input. When combining fields like postal code and city, the first input sets the size, and the second
+        fills the remaining space.
+      </p>
+      <figure>
+        <img
+          [src]="
+            theme() === 'light'
+              ? 'assets/doc-pages/patterns/forms/column_light.svg'
+              : 'assets/doc-pages/patterns/forms/column_dark.png'
+          "
+          alt="Example of how all input have full width in a form besides date picker who has half the width"
+        />
+        <figcaption class="e-text-img">
+          Example of how all input have full width in a form besides date picker who has half the width.
+        </figcaption>
+      </figure>
+    </app-component-subsection>
+  </app-component-section>
+  <app-component-section sectionTitle="Combined fields">
+    <p>
+      Some inputs should be grouped and can share a label. Text field length should reflect the expected data
+      length.
+    </p>
+    <figure>
+      <img [src]="`assets/doc-pages/patterns/forms/combined_${theme()}.svg`" alt="Combined fields example" />
+      <figcaption class="e-text-img">Combined fields example.</figcaption>
+    </figure>
+  </app-component-section>
+  <app-component-section sectionTitle="Enable the buttons">
+    <p>
+      In some interfaces, buttons are disabled until all required inputs are filled out. Disabled buttons can
+      make the user irritated, confused, and make the user feel stupid. A better solution is to enable the
+      button and rather guide the user to the missing fields with red error indications when they are trying
+      to submit the form.
+    </p>
+    <figure>
+      <img
+        [src]="
+          theme() === 'light'
+            ? 'assets/doc-pages/patterns/forms/enabled_light.svg'
+            : 'assets/doc-pages/patterns/forms/enabled_dark.png'
+        "
+        alt="Example when submit button is enabled despite that not all the steps are complete"
+      />
+      <figcaption class="e-text-img">
+        Example when submit button is enabled despite that not all the steps are complete.
+      </figcaption>
+    </figure>
+  </app-component-section>
+</div>

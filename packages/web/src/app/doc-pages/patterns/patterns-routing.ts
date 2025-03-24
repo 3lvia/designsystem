@@ -24,4 +24,8 @@ export const routes: Routes = [
     path: Pages.Filters,
     loadComponent: () => import('./filters-doc/filters-doc.component').then((m) => m.FiltersDocComponent),
   },
+  {
+    path: Pages.Forms,
+    loadComponent: () => import('./forms-doc/forms-doc.component').then((m) => m.FormsDocComponent),
+  },
 ];
