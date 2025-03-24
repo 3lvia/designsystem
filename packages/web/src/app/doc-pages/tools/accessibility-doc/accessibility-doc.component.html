@@ -246,14 +246,16 @@
       people who are blind, partially sighted, or impaired motor skills in the arms and hands. A user should
       be able to use the tab key to navigate and activate every intersactive element on a page.
     </p>
-    <img
-      [src]="
-        (theme | async) === 'light'
-          ? 'assets/doc-pages/tools/accessibility/keyboard_navigation_light.svg'
-          : 'assets/doc-pages/tools/accessibility/keyboard_navigation_dark.png'
-      "
-      alt=""
-    />
+    <figure class="figure--center">
+      <img
+        [src]="
+          (theme | async) === 'light'
+            ? 'assets/doc-pages/tools/accessibility/keyboard_navigation_light.svg'
+            : 'assets/doc-pages/tools/accessibility/keyboard_navigation_dark.png'
+        "
+        alt=""
+      />
+    </figure>
     <app-component-subsection sectionTitle="Common keys">
       <ul class="e-list">
         <li><b>Tab</b> – navigate forward to the next interactive element</li>
