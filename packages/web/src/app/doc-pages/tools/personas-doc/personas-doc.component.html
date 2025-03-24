@@ -1,0 +1,48 @@
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-section sectionTitle="What are personas? ">
+    <p>
+      A persona is a fictional representation of a target audience, embodying the needs and goals of real
+      users—both potential and existing. It may include behaviors, traits, habits, skills, and interests,
+      helping businesses understand their users better.
+    </p>
+    <figure class="figure--center">
+      <img src="assets/doc-pages/tools/personas/personas.png" alt="Example of a persona for Elvia.no" />
+      <figcaption class="e-text-img">Example of a persona for Elvia.no</figcaption>
+    </figure>
+  </app-component-section>
+  <app-component-section sectionTitle="How to use personas">
+    <ol class="e-list e-list--numbers">
+      <li>
+        <b>Do your research.</b> Begin with collecting data about your user group. Make sure to have a plan
+        for how you’re intending on using your persona and let that decide which information you need.
+      </li>
+      <li>
+        <b>Analyze and summarize.</b> When you’re done collecting data, take some time to analyze the outcome.
+        Which are key elements to summarize a typical user?
+      </li>
+      <li>
+        <b>Create.</b> Document your persona by using one of the templates, or create your own personalized
+        design that suits your needs. Let the finished persona be a living document that you can update when
+        needed.
+      </li>
+    </ol>
+  </app-component-section>
+  <app-component-section sectionTitle="Templates">
+    <a
+      class="e-link e-link--inline e-link--new-tab"
+      href="https://www.figma.com/design/BSBiKZUhJFppSmZkgB9pK8/x.-Tools?node-id=1016-5787"
+      target="_blank"
+      rel="noopener"
+    >
+      <span class="e-link__title">Personas template in Figma</span>
+      <span class="e-link__icon">
+        <e-icon name="newTabBold" />
+      </span>
+    </a>
+  </app-component-section>
+</div>

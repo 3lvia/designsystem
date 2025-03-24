@@ -853,7 +853,8 @@ const docPagesTools: DocPage[] = [
   },
   {
     title: 'Personas',
-    description: '',
+    description:
+      'Using personas helps us to ensure quality in our solutions by making it easier to relate and empathize to users and their needs.',
     docUrl: Pages.Personas,
     absolutePath: '/tools/' + Pages.Personas,
     type: 'Tools',

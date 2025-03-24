@@ -32,6 +32,10 @@ export const routes: Routes = [
     loadComponent: () => import('./ideation-doc/ideation-doc.component').then((m) => m.IdeationDocComponent),
   },
   {
+    path: Pages.Personas,
+    loadComponent: () => import('./personas-doc/personas-doc.component').then((m) => m.PersonasDocComponent),
+  },
+  {
     path: Pages.UtilityClasses,
     loadComponent: () =>
       import('./utilities-doc/utilities-doc.component').then((m) => m.UtilitiesDocComponent),
