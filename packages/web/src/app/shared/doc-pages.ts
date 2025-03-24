@@ -844,7 +844,8 @@ const docPagesTools: DocPage[] = [
   },
   {
     title: 'Ideation',
-    description: '',
+    description:
+      'Ideation is the creative process of finding new ideas and various solutions to a problem by thinking wide. Before starting generating ideas, some sort of problem statement should be in place.',
     docUrl: Pages.Ideation,
     absolutePath: '/tools/' + Pages.Ideation,
     type: 'Tools',

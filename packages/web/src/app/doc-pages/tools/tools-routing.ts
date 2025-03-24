@@ -28,6 +28,10 @@ export const routes: Routes = [
       import('./icebreaker-doc/icebreaker-doc.component').then((m) => m.IcebreakerDocComponent),
   },
   {
+    path: Pages.Ideation,
+    loadComponent: () => import('./ideation-doc/ideation-doc.component').then((m) => m.IdeationDocComponent),
+  },
+  {
     path: Pages.UtilityClasses,
     loadComponent: () =>
       import('./utilities-doc/utilities-doc.component').then((m) => m.UtilitiesDocComponent),

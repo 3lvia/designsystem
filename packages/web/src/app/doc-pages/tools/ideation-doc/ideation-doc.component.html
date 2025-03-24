@@ -1,0 +1,136 @@
+@let _theme = theme | async;
+
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-section sectionTitle="6-3-5 Brainwriting">
+    <figure class="figure--center">
+      <img [src]="`assets/doc-pages/tools/ideation/brainwriting_${_theme}.png`" alt="" />
+    </figure>
+    <p>
+      <b>Note:</b> This method is originally made for 6 participants, but can of course be done with less. If
+      you’re a larger group, try splitting up into multiple smaller groups.
+    </p>
+    <ol class="e-list e-list--numbers">
+      <li>
+        Give all participants an A4 sheet of paper and instruct them to divide it into a 3x5 grid (draw two
+        vertical and four horizontal lines over the paper)
+      </li>
+      <li>
+        Set a timer for 5 minutes and ask participants to fill out the top three empty boxes with separate
+        ideas
+      </li>
+      <li>
+        Pass all papers to the right and set a new timer for 5 minutes. This time participants take
+        inspiration from the previous ideas and continue filling out the next row of empty boxes.
+      </li>
+      <li>Repeat this pattern until all boxes are full. In the end, discuss your favorites together.</li>
+    </ol>
+    <p>
+      <b>Tip!</b> Remember that participants can choose themselves if they want to develop the previous ideas,
+      of if they choose to simply add new ones. All ideas are good ideas!
+    </p>
+  </app-component-section>
+  <app-component-section sectionTitle="Brainstorming">
+    <figure class="figure--center">
+      <img [src]="`assets/doc-pages/tools/ideation/brainstorming_${_theme}.png`" alt="" />
+    </figure>
+    <p>
+      <b>Note:</b> Although brainstorm is a loose term used widely, you can easily elevate your results by
+      approaching them with structure and making sure everyone in the group can contribute.
+    </p>
+    <ol class="e-list e-list--numbers">
+      <li>Define a theme for the brainstorm.</li>
+      <li>Set a timer and let participants individually write down as many ideas as they can.</li>
+      <li>
+        When the timer is up, let participants take turns presenting their ideas (and remember to save the
+        critical assessment until everyone’s done presenting). After this, analyze your results and narrow
+        your ideas by using an
+        <a class="e-link e-link--inline" routerLink="/tools/evaluation">evaluation</a> method.
+      </li>
+    </ol>
+    <p>
+      <b>Tip!</b> Use using different approaches to achieve different results. One approach could be to ask
+      participants to eliminate all constraints by thinking in the realm of unlimited possibilities, or you
+      could actively choose to brainstorm bad ideas only (and later ask how you can flip them).
+    </p>
+  </app-component-section>
+  <app-component-section sectionTitle="Crazy 8s">
+    <figure class="figure--center">
+      <img [src]="`assets/doc-pages/tools/ideation/crazy_8s_${_theme}.png`" alt="" />
+    </figure>
+    <ol class="e-list e-list--numbers">
+      <li>
+        Give all participants an A4 sheet of paper and instruct them to fold it into 8 sections (divide the
+        paper in half, 3 times).
+      </li>
+      <li>
+        Set a timer for 8 minutes and ask participants to fill out the boxes with separate ideas, one minute
+        per box.
+      </li>
+      <li>Ask participants to present their ideas to the group and discuss the results together.</li>
+    </ol>
+    <p>
+      <b>Tip!</b> All ideas are good ideas! Remember to inform the participants of this. Try starting with an
+      <a class="e-link e-link--inline" routerLink="/tools/icebreakers">icebreakers</a> before ideating to get
+      the group started. Another tips is to play music in the background for the sketching session.
+    </p>
+  </app-component-section>
+  <app-component-section sectionTitle="What if...? ">
+    <figure class="figure--center">
+      <img [src]="`assets/doc-pages/tools/ideation/what_if_${_theme}.png`" alt="" />
+    </figure>
+    <ol class="e-list e-list--numbers">
+      <li>
+        Based on your problem statement, ask questions of “What if...”, for example:
+        <ul class="e-list">
+          <li>What if you made it for children?</li>
+          <li>What if you use gamification mechanics?</li>
+          <li>What if the users were blind?</li>
+          <li>What if the budget was unlimited?</li>
+          <li>What if it was a dating service?</li>
+        </ul>
+      </li>
+      <li>
+        hink of ways to solve the problem statement using the prompts. Ask participants to generate as many
+        ideas per prompt as they can before you move on to the next.
+      </li>
+      <li>
+        When done, let participants take turns presenting their ideas. Decide if you want to keep ideating
+        around your favorite ideas, or use an
+        <a class="e-link e-link--inline" routerLink="/tools/evaluation">evaluation</a> method to analyze your
+        results.
+      </li>
+    </ol>
+    <p>
+      <b>Tip!</b> You can easily tailor the time frame by adjusting number of prompts and ideation time. Try
+      gathering inspiration for your prompts from ideation cards (for example
+      <a
+        class="e-link e-link--inline e-link--new-tab"
+        href="https://www.trytriggers.com/"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="e-link__title">Trigger Cards</span>
+        <span class="e-link__icon">
+          <e-icon name="newTabBold" />
+        </span>
+      </a>
+      ), or online sources (try
+      <a
+        class="e-link e-link--inline e-link--new-tab"
+        href="https://whtifs.com/"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="e-link__title">whtifs</span>
+        <span class="e-link__icon">
+          <e-icon name="newTabBold" />
+        </span> </a
+      >).
+    </p>
+  </app-component-section>
+</div>
