@@ -1,7 +1,31 @@
 @use '@elvia/elvis/src/utilities/breakpoints.scss' as breakpoints;
 
-.dont {
-  @include breakpoints.breakpoint-up(MinDesktop) {
-    margin-top: 16px;
+:host {
+  display: contents;
+}
+
+.container {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  @include breakpoints.breakpoint-up(Tablet) {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
+}
+
+.item {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.label {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
 }
