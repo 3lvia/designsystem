@@ -756,6 +756,16 @@ const docPagesPattern: DocPage[] = [
     imageUrl: 'assets/doc-page-icons/patterns/cookies.svg',
   },
   {
+    title: 'Data Formats',
+    description:
+      'Guidelines for how data formats are presented, to ensure that we have a consistent language across Elvia.',
+    docUrl: Pages.DataFormats,
+    absolutePath: '/patterns/' + Pages.DataFormats,
+    type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/design/vzIO9S7owUHPlDYpWKRaWW/x.-Patterns?node-id=1304-61817',
+    imageUrl: 'assets/doc-page-icons/patterns/data_formats.svg',
+  },
+  {
     title: 'Empty States',
     description:
       'Empty states are moments when there is no data and nothing to display. In these cases, the user needs to be informed of what’s happening and what to do about it. You can benefit from a good empty state to boost engagement, delight, and teach users.',

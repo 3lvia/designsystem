@@ -16,6 +16,11 @@ export const routes: Routes = [
     loadComponent: () => import('./cookies-doc/cookies-doc.component').then((m) => m.CookiesDocComponent),
   },
   {
+    path: Pages.DataFormats,
+    loadComponent: () =>
+      import('./data-formats-doc/data-formats-doc.component').then((m) => m.DataFormatsDocComponent),
+  },
+  {
     path: Pages.EmptyStates,
     loadComponent: () =>
       import('./empty-states-doc/empty-states-doc.component').then((m) => m.EmptyStatesDocComponent),
