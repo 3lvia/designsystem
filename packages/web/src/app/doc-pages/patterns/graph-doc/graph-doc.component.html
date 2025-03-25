@@ -1,0 +1,187 @@
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body">
+  <figure>
+    <img
+      class="theme-image-background"
+      src="assets/doc-pages/patterns/graph/simple_bar_chart.svg"
+      alt="Example of a simple bar chart"
+    />
+    <figcaption class="e-text-img">Example of a simple bar chart.</figcaption>
+  </figure>
+  <app-component-section sectionTitle="Type">
+    <app-component-subsection sectionTitle="Bar chart">
+      <p>
+        Bar charts are graphs that show categorical data by bars proportional to the value they represent.
+        They are best used to compare groups or to track large changes over time. When using, make sure to
+        scale the y axis so that all data can fit in the graph.
+      </p>
+      <app-when-to-use
+        [whens]="[
+          'When comparing groups or categories of data.',
+          'When tracking data with large changes over time.',
+        ]"
+        [whenNots]="[
+          'Don’t use a table when you can use a data visualization.',
+          'Don’t mix different styles of tables on the same page.',
+        ]"
+      />
+      <app-component-subsubsection sectionTitle="Simple">
+        <p>
+          Simple bar charts are for categories with clear data set and often only requires one data color. The
+          bars can be manipulated with the filter buttons on the top right of the bar chart.
+        </p>
+        <figure>
+          <img
+            class="theme-image-background"
+            src="assets/doc-pages/patterns/graph/simple_bar_chart.svg"
+            alt="Example of a simple bar chart"
+          />
+          <figcaption class="e-text-img">Example of a simple bar chart.</figcaption>
+        </figure>
+      </app-component-subsubsection>
+      <app-component-subsubsection sectionTitle="Simple">
+        <p>
+          Advanced bar charts include interactivity within the graph. Specific graph data is shown on hover,
+          and can be detailed when clicking.
+        </p>
+        <figure>
+          <img
+            class="theme-image-background"
+            src="assets/doc-pages/patterns/graph/advanced_bar_chart.svg"
+            alt="Example of an advanced bar chart"
+          />
+          <figcaption class="e-text-img">Example of an advanced bar chart.</figcaption>
+        </figure>
+      </app-component-subsubsection>
+    </app-component-subsection>
+
+    <app-component-subsection sectionTitle="Pie chart">
+      <p>Pie charts show parts of a whole and are good when displaying data of 6 or fewer categories.</p>
+      <app-when-to-use
+        [whens]="['When showing parts of a whole.', 'When you have 2-6 categories.']"
+        [whenNots]="['When comparing data or changes over time.', 'When you have more than 6 categories.']"
+      />
+      <figure class="e-mt-32">
+        <img
+          class="theme-image-background"
+          src="assets/doc-pages/patterns/graph/pie.svg"
+          alt="Example of an pie chart with labels"
+        />
+        <figcaption class="e-text-img">Example of an pie chart with labels.</figcaption>
+      </figure>
+    </app-component-subsection>
+  </app-component-section>
+  <app-component-section sectionTitle="Usage">
+    <app-component-subsection sectionTitle="Colors">
+      <p>
+        The colors used in graphs are our data colors that have been specially designed to be easier to
+        distinguish from each other, even for people with certain color blindness. They should be used in the
+        order as presented. Data color tints are used when hovering in advanced charts. To make sure you
+        create accessible solutions, remember to never rely on color alone to visualize important data. You
+        can read more about our color guidelines in our
+        <a class="e-link e-link--inline" routerLink="/brand/color">colors documentation</a>.
+      </p>
+      <figure>
+        <img
+          class="theme-image-background"
+          src="assets/doc-pages/patterns/graph/colors.svg"
+          alt="All of our data colour: green apple, voilet grape, blue berry, purple plum, orange mango, red tomato"
+        />
+        <figcaption class="e-text-img">
+          All of our data colours: green apple, violet grape, blue berry, purple plum, orange mango, red
+          tomato.
+        </figcaption>
+      </figure>
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Tooltip and legends">
+      <p>
+        The <a class="e-link e-link--inline" routerLink="/components/tooltip">tooltip component</a> is used to
+        show additional information on hover. This is recommended to be kept short, but depending on data and
+        case, exceptions might have to be made. Legends are used close to the graph and should always be
+        visible.
+      </p>
+      <figure class="">
+        <img
+          class="theme-image-background"
+          src="assets/doc-pages/patterns/graph/pie_tooltip.svg"
+          alt="Example of interaction with a pie chart. You get a tooltip with data in textual form and the rest of the bites are muted in colour"
+        />
+        <figcaption class="e-text-img">
+          Example of interaction with a pie chart. You get a tooltip with data in textual form and the rest of
+          the bites are muted in colour.
+        </figcaption>
+      </figure>
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Background">
+      <p>
+        Graphs should be used on white backgrounds. Avoid any darker color background, since the contrasts
+        will not be kept.
+      </p>
+      <figure>
+        <img
+          class="theme-image-background"
+          src="assets/doc-pages/patterns/graph/background.svg"
+          alt="Example of do and don't: use light background and not dark behind charts"
+          width="200px"
+        />
+        <figcaption class="e-text-img">
+          Example of do and don't: use light background and not dark behind charts.
+        </figcaption>
+      </figure>
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Rounded edges">
+      <p>
+        Note that the bars are only slightly rounded (4px). This is to not obscure data and make sure the
+        graphs are easy to read.
+      </p>
+      <figure>
+        <img
+          class="theme-image-background"
+          src="assets/doc-pages/patterns/graph/rounded.svg"
+          alt="Use only round edges on top of the bars in a bar chart"
+          width="200px"
+        />
+        <figcaption class="e-text-img">Use only round edges on top of the bars in a bar chart.</figcaption>
+      </figure>
+    </app-component-subsection>
+  </app-component-section>
+  <app-component-section sectionTitle="Often used with">
+    <p>
+      Components like <a class="e-link e-link--inline" routerLink="/components/date-picker">date picker</a>,
+      <a class="e-link e-link--inline" routerLink="components/segmented-control">segmented control</a>,
+      <a class="e-link e-link--inline" routerLink="/components/button">button</a> and
+      <a class="e-link e-link--inline" routerLink="/components/chip">chip</a> can be used in combination with
+      the graph to filter out data.
+    </p>
+    <figure>
+      <img
+        class="theme-image-background"
+        src="assets/doc-pages/patterns/graph/components.svg"
+        alt="Example of combination of date picker, segmented control, button and chips together with a bar chart"
+      />
+      <figcaption class="e-text-img">
+        Example of combination of date picker, segmented control, button and chips together with a bar chart.
+      </figcaption>
+    </figure>
+  </app-component-section>
+  <app-component-section sectionTitle="Implementation">
+    <p>
+      We do not provide any code or styling for implementing graphs. Instead, you should follow the guidelines
+      and styling provided with examples here.
+    </p>
+    <app-component-subsection sectionTitle="Frameworks">
+      You might need a different framework depending on your case, but these are some of the frameworks used
+      for charts in Elvia today (2023).
+      <ul class="e-list">
+        <li>ApexCharts</li>
+        <li>D3</li>
+        <li>Grafana</li>
+        <li>HighCharts</li>
+      </ul>
+    </app-component-subsection>
+  </app-component-section>
+</div>

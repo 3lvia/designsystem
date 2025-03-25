@@ -786,9 +786,12 @@ const docPagesPattern: DocPage[] = [
   },
   {
     title: 'Graph',
+    description:
+      'Graphs are a tool to display data more visually than tables. They are a good solution when you want the user to quickly take in the data rather than read it.',
     docUrl: Pages.Graph,
     absolutePath: '/patterns/' + Pages.Graph,
     type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/file/Fqa50iJ7U9qxsUkiAwEJhf/?node-id=1%3A10',
     imageUrl: 'assets/doc-page-icons/patterns/graph.svg',
   },
   {

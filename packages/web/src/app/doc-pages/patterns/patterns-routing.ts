@@ -28,4 +28,8 @@ export const routes: Routes = [
     path: Pages.Forms,
     loadComponent: () => import('./forms-doc/forms-doc.component').then((m) => m.FormsDocComponent),
   },
+  {
+    path: Pages.Graph,
+    loadComponent: () => import('./graph-doc/graph-doc.component').then((m) => m.GraphDocComponent),
+  },
 ];
