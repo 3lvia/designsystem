@@ -32,4 +32,8 @@ export const routes: Routes = [
     path: Pages.Graph,
     loadComponent: () => import('./graph-doc/graph-doc.component').then((m) => m.GraphDocComponent),
   },
+  {
+    path: Pages.Groups,
+    loadComponent: () => import('./groups-doc/groups-doc.component').then((m) => m.GroupsDocComponent),
+  },
 ];

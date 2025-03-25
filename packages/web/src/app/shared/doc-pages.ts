@@ -796,9 +796,11 @@ const docPagesPattern: DocPage[] = [
   },
   {
     title: 'Groups',
+    description: 'Groups are collections of items arranged together in a list.',
     docUrl: Pages.Groups,
     absolutePath: '/patterns/' + Pages.Groups,
     type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/file/vzIO9S7owUHPlDYpWKRaWW/?node-id=54%3A3913',
     imageUrl: 'assets/doc-page-icons/patterns/groups.svg',
   },
   {
