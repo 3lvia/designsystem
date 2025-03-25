@@ -10,24 +10,24 @@
     @if (classes().desktop.typographies) {
       <li>
         Typographies:
-        @for (typography of classes().desktop.typographies; track typography; let last = $last) {
-          <code [ngClass]="{ 'e-mr-8': !last }">{{ typography }}</code>
+        @for (typography of classes().desktop.typographies; track typography) {
+          <code [ngClass]="{ 'e-mr-8': !$last }">{{ typography }}</code>
         }
       </li>
     }
     @if (classes().desktop.action) {
       <li>
         Action:
-        @for (action of classes().desktop.action; track action; let last = $last) {
-          <code [ngClass]="{ 'e-mr-8': !last }">{{ action }}</code>
+        @for (action of classes().desktop.action; track action) {
+          <code [ngClass]="{ 'e-mr-8': !$last }">{{ action }}</code>
         }
       </li>
     }
     @if (classes().desktop.spacing) {
       <li>
         Spacing:
-        @for (spacing of classes().desktop.spacing; track spacing; let last = $last) {
-          <code [ngClass]="{ 'e-mr-8': !last }">{{ spacing }}</code>
+        @for (spacing of classes().desktop.spacing; track spacing) {
+          <code [ngClass]="{ 'e-mr-8': !$last }">{{ spacing }}</code>
         }
       </li>
     }
@@ -45,24 +45,24 @@
     @if (classes().mobile.typographies) {
       <li>
         Typographies:
-        @for (typography of classes().mobile.typographies; track typography; let last = $last) {
-          <code [ngClass]="{ 'e-mr-8': !last }">{{ typography }}</code>
+        @for (typography of classes().mobile.typographies; track typography) {
+          <code [ngClass]="{ 'e-mr-8': !$last }">{{ typography }}</code>
         }
       </li>
     }
     @if (classes().mobile.action) {
       <li>
         Action:
-        @for (action of classes().mobile.action; track action; let last = $last) {
-          <code [ngClass]="{ 'e-mr-8': !last }">{{ action }}</code>
+        @for (action of classes().mobile.action; track action) {
+          <code [ngClass]="{ 'e-mr-8': !$last }">{{ action }}</code>
         }
       </li>
     }
     @if (classes().mobile.spacing) {
       <li>
         Spacing:
-        @for (spacing of classes().mobile.spacing; track spacing; let last = $last) {
-          <code [ngClass]="{ 'e-mr-8': !last }">{{ spacing }}</code>
+        @for (spacing of classes().mobile.spacing; track spacing) {
+          <code [ngClass]="{ 'e-mr-8': !$last }">{{ spacing }}</code>
         }
       </li>
     }

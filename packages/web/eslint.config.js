@@ -87,6 +87,7 @@ module.exports = tseslint.config(
       '@angular-eslint/template/no-distracting-elements': 'error',
       '@angular-eslint/template/no-duplicate-attributes': 'error',
       '@angular-eslint/template/no-negated-async': 'warn',
+      '@angular-eslint/template/prefer-contextual-for-variables': 'error',
       '@angular-eslint/template/prefer-control-flow': 'error',
       '@angular-eslint/template/role-has-required-aria': 'warn',
       '@angular-eslint/template/table-scope': 'error',
