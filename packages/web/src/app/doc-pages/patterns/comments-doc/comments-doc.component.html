@@ -4,7 +4,7 @@
 </app-component-header>
 
 <div class="page-body">
-  <figure class="figure--center">
+  <figure class="figure--center e-mt-32">
     <img [src]="`assets/doc-pages/patterns/comments/comment_${theme()}.png`" alt="" />
   </figure>
   <app-component-section sectionTitle="Usage">
@@ -30,7 +30,7 @@
   </app-component-section>
   <app-component-section sectionTitle="Examples">
     <app-component-subsection sectionTitle="No comments">
-      <figure>
+      <figure class="e-my-16">
         @if (theme() === 'light') {
           <img [src]="`assets/doc-pages/patterns/comments/no_comment_light.svg`" alt="" />
         } @else {
@@ -40,17 +40,17 @@
     </app-component-subsection>
     <app-component-subsection sectionTitle="Actions">
       <app-component-subsubsection sectionTitle="Hover">
-        <figure>
+        <figure class="e-my-16">
           <img [src]="`assets/doc-pages/patterns/comments/hover_${theme()}.png`" alt="" />
         </figure>
       </app-component-subsubsection>
       <app-component-subsubsection sectionTitle="Edit">
-        <figure>
+        <figure class="e-my-16">
           <img [src]="`assets/doc-pages/patterns/comments/edit_${theme()}.png`" alt="" />
         </figure>
       </app-component-subsubsection>
       <app-component-subsubsection sectionTitle="Delete">
-        <figure>
+        <figure class="e-my-16">
           <img [src]="`assets/doc-pages/patterns/comments/delete_${theme()}.png`" alt="" />
         </figure>
       </app-component-subsubsection>

@@ -4,6 +4,9 @@
 </app-component-header>
 
 <div class="page-body">
+  <figure class="figure--center e-mt-32">
+    <img [src]="`assets/doc-pages/patterns/cookies/banner_${theme()}.png`" alt="" />
+  </figure>
   <app-component-section sectionTitle="Usage">
     <p>
       Make it easy for the user to accept the use of cookies. If we collect more cookies than necessary,
@@ -15,7 +18,8 @@
   <app-component-section sectionTitle="Layout">
     <p>
       Use the style of a
-      <a class="e-link e-link--inline" routerLink="/components/alert">global alert message</a>.
+      <a class="e-link e-link--inline" routerLink="/components/alert" fragment="type">global alert message</a
+      >.
     </p>
   </app-component-section>
   <app-component-section sectionTitle="Examples">
