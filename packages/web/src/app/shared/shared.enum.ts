@@ -76,13 +76,14 @@ export enum Pages {
   // Pattern pages
   Comments = 'comments',
   Cookies = 'cookies',
+  DataFormats = 'data-formats',
   EmptyStates = 'empty-states',
   Filters = 'filters',
   Forms = 'forms',
+  Graph = 'graph',
   Groups = 'groups',
   Onboarding = 'onboarding',
   Validations = 'validations',
-  Graph = 'graph',
 
   // Tool pages
   Accessibility = 'accessibility',
