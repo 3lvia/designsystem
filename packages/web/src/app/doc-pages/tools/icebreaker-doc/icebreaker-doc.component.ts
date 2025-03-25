@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 
 import { ThemeService } from 'src/app/core/services/theme.service';
 import { ComponentHeaderComponent } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.component';
@@ -11,6 +11,7 @@ const docPage = getDocPage('icebreakers');
   selector: 'app-icebreaker-doc',
   imports: [ComponentHeaderComponent, ComponentSectionComponent, AsyncPipe],
   templateUrl: './icebreaker-doc.component.html',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IcebreakerDocComponent {
   protected theme = inject(ThemeService).listenTheme();
