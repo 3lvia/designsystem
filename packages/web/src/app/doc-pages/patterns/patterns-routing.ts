@@ -36,4 +36,9 @@ export const routes: Routes = [
     path: Pages.Groups,
     loadComponent: () => import('./groups-doc/groups-doc.component').then((m) => m.GroupsDocComponent),
   },
+  {
+    path: Pages.Onboarding,
+    loadComponent: () =>
+      import('./onboarding-doc/onboarding-doc.component').then((m) => m.OnboardingDocComponent),
+  },
 ];
