@@ -41,4 +41,9 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./onboarding-doc/onboarding-doc.component').then((m) => m.OnboardingDocComponent),
   },
+  {
+    path: Pages.Validations,
+    loadComponent: () =>
+      import('./validations-doc/validations-doc.component').then((m) => m.ValidationsDocComponent),
+  },
 ];

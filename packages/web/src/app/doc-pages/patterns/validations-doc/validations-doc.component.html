@@ -1,0 +1,196 @@
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body">
+  <div class="e-flex e-justify-content-center">
+    <div class="e-form-field e-my-16">
+      <label class="e-form-field__label" for="0">E-post</label>
+      <div class="e-input e-input---invalid">
+        <input id="0" value="epost@elvia" />
+      </div>
+      <span class="e-form-field__error e-form-field__error--visible">
+        <span>
+          <e-icon name="removeCircle" size="xs" class="e-icon--color-error"> </e-icon>
+        </span>
+        Bruk riktig format (example&#64;email.no)
+      </span>
+    </div>
+  </div>
+  <app-component-section sectionTitle="Usage">
+    <app-component-subsection sectionTitle="Behavior">
+      <p>
+        In most cases the validation shouldn’t happen until the user has navigated outside of the field, to
+        make sure that we don’t make unnecessary interruptions before the input is finished. In some cases,
+        such as when entering a password to fit specific rules, instant validation might be a better option,
+        to make sure that the user gets quick feedback when they need it.
+      </p>
+      <p>
+        If the added validation messages result in the content shift by pushing underlying fields further
+        down, make sure to keep the scroll position to avoid layout confusion.
+      </p>
+      <p>
+        Validation is often not used in the same way when filtering or searching for results. In those cases,
+        an <a class="e-link e-link--inline" routerLink="/patterns/empty-states">empty state</a> would fit the
+        purpose better.
+      </p>
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Message">
+      <p>
+        In general, validation messages should be short and describing. For invalid inputs, consider including
+        an example of correct formatting. Some examples:
+      </p>
+      <ul class="e-list">
+        <li>
+          <b>No input</b>: When the user has failed to fill in a necessary input field the message could be:
+          “Fyll inn epost”.
+        </li>
+        <li>
+          <b>Invalid input</b>: When the user has entered wrong formatting the message could be: “Bruk riktig
+          format (example&#64;email.no)” or “Bruk dd.mm.åååå”. Best used when kept short and includes an
+          indication of the correct formatting.
+        </li>
+        <li>
+          <b>No selection</b>: When the user has failed to make one or more necessary selections the message
+          could be: “Velg en dato” or ”Velg minst et alternativ”.
+        </li>
+        <li>
+          <b>Outside limits</b>: When the user chooses values outside det limited options the message could
+          be: "Minsteverdi er 0" or "Maksverdi er 100".
+        </li>
+      </ul>
+    </app-component-subsection>
+  </app-component-section>
+  <app-component-section sectionTitle="Inputs">
+    <p>The validation flow for a typical input component is displayed in these steps:</p>
+    <ol class="e-list e-list--numbers">
+      <li>
+        <p>User Writes and navigates out</p>
+        <div class="e-form-field e-my-16">
+          <label class="e-form-field__label" for="1">E-post</label>
+          <div class="e-input e-input---active">
+            <input id="1" value="epost@elvia" />
+          </div>
+        </div>
+      </li>
+      <li>
+        <p>Validation with message</p>
+        <div class="e-form-field e-my-16">
+          <label class="e-form-field__label" for="2">E-post</label>
+          <div class="e-input e-input---invalid">
+            <input id="2" value="epost@elvia" />
+          </div>
+          <span class="e-form-field__error e-form-field__error--visible">
+            <span>
+              <e-icon name="removeCircle" size="xs" class="e-icon--color-error"> </e-icon>
+            </span>
+            Bruk riktig format (example&#64;email.no)
+          </span>
+        </div>
+      </li>
+      <li>
+        <p>Active field with message</p>
+        <div class="e-form-field e-my-16">
+          <label class="e-form-field__label" for="3">E-post</label>
+          <div class="e-input e-input---active">
+            <input id="3" value="epost@elvia" />
+          </div>
+          <span class="e-form-field__error e-form-field__error--visible">
+            <span>
+              <e-icon name="removeCircle" size="xs" class="e-icon--color-error"> </e-icon>
+            </span>
+            Bruk riktig format (example&#64;email.no)
+          </span>
+        </div>
+      </li>
+      <li>
+        <p>Normal field validated</p>
+        <div class="e-form-field e-my-16">
+          <label class="e-form-field__label" for="4">E-post</label>
+          <div class="e-input">
+            <input id="4" value="epost@elvia.no" />
+          </div>
+        </div>
+      </li>
+    </ol>
+    <p>
+      Consider character restriction and limit the user from being able to input characters that don’t
+      validate. For example, if only numbers are allowed as an answer, users should not be able to input
+      letters in the field.
+    </p>
+    <div class="e-inlined-field e-align-items-end e-my-32">
+      <div class="e-form-field" style="width: 80px">
+        <label class="e-form-field__label" for="prefix">Telefonnummer</label>
+        <div class="e-input">
+          <input id="prefix" placeholder="+47" value="+47" />
+        </div>
+      </div>
+      <div class="e-form-field">
+        <label class="e-form-field__label e-sr-only" for="phonenumber">telefonnummer</label>
+        <div class="e-input">
+          <input id="phonenumber" placeholder="Poststed" value="12 34 56 78" />
+        </div>
+      </div>
+    </div>
+    <p>
+      Rather than marking mandatory fields, we choose to highlight optional fields with the field label. Read
+      more about this in form patterns.
+    </p>
+    <div class="e-form-field e-my-32">
+      <label class="e-form-field__label e-form-field__label--optional" for="textarea"
+        >Annen informasjon</label
+      >
+      <div class="e-input">
+        <textarea rows="50" id="textarea"></textarea>
+      </div>
+    </div>
+
+    <app-component-subsection sectionTitle="Multiple validations">
+      <p>
+        If the same validation is connected to multiple inputs, for example a group of checkboxes, it’s shown
+        under the inputs, with each affected input in its error state.
+      </p>
+
+      <fieldset class="e-strip-fieldset e-form-field e-my-32">
+        <legend class="e-form-field__label">Title</legend>
+        <label class="e-checkbox e-checkbox---invalid">
+          <input type="checkbox" />
+          <span class="e-checkbox__mark"> </span>
+          <span class="e-checkbox__label">Option</span>
+        </label>
+        <label class="e-checkbox e-checkbox---invalid">
+          <input type="checkbox" />
+          <span class="e-checkbox__mark"> </span>
+          <span class="e-checkbox__label">Option</span>
+        </label>
+        <span class="e-form-field__error e-form-field__error--visible">
+          <span>
+            <e-icon name="removeCircle" size="xs" class="e-icon--color-error"></e-icon>
+          </span>
+          Velg minst ett alternativ
+        </span>
+      </fieldset>
+
+      <p>
+        You can create an overview of multiple validation messages using a local alert and place it close to
+        the trigger of the validation. This is for example often used in forms , where the local alert summary
+        appears close to the submit or next button when trying to submit a form with multiple validation
+        issues.
+      </p>
+      <div class="e-alert">
+        <div class="e-alert__icon">
+          <e-icon name="removeCircle" class="e-icon--color-danger" />
+        </div>
+        <h3 class="e-alert__title">Det er mangler eller feil i skjemaet</h3>
+        <div class="e-alert__text">
+          <ul>
+            <li>Telefonnummer</li>
+            <li>E-post</li>
+            <li>Dato</li>
+          </ul>
+        </div>
+      </div>
+    </app-component-subsection>
+  </app-component-section>
+</div>

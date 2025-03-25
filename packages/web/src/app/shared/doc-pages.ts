@@ -805,16 +805,22 @@ const docPagesPattern: DocPage[] = [
   },
   {
     title: 'Onboarding',
+    description:
+      'Onboarding guides users through new or important features using a spotlight and descriptions. It typically appears on first entry or after major updates.',
     docUrl: Pages.Onboarding,
     absolutePath: '/patterns/' + Pages.Onboarding,
     type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/design/vzIO9S7owUHPlDYpWKRaWW/x.-Patterns?node-id=1414-59161',
     imageUrl: 'assets/doc-page-icons/patterns/onboarding.svg',
   },
   {
     title: 'Validations',
+    description:
+      'With validation, we control field and input formats and help users to understand what needs to be corrected.',
     docUrl: Pages.Validations,
     absolutePath: '/patterns/' + Pages.Validations,
     type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/design/vzIO9S7owUHPlDYpWKRaWW/x.-Patterns?node-id=338-14890',
     imageUrl: 'assets/doc-page-icons/patterns/validations.svg',
   },
 ];
