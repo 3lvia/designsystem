@@ -1,6 +1,6 @@
 <h1 class="e-title-md e-mb-40 e-mt-0">About</h1>
 <nav class="components-overview-cards">
-  @for (page of docPagesAbout; track page.title) {
+  @for (page of docPages; track page.title) {
     <a [routerLink]="page.absolutePath">
       <elvia-card [heading]="page.title" maxHeadingLines="2">
         <app-inline-svg slot="icon" [src]="page.imageUrl" />

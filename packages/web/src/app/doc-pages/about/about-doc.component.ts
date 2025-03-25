@@ -11,5 +11,5 @@ import { getDocPagesByType } from 'src/app/shared/doc-pages';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AboutDocComponent {
-  docPagesAbout = getDocPagesByType('About');
+  docPages = getDocPagesByType('About');
 }
