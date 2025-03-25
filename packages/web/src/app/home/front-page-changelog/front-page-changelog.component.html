@@ -1,4 +1,4 @@
-@for (changelog of changelogs; track changelog.name; let isLast = $last) {
+@for (changelog of changelogs; track changelog.name) {
   <div class="changelog-container">
     <div class="changelog-name-and-icon">
       @let iconSrc = (componentIcons | async)?.[(changelog.name | FrontPageChangelogUrlPipe)];
@@ -18,7 +18,7 @@
       </span>
     </div>
   </div>
-  @if (!isLast) {
+  @if (!$last) {
     <elvia-divider />
   }
 }
