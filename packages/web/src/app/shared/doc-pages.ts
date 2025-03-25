@@ -655,68 +655,112 @@ const docPagesAbout: DocPage[] = [
 const docPagesBrand: DocPage[] = [
   {
     title: 'The Concept',
+    titleNo: 'Elvia konseptet',
+    description:
+      'Our concept and values should reflect us as a company in everything we do and how we are perceived on a corporate level and towards the customers. The purpose of Elvia`s brand and visual identity is to appear clear and comprehensive to our customers, partners, employees and society at large.',
+    descriptionNo:
+      'Vårt konsept og våre verdier skal gjenspeile oss som selskap i alt vi gjør og hvordan vi oppfattes internt og overfor kundene. Formålet med Elvias merkevare og visuelle identitet er å fremstå tydelig og helhetlig for våre kunder, samarbeidspartnere, ansatte og samfunnet for øvrig.',
     docUrl: Pages.TheConcept,
     absolutePath: '/brand/' + Pages.TheConcept,
     type: 'Brand',
     isMainPage: true,
+    figmaUrl: 'https://www.figma.com/file/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=2995%3A3',
     imageUrl: 'assets/doc-page-icons/brand/the_concept.svg',
   },
   {
+    title: 'Examples',
+    titleNo: 'Eksempler',
+    description: "Here you will find examples of how Elvia's identity should be used.",
+    descriptionNo: 'Her finner du eksempler på hvordan Elvias identitet skal brukes.',
+    docUrl: Pages.Examples,
+    absolutePath: '/brand/' + Pages.Examples,
+    type: 'Brand',
+    figmaUrl:
+      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=9080-63651&t=GyjDwdkUZQM6kkra-4',
+    imageUrl: 'assets/doc-page-icons/brand/examples.svg',
+  },
+  {
     title: 'Colors',
+    titleNo: 'Farger',
+    description:
+      'Elvia colors are a reference for energy and light. It plays an important part to bring the concept ON/OFF to life. For consistency, you shall use the defined color palette throughout our interface.',
+    descriptionNo:
+      'Elvia-fargene er en referanse for energi og lys. Det spiller en viktig rolle for å gi konseptet PÅ/AV liv. For konsistens skal du bruke den definerte fargepaletten i hele grensesnittet vårt.',
     docUrl: Pages.Color,
     absolutePath: '/brand/' + Pages.Color,
     type: 'Brand',
+    figmaUrl: 'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=18027-22975',
     imageUrl: 'assets/doc-page-icons/brand/colors.svg',
   },
   {
     title: 'Icons',
+    titleNo: 'Ikoner',
+    description:
+      'In our icon library, you’ll find all available icons in the design system, as well guides on how to use them.',
+    descriptionNo:
+      'I ikonbiblioteket vårt finner du alle tilgjengelige ikoner i designsystemet, samt veiledninger om hvordan du bruker dem.',
     docUrl: Pages.Icon,
     absolutePath: '/brand/' + Pages.Icon,
     type: 'Brand',
+    figmaUrl:
+      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=2973-294&t=GyjDwdkUZQM6kkra-4',
     imageUrl: 'assets/doc-page-icons/brand/icons.svg',
-  },
-  {
-    title: 'Images',
-    docUrl: Pages.Images,
-    absolutePath: '/brand/' + Pages.Images,
-    type: 'Brand',
-    imageUrl: 'assets/doc-page-icons/brand/images.svg',
-  },
-  {
-    title: 'Layout',
-    docUrl: Pages.Layout,
-    absolutePath: '/brand/' + Pages.Layout,
-    type: 'Brand',
-    imageUrl: 'assets/doc-page-icons/brand/layout.svg',
-  },
-  {
-    title: 'Logo',
-    docUrl: Pages.Logo,
-    absolutePath: '/brand/' + Pages.Logo,
-    type: 'Brand',
-    imageUrl: 'assets/doc-page-icons/brand/logo.svg',
-  },
-  {
-    title: 'Tone of Voice',
-    docUrl: Pages.ToneOfVoice,
-    absolutePath: '/brand/' + Pages.ToneOfVoice,
-    type: 'Brand',
-    imageUrl: 'assets/doc-page-icons/brand/tone_of_voice.svg',
-  },
-  {
-    title: 'Typography',
-    docUrl: Pages.Typography,
-    absolutePath: '/brand/' + Pages.Typography,
-    type: 'Brand',
-    imageUrl: 'assets/doc-page-icons/brand/typography.svg',
   },
   {
     title: 'Illustrations',
     titleNo: 'Illustrasjoner',
+    description:
+      'An illustration can help to communicate a message visually and add personality to the page. Using illustration is a powerful tool when users are frustrated, lost or something went wrong.',
+    descriptionNo:
+      'En illustrasjon kan bidra til å formidle et budskap visuelt og gi siden personlighet. Bruk av illustrasjoner er et effektivt verktøy når brukerne er frustrerte, har gått seg vill eller når noe har gått galt.',
     docUrl: Pages.Illustration,
     absolutePath: '/brand/' + Pages.Illustration,
     type: 'Brand',
+    figmaUrl:
+      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=18692-26758&t=GyjDwdkUZQM6kkra-4',
     imageUrl: 'assets/doc-page-icons/brand/illustrations.svg',
+  },
+  {
+    title: 'Images',
+    titleNo: 'Bilder',
+    description:
+      'Elvia’s images should appear professional, time-relevant, and forward-looking within their category. The tone of voice must be down-to-earth and unobtrusive to communicate with the recipient on a human level.',
+    descriptionNo:
+      'Bilder fra Elvia skal fremstå som proffe, tidsrelevante og fremoverlente innenfor sin kategori. Tone of voice skal være jordnært og ujålete for å kommunisere på et menneskelig plan mot mottaker.',
+    docUrl: Pages.Images,
+    absolutePath: '/brand/' + Pages.Images,
+    type: 'Brand',
+    figmaUrl:
+      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=8936-70585&t=GyjDwdkUZQM6kkra-4',
+    imageUrl: 'assets/doc-page-icons/brand/images.svg',
+  },
+  {
+    title: 'Layout',
+    titleNo: 'Layout',
+    description:
+      'Layout provides rules to give designs consistent rhythm in the application, as well as across applications to ensure a holistic design in Elvia. The layout consist of grid, spacing and box design. ',
+    descriptionNo:
+      'Layout gir regler for å gi design konsekvent rytme i applikasjonen, samt på tvers av applikasjoner for å sikre et helhetlig design i Elvia. Layouten består av rutenett, mellomrom og boksdesign. ',
+    docUrl: Pages.Layout,
+    absolutePath: '/brand/' + Pages.Layout,
+    type: 'Brand',
+    figmaUrl:
+      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=8936-67993&t=GyjDwdkUZQM6kkra-4',
+    imageUrl: 'assets/doc-page-icons/brand/layout.svg',
+  },
+  {
+    title: 'Logo',
+    titleNo: 'Logo',
+    description:
+      'Elvia can be described as the power source in your home. Just like our services, our logo acts as the power source that the consumer can turn on and off when needed.',
+    descriptionNo:
+      'Elvia kan beskrives som strømkilden i hjemmet ditt. Akkurat som tjenestene våre fungerer logoen vår som strømkilden som forbrukeren kan slå av og på etter behov.',
+    docUrl: Pages.Logo,
+    absolutePath: '/brand/' + Pages.Logo,
+    type: 'Brand',
+    figmaUrl:
+      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=8156-54785&t=GyjDwdkUZQM6kkra-4',
+    imageUrl: 'assets/doc-page-icons/brand/logo.svg',
   },
   {
     title: 'Shadow',
@@ -731,9 +775,49 @@ const docPagesBrand: DocPage[] = [
     figmaUrl: 'https://www.figma.com/file/E2yRkpqSSuRnq8RDXO4Mly/Shadow?node-id=90%3A24',
     imageUrl: 'assets/doc-page-icons/brand/shadow.svg',
   },
+  {
+    title: 'Theme',
+    titleNo: 'Tema',
+    description:
+      'The design system has two themes; light and dark. The light theme is the default for all components, tokens, and variables. The colors page documents the two color palettes and the color tokens.',
+    descriptionNo:
+      'Designsystemet har to temaer; lys og mørk. Det lyse temaet er standard for alle komponenter, tokens og variabler. Fargesiden dokumenterer de to fargepalettene og fargetokens.',
+    docUrl: Pages.Theme,
+    absolutePath: '/brand/' + Pages.Theme,
+    type: 'Brand',
+    figmaUrl:
+      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=16626-47964&t=GyjDwdkUZQM6kkra-4',
+    imageUrl: 'assets/doc-page-icons/brand/theme.svg',
+  },
+  {
+    title: 'Tone of Voice',
+    titleNo: 'Tone of Voice',
+    description:
+      "To create clear content and simultaneously have a consistent linguistic personality, it is important that we have a defined Tone of Voice. This section explains the difference between Elvia's style and tone and how they are connected when we communicate with our customers.",
+    descriptionNo:
+      'For å skape tydelig innhold og samtidig ha en gjennomgående språklig personlighet, er det viktig at vi har en definert «Tone of Voice». Denne delen forklarer forskjellen på Elvias stil og tone og hvordan de henger sammen når vi skal kommunisere med kundene våre; enten det er skriftlig eller muntlig.',
+    docUrl: Pages.ToneOfVoice,
+    absolutePath: '/brand/' + Pages.ToneOfVoice,
+    type: 'Brand',
+    figmaUrl:
+      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=3288-17915&t=GyjDwdkUZQM6kkra-4',
+    imageUrl: 'assets/doc-page-icons/brand/tone_of_voice.svg',
+  },
+  {
+    title: 'Typography',
+    titleNo: 'Typografi',
+    description: 'Elvia has a profile font called Red Hat that should be used throughout all material.',
+    descriptionNo: 'Elvia har en typografi kalt Red Hat som skal brukes i alt materiale.',
+    docUrl: Pages.Typography,
+    absolutePath: '/brand/' + Pages.Typography,
+    type: 'Brand',
+    figmaUrl:
+      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=17004-26243&t=GyjDwdkUZQM6kkra-4',
+    imageUrl: 'assets/doc-page-icons/brand/typography.svg',
+  },
 ];
 
-// Pattern pages
+// Pattern pages (FERDIG!)
 const docPagesPattern: DocPage[] = [
   {
     title: 'Comments',
@@ -835,7 +919,7 @@ const docPagesPattern: DocPage[] = [
   },
 ];
 
-// Tools
+// Tools (FERDIG!)
 const docPagesTools: DocPage[] = [
   {
     title: 'Accessibility',

@@ -63,15 +63,17 @@ export enum Pages {
   TheDesignSystem = 'the-design-system',
 
   // Brand pages
-  TheConcept = 'the-concept',
   Color = 'color',
+  Examples = 'examples',
   Icon = 'icon',
+  Illustration = 'illustration',
   Images = 'images',
   Layout = 'layout',
   Logo = 'logo',
+  TheConcept = 'the-concept',
+  Theme = 'theme',
   ToneOfVoice = 'tone-of-voice',
   Typography = 'typography',
-  Illustration = 'illustration',
 
   // Pattern pages
   Comments = 'comments',
