@@ -29,6 +29,10 @@ export const routes: Routes = [
       import('./illustrations-doc/illustrations-doc.component').then((m) => m.IllustrationsDocComponent),
   },
   {
+    path: Pages.Images,
+    loadComponent: () => import('./image-doc/image-doc.component').then((m) => m.ImageDocComponent),
+  },
+  {
     path: Pages.Layout,
     loadComponent: () => import('./layout-doc/layout-doc.component').then((m) => m.LayoutDocComponent),
   },

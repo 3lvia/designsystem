@@ -1,0 +1,100 @@
+<app-component-header [figmaUrl]="docPage.figmaUrl">
+  <ng-container ngProjectAs="headerTitle">
+    {{ locale() === 'nb-NO' ? docPage.titleNo : docPage.title }}
+  </ng-container>
+  <div
+    ngProjectAs="headerDescription"
+    [innerHTML]="(locale() === 'nb-NO' ? docPage.descriptionNo : docPage.description) ?? '' | safeHtml"
+  ></div>
+</app-component-header>
+<div class="page-body">
+  <figure class="e-my-32">
+    <img src="assets/doc-pages/brand/images/installer.JPG" alt="Bilde av en Elvia ansatt i feltet" />
+  </figure>
+  <app-component-section [sectionTitle]="locale() === 'nb-NO' ? 'Bildebank' : 'Image bank '">
+    @if (locale() === 'nb-NO') {
+      <p>Bruk Elvia sin interne bildebank for å finne og laste ned bilder.</p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>Use Elvia's internal image bank to find and download images.</p>
+    }
+    <figure class="e-my-32">
+      <img src="assets/doc-pages/brand/images/bank.png" alt="bildebank" />
+    </figure>
+    <a
+      class="e-link e-link--new-tab"
+      href="https://elviaansatt.imageshop.no//1444151"
+      target="_blank"
+      rel="noopener"
+    >
+      <span class="e-link__title">
+        @if (locale() === 'nb-NO') {
+          Bildebank (krever innlogging)
+        }
+        @if (locale() === 'en-GB') {
+          Image bank (requires login)
+        }
+      </span>
+      <span class="e-link__icon">
+        <e-icon name="newTabBold" />
+      </span>
+    </a>
+  </app-component-section>
+  <app-component-section [sectionTitle]="locale() === 'nb-NO' ? 'Bildestil' : 'Image style'">
+    <ul class="e-list">
+      @if (locale() === 'nb-NO') {
+        <li>
+          Bildene bør ha naturlig lys så langt det er mulig, og en farge som er troverdig, men forsterket av
+          den valgte scenen.
+        </li>
+        <li>
+          Hovedvekten av bildene må også inneholde fotografiske kvaliteter med en uskarp bakgrunn/forgrunn med
+          handlingen i fokus.
+        </li>
+        <li>
+          Naturlige vignetter der det faller naturlig er også ønskelig for å gi bildene fra Elvia et tydelig
+          avtrykk.
+        </li>
+        <li>Forgrunnsuskarphet kan bidra til å forsterke dette til et helhetlig og profesjonelt uttrykk.</li>
+      }
+      @if (locale() === 'en-GB') {
+        <li>
+          The images should have natural light as far as possible, and a color that is believable but enhanced
+          by the chosen scene.
+        </li>
+        <li>
+          The main emphasis of images must also contain photographic qualities with a blurred
+          background/foreground with the action in focus.
+        </li>
+        <li>
+          Natural vignettes where it falls naturally are also desirable to give the images from Elvia a clear
+          imprint.
+        </li>
+        <li>Foreground blur can help to reinforce this into a holistic and professional expression.</li>
+      }
+    </ul>
+    <div class="e-flex e-flex-direction-column e-gap-32">
+      <figure>
+        <img
+          src="assets/doc-pages/brand/images/down_to_earth_and_unpretentious.jpeg"
+          alt="jordnært og ujålete"
+        />
+      </figure>
+      <figure>
+        <img src="assets/doc-pages/brand/images/natural_light.jpeg" alt="naturlig lys" />
+      </figure>
+      <figure>
+        <img src="assets/doc-pages/brand/images/colourfulness.jpeg" alt="koloritt" />
+      </figure>
+      <figure>
+        <img src="assets/doc-pages/brand/images/blurred_background.jpeg" alt="uskarp bakgrunn" />
+      </figure>
+      <figure>
+        <img src="assets/doc-pages/brand/images/blurred_foreground.jpeg" alt="uskarp forgrunn" />
+      </figure>
+      <figure>
+        <img src="assets/doc-pages/brand/images/natural_vignetting.jpeg" alt="naturlig vignettering" />
+      </figure>
+    </div>
+  </app-component-section>
+</div>
