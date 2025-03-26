@@ -1,0 +1,182 @@
+<app-component-header [figmaUrl]="docPage.figmaUrl">
+  <ng-container ngProjectAs="headerTitle">
+    {{ locale() === 'nb-NO' ? docPage.titleNo : docPage.title }}
+  </ng-container>
+  <div
+    ngProjectAs="headerDescription"
+    [innerHTML]="(locale() === 'nb-NO' ? docPage.descriptionNo : docPage.description) ?? '' | safeHtml"
+  ></div>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-section
+    [sectionTitle]="locale() === 'nb-NO' ? 'Lyssirkel og energiring' : 'Light circle and energy ring'"
+  >
+    <figure>
+      <img src="assets/doc-pages/brand/examples/dream.jpeg" alt="drøm på" />
+    </figure>
+    @if (locale() === 'nb-NO') {
+      <p>
+        Eksempel på hvordan lyssirkelen kan brukes til å definere flater for tekst. Tekstområdet kan plasseres
+        til høyre eller venstre i liggende formater, mens det kan plasseres øverst eller nederst i stående
+        formater.
+      </p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>
+        Example of how the light circle can be used to define surfaces for text. The text area can be placed
+        to the right or left in landscape formats, while it can be placed at the top or bottom of portrait
+        formats.
+      </p>
+    }
+    <figure>
+      <img src="assets/doc-pages/brand/examples/magic.jpeg" alt="magien starter her" />
+    </figure>
+    @if (locale() === 'nb-NO') {
+      <p>
+        Eksempel på hvordan lys sirkelen kan brukes på Elvia OFF (svart) eller Elvia Dark for å definere
+        flater for tekst. Tekstområdet kan plasseres til høyre eller venstre i liggende formater, mens det kan
+        plasseres øverst eller nederst i stående formater.
+      </p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>
+        Example of how the light circle can be used on Elvia OFF (black) or Elvia Dark to define surfaces for
+        text. The text area can be placed to the right or left in landscape formats, while it can be placed at
+        the top or bottom of portrait formats.
+      </p>
+    }
+    <figure>
+      <img src="assets/doc-pages/brand/examples/game.jpeg" alt="game on" />
+    </figure>
+    @if (locale() === 'nb-NO') {
+      <p>
+        Eksempel på hvordan de grafiske elementene kan settes sammen på en flate med et uskarpt bilde. Logo i
+        lyssirkel og energisirkel kan plasseres der det er naturlig for å skape en god komposisjon i bildet.
+        Hvis det er en tydelig lyskilde i bildet, er det fint å plassere lyssirkelen med logoen her, og at den
+        blir mørkere i områder som har større avstand fra logoen.
+      </p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>
+        Example of how the graphic elements can be put together on a surface with a blurred image. Logo in
+        light circle and energy circle can be laid out, and placed where it is natural to create a good
+        composition in the image. If there is an obvious light source in the image, it is nice to place the
+        light circle with the logo here, and that it gets darker in areas that have a greater distance from
+        the logo.
+      </p>
+    }
+    <figure>
+      <img src="assets/doc-pages/brand/examples/homework.jpeg" alt="elementer på utfallende bilde" />
+    </figure>
+    @if (locale() === 'nb-NO') {
+      <p>Eksempel på hvordan de grafiske elementene kan settes sammen på en flate med et uskarpt bilde.</p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>Example of how the graphic elements can be put together on a surface with a blurred image.</p>
+    }
+
+    <figure>
+      <img src="assets/doc-pages/brand/examples/booklet_1.png" alt="a open booklet" />
+    </figure>
+    @if (locale() === 'nb-NO') {
+      <p>Eksempel på lyssirkel i layout.</p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>Example of light circle in layout.</p>
+    }
+  </app-component-section>
+  <app-component-section [sectionTitle]="locale() === 'nb-NO' ? 'Enkel layout' : 'Simple layout'">
+    @if (locale() === 'nb-NO') {
+      <p>
+        Hvis det ikke er mulig å bruke de grafiske elementene, må du løse det med en riktig inndeling av
+        bilde- og tekstområdet. Formatet kan deles av bilde- og tekstområdet horisontalt eller vertikalt,
+        avhengig av liggende eller stående format. Dette er et godt alternativ på flater der de grafiske
+        elementene er vanskelige å implementere. Elvia-logoen kan settes som avsender nederst i tekstfeltet.
+      </p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>
+        Where it's not possible to use the graphic elements, solve it with a correct division of image and
+        text area. The format can be divided by image and text area horizontally or vertically, depending on
+        landscape or portrait format. This is a good alternative on surfaces where the graphic elements are
+        difficult to implement. The Elvia logo can be set as the sender at the bottom of the text field.
+      </p>
+    }
+    <div class="e-flex e-flex-direction-column e-gap-32">
+      <figure>
+        <img src="assets/doc-pages/brand/examples/sunday.jpeg" alt="søndagsmodus på" />
+      </figure>
+      <figure>
+        <img src="assets/doc-pages/brand/examples/party.jpeg" alt="party on" />
+      </figure>
+      <figure>
+        <img src="assets/doc-pages/brand/examples/booklet_2.png" alt="a open booklet" />
+      </figure>
+    </div>
+  </app-component-section>
+  <app-component-section [sectionTitle]="locale() === 'nb-NO' ? 'Mal for brev' : 'Letter template'">
+    <figure>
+      <img src="assets/doc-pages/brand/examples/letter.jpeg" alt="letter" />
+    </figure>
+  </app-component-section>
+  <app-component-section [sectionTitle]="locale() === 'nb-NO' ? 'Signatur for e-post' : 'Mail signature'">
+    <figure>
+      <img src="assets/doc-pages/brand/examples/mail.png" alt="mail" />
+    </figure>
+    @if (locale() === 'nb-NO') {
+      <p>
+        E-postsignaturer er laget i Verdana, med navn og etternavn i store bokstaver og Elvia grønn dot som
+        identitetsbærer.
+      </p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>
+        Email signatures are made in Verdana, with names and surnames in capital letters and the Elvia green
+        dot as the identity bearer.
+      </p>
+    }
+  </app-component-section>
+  <app-component-section [sectionTitle]="locale() === 'nb-NO' ? 'App-ikon' : 'App icon'">
+    <figure>
+      <img src="assets/doc-pages/brand/examples/app.png" alt="app icon" />
+    </figure>
+  </app-component-section>
+  <app-component-section [sectionTitle]="locale() === 'nb-NO' ? 'Sosiale medier' : 'Social media'">
+    <figure>
+      <img src="assets/doc-pages/brand/examples/instagram.png" alt="instagram" />
+    </figure>
+    @if (locale() === 'nb-NO') {
+      <p>
+        Elvia-ikonet skal være svart og alltid på hvit bakgrunn (representerer energi/lyskilde/PÅ) i sosiale
+        medier.
+      </p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>
+        Elvia Icon should be black and always on a white background (representing energy / light source / ON)
+        in social media.
+      </p>
+    }
+    <figure>
+      <img src="assets/doc-pages/brand/examples/social_media.png" alt="LinkedIn" />
+    </figure>
+    @if (locale() === 'nb-NO') {
+      <p>Eksemplet viser hvordan du bruker ikonet på LinkedIn.</p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>The example shows how to use the icon on LinkedIn.</p>
+    }
+  </app-component-section>
+  <app-component-section [sectionTitle]="locale() === 'nb-NO' ? 'Kjøretøy' : 'Vehicles'">
+    <figure>
+      <img src="assets/doc-pages/brand/examples/vehicle.png" alt="cars" />
+    </figure>
+    @if (locale() === 'nb-NO') {
+      <p>Eksemplet viser hvordan kjøretøyene er foliert.</p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>The example shows how vehicles are foiled.</p>
+    }
+  </app-component-section>
+</div>
