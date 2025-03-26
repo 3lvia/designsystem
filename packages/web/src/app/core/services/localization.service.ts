@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { LOCALE_CODE } from 'contentful/types';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
 
 import { RouterService } from './router.service';
 
-export type Locale = LOCALE_CODE;
+export type Locale = 'en-GB' | 'nb-NO';
 
 const LOCALIZATION_STORAGE_KEY = 'preferredDesignElviaIoLocale';
 @Injectable({
