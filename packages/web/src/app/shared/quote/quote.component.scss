@@ -3,10 +3,10 @@
 :host {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 32px;
 
   @include breakpoints.breakpoint-up(Mobile) {
-    gap: 8px;
+    gap: 16px;
     align-items: flex-start;
 
     e-icon {
