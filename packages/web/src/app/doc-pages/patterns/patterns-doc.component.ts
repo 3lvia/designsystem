@@ -11,5 +11,5 @@ import { InlineSvgComponent } from 'src/app/shared/inline-svg/inline-svg.compone
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PatternsDocComponent {
-  docPagesAbout = getDocPagesByType('Patterns');
+  docPages = getDocPagesByType('Patterns');
 }
