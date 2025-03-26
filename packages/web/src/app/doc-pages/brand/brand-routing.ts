@@ -7,6 +7,13 @@ export const routes: Routes = [
     path: '',
     loadComponent: () => import('./brand-doc.component').then((m) => m.BrandDocComponent),
   },
+  {
+    path: Pages.TheConcept,
+    loadComponent: () => import('./concept-doc/concept-doc.component').then((m) => m.ConceptDocComponent),
+  },
+  {
+    path: Pages.Examples,
+    loadComponent: () => import('./examples-doc/examples-doc.component').then((m) => m.ExamplesDocComponent),
   },
   {
     path: Pages.Color,
