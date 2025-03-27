@@ -786,7 +786,7 @@ const docPagesBrand: DocPage[] = [
     absolutePath: '/brand/' + Pages.Theme,
     type: 'Brand',
     figmaUrl:
-      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=16626-47964&t=GyjDwdkUZQM6kkra-4',
+      'https://www.figma.com/file/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?type=design&node-id=12571-146013&mode=design',
     imageUrl: 'assets/doc-page-icons/brand/theme.svg',
   },
   {

@@ -45,6 +45,10 @@ export const routes: Routes = [
     loadComponent: () => import('./shadow-doc/shadow-doc.component').then((m) => m.ShadowDocComponent),
   },
   {
+    path: Pages.Theme,
+    loadComponent: () => import('./theme-doc/theme-doc.component').then((m) => m.ThemeDocComponent),
+  },
+  {
     path: Pages.Typography,
     loadComponent: () =>
       import('./typography-doc/typography-doc.component').then((m) => m.TypographyDocComponent),

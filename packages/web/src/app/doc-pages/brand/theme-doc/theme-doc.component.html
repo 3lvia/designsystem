@@ -1,0 +1,99 @@
+<app-component-header [figmaUrl]="docPage.figmaUrl">
+  <ng-container ngProjectAs="headerTitle">{{ docPage.title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="docPage.description ?? '' | safeHtml"></div>
+</app-component-header>
+
+<div class="page-body">
+  <figure class="figure--center">
+    <img src="assets/doc-pages/brand/theme/theme.gif" alt="" />
+  </figure>
+  <app-component-section sectionTitle="Implementation">
+    <ol class="e-list e-list--numbers e-text-lg">
+      <li>
+        <b>Update components</b>: Our components automatically switch to the dark theme when you add the
+        <code>e-theme-dark</code> class to an element or when the user selects a theme in the
+        <a class="e-link e-link--inline" routerLink="/components/header">Header component</a>. For this to
+        work you need to update the design system packages and components to a version that supports dark
+        theme.
+        <ul class="e-list">
+          <li>The <code>&#64;elvia/elvis</code> package needs to be at version <b>12.7.0</b> or higher.</li>
+          <li>
+            The <a class="e-link e-link--inline" routerLink="/components/header">Header component</a> should
+            be at version <b>1.5.0</b> or higher. The header contains the theme switch and the only action of
+            the switch is to toggle the class <code>e-theme-dark</code>.
+          </li>
+          <li>
+            Check that the components you are using are at compatible versions. Read the component changelogs
+            to find what versions started supporting dark theme or update to the newest version.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>Replace colors</b>: Tokens should be used instead of hardcoded colors to ensure consistent design
+        and dark theme support. All colors on your page, therefore, need to be replaced by
+        <a class="e-link e-link--inline" routerLink="/brand/color" fragment="Tokens">color tokens</a>. How to
+        use tokens is described in detail in the
+        <a class="e-link e-link--inline" routerLink="/brand/color" fragment="How to use tokens"
+          >how to use tokens</a
+        >
+        section. The tokens can all be used as CSS variables, while some are also available as classes. Use
+        the token categories to choose the correct token. Finding all the colors that needs to be replaced can
+        be done like this:
+        <ul class="e-list">
+          <li>
+            Search for all instances of <code>color:</code>, <code>border:</code>,
+            <code>background:</code> and <code>var(--</code> and replace the colors found.
+          </li>
+          <li>
+            Search and replace all instances of color classes with the prefix <code>e-bg-</code> and
+            <code>e-text-</code> that have been deprecated. The typography classes that also starts with
+            <code>e-text-</code> are not deprecated and should not be replaced. If you are unsure, all
+            deprecated classes are warned about in the console on the pages they are used.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <b>Images and illustrations</b>: Images should work fine on both dark and light theme, but
+        illustrations made for light theme might not look as good in dark theme.
+        <ul class="e-list">
+          <li>
+            If the illustration is an SVG you might be able to replace all <code>fill</code> instances with
+            the available
+            <a class="e-link e-link--inline" routerLink="/brand/color" fragment="Tokens">color tokens</a>.
+          </li>
+          <li>
+            You can also use the <code>onThemeChange</code> prop in the
+            <a class="e-link e-link--inline" routerLink="/components/header">Header component</a> to listen
+            for theme changes and switch out the illustration in dark theme. Illustrations provided by the
+            design system are available in both themes on pages like our
+            <a class="e-link e-link--inline" routerLink="/brand/illustration">illustrations</a> and
+            <a class="e-link e-link--inline" routerLink="/patterns/empty-states">empty states</a>.
+          </li>
+        </ul>
+      </li>
+    </ol>
+
+    <app-component-subsection sectionTitle="Custom header">
+      <p>
+        Using a custom header (not the
+        <a class="e-link e-link--inline" routerLink="/components/header">Header component</a>) requires a bit
+        more code for things to work.
+      </p>
+      <ul class="e-list">
+        <li>
+          To replicate the theme switch you can combine our
+          <a class="e-link e-link--inline" routerLink="/components/popover">Popover component</a> and
+          <a class="e-link e-link--inline" routerLink="/components/thumbnail">Thumbnail component</a>.
+        </li>
+        <li>
+          Add and remove the <code>e-theme-dark</code> class from <code>&lt;body&gt;</code> to switch between
+          the themes.
+        </li>
+        <li>
+          Add <code>color-scheme: dark;</code> to the <code>&lt;html&gt;</code> element when the theme is
+          dark. This makes built-in browser styling theme-compatible as well.
+        </li>
+      </ul>
+    </app-component-subsection>
+  </app-component-section>
+</div>
