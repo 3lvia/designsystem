@@ -13,8 +13,8 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   `,
 })
 export class InlineSvgComponent {
-  private http = inject(HttpClient);
-  private sanitizer = inject(DomSanitizer);
+  private readonly http = inject(HttpClient);
+  private readonly sanitizer = inject(DomSanitizer);
 
   /**
    * Path to the SVG file to be loaded.
