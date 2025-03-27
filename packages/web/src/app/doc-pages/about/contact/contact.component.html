@@ -8,9 +8,9 @@
 <div class="page-body">
   <app-component-subsection>
     <div class="contact-grid">
-      @for (contact of contactList; track contact.slackUrl; let isOdd = $odd) {
+      @for (contact of contactList; track contact.slackUrl) {
         <div class="contact-profile-container">
-          <div class="contact-profile" [ngClass]="{ odd: isOdd }">
+          <div class="contact-profile" [ngClass]="{ odd: $odd }">
             <div
               (click)="veryImportantFunction(contact.firstName, contact.emoji)"
               [id]="contact.firstName"

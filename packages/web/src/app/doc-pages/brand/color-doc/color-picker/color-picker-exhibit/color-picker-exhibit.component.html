@@ -48,8 +48,8 @@
       <!-- RGB -->
       <p class="e-title-caps">rgb</p>
       <p class="e-text-sm e-capitalize rgb">
-        @for (rgbValue of currentColor()?.rgb; track $index; let isLast = $last) {
-          {{ rgbValue + (isLast ? '' : ' /') }}
+        @for (rgbValue of currentColor()?.rgb; track $index) {
+          {{ rgbValue + ($last ? '' : ' /') }}
         }
       </p>
 
