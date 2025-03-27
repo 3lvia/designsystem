@@ -4,7 +4,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-inline-svg',
-  template: `<div [innerHtml]="svgIcon()"></div>`,
+  template: `<span [innerHtml]="svgIcon()"></span>`,
   styles: `
     :host {
       display: contents;
