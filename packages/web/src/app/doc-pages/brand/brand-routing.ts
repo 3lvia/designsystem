@@ -37,6 +37,10 @@ export const routes: Routes = [
     loadComponent: () => import('./layout-doc/layout-doc.component').then((m) => m.LayoutDocComponent),
   },
   {
+    path: Pages.Logo,
+    loadComponent: () => import('./logo-doc/logo-doc.component').then((m) => m.LogoDocComponent),
+  },
+  {
     path: Pages.Shadow,
     loadComponent: () => import('./shadow-doc/shadow-doc.component').then((m) => m.ShadowDocComponent),
   },
