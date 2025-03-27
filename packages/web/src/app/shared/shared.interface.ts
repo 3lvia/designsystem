@@ -17,7 +17,7 @@ export interface DocPage {
   elvisClassName?: keyof typeof data.block;
   relatedPages?: DocPageName[];
   isMainPage?: true;
-  imageUrl: `assets/doc-page-icons/${string}`;
+  imageUrl: `assets/doc-page-icons/${string}.svg`;
 }
 
 export interface HomeMenuCard {

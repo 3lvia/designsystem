@@ -1,13 +1,7 @@
 <ng-template let-component="component" #componentCard>
   <a [routerLink]="(component | docPage).absolutePath">
     <elvia-card [heading]="(component | docPage).title" [maxHeadingLines]="2">
-      <div slot="icon">
-        @if ((componentIcons | async)?.[component]) {
-          <img alt="" [src]="(componentIcons | async)?.[component]" />
-        } @else {
-          <div class="e-content-loader" style="width: 40px; height: 53px"></div>
-        }
-      </div>
+      <app-inline-svg slot="icon" [src]="(component | docPage).imageUrl" />
     </elvia-card>
   </a>
 </ng-template>
@@ -40,7 +34,7 @@
     { label: 'Layout', value: 'layout' },
   ]"
   (valueOnChange)="filterValue = $any($event).target.value"
-></elvia-radio-filter>
+/>
 
 <div class="e-mt-16">
   @if (filterValue === 'all') {
