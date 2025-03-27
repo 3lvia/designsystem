@@ -593,7 +593,7 @@ const docPagesComponents: DocPage[] = [
   },
 ];
 
-// About pages (FERDIG)
+// About pages
 const docPagesAbout: DocPage[] = [
   {
     title: 'Get started',
@@ -817,7 +817,7 @@ const docPagesBrand: DocPage[] = [
   },
 ];
 
-// Pattern pages (FERDIG!)
+// Pattern pages
 const docPagesPattern: DocPage[] = [
   {
     title: 'Comments',
@@ -919,7 +919,7 @@ const docPagesPattern: DocPage[] = [
   },
 ];
 
-// Tools (FERDIG!)
+// Tools
 const docPagesTools: DocPage[] = [
   {
     title: 'Accessibility',
