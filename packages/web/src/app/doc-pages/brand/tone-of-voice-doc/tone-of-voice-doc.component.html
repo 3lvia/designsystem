@@ -1,0 +1,1589 @@
+<app-component-header [figmaUrl]="docPage.figmaUrl">
+  <ng-container ngProjectAs="headerTitle">
+    {{ locale() === 'nb-NO' ? docPage.titleNo : docPage.title }}
+  </ng-container>
+  <div
+    ngProjectAs="headerDescription"
+    [innerHTML]="(locale() === 'nb-NO' ? docPage.descriptionNo : docPage.description) ?? '' | safeHtml"
+  ></div>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-section [sectionTitle]="locale() === 'nb-NO' ? 'Stil' : 'Style'">
+    @if (locale() === 'nb-NO') {
+      <p>
+        Alt vi sier skal være tydelig, nyttig og lett å forstå for kunden, uavhengig av om de vet hvem vi er
+        eller hva de kan forvente av oss.
+      </p>
+      <p>Det betyr at vi må tenke på følgende når vi skriver eller snakker med kunden:</p>
+      <ol class="e-list e-list--numbers">
+        <li>
+          <p><b>Vi er PÅ</b></p>
+          <p>
+            Vi forstår hverdagen og utfordringene til kundene våre. Vi har full forståelse for at
+            kraftbransjen kan være forvirrende både når det gjelder språk, begreper, hvem som er ansvarlig for
+            hva osv. Skriftlig dialog skal oppfattes som en samtale, ikke som generell informasjon.
+          </p>
+        </li>
+        <li>
+          <p><b>Vi er menneskelige og ekte</b></p>
+          <p>
+            Selv om Elvia har rollen som "monopolist", består selskapet av vanlige mennesker. Derfor kan vi
+            også forholde oss til kundene våre, som også er vanlige mennesker. Vi har forståelse og empati, og
+            vi snakker med dem på en vennlig og åpen måte.
+          </p>
+        </li>
+        <li>
+          <p><b>Vi oversetter</b></p>
+          <p>
+            Kraftbransjens språk er ofte komplisert og forvirrende, og bare eksperter kan gjøre det vanskelige
+            enkelt. Derfor jobber vi for å gjøre nettbransjen mer forståelig og øke kundenes kunnskap. Dette
+            gjør vi gjennom klar og enkel, men ikke fordummende kommunikasjon.
+          </p>
+        </li>
+        <li>
+          <p><b>Vi har glimt i øyet</b></p>
+          <p>
+            Selv om vi har monopol og en viktig rolle i samfunnet, er vi på ingen måte kjedelige. Elvia har en
+            rettferdig og subtil form for humor; vi gir heller et lite blunk enn å rope. Vi er aldri
+            nedlatende eller ekskluderende, og vi inkluderer kunden.
+          </p>
+        </li>
+      </ol>
+    }
+    @if (locale() === 'en-GB') {
+      <p>
+        Everything we say should be clear, useful and easy to understand for the customer, regardless of
+        whether they know who we are or what they can expect from us.
+      </p>
+      <p>This means that we have to think about the following when we write or talk to the customer:</p>
+      <ol class="e-list e-list--numbers">
+        <li>
+          <p><b>We are ON</b></p>
+          <p>
+            We understand the everyday life and the challenges of our customers. We fully understand that the
+            power industry can be confusing both when it comes to language, concepts, who is responsible for
+            what, et cetera. Written dialogue should be perceived as a conversation, not as generic
+            information.
+          </p>
+        </li>
+        <li>
+          <p><b>We are human and real</b></p>
+          <p>
+            Although Elvia has the role of "monopolist", the company consists of ordinary people. Therefore,
+            we can also relate to our customers, who are also ordinary people. We have understanding and
+            empathy, and we talk to them in a friendly and open way.
+          </p>
+        </li>
+        <li>
+          <p><b>We translate</b></p>
+          <p>
+            The language of the power industry is often complex and confusing, and only experts can make the
+            difficult easy. That is why we work to make the online industry more understandable and increase
+            our customers’ knowledge. We do this through clear and simple, but not stupefying, communication.
+          </p>
+        </li>
+        <li>
+          <p><b>We have a twinkle in our eye</b></p>
+          <p>
+            Even though we have monopoly and an important role in society we are by no means mundane. Elvia
+            has a fair and subtle kind of humor; we rather give a small wink than shout. We are never
+            condescending or exclusive and we include the customer.
+          </p>
+        </li>
+      </ol>
+    }
+  </app-component-section>
+
+  <app-component-section [sectionTitle]="locale() === 'nb-NO' ? 'Tone' : 'Tone'">
+    @if (locale() === 'nb-NO') {
+      <p>
+        Tonen kan variere avhengig av situasjonen du er i. Du kan bruke en helt annen tone når du snakker med
+        venner enn når du snakker med sjefen din. Tonen kan også endre seg avhengig av den følelsesmessige
+        tilstanden til personen du snakker med.
+      </p>
+      <p>
+        Når vi snakker eller skriver med en kunde, er det derfor viktig at vi ser på kundens situasjon - er
+        det en krise eller er det et generelt spørsmål? Er kunden glad eller sint? En tommelfingerregel kan
+        være at du ikke bruker samme tone til en kunde som er redd eller lei seg som til en kunde som er glad
+        og fornøyd.
+      </p>
+      <p>
+        Elvias tone er profesjonell, men aldri strengt. Vi er tydelige og snakker kundens språk. Sett deg inn
+        i kundens situasjon når du formulerer deg. Hvorfor er kunden forvirret? Er kunden utålmodig fordi han
+        eller hun ikke får svar raskt nok? Når du har gjort deg noen tanker om hvor kunden befinner seg i
+        følelsesregisteret, kan du tilpasse tonen din deretter. En tommelfingerregel er å møte kunden der de
+        er.
+      </p>
+      <p>
+        Oppsummert kan vi si at tonen vår kan endres, men stemmen vår er den samme. Elvias tone er
+        profesjonell, men vennlig og instruktiv.
+      </p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>
+        A tone may vary depending on the situation you’re in. You may use a completely different tone when
+        talking to friends than when talking to your boss. The tone can also change depending on the emotional
+        state of the person you are talking to.
+      </p>
+      <p>
+        When we talk or write with a customer, it is therefore important that we look at the customer's
+        situation - is it a crisis or is it a general question? Is the customer happy or angry? A rule of
+        thumb may be that you do not use the same tone to a customer who is scared or sad than for a customer
+        who is happy and satisfied.
+      </p>
+      <p>
+        Elvia's tone is professional, but never strictly so. We are clear and speak the customer's language.
+        Put yourself in the customer's situation when formulating yourself. Why is the customer confused? Is
+        the customer impatient because he or she aren’t getting an answer fast enough? Once you have settled
+        some thoughts about where the customer is in the emotional register, you can adjust your tone
+        accordingly. A rule of thumb is to meet the customer where they are.
+      </p>
+      <p>
+        In summary, we say that our tone can change, but our voice is the same. Elvia’s tone is professional,
+        but friendly and instructive.
+      </p>
+    }
+  </app-component-section>
+
+  <app-component-section
+    [sectionTitle]="locale() === 'nb-NO' ? 'Grunnleggende skrivetips' : 'Basic writing tips'"
+  >
+    <ul class="e-list">
+      @if (locale() === 'nb-NO') {
+        <li>
+          <b>Skriv for kunden.</b> Noen leser hvert ord du skriver, andre vil bare skumlese teksten. Uansett
+          må du skrive slik at du hjelper alle med å lese bedre ved å gruppere relaterte emner sammen og bruke
+          beskrivende overskrifter og undertitler.
+        </li>
+        <li>
+          <b>Fokuser på budskapet.</b> Lag et hierarki av informasjon. Begynn med hovedpoenget eller det
+          viktigste innholdet, i setninger, avsnitt, seksjoner og sider.
+        </li>
+        <li>
+          <b>Vær kortfattet.</b> Bruk korte ord, setninger og formuleringer. Unngå unødvendige setninger og
+          ord.
+        </li>
+        <li><b>Vær spesifikk.</b> Unngå vagt, oppblåst og overflødig språk.</li>
+        <li>
+          <b>Vær konsekvent.</b> Følg retningslinjene, malene og stilpunktene som er beskrevet i
+          profilhåndboken og denne veiledningen.
+        </li>
+      }
+      @if (locale() === 'en-GB') {
+        <li>
+          <b>Write for the customer.</b> Some read every word you write, others just want to skim the text.
+          Either way, you need to write so that you help everyone read better by grouping related topics
+          together and using descriptive headings and subtitles.
+        </li>
+        <li>
+          <b>Focus on the message.</b> Create a hierarchy of information. Start with the main point or the
+          most important content, in sentences, paragraphs, sections and pages.
+        </li>
+        <li>
+          <b>Be concise.</b> Use short words, sentences and formulations. Avoid unnecessary sentences and
+          words.
+        </li>
+        <li><b>Be specific.</b> Avoid vague, bloated and redundant language.</li>
+        <li>
+          <b>Be consistent.</b> Adhere to the guidelines, templates and style points described in the profile
+          manual and this guide.
+        </li>
+      }
+    </ul>
+  </app-component-section>
+
+  <app-component-section [sectionTitle]="locale() === 'nb-NO' ? 'Aktiv stemme' : 'Active voice'">
+    @if (locale() === 'nb-NO') {
+      <p>
+        En viktig del av Elvias merkevare er å være PÅ. Dette bør gjenspeiles i et aktivt språk, snarere enn
+        et passivt språk. Et aktivt språk og en aktiv stemme gjør temaene i en tekst til en handling som pågår
+        (nåtid), og ikke noe som er gjort (fortid). Eksempel:
+      </p>
+      <app-quote>
+        <p>Aktiv: Lene logget inn på kontoen.</p>
+        <p>Passiv: Kontoen ble logget inn av Lene.</p>
+      </app-quote>
+      <p>
+        Ord som "var" og "av" oppfattes som passive - særlig i skriftlig form. Derfor bør du heller bruke ord
+        som er aktive og skrive i presens. Unntak kan være hvis du vil fremheve en bestemt handling, for
+        eksempel hvis du trenger å bekrefte at noe er gjort. Eksempel:
+      </p>
+      <app-quote>
+        <p>Jeg har flagget saken din til kundesenteret.</p>
+      </app-quote>
+      <p>
+        <b>Bruk et positivt språk</b>, i stedet for en negativ. En måte å oppdage negativt språk på er å se
+        etter ord og uttrykk som "kan ikke", "ikke" osv. Eksempel:
+      </p>
+      <app-quote>
+        <p>Positivt: Trenger du hjelp? Chat med oss.</p>
+        <p>Negativt: Du får ikke hjelp: Du får ikke hjelp med mindre du chatter med oss.</p>
+      </app-quote>
+    }
+    @if (locale() === 'en-GB') {
+      <p>
+        An important part of Elvia's brand is to be ON. This should be reflected in an active language, rather
+        than a passive language. An active language and an active voice turn themes in a text into an action
+        that is going on (present), and not something that has been done (past). Example:
+      </p>
+      <app-quote>
+        <p>Active: Lene logged in to the account.</p>
+        <p>Passive: The account was logged into by Lene.</p>
+      </app-quote>
+      <p>
+        Words like "was" and "off" are perceived as passive - especially in written form. Therefore, you
+        should rather use words that are active and write in the present tense. Exceptions may be if you want
+        to highlight a specific action, for example if you need to confirm that something has been done.
+        Example:
+      </p>
+      <app-quote>
+        <p>I have flagged your case to the call center.</p>
+      </app-quote>
+      <p>
+        <b>Use a positive language</b>, rather than a negative. One way to detect negative language is to look
+        for words and phrases such as "can not", "not", etc. Example:
+      </p>
+      <app-quote>
+        <p>Positive: Do you need help? Chat with us.</p>
+        <p>Negative: You will not receive help unless you chat with us.</p>
+      </app-quote>
+    }
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Bruk av emoji' : 'Emoji usage'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Emojier er en morsom og enkel måte å tilføre humor og speile kundens språk på, men bruk dem sjelden,
+          bevisst og bare på kanaler der det er naturlig, for eksempel på sosiale medier. Emojier kan brukes
+          når det er naturlig å gjenspeile kundens språk og tone. En tommelfingerregel er å bruke maksimalt to
+          emojier i et innlegg eller en melding.
+        </p>
+        <p>😄 😨 😂 👍 - Generelle emojier som kan brukes til å speile kunden.</p>
+        <p>💚 - Grønt hjerte kan brukes når noen roser oss eller er veldig fornøyd med oss.</p>
+        <p>
+          🌪 ⛈ ❄ ️☀️ - Værforhold kan være naturlig å bruke i forbindelse med f.eks. storm, nedbør og tørke
+          som kan påvirke våre tjenester.
+        </p>
+        <p>
+          👷‍♀️ 👷‍ ️🛠 🚁 - Disse kan brukes i forbindelse med vedlikehold eller når vi har mannskaper ute for å
+          rette feil.
+        </p>
+        <p>⚠️ - Brukes i forbindelse med varsling av strømbrudd.</p>
+        <p>💡 🔦 🔌 - Disse kan brukes alene eller i samspill med andre emojier.</p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Emojis are a fun and easy way to add humor and mirror the customer's language, but use them
+          infrequently, consciously and only on channels where it is natural, such as on social media. Emojis
+          can be used when it is natural to reflect the customer's language and tone. A rule of thumb is to
+          use only a maximum of two emojis in a post or message.
+        </p>
+        <p>😄 😨 😂 👍 - General emojis that can be used to mirror the customer.</p>
+        <p>💚 - Green heart can be used when someone praises us or is very happy with us.</p>
+        <p>
+          🌪 ⛈ ❄ ️☀️ - Weather conditions can be natural to use in connection with e.g. storm, precipitation
+          and drought that may affect our services.
+        </p>
+        <p>
+          👷‍♀️ 👷‍ ️🛠 🚁 - These can be used in connection with maintenance or when we have crews out to
+          correct errors.
+        </p>
+        <p>⚠️ - Used in connection with notifying power outages.</p>
+        <p>💡 🔦 🔌 - These can be used alone or in interaction with other emojis.</p>
+      }
+    </app-component-subsection>
+  </app-component-section>
+
+  <app-component-section [sectionTitle]="locale() === 'nb-NO' ? 'Tall' : 'Numbers'">
+    @if (locale() === 'nb-NO') {
+      <p>
+        Skriv tall med bokstaver hvis en setning begynner med tall, ellers skriv med tall. Hvis du skal skrive
+        for nettet, bør du bruke tall (se mer under søkeordoptimalisering). Eksempel:
+      </p>
+      <ul class="e-list">
+        <li><i>Ti nye medarbeidere begynner i avdelingen for webplanlegging på mandag.</i></li>
+        <li><i>Vi har 3 rådgivere på sosiale medier.</i></li>
+      </ul>
+    }
+    @if (locale() === 'en-GB') {
+      <p>
+        Write numbers with letters if a sentence begins with numbers, otherwise write with numbers. If you are
+        going to write for the web, you should use numbers (see more under the keyword optimization). Example:
+      </p>
+      <ul class="e-list">
+        <li><i>Ten new employees start in the web planning department on Monday.</i></li>
+        <li><i>We have 3 advisors on social media.</i></li>
+      </ul>
+    }
+    <a class="e-link e-link--action e-mt-32" href="/patterns/data-formats">
+      <span class="e-link__title">
+        @if (locale() === 'nb-NO') {
+          Les mer om våre dataformater
+        }
+        @if (locale() === 'en-GB') {
+          Read more about our data formats
+        }
+      </span>
+      <span class="e-link__icon">
+        <e-icon name="arrowRightCircleColor"> </e-icon>
+        <e-icon name="arrowRightCircleFilledColor"> </e-icon>
+      </span>
+    </a>
+  </app-component-section>
+
+  <app-component-section [sectionTitle]="locale() === 'nb-NO' ? 'Symboler' : 'Symbols'">
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Prikk' : 'Dot'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Ved bruk av anførselstegn plasseres prikkene innenfor anførselstegnene. De står utenfor parentesene
+          når parentesene er en del av en større setning, og innenfor parentesene når parentesene står alene.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          When using quotes, the dots are placed inside the quotation marks. They stand outside parentheses
+          when the parentheses are part of a larger sentence, and inside the parentheses when the parentheses
+          stand alone.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Komma' : 'Comma'">
+      @if (locale() === 'nb-NO') {
+        <p>Når du skriver en liste, bruker du komma (også kjent som Oxford-komma). Eksempel:</p>
+        <app-quote>
+          <p>Skriv: Elvia har mange ansatte som er ingeniører, konsulenter og eksperter.</p>
+          <p>Ikke skriv: Elvia har mange ansatte som er ingeniører og konsulenter og eksperter.</p>
+        </app-quote>
+        <p>
+          Bruk sunn fornuft. Hvis du er usikker, kan du lese setningen høyt og bruke komma når du trenger å
+          puste.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>When writing a list, use the comma (also known as the Oxford comma). Example:</p>
+        <app-quote>
+          <p>Write: Elvia has many employees who are engineers, consultants and experts.</p>
+          <p>Don't write: Elvia has many employees who are engineers and consultants and experts.</p>
+        </app-quote>
+        <p>
+          Use common sense. If you are unsure, you can read the sentence aloud and use commas when you need to
+          breathe.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Bindestrek' : 'Hyphen (dash)'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Bruk bindestreker (-) uten mellomrom på hver side for å koble sammen ord til en enkelt setning,
+          eller for å angi et spenn eller et område. Eksempel:
+        </p>
+        <ul class="e-list">
+          <li>Mandag-fredag</li>
+        </ul>
+        <p>
+          Du kan også bruke bindestrek (-) med mellomrom på hver side av et ord for å tydeliggjøre et poeng.
+          Eksempel:
+        </p>
+        <ul class="e-list">
+          <li>
+            Kunden trodde det var strømleverandøren som var ansvarlig, men han tok feil - det var
+            nettleverandøren.
+          </li>
+        </ul>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Use hyphens (-) without spaces on each page to connect words to a single sentence, or to indicate a
+          span or area. Example:
+        </p>
+        <ul class="e-list">
+          <li>Monday-Friday</li>
+        </ul>
+        <p>
+          You can also use a hyphen (-) without spaces on each side of a word to clarify a point. Example:
+        </p>
+        <ul class="e-list">
+          <li>
+            The customer thought it was the electricity supplier who was responsible, but he was wrong - it
+            was the network supplier.
+          </li>
+        </ul>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Anførselstegn' : 'Quotation marks'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Anførselstegn ("" eller «») brukes for å gjengi noe som er blitt sagt, for å formulere tanker eller
+          for å ironisere. Bruk av anførselstegn bør gjøres sparsomt og aldri for å skape dramatikk. Vi bruker
+          ikke anførselstegn i titler eller overskrifter.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Quotation marks ("" or «») are used to reproduce something that has been said, to formulate thoughts
+          or to use irony. The use of quotation marks should be done sparingly and never to create drama. We
+          do not use quotation marks in titles or headings.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Kolon' : 'Colon'">
+      @if (locale() === 'nb-NO') {
+        <p>Kolon (:) brukes for eksempel til å lage lister. Eksempel:</p>
+        <ul class="e-list">
+          <li><i>Hans har undersøkt tre typer tredjepartssystemer: Google, Tibber og Us.</i></li>
+          <li>
+            <i
+              >Jeg har et problem: Jeg har kjøpt en dongle, men jeg vet ikke hvordan jeg skal koble den
+              til.</i
+            >
+          </li>
+        </ul>
+      }
+      @if (locale() === 'en-GB') {
+        <p>Colon (:) is used, for example, to create lists. Example:</p>
+        <ul class="e-list">
+          <li><i>Hans has researched three types of third-party systems: Google, Tibber and Us.</i></li>
+          <li><i>I have a problem: I bought a dongle, but I do not know how to connect it.</i></li>
+        </ul>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Semikolon' : 'Semicolon'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Bruk semikolon (;) sparsomt. De gjør raskt setningene lange og kompliserte. Bruk i stedet bindestrek
+          (-) eller begynn en ny setning.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Use semicolon (;) sparingly. They quickly make sentences long and complicated. Instead, use a hyphen
+          (-) or just start a new sentence.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Utropstegn' : 'Exclamation mark'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Ingen liker at noen roper. Bruk utropstegn (!) sparsomt og aldri mer enn ett om gangen. De er litt
+          som high-fives: ett på riktig tidspunkt er flott, men for mange kan være veldig irriterende.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Nobody likes someone shouting. Use exclamation marks (!) sparingly and never more than one at a
+          time. They are a bit like high-fives: one given at the right time is great, but too many can be very
+          annoying.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="
+        locale() === 'nb-NO'
+          ? 'Utropstegn innenfor anførselstegn'
+          : 'Exclamation marks within quotation marks'
+      "
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Akkurat som punktum og spørsmålstegn skal de plasseres utenfor parentesene når parentesene er en del
+          av en lengre setning, og innenfor når parentesene står alene.
+        </p>
+        <p>
+          Bruk aldri utropstegn i feilmeldinger eller advarsler. Da kan det fort virke som om vi ikke har
+          kontroll over situasjonen. Er du i tvil? Bruk punktum.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Just like periods and question marks, they should be placed outside parentheses when the parentheses
+          are part of a longer sentence, and inside when the parentheses stand alone.
+        </p>
+        <p>
+          Never use exclamation marks in error messages or warnings. Then it can quickly seem as if we have no
+          control over the situation. Are you in doubt? Use periods.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Spørsmålstegn' : 'Question marks'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Spørsmålstegn (?) kommer innenfor anførselstegn hvis de er en del av et sitat. I likhet med punktum
+          skal de stå utenfor parentesene når parentesene er en del av en større setning, og innenfor
+          parentesene når parentesene står alene.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Question marks (?) come within quotation marks if they are part of a quote. Like the dot, they
+          should be outside the parentheses when the parentheses are part of a larger sentence, and inside the
+          parentheses when the parentheses are alone.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Parentes' : 'Parenthesis'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Parenteser brukes for å legge til tilleggsinformasjon. Men hvis du kan, bør du prøve å formulere deg
+          uten dem - parenteser har en tendens til å bryte flyten i teksten. Eksempel:
+        </p>
+        <ul class="e-list">
+          <li>
+            <i>
+              Det var tre jenter (Liv, Linda og Lene) som sa seg villige til å servere skolefrukt i uke 12.</i
+            >
+          </li>
+          <li><i>Liv, Linda og Lene sa seg villige til å servere skolefrukt i uke 12.</i></li>
+        </ul>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Parentheses are used to add additional information. However, if you can, try to formulate yourself
+          without them - parentheses tend to break the flow of the text. Example:
+        </p>
+        <ul class="e-list">
+          <li>
+            <i>
+              There were three girls (Liv, Linda and Lene) who said they were willing to serve school fruit in
+              week 12.
+            </i>
+          </li>
+          <li><i>Liv, Linda and Lene said they were willing to serve school fruit in week 12.</i></li>
+        </ul>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Apostrof' : 'Apostrophe'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Brukes ofte for å indikere at ordet eies av noe eller noen. Apostrofen (´) blandes ofte med en
+          aksent (è), men det er ikke det samme. Den brukes bare som eiendomsform på engelsk. Eksempel:
+        </p>
+        <ul class="e-list">
+          <li>Norsk: Elvias visjon ...</li>
+          <li>Engelsk: Elvia's vision …</li>
+        </ul>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Often used to indicate that the word is owned by something or someone. The apostrophe (´) is often
+          mixed with an accent (è), but it is not the same. It's only used as a possessive form in English.
+          Example:
+        </p>
+        <ul class="e-list">
+          <li>Norwegian: Elvias visjon ...</li>
+          <li>English: Elvia's vision …</li>
+        </ul>
+      }
+    </app-component-subsection>
+  </app-component-section>
+
+  <app-component-section
+    [sectionTitle]="locale() === 'nb-NO' ? 'Mennesker, steder og ting' : 'People, places and things'"
+  >
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Pronomener' : 'Pronouns'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Hvis du skriver til en mottaker og kjønnet er ukjent eller irrelevant, bruk pronomen som dem, de,
+          deres. Bruk "han / ham" eller "hun / henne som pronomen når det passer. Ikke bruk pronomenet "en".
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          If you are writing to a recipient and their gender is unknown or irrelevant, use pronouns like them,
+          they, theirs. Use "he / him" or "she / her as pronouns when appropriate. Do not use the pronoun
+          «one».
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Sitater' : 'Quotes'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Hvis du skal bruke et sitat i en artikkel eller et innlegg på sosiale medier, skriv det i presens.
+          Eksempel:
+        </p>
+        <app-quote>
+          <p>
+            <i
+              >"Vi jobber for å sikre at kundene våre forstår forbruket sitt på best mulig måte," sier Navn
+              Navnesen.</i
+            >
+          </p>
+        </app-quote>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          If you are going to use a quote in an article or post on social media, write it in present tense.
+          Example:
+        </p>
+        <app-quote>
+          <p>
+            <i
+              >"We work to ensure that our customers understand their consumption in the best possible way,"
+              says Navn Navnesen.</i
+            >
+          </p>
+        </app-quote>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Navn og titler' : 'Names and titles'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Første gang du nevner eller henviser til en person skriftlig, skal du bruke fornavn og etternavn.
+          Deretter kan du henvise til fornavn.
+        </p>
+        <p>
+          Hvis du er i kontakt med et selskap, en partner eller en avdeling i et selskap, skal du bruke stor
+          forbokstav på navnet, men ikke på ordene "avdeling", "team" og lignende. Eksempel:
+        </p>
+        <ul class="e-list">
+          <li><i>Elvia kundeservice</i></li>
+          <li><i>"Navn Navnesen, webplanlegger i Elvia, kan hjelpe deg med dette..."</i></li>
+        </ul>
+        <p>
+          Bruk store bokstaver i stillingsbetegnelser når du henviser til en spesifikk rolle. Ikke bruk store
+          bokstaver når du refererer til en rolle generelt. Eksempel:
+        </p>
+        <ul class="e-list">
+          <li><i>"Vår nye Kundeservicerådgiver begynner på avdelingen i dag"</i></li>
+          <li><i>"Alle kunderådgiverne jobber i dag"</i></li>
+        </ul>
+        <p>
+          Ikke referer til noen som "ninja" eller "rockestjerne" med mindre de virkelig er det, men det er lov
+          å skrive "Jeg skal sette deg i kontakt med min kollega, som er fantastisk på dette feltet".
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          The first time you mention or refer to a person in writing, use their first and last name. After
+          that you can refer to first names.
+        </p>
+        <p>
+          If you are in contact with a company, partner or a department in a company, use a capital letter on
+          the name, but not on the words "department", "team" and similar. Example:
+        </p>
+        <ul class="e-list">
+          <li><i>Elvia customer service</i></li>
+          <li><i>"Name Navnesen, Web Planner in Elvia, can help you with this…"</i></li>
+        </ul>
+        <p>
+          Use capital letters in job titles when referring to a specific role. Do not use capital letters when
+          referring to a role in general. Example:
+        </p>
+        <ul class="e-list">
+          <li><i>"Our new Customer Service Advisor starts at the department today"</i></li>
+          <li><i>"All customer service advisers work today"</i></li>
+        </ul>
+        <p>
+          Do not refer to someone as "ninja" or "rock star" unless they really are, but it is allowed to write
+          "I'll put you in touch with my colleague, who is amazing in this field".
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'URL og nettsider' : 'URLs and web pages'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Bruk navnene på nettstedene og nettpublikasjonene. Ikke skriv dem i kursiv. Unngå å skrive ut hele
+          nettadresser - det vil si: dropp http://www. Bare skriv elvia.no.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Use the names of the sites and online publications. Do not put them in italics. Avoid printing
+          entire URLs - that is: drop http://www. Just write elvia.no
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="
+        locale() === 'nb-NO' ? 'Tekster om selskaper og partnere' : 'Texts about companies and partners'
+      "
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Hedre selskaper og partneres navn og produkter. Ta en titt på deres egne nettsteder for å se hva de
+          skriver om seg selv og hvordan. Referer til et selskap som "de/dem" og produkter som "det".
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Honor companies and partners' names and products. Take a look at their own websites to see what they
+          write about themselves and how. Refer to a company as "they / them" and products as "it".
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'Slang og sjargong' : 'Slang and jargons'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Skriv i et vanlig språk. Hvis du må bruke et faguttrykk, gi en kort og klar forklaring som alle kan
+          forstå. Unngå interne begreper og forkortelser.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Write in ordinary language. If you need to use a technical term, give a short and clear explanation
+          that everyone can understand. Avoid internal concepts and abbreviations.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'Tekst og formatering' : 'Text and formatting'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          En tommelfingerregel er å ikke bruke en kombinasjon av <u>understreking</u>, <b>fet tekst</b>,
+          <i>kursiv</i> og STORE BOKSTAVER i samme tekst som du vil fremheve. Skriver du for nettet? Se
+          punktet for nettartikler.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          A rule of thumb is not to use a combination of <u>underline</u>, <b>bold text</b>,
+          <i>italics</i> and UPPERCASE letters in the same text that you want to highlight. Do you write for
+          the web? Check out the point for web items.
+        </p>
+      }
+    </app-component-subsection>
+  </app-component-section>
+
+  <app-component-section [sectionTitle]="locale() === 'nb-NO' ? 'Nettelementer' : 'Web elements'">
+    @if (locale() === 'nb-NO') {
+      <p>
+        Alle innholdselementer som publiseres på elvia.no må understøttes av ulike elementer. Denne delen
+        handler om hvordan vi sikrer at alle webelementer blir ivaretatt med tanke på nettstedsstruktur,
+        merkevare, kundebehov, stil og tone og ikke minst; søkeordoptimalisering.
+      </p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>
+        All content elements published on elvia.no must be supported by different elements. This section is
+        about how we ensure that all web elements are taken care of in terms of website structure, brand,
+        customer needs, style and tone and not least; keyword optimization.
+      </p>
+    }
+
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'Optimalisering av søkeord (SEO)' : 'Keyword Optimization (SEO)'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Vi skriver først og fremst for mennesker og ikke for maskiner, men for at vi skal kunne lage godt
+          innhold, må vi lage innhold som både mennesker og søkemotorer forstår og finner. Derfor må vi sørge
+          for å bruke SEO-teknikker som ivaretar nettopp dette:
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          We write primarily for people and not for machines, but in order for us to create good content, we
+          must create content that both people and search engines understand and find. Therefore, we must make
+          sure to use SEO techniques that take care of just that:
+        </p>
+      }
+      <ul class="e-list">
+        @if (locale() === 'nb-NO') {
+          <li>
+            Vi organiserer innholdet i kategorier. Vi bruker tydelige, beskrivende titler og undertitler som
+            er relatert til det overordnede og eksisterende innholdet.
+          </li>
+          <li>
+            Vi bruker relevante nøkkelord i beskrivende titler for å strukturere sidene våre og fremheve
+            viktig informasjon.
+          </li>
+          <li>Alle bilder må ha en beskrivende alt-tekst.</li>
+        }
+        @if (locale() === 'en-GB') {
+          <li>
+            We organize content under categories. We use clear, descriptive titles and subtitles that are
+            related to the parent and existing content.
+          </li>
+          <li>
+            We use relevant keywords in descriptive titles to structure our pages and highlight important
+            information.
+          </li>
+          <li>All images must have a descriptive alt text.</li>
+        }
+      </ul>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Alt-tekster' : 'Alt texts'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Alt-tekst er en måte å merke eller beskrive bilder på. Dette er spesielt viktig for personer med
+          nedsatt syn eller som ikke kan se bildene. Alt-teksten bør inneholde relevante nøkkelord (SEO) og
+          beskrive bildet i 1-2 setninger.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Alt text is a way to tag or describe images. This is especially important for people with low vision
+          or who cannot see the pictures. The alt text should contain relevant keywords (SEO) and describe the
+          image in 1-2 sentences.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Knapper' : 'Buttons'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Knappene bør inneholde en tydelig oppfordring til handling, dvs. en setning som oppfordrer til en
+          konkret handling. Språket på knappen bør være klart og tydelig. Eksempler:
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Buttons should contain a clear Call to Action, i.e. a sentence that encourages a concrete action.
+          The language of the button should be clear and distinct. Examples:
+        </p>
+      }
+      <ul class="e-list">
+        @if (locale() === 'nb-NO') {
+          <li>Logg inn på Mitt Elvia</li>
+          <li>Meld deg på nyhetsbrevet vårt</li>
+          <li>Send oss en e-post</li>
+        }
+        @if (locale() === 'en-GB') {
+          <li>Log in to My Elvia</li>
+          <li>Sign up for our news letter</li>
+          <li>Send us an Email</li>
+        }
+      </ul>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Skjemaer' : 'Forms'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Skjemaene bør være tydelige og raskt forklare formålet med dem. Bruk en tittel for skjemaet og
+          placeholder for eksempler i skjemafeltene. Hold skjemaene så korte som mulig. Be bare om den
+          informasjonen vi trenger og har tenkt å bruke. Ikke be om opplysninger som er private eller
+          personlige - som kjønn, religion osv. - da dette er i strid med personvernforordningen.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Forms should be clear and quickly explain their purpose. Use a title for the form and placeholder
+          texts for examples in the form fields. Keep the forms as short as possible. Ask only for the
+          information we need and intend to use. Do not ask for information that is private or personal - such
+          as gender, religion, etc. as this is contrary to GDPR regulations.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'Overskrifter og undertekster' : 'Headings and subtitles'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Overskrifter og undertitler organiserer innholdet for lesere og søkemotorer. Ta med de mest
+          relevante nøkkelordene i overskrifter og undertitler, og sørg for å dekke dem i selve brødteksten.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Headlines and subtitles organize content for readers and search engines. Include the most relevant
+          keywords in headings and subtitles and make sure you cover them in the body text itself.
+        </p>
+      }
+      <ul class="e-list">
+        @if (locale() === 'nb-NO') {
+          <li>
+            Tittel/overskrift (H1) brukes til sideoverskrifter og titler i artikler. Overskriftene våre skal
+            være tydelige og lette å oppfatte.
+          </li>
+          <li>Innledning gir leseren en forsmak på hva de kan forvente å lese om.</li>
+          <li>
+            Undertitler (H2-H5) deler artikler og sider inn i mindre og mer spesifikke seksjoner. De gir
+            leseren (og søkemotorene) muligheten til å skanne innholdet.
+          </li>
+        }
+        @if (locale() === 'en-GB') {
+          <li>
+            Title/heading (H1) is used for page headings and titles in articles. Our headlines should be clear
+            and easy to perceive.
+          </li>
+          <li>Introduction gives the reader a taste of what they can expect to read about.</li>
+          <li>
+            Subtitles (H2-H5) divides articles and pages into smaller and more specific sections. They give
+            the reader (and search engines) the ability to scan the content.
+          </li>
+        }
+      </ul>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Lenker' : 'Links'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Lenker bør brukes til navigering når du henviser til noe på en annen side. På den måten kan du
+          hjelpe kunden til mer relevant innhold. Husk å sørge for at du henviser til en troverdig kilde, og
+          prioriter interne lenker fremfor eksterne, når det er mulig.
+        </p>
+        <p>
+          Når du lenker til relevante sider, bør du minimere bruken av ord som "en, denne, vår, her" og
+          lignende. Hvis lenken kommer på slutten av en setning eller før et komma, skal du ikke ta med tegnet
+          i lenken. For eksempel:
+        </p>
+        <app-quote>
+          <p><i>Skriv: Last ned sjekklisten for sikringsskapet ditt.</i></p>
+          <p><i>Ikke skriv: Last ned denne sjekklisten for sikringsskapet ditt.</i></p>
+        </app-quote>
+        <p>
+          Unngå lenkesetninger som "Klikk her" eller "Klikk for mer informasjon". Skriv i stedet setningen
+          slik du ville sagt den, og lenk til relevante nøkkelord.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Links should be used for navigation when referring to something on another page. That way, you can
+          help the customer to more relevant content. Remember to make sure you are referring to a credible
+          source, and prioritize internal links over external ones, when possible.
+        </p>
+        <p>
+          When linking to relevant pages, you should minimize the use of words such as "a, this, our, here"
+          and similar. If the link comes at the end of a sentence or before a comma, do not include the
+          character in the link. Example:
+        </p>
+        <app-quote>
+          <p><i>Write: Download the checklist for your fuse box.</i></p>
+          <p><i>Don't write: Download this checklist for your fuse box.</i></p>
+        </app-quote>
+        <p>
+          Avoid linking phrases such as <i>"Click here"</i> or <i>"Click for more information"</i>. Instead,
+          write the sentence as you would say it, and link relevant keywords.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Lister' : 'Lists'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Lister er en fin måte å presentere trinn, grupper eller sett med informasjon på. Når du lager en
+          liste, bør du gi en introduksjon til listen. Hvis det er en liste med trinn som følger en bestemt
+          rekkefølge, bør du nummerere listen etter viktighet og beskrive trinnene deretter. Ikke bruk
+          nummererte lister hvis rekkefølgen på trinnene ikke spiller noen rolle.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Lists are a great way to use to present steps, groups or sets of information. When you make a list,
+          you should give an introduction to the list. If there is a list with steps that follow a specific
+          order, you should number the list by importance and describe the steps accordingly. Do not use
+          numbered lists if the order of the steps does not matter.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Navigasjon' : 'Navigation'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Plasser artikler og innhold basert på sidestrukturen. Navigeringslenker bør være tydelige og i
+          samsvar med den overordnede interne lenkestrategien og innholdsstrukturen.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Place articles and content based on page structure. Navigation links should be clear and consistent
+          with the overall internal linking strategy and content structure.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'Relaterte artikler' : 'Related articles'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Det er lett å ville få plass til så mye som mulig på én side, men det kan fort bli for mye for
+          leseren. En god tommelfingerregel er ett tema per side, og 3-4 lenker til relevante sider. Hvis det
+          er noen undertemaer som er viktige for temaet du skriver om, kan du legge ut relaterte artikler. En
+          tommelfingerregel her er at den første artikkelen bør være et trinn ned i kompleksitet fra siden du
+          er på. Den andre artikkelen bør være et trinn opp i kompleksitet.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          It's easy to want to fit as much as possible on one page, but it can quickly become too much for the
+          reader. A good rule of thumb is one topic per page, and 3-4 links to relevant pages. If there are
+          any sub-topics that are important to the topic you are writing about, you can post related articles.
+          A rule of thumb here is that the first article should be a step down in complexity from the page you
+          are on. The second article should be a step up in complexity.
+        </p>
+      }
+    </app-component-subsection>
+  </app-component-section>
+
+  <app-component-section
+    [sectionTitle]="
+      locale() === 'nb-NO' ? 'Innhold, struktur og produksjon' : 'Content, structure and production'
+    "
+  >
+    @if (locale() === 'nb-NO') {
+      <p>
+        Vi har en rekke ulike typer innhold som alle varierer i lengde. I denne delen finner du noen tips om
+        hvordan du best kan strukturere og lage godt innhold.
+      </p>
+      <p>
+        Innholdet på nettstedet lages hovedsakelig av avdelingen for kundeansvar, men vi vil gjerne lage det
+        sammen med kolleger som er eksperter - det er de som kjenner temaene best og vet hva som er viktig. Vi
+        kan hjelpe deg med å komme med ideer til vinklinger, skrive og formidle innholdet etter behov
+      </p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>
+        We have a number of different types of content all of which vary in length. In this section you will
+        find some tips on how to best structure and create good content.
+      </p>
+      <p>
+        Content on the website is mainly created by the Customer Responsibility Department, but we would like
+        to create it together with colleagues who are experts - they are the ones who best know the topics and
+        what is important. We can help you come up with ideas for angles, write and convey the content as
+        needed.
+      </p>
+    }
+
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Bruk maler' : 'Use templates'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          I våre <a class="e-link e-link--inline" routerLink="/tools/templates">maler</a> finner du ulike
+          verktøy for innholdsproduksjon - her finner du alt fra brevmaler til webelementer. Er du fortsatt
+          usikker på hva du skal bruke? Ta kontakt med avdelingen for kundeansvar.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          In our <a class="e-link e-link--inline" routerLink="/tools/templates">templates</a> you will find
+          various tools for content production - here you will find everything from letter templates, to web
+          elements. Are you still unsure what to use? Contact the Customer Responsibility Department.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'Hvordan vi skriver artikler' : 'How we write articles'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Når du skriver en artikkel, er det viktig å ha en klar idé om hva artikkelen skal fortelle brukeren,
+          hvem brukeren er, i hvilken situasjon de er i og hvordan det endelige inntrykket er. Vanlige
+          elementer i en artikkelmal er:
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          When writing an article, it is important to have a clear idea about what the article should tell the
+          user, who the user is, in what situation they are in and what the final impression is like. Common
+          elements of an article template are:
+        </p>
+      }
+      <ul class="e-list">
+        @if (locale() === 'nb-NO') {
+          <li>Tittel</li>
+          <li>Innledning eller hovedtekst</li>
+          <li>Brødtekst (som vanligvis kan deles inn i seksjoner med undertitler)</li>
+          <li>Relevante lenker til andre utgaver og sider, men også andre eksterne sider.</li>
+          <li>
+            Visuelle elementer. Bilder og videoer er viktige måter å løfte innholdet på, slik at det gir enda
+            mer verdi for kunden.
+          </li>
+        }
+        @if (locale() === 'en-GB') {
+          <li>Title</li>
+          <li>Introduction or lead text</li>
+          <li>Body text (which can usually be divided into sections with subtitles)</li>
+          <li>Relevant links to other issues and pages, but also other external pages</li>
+          <li>
+            Visual elements. Images and videos are important ways to elevate the content so that it gives even
+            more value to the customer.
+          </li>
+        }
+      </ul>
+    </app-component-subsection>
+
+    <app-component-subsection
+      [sectionTitle]="
+        locale() === 'nb-NO'
+          ? 'Hvordan vi skriver teknisk innhold (trinn for trinn)'
+          : 'How we write technical content (step-by-steps)  '
+      "
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Når en bruker klikker på en type teknisk innhold, forventer de å finne svaret de leter etter. Det er
+          derfor viktig at du lager innhold som samsvarer med tittelen og temaet.
+        </p>
+        <p>
+          Når du skriver beskrivelser, tekniske forklaringer eller prosesser for å løse et veldig spesifikt
+          problem, er det viktig at du viser hvordan brukeren skal løse problemet. Det gjør du ved å fokusere
+          på følgende elementer i innholdet ditt.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          When a user clicks on a type of technical content, they expect to find the answer they are looking
+          for. It is therefore important that you create content that matches the title and the theme.
+        </p>
+        <p>
+          When writing descriptions, technical explanations or processes to solve a very specific problem, it
+          is important that you show how the user should solve the problem. You do that by focusing on the
+          following elements in your content.
+        </p>
+      }
+    </app-component-subsection>
+
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'Fremheve viktige tiltak' : 'Highlight important actions'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Bruk store bokstaver for å markere Elvias tjenester, funksjoner, sider og verktøy når de nevnes. I
+          trinnvise instruksjoner kan du utheve navigasjons- og snarvei-etiketter slik de vises i appen eller
+          på nettsiden.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Use capital letters to highlight Elvia's services, features, pages and tools when mentioned. In
+          step-by-step instructions, you can highlight navigation and shortcut labels as they appear in the
+          app or on the web page.
+        </p>
+      }
+      <ul class="e-list">
+        @if (locale() === 'nb-NO') {
+          <li>Gå til elvia.no</li>
+          <li>Klikk på Mitt Elvia</li>
+          <li>Åpne menyen og klikk på Mitt forbruk</li>
+          <li>Klikk på nedlasting Forbruksrapport</li>
+        }
+        @if (locale() === 'en-GB') {
+          <li>Go to elvia.no</li>
+          <li>Click on My Elvia</li>
+          <li>Open the menu and click on My Consumption</li>
+          <li>Click on download Consumption report</li>
+        }
+      </ul>
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'Gi kontekst til problemet' : 'Give context to the problem'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          I tillegg til å beskrive trinn for trinn, kan det noen ganger være en god idé å forklare med andre
+          verktøy for å gi kontekst. Dette er kanskje ikke nødvendig for hver enkelt artikkel eller prosess,
+          men kan være nyttig for helt nye eller svært teknisk interesserte brukere.
+        </p>
+        <p>
+          Hvis du skal bruke skjermbilder, er det viktig at du beskjærer skjermbildene tett rundt selve
+          handlingen, slik at denne er tydelig synlig.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          In addition to describing step by step, it could sometimes be a good idea to explain with other
+          tools to give context. This may not be necessary for every single article or process, but may be
+          useful for brand new or very technically interested users.
+        </p>
+        <p>
+          If you are going to use screenshots, it is important that you crop the screenshots tightly around
+          the action itself, so that this is clearly visible.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Engasjement' : 'Engagement'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Hovedgrunnen til at vi er på sosiale medier, er å skape engasjement. For å oppnå dette er det
+          spesielt viktig å bruke et aktivt språk. Skriv gjerne nøyaktig hva du vil at kunden skal gjøre. Et
+          annet tips for å skape engasjement er å stille spørsmål.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          The main reason we are on social media is to create engagement. To achieve this, it is especially
+          important to use active language. Feel free to write exactly what you want the customer to do.
+          Another tip for creating engagement is to ask questions.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="
+        locale() === 'nb-NO' ? 'Tagge personer eller virksomheter?' : 'Tag people or businesses?'
+      "
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Hvis vi samarbeider med noen, kan det være lurt å tagge dem på Facebook eller X. Unngå å tagge folk
+          der du sier "Vi har skrevet om deg - sjekk det ut her". Be aldri om retweet, likes eller favoritter.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          If we collaborate with someone, we may want to tag them on Facebook or X. Avoid tagging people where
+          you say "We have written about you - check it out here". Never ask for retweet, likes or favorites.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? '#Emneknagger' : '#Hashtags'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Emneknagger brukes hovedsakelig på X. Vi bruker emneknagger i forbindelse med arrangementer,
+          konferanser eller temaer som er viktige for oss. Det kan for eksempel være #bærekraft eller
+          #smartelektrifisering.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Hashtags are mainly used on X. We use hashtags in connection with events, conferences or themes that
+          are important to us. For example, it could be #sustainability or #smartelectrification.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Trender' : 'Trends'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Noen ganger kan vi se trender utvikle seg på sosiale medier. Vi kommenterer ikke emner eller
+          hendelser som ikke er relatert til Elvia.
+        </p>
+        <p>
+          Det er viktig å være oppdatert på hva som skjer på sosiale medier, slik at du kan oppdage behov for
+          innhold, men også fordi det kan oppstå situasjoner som krever at vi endrer publiseringsplaner og
+          slår av annonsert innhold.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p></p>
+      }
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'Hvordan skrive e-poster' : 'How to write e-mails'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          I Elvia sender vi ut mange e-poster, både internt og eksternt. Vi sender ut nyhetsbrev til kunder,
+          samarbeidspartnere og leverandører. Avdelingen for kundeansvar er ansvarlig for dette og kan hjelpe
+          deg hvis du har innspill. Det er likevel nyttig å tenke på disse punktene når du sender e-post til
+          noen utenfor, og innenfor, Elvia.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          In Elvia, we send out many e-mails, both internally and externally. We send out newsletters to
+          customers, partners and suppliers. The department for Customer Responsibility is responsible for
+          this and can help you if you have input. It's still helpful to think about these items when sending
+          email to someone outside, and inside, of Elvia.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'Bruk riktig tone og stil' : 'Use the right tone and style'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Vi har en definert språkstil og tone. Du kan lese mer om vår stil og tone under avsnittene om stil
+          og tone.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          We have a defined language style and tone. You can read more about our tone and style under the
+          sections of style and tone.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Emnefelt' : 'Subject field'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Emnefeltet er viktig for at mottakeren skal legge merke til e-posten din. Det er derfor lurt å bruke
+          det på en smart måte, slik at det ikke drukner i innboksen: Vær spesifikk om hva innholdet i
+          e-posten er.
+        </p>
+        <p>Unngå emnefelt av denne typen:</p>
+        <ul class="e-list">
+          <li>Spørsmål</li>
+          <li>Problem</li>
+          <li>Avtale</li>
+          <li>Hei</li>
+        </ul>
+        <p>
+          E-poster med denne typen emnefelt sier ingenting til mottakeren, og må åpnes for å se om det haster
+          eller om det kan vente.
+        </p>
+        <p>
+          Det er også viktig å ikke skrive hele e-posten i emnefeltet. Det er en dårlig brukeropplevelse, og
+          dessuten vanskelig å lese.
+        </p>
+        <p>Her er noen eksempler på gode emner:</p>
+        <ul class="e-list">
+          <li>Spørsmål om prisen på nettverkstilkobling</li>
+          <li>Haster: Anbud for godkjenning</li>
+          <li>Agenda for avdelingsmøte 01.01.2026</li>
+        </ul>
+        <p>
+          <b>Si hei, og bruk navn.</b> Det er alltid mye hyggeligere å starte en dialog med et "hei" som er
+          direkte adressert til deg. Det gjør dialogen mer personlig.
+        </p>
+        <p>Du kan for eksempel starte e-posten med dette:</p>
+        <ul class="e-list">
+          <li>Hei og takk for e-posten, Lene.</li>
+          <li>Godt spørsmål, Lene. Jeg har funnet ut ..</li>
+        </ul>
+        <p>... Eller du kan bruke den når du avslutter dialogen:</p>
+        <ul class="e-list">
+          <li>Da hører jeg fra deg igjen, Lene.</li>
+          <li>Vi snakkes på fredag, Lene</li>
+          <li>Takk for god tilbakemelding, Lene</li>
+        </ul>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          The subject field is important for the recipient to notice your email. It is therefore advisable to
+          use it in a smart way so it doesn't drown in their inbox: Be specific about what the content of the
+          email is.
+        </p>
+        <p>Avoid subject fields of this type:</p>
+        <ul class="e-list">
+          <li>Questions</li>
+          <li>Problem</li>
+          <li>Meeting</li>
+          <li>Hi</li>
+        </ul>
+        <p>
+          Emails with this type of subject field say nothing to the recipient, and must be opened to see if it
+          is urgent or if it can wait.
+        </p>
+        <p>
+          It is also important not to write the entire email in the subject field. It's a bad user experience,
+          and also difficult to read.
+        </p>
+        <p>Here are some examples of good subjects:</p>
+        <ul class="e-list">
+          <li>Questions about the price of network connection</li>
+          <li>Urgent: Tender for approval</li>
+          <li>Agenda for department meeting 01.01.2021</li>
+        </ul>
+        <p>
+          <b>Say hello, and use names.</b> It is always much nicer to start a dialogue with a "hello" that is
+          directly addressed to you. It makes the dialogue more personal.
+        </p>
+        <p>You can start the email with this for example:</p>
+        <ul class="e-list">
+          <li>Hi and thanks for the email, Lene.</li>
+          <li>Good question, Lene. I have found out ..</li>
+        </ul>
+        <p>… Or you can use it when you end the dialog:</p>
+        <ul class="e-list">
+          <li>Then I'll hear from you again, Lene</li>
+          <li>We'll talk on Friday, Lene</li>
+          <li>Thanks for the good feedback, Lene</li>
+        </ul>
+      }
+    </app-component-subsection>
+
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'Hold deg til temaet' : 'Stick to the theme'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Det kan være lurt å begrense seg til ett emne per e-post. Hvis du dekker for mange forskjellige
+          emner i én e-post, kan det fort bli veldig rotete og vanskelig å finne tilbake til riktig e-post.
+          Send i stedet flere e-poster for hvert emne. På den måten får du også mer fornuftige e-posttråder.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          You may want to limit yourself to one topic per email. If you cover too many different topics in one
+          email, it can quickly become very messy and difficult to find your way back to the correct email.
+          Instead, send multiple emails for each topic. That way, you also get more sensible email threads.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="
+        locale() === 'nb-NO' ? 'Kom til poenget og vær strukturert' : 'Get to the point and be structured'
+      "
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Unngå å skrive en vegg av tekst med lang forhistorie og irrelevant informasjon. Kutt ut svadaen og
+          kom til poenget. Dette er spesielt viktig for kunder som kanskje ikke har den samme ekspertisen som
+          vi i Elvia har.
+        </p>
+        <p>
+          Hva er det viktigste med denne e-posten? Finn ut hva du vil si. Hva trenger du å vite eller
+          informere om nå (og hva kan komme senere)?
+        </p>
+        <p>For eksempel:</p>
+        <p>Hei, Lene. Jeg lurer på to ting:</p>
+        <ol class="e-list e-list--numbers">
+          <li>Var det satt en frist for å sende inn en presentasjon?</li>
+          <li>Kan jeg se presentasjonen før jeg sender den?</li>
+        </ol>
+        <p>
+          Ikke ta mottakeren med deg gjennom hele tankerekken din. Du trenger ikke å skrive en lang og
+          snakkesalig e-post, og det øker i stedet sjansen for at den blir lest - og besvart.
+        </p>
+        <p>
+          Hvis e-posten må være lang, bruk uthevede undertitler. Det gjør det lettere for mottakeren å
+          skumlese teksten og få et raskt overblikk over innholdet.
+        </p>
+        <p>
+          Eksempel: Hvis kunden har mange spørsmål, kan det være lurt å gi hvert spørsmål et eget avsnitt
+          eller punkt. Dette gjør det ryddig for kunden.
+        </p>
+        <ul class="e-list">
+          <li>Svar på spørsmål om nettleie</li>
+          <li>Svar på spørsmål om forbruk</li>
+          <li>Svar på Min side</li>
+        </ul>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Avoid writing a wall of text with long prehistory and irrelevant information. Cut out the gibberish
+          and get to the point. This is especially important for customers who may not have the same expertise
+          we at Elvia have.
+        </p>
+        <p>
+          What is the most important thing about this email? Find out what you want to say. What do you need
+          to know or inform about now (and what may come later)?
+        </p>
+        <p>Example:</p>
+        <p>Hi, Lene. I have two questions:</p>
+        <ol class="e-list e-list--numbers">
+          <li>Was a deadline set for submitting a presentation?</li>
+          <li>Could I see the presentation before sending it?</li>
+        </ol>
+        <p>
+          Do not take the recipient with you throughout your whole train of thought. You don't have to write a
+          long and chatty e-mail, and it instead increases the chance that it will be read - and answered.
+        </p>
+        <p>
+          If the email needs to be long, use highlighted subtitles. This makes it easier for the recipient to
+          skim the text and get a quick overview of the content. Example:
+        </p>
+        <p>
+          If the customer has many questions, you may want to give each question a separate paragraph or
+          point. This makes it tidy for the customer.
+        </p>
+        <ul class="e-list">
+          <li>Answer to question about grid rental</li>
+          <li>Response to consumption</li>
+          <li>Reply to My Page</li>
+        </ul>
+      }
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'Ikke svar for kort' : 'Do not answer too short'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Et "OK" kan fort tolkes som at du er sint, men du mente bare å uttrykke at det var greit og notert.
+          For kundene kan det også føre til usikkerhet og at de lurer på hva som skjer videre. Det er greit å
+          ville skrive OK, men gjør det litt mer vennlig og informativt ved å ta med noen ekstra ord.
+          Eksempel:
+        </p>
+        <ul class="e-list">
+          <li>OK, det høres bra ut</li>
+          <li>Ok, da ringer jeg deg i morgen</li>
+        </ul>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          An "OK" can quickly be interpreted as you are angry, but you just meant to express that it was okay
+          and noted. For customers, it can also lead to uncertainty and them wondering what is happening next.
+          It's okay to want to write OK, but make it a little more friendly and informative by including in a
+          few extra words. Example:
+        </p>
+        <ul class="e-list">
+          <li>OK, that sounds great</li>
+          <li>Okay, then I'll call you tomorrow</li>
+        </ul>
+      }
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="
+        locale() === 'nb-NO' ? 'Avslutt samtalen på en vennlig måte' : 'End the conversation kindly'
+      "
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Avslutt e-postdialogen med en god tone. Helst med noe som ikke er for generisk. Du kan for eksempel
+          henvise til noe dere har snakket om.
+        </p>
+        <p>
+          Eksempel: Hvis kunden har stilt spørsmål om forbruket sitt og Min side, kan du svare "Håper du synes
+          Min side var litt lettere å forstå nå. Ta gjerne kontakt igjen hvis du har flere spørsmål. Lykke
+          til."
+        </p>
+        <p>
+          Hvis kunden har opplevd et strømbrudd midt i middagsforberedelsene på en fredag, kan du avslutte med
+          "Flott, da blir strømmen slått på igjen akkurat i tide til fredagstacoen".
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          End the email dialogue with a good tone. Preferably with something that is not too generic. For
+          example, you can refer to something you have talked about. Example:
+        </p>
+        <p>
+          If the customer has asked questions about their consumption and My page, you can answer "Hope you
+          think My page was a little easier to understand now. Feel free to get in touch again if you have
+          more questions. Good luck."
+        </p>
+        <p>
+          If the customer has experienced a power failure in the middle of dinner preparations on a Friday,
+          you can end with "Great, then the power will be switched on again just in time for the Friday taco".
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'Bruk e-postsignatur' : 'Use email signature'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Signaturen din bør inneholde relevant og korrekt kontaktinformasjon. Sørg for at den er inkludert i
+          alle innledende e-poster, slik at mottakeren ikke trenger å lete etter telefonnummeret ditt.
+        </p>
+        <p>Unngå dette når du skriver e-poster;</p>
+        <ul>
+          <li>
+            <b>Caps lock og utropstegn.</b> Selv om du bare bruker caps lock og utropstegn for å understreke
+            noe, oppfattes det som om du roper. Bruk fet tekst i stedet. Blokkbokstaver er faktisk
+            vanskeligere å lese. Hvis du skal bruke utropstegn og spørsmålstegn, bruk bare ett av dem. Gir
+            ikke det mening???!!!
+          </li>
+          <li>
+            <b>Ikke send cc eller svar alle.</b> Spør deg selv om det virkelig er nødvendig, og vær selektiv
+            med hensyn til hvem som skal være på kopien. Hvis du skal sende ut en felles e-post, må du gjøre
+            det klart at det er akkurat det det er. Gjør det klart ved å innledningsvis skrive "Hei alle
+            sammen" eller "Hei, dette er kun til informasjon, og du trenger ikke å svare på denne...".
+          </li>
+          <li>
+            <b>Er du irritert eller misfornøyd?</b> Ingen respons i affekt. Hvis du er sint eller misfornøyd,
+            vær forsiktig med hva du sender. Skriftlig kritikk oppleves mye mer alvorlig enn muntlig. Det kan
+            være lurt å "kjøle seg ned" en liten stund slik at du kan samle deg. Kanskje det er bedre å ringe
+            personen? Krangling og sinte e-poster kan fort bli lite konstruktive, ineffektive og skape dårlig
+            stemning.
+          </li>
+        </ul>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Your signature should contain relevant and correct contact information. Make sure it is included in
+          all introductory emails, so that the recipient doesn't have to search for your phone number.
+        </p>
+        <p>Avoid this when writing emails;</p>
+        <ul>
+          <li>
+            <b>Caps lock and exclamation marks.</b> Even if you're just using caps lock and exclamation marks
+            to emphasize something, it is perceived as you shouting. Use bold text instead. Block letters are
+            actually harder to read. If you are going to use exclamation marks and question marks, just use
+            one of them. Doesn't that make sense???!!!
+          </li>
+          <li>
+            <p>Don't cc or reply all.</p>
+            Ask yourself if it is really necessary, and be selective as to who should be on the copy. If you
+            are going to send out a common e-mail, make it clear that this is exactly what it is. Make it
+            clear by initially writing "Hello everyone" or "Hi. This is for information only and you will not
+            have to answer this…".
+          </li>
+          <li>
+            <b>Are you annoyed or dissatisfied?</b> No response in affect. If you are angry or dissatisfied,
+            be careful about what you send. Written criticism is experienced much more severely than oral. You
+            may want to "cool down" for a little while so you can gather yourself. Maybe it's better to call
+            the person? Arguing and angry emails can quickly become unconstructive, inefficient and create a
+            bad mood.
+          </li>
+        </ul>
+      }
+    </app-component-subsection>
+  </app-component-section>
+</div>

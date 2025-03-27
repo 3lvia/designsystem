@@ -49,6 +49,11 @@ export const routes: Routes = [
     loadComponent: () => import('./theme-doc/theme-doc.component').then((m) => m.ThemeDocComponent),
   },
   {
+    path: Pages.ToneOfVoice,
+    loadComponent: () =>
+      import('./tone-of-voice-doc/tone-of-voice-doc.component').then((m) => m.ToneOfVoiceDocComponent),
+  },
+  {
     path: Pages.Typography,
     loadComponent: () =>
       import('./typography-doc/typography-doc.component').then((m) => m.TypographyDocComponent),
