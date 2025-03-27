@@ -13,36 +13,17 @@ and deployed at [Elvia's Netlify](https://app.netlify.com/sites/elvis-designsyst
 ### Technology
 
 - We use **Angular** for the main documentation page and **Netlify** to host the site.
-- We use **Contentful** as content management system for a lot of our documentation.
 
 ### Running project
 
 - The project can be ran from root with `yarn start`. Read more about
   [running the main project here](https://github.com/3lvia/designsystem#setup).
-- The project can also be ran in the `packages/web` folder with `yarn start`.
-  > NOTE: Remember to set your environment variables to be able to access the Contentful data.
-  > [Set up is described here](https://github.com/3lvia/designsystem#setup).
 
 ### Documenting components
 
 The web project is meant to serve the documentation for all the components. Read about developing and
 documenting [components](https://github.com/3lvia/designsystem/blob/master/packages/components/README.md) and
 [the CSS library](https://github.com/3lvia/designsystem/blob/master/packages/elvis/README.md).
-
-### CMS (Contentful)
-
-`packages/web/src/app/`
-
-- Data from Contentful is retrieved automatically for all existing pages, but if there are structure changes
-  (new pages, pages deleted or moved) the dev-environment may need to be updated manually by running
-  `yarn contentful` from `packages/web`.
-- If the models have changed, the Contentful types may need to be updated by running `yarn contentful:types`.
-  Sometimes you might need to refresh your code IDE to access the new types in the code.
-- The CMS services for retrieving and transforming data from Contentful is located at `core/services/cms`
-- The shell page wrapping all Contentful information pages are located at `doc-pages/cms`
-- In the **[design.elvia.io Contentful](https://app.contentful.com/spaces/zez3t3t1iiwd/content_types)**
-  content types can be updated and added. These types represent what the users of Contentful (mainly designers
-  and content creators) can do in the app.
 
 ### CEG (Code Example Generator)
 

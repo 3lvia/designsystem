@@ -54,7 +54,6 @@ export enum Pages {
   Toggle = 'toggle',
   Tooltip = 'tooltip',
 
-  // Pages not from CMS
   Contact = 'contact',
   Faq = 'faq',
   GetStarted = 'get-started',

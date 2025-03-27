@@ -17,7 +17,6 @@ import { Router, RouterLink } from '@angular/router';
 import { SearchHighlighterPipe } from '../../../shared/search-highlighter.pipe';
 import { SearchItem, SearchStatus } from './search-menu.interface';
 import { BreakpointService } from 'src/app/core/services/breakpoint.service';
-import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { utilityGroups } from 'src/app/doc-pages/tools/utilities-doc/utility-groups-data';
 import { allDocPages } from 'src/app/shared/doc-pages';
@@ -33,8 +32,7 @@ import { SearchResult, Searcher } from 'src/app/shared/searcher';
 export class SearchMenuComponent implements OnInit {
   private readonly searchInputElement = viewChild.required<ElementRef<HTMLInputElement>>('searchInput');
   readonly closeSearchMenu = output<void>();
-  // @ts-expect-error TS2564 (LEGO-3683)
-  private mainMenu: CMSMenu;
+
   private searchItems: SearchItem[] = [];
   // @ts-expect-error TS2564 (LEGO-3683)
   private locale: Locale;

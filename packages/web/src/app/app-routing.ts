@@ -46,20 +46,4 @@ export const routes: Routes = [
     path: 'not-found',
     loadComponent: () => import('./shared/error/error.component').then((m) => m.ErrorComponent),
   },
-  // From CMS
-  {
-    path: ':submenu',
-    loadComponent: () =>
-      import('./doc-pages/cms/cms-page/cms-page.component').then((m) => m.CMSPageComponent),
-  },
-  {
-    path: ':submenu/:page',
-    loadComponent: () =>
-      import('./doc-pages/cms/cms-page/cms-page.component').then((m) => m.CMSPageComponent),
-  },
-  {
-    path: 'preview/:entryId',
-    loadComponent: () =>
-      import('./doc-pages/cms/cms-page/cms-page.component').then((m) => m.CMSPageComponent),
-  },
 ];

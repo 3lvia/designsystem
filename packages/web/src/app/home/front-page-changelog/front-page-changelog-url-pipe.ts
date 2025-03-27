@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({ name: 'FrontPageChangelogUrlPipe', standalone: true })
+@Pipe({ name: 'FrontPageChangelogUrlPipe' })
 export class FrontPageChangelogUrlPipe implements PipeTransform {
   transform(name?: string): string {
     try {
@@ -10,7 +10,7 @@ export class FrontPageChangelogUrlPipe implements PipeTransform {
       if (name === 'elvis') {
         return name;
       }
-      const formattedUrl = name.split('-').slice(1).join('-');
+      const formattedUrl = name.split('-').slice(1).join('-').toLowerCase();
       return formattedUrl;
     } catch (_error) {
       console.warn(`"name": "${name}" in changelog is invalid. Should be "elvis-(name)" or "elvis"`);

@@ -1,6 +1,15 @@
 import { DocPageName, Pages } from './shared.enum';
 import { DocPage, DocPageType, HomeMenuCard } from './shared.interface';
 
+// Tabs in the main header menu and mobile menu
+export const mainMenuItems = [
+  { title: 'About', path: '/about' },
+  { title: 'Brand', path: '/brand' },
+  { title: 'Components', path: '/components' },
+  { title: 'Patterns', path: '/patterns' },
+  { title: 'Tools', path: '/tools' },
+] as const;
+
 // Used for shortcuts at home page
 export const homeMenu: HomeMenuCard[] = [
   {

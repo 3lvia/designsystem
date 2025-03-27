@@ -150,11 +150,6 @@ information on how to use it.
   to or create a new module (like the ones existing already). You will find the standard setup in any of the
   other component modules.
 - Remember to add the Angular route for the new component module in the `app-routing.module.ts` file.
-- Lastly you also need to add the route in Contentful for the page to appear in the menu on `design.elvia.io`
-  if it is not an existing page. To do this you have to login to Contentful, navigate to the 'Components'
-  submenu entry and add the page with the correct title and path there. The new component also needs an icon
-  that will appear on the landing-page for the Components menu. Navigate to the 'Component' landing page and
-  add a new card here with the new icon.
 
 #### Step 5 - Update changelog
 

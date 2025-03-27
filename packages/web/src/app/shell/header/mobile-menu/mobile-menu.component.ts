@@ -1,11 +1,8 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component, output } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 
 import { ThemeSwitchComponent } from '../theme-switch/theme-switch.component';
-import { CMSMenu } from 'src/app/core/services/cms/cms.interface';
-import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { LocalizationService } from 'src/app/core/services/localization.service';
+import { mainMenuItems } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-mobile-menu',
@@ -16,9 +13,8 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
 })
 export class MobileMenuComponent {
   readonly closeMenu = output<void>();
-  // @ts-expect-error TS2564 (LEGO-3683)
-  mainMenu: CMSMenu;
-  isLoaded = false;
+
+  mainMenuItems = mainMenuItems;
 
   get devMode(): boolean {
     return (
@@ -26,20 +22,5 @@ export class MobileMenuComponent {
       window.location.href.indexOf('elvis-designsystem.netlify.app') > -1 ||
       window.location.href.indexOf('#dev') > -1
     );
-  }
-
-  constructor(
-    private cmsService: CMSService,
-    private localizationService: LocalizationService,
-  ) {
-    this.localizationService
-      .listenLocalization()
-      .pipe(takeUntilDestroyed())
-      .subscribe((locale) => {
-        this.cmsService.getMenu(locale).then((data) => {
-          this.mainMenu = data;
-          this.isLoaded = true;
-        });
-      });
   }
 }

@@ -1,15 +1,9 @@
 @if (relatedPages()) {
   <div class="related-container">
     @for (relatedPage of relatedPages(); track relatedPage) {
-      <a [routerLink]="getRelatedPath(relatedPage)">
-        <elvia-card [heading]="getRelatedTitle(relatedPage)" [maxHeadingLines]="2">
-          <div slot="icon">
-            @if ((componentIcons | async)?.[relatedPage]) {
-              <img alt="" [src]="(componentIcons | async)?.[relatedPage]" />
-            } @else {
-              <div class="e-content-loader" style="width: 40px; height: 40px"></div>
-            }
-          </div>
+      <a [routerLink]="(relatedPage | docPage).absolutePath">
+        <elvia-card [heading]="(relatedPage | docPage).title" [maxHeadingLines]="2">
+          <app-inline-svg slot="icon" [src]="(relatedPage | docPage).imageUrl" />
         </elvia-card>
       </a>
     }
