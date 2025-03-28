@@ -1,36 +1,26 @@
 <div class="backdrop" (click)="closeMenu.emit()"></div>
 <div class="content">
-  @if (!isLoaded && !mainMenu) {
-    <div class="menu">
-      @for (_ of [].constructor(5); track _) {
-        <div class="links e-py-24">
-          <div class="e-content-loader e-content-loader--text" style="height: 17px"></div>
-        </div>
-      }
-    </div>
-  } @else {
-    <div class="menu">
-      @for (menuItem of mainMenu.pages; track menuItem) {
-        <a class="links e-py-24" [routerLink]="menuItem.path" (click)="closeMenu.emit()">
-          <span class="e-title-caps">{{ menuItem.title }}</span>
-          <span class="links-icon">
-            <e-icon name="arrowRightBold" size="xxs" />
-          </span>
-        </a>
-      }
-      @if (devMode) {
-        <a class="links e-py-24" [routerLink]="'dev'" (click)="closeMenu.emit()">
-          <span class="e-title-caps">Dev</span>
-          <span class="links-icon">
-            <e-icon name="arrowRightBold" size="xxs" />
-          </span>
-        </a>
-      }
+  <div class="menu">
+    @for (menuItem of mainMenuItems; track menuItem.title) {
+      <a class="links e-py-24" [routerLink]="menuItem.path" (click)="closeMenu.emit()">
+        <span class="e-title-caps">{{ menuItem.title }}</span>
+        <span class="links-icon">
+          <e-icon name="arrowRightBold" size="xxs" />
+        </span>
+      </a>
+    }
+    @if (devMode) {
+      <a class="links e-py-24" [routerLink]="'dev'" (click)="closeMenu.emit()">
+        <span class="e-title-caps">Dev</span>
+        <span class="links-icon">
+          <e-icon name="arrowRightBold" size="xxs" />
+        </span>
+      </a>
+    }
 
-      <div class="e-py-24">
-        <app-theme-switch></app-theme-switch>
-      </div>
+    <div class="e-py-24">
+      <app-theme-switch></app-theme-switch>
     </div>
-  }
+  </div>
 </div>
 <div class="elvia-curve"></div>

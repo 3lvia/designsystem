@@ -1,0 +1,89 @@
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-section sectionTitle="Flow">
+    <ol class="e-list e-list--numbers">
+      <li>
+        <p>
+          The first page is a modal with a an illustration that explains why the user gets an onboarding tour
+        </p>
+        <figure class="e-mt-16">
+          <img
+            class="theme-image-background"
+            src="assets/doc-pages/patterns/onboarding/step1.png"
+            alt="The first page of the onboarding is a modal with an introduction to the onboarding"
+          />
+          <figcaption class="e-text-img">
+            The first page of the onboarding is a modal with an introduction to the onboarding.
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          The following pages take the user through the application with a spotlight to highlight the feature
+          with a description of what it is and how to use it. Users can exit anytime via the close button in
+          the top right corner.
+        </p>
+        <figure class="e-mt-16">
+          <img
+            class="theme-image-background"
+            src="assets/doc-pages/patterns/onboarding/step2.png"
+            alt="Use spotlight together with description to show the user where and what they do"
+          />
+          <figcaption class="e-text-img">
+            Use spotlight together with description to show the user where and what they do.
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <p>
+          The final onboarding page includes a confirmation button (checkmark icon) to complete and close the
+          tour. Remember to consider how the user can re-open the onboarding.
+        </p>
+        <figure class="e-mt-16">
+          <img
+            class="theme-image-background"
+            src="assets/doc-pages/patterns/onboarding/step3.png"
+            alt="You get a confirmation button to complete the onboarding tour"
+          />
+          <figcaption class="e-text-img">
+            You get a confirmation button to complete the onboarding tour
+          </figcaption>
+        </figure>
+      </li>
+    </ol>
+  </app-component-section>
+  <app-component-section sectionTitle="Components">
+    <p>Onboarding consists of different components:</p>
+    <ul class="e-list">
+      <li><a class="e-link" routerLink="/components/box">Box</a></li>
+      <li><a class="e-link" routerLink="/components/button">Icon button</a></li>
+      <li><a class="e-link" routerLink="/components/carousel">Carousel</a></li>
+      <li><a class="e-link" routerLink="/components/modal">Modal</a></li>
+      <li><a class="e-link" routerLink="/components/spotlight">Spotlight</a></li>
+    </ul>
+  </app-component-section>
+  <app-component-section sectionTitle="Devices">
+    <app-component-subsection sectionTitle="Tablet">
+      <figure class="e-mt-16">
+        <img
+          class="theme-image-background"
+          src="assets/doc-pages/patterns/onboarding/tablet.svg"
+          alt="Onboarding can also be used on tablet"
+        />
+      </figure>
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Mobile">
+      <figure class="e-mt-16">
+        <img
+          class="theme-image-background"
+          src="assets/doc-pages/patterns/onboarding/mobile.svg"
+          alt="Onboarding can also be used on mobile"
+        />
+      </figure>
+    </app-component-subsection>
+  </app-component-section>
+</div>

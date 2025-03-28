@@ -1,7 +1,6 @@
 # Elvia design system
 
-> [!NOTE]
-> Further development of the design system is currently on hold.
+> [!NOTE] Further development of the design system is currently on hold.
 
 ![Decorative image of the design system](https://design.elvia.io/assets/HomeIllustration.png)
 
@@ -79,7 +78,6 @@ as you follow their license.
 - We use **Figma** for sketching the components. The
   [Elvia figma](https://www.figma.com/files/880078299274452916/project/5995782/%F0%9F%92%9A-Designsystemet?fuid=911220117114249697)
   has all the sketches for our components.
-- We use **Contentful** as content management system for a lot of our documentation.
 - We use **SonarCloud** for automatic code quality checks.
 
 ### How we work
@@ -93,26 +91,25 @@ components from start to finish) in this Confluence folder:
 Setup for development environment:
 
 0. Clone repository, checkout new branch from master, and run `yarn`.
-1. Navigate to `packages/web/contentful` and follow the instructions in the `.env.template` file.
-2. Building projects:
+1. Building projects:
    1. Run `yarn build` to build all projects for productions.
    2. Run `yarn build:web` to build the web project.
    3. Run `yarn build:components` to build the components (will first clean all dist-folders).
    4. Run `yarn build:tokens` to build the two token packages.
-3. Running projects:
+2. Running projects:
    1. Run `yarn start:web` to run the main documentation page (design.elvia.io).
    2. Run `yarn start:components` to watch for the components (every time components are changed).
    3. Run `yarn start:elvis` to watch for the style-library components (every time elvis-components are
       changed).
    4. Run `yarn start:react` to run the react test-project (testing components).
    5. Run `yarn start:vue` to run the vue test-project (testing components).
-4. Useful extensions:
+3. Useful extensions:
    1. Angular Language Service
    2. ESLint
    3. Prettier
    4. vscode-styled-components
    5. Vue - Official
-5. Less useful, but still nice extensions:
+4. Less useful, but still nice extensions:
    1. Color Highlight
    2. GitLense
    3. npm Intellisense

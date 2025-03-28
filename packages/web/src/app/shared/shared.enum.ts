@@ -54,7 +54,6 @@ export enum Pages {
   Toggle = 'toggle',
   Tooltip = 'tooltip',
 
-  // Pages not from CMS
   Contact = 'contact',
   Faq = 'faq',
   GetStarted = 'get-started',
@@ -63,26 +62,29 @@ export enum Pages {
   TheDesignSystem = 'the-design-system',
 
   // Brand pages
-  TheConcept = 'the-concept',
   Color = 'color',
+  Examples = 'examples',
   Icon = 'icon',
+  Illustration = 'illustration',
   Images = 'images',
   Layout = 'layout',
   Logo = 'logo',
+  TheConcept = 'the-concept',
+  Theme = 'theme',
   ToneOfVoice = 'tone-of-voice',
   Typography = 'typography',
-  Illustration = 'illustration',
 
   // Pattern pages
   Comments = 'comments',
   Cookies = 'cookies',
+  DataFormats = 'data-formats',
   EmptyStates = 'empty-states',
   Filters = 'filters',
   Forms = 'forms',
+  Graph = 'graph',
   Groups = 'groups',
   Onboarding = 'onboarding',
   Validations = 'validations',
-  Graph = 'graph',
 
   // Tool pages
   Accessibility = 'accessibility',

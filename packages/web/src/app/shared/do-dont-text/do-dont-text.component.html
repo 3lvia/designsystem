@@ -1,24 +1,22 @@
 <!--DO & DONTS for text, no code-->
 
-<div class="e-grid e-mt-32">
-  <div class="row">
-    <div class="do col-xl-6 col-lg-12">
-      <div class="e-flex">
-        <ng-content select="do"></ng-content>
-      </div>
-      <div style="display: flex; flex-direction: row; align-items: center" class="e-mt-16">
-        <e-icon name="checkCircle" size="sm" class="e-icon--color-positive" />
-        <span class="e-title-caps e-ml-16">Do</span>
-      </div>
+<div class="container e-mt-32">
+  <div class="item">
+    <div>
+      <ng-content select="do"></ng-content>
     </div>
-    <div class="dont col-xl-6 col-lg-12">
-      <div class="e-flex">
-        <ng-content select="dont"></ng-content>
-      </div>
-      <div style="display: flex; flex-direction: row; align-items: center" class="e-mt-16">
-        <e-icon name="removeCircle" size="sm" class="e-icon--color-error" />
-        <span class="e-title-caps e-ml-16">Don't</span>
-      </div>
+    <div class="label">
+      <e-icon name="checkCircle" size="sm" class="e-icon--color-positive" />
+      <span class="e-title-caps">Do</span>
+    </div>
+  </div>
+  <div class="item">
+    <div>
+      <ng-content select="dont"></ng-content>
+    </div>
+    <div class="label">
+      <e-icon name="removeCircle" size="sm" class="e-icon--color-error" />
+      <span class="e-title-caps">Don't</span>
     </div>
   </div>
 </div>

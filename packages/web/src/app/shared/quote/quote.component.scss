@@ -1,0 +1,20 @@
+@use '@elvia/elvis/src/utilities/breakpoints.scss';
+
+:host {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    gap: 16px;
+    align-items: flex-start;
+
+    e-icon {
+      margin-top: 4px;
+    }
+  }
+}
+
+e-icon {
+  flex-shrink: 0;
+}

@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { NgClass } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import {
   AfterViewInit,
   CUSTOM_ELEMENTS_SCHEMA,
@@ -17,8 +17,6 @@ import { fromEvent, merge, switchMap, take } from 'rxjs';
 import { LocalePickerComponent } from '../locale-picker/locale-picker.component';
 import { NavbarBase } from '../navbar-base';
 import { SubMenuComponent } from '../sub-menu/sub-menu.component';
-import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { LocalizationService } from 'src/app/core/services/localization.service';
 import { RouterService } from 'src/app/core/services/router.service';
 
 const animationMotion = '320ms cubic-bezier(0.5, 0, 0.31, 1)';
@@ -34,7 +32,7 @@ const animationMotion = '320ms cubic-bezier(0.5, 0, 0.31, 1)';
       transition(':leave', [animate(animationMotion, style({ height: 0 }))]),
     ]),
   ],
-  imports: [NgClass, RouterLinkActive, RouterLink, SubMenuComponent, LocalePickerComponent],
+  imports: [NgClass, RouterLinkActive, RouterLink, SubMenuComponent, LocalePickerComponent, AsyncPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit {
@@ -53,10 +51,8 @@ export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit 
   constructor(
     private ngZone: NgZone,
     routerService: RouterService,
-    cmsService: CMSService,
-    localeService: LocalizationService,
   ) {
-    super(cmsService, localeService, routerService);
+    super(routerService);
     this.setActiveRoute();
 
     this.navbarListChange

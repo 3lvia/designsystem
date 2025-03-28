@@ -8,11 +8,10 @@ import { VueTutorialComponent } from './vue-tutorial/vue-tutorial.component';
 import { ComponentHeaderComponent } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.component';
 import { PreferredLanguageService } from 'src/app/shared/component-documentation/preferredLanguage.service';
 import { LanguageType } from 'src/app/shared/component-documentation/types';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { getDocPage } from 'src/app/shared/doc-pages';
 import { SafeHtmlPipe } from 'src/app/shared/safeHtml.pipe';
 
-const docPage = getDocPagesNotFromCMS('tutorial');
-
+const docPage = getDocPage('tutorial');
 @Component({
   selector: 'app-tutorial',
   templateUrl: './tutorial.component.html',
@@ -28,7 +27,7 @@ const docPage = getDocPagesNotFromCMS('tutorial');
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TutorialComponent {
-  description = docPage.description;
+  description = docPage.description ?? '';
   title = docPage.title;
   isPopoverShowing = false;
   tabs = ['angular', 'vue', 'react', 'blazor'];

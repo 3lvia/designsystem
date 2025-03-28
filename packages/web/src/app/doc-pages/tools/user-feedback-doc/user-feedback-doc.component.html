@@ -1,0 +1,77 @@
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-section sectionTitle="Testflow">
+    <ol class="e-list e-list--numbers">
+      <li>
+        <b>What?</b> Testflow is an online solution for remote user testing. It recruits users and enables
+        unmoderated testing over video.
+      </li>
+      <li>
+        <b>Why?</b> We use Testflow for continuous user testing. Designs and redesigns can be tested rapidly
+        on realistic users to establish a proof-of-concept or invalidate design proposals.
+      </li>
+      <li>
+        <b>How?</b> If you have questions or wonder if it could be useful in your project, reach out to us on
+        slack <app-designsystem-slack-link />.
+      </li>
+    </ol>
+  </app-component-section>
+  <app-component-section sectionTitle="HotJar">
+    <ol class="e-list e-list--numbers">
+      <li>
+        <b>What?</b> HotJar is a Website Heatmaps & Behavior Analytics Tools. It collects user feedback on how
+        visitors are using websites.
+      </li>
+      <li>
+        <b>Why?</b> We mostly use HotJar for its chat and feedback functionality, as well as tracking how well
+        our solutions perform in real time.
+      </li>
+      <li>
+        <b>Questions?</b> If you have questions, or wonder if it could be useful in your project, reach out to
+        <a
+          class="e-link e-link--lg e-link--new-tab"
+          href="https://elvia-group.slack.com/team/U01RRAFUR0R"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="e-link__title">Henriette Wiborg Sunde</span>
+          <span class="e-link__icon">
+            <e-icon name="newTabBold" />
+          </span>
+        </a>
+        or in our slack <app-designsystem-slack-link />.
+      </li>
+    </ol>
+  </app-component-section>
+  <app-component-section sectionTitle="Google Analytics">
+    <ol class="e-list e-list--numbers">
+      <li>
+        <b>What?</b> Google Analytics tracks and reports website traffic, such as visitors on the site, as
+        well as information on the source.
+      </li>
+      <li>
+        <b>Why?</b> We use mainly Google Analytics to track the number of visitors using our sites at a given
+        time.
+      </li>
+      <li>
+        <b>Questions?</b> If you have questions, or wonder if it could be useful in your project, reach out to
+        <a
+          class="e-link e-link--lg e-link--new-tab"
+          href="https://elvia-group.slack.com/team/U01RRAFUR0R"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="e-link__title">Henriette Wiborg Sunde</span>
+          <span class="e-link__icon">
+            <e-icon name="newTabBold" />
+          </span>
+        </a>
+        or in our slack <app-designsystem-slack-link />.
+      </li>
+    </ol>
+  </app-component-section>
+</div>

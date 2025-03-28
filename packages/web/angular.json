@@ -40,8 +40,6 @@
           "options": {
             "outputPath": "dist/elvia-designsystem",
             "allowedCommonJsDependencies": [
-              "@contentful/rich-text-html-renderer",
-              "@contentful/rich-text-types",
               "@elvia/elvis-assets-icons/config/icons.config.js",
               "@elvia/elvis/elvis.js",
               "@elvia/elvis/checkDeprecations",
@@ -64,17 +62,7 @@
             "browser": "src/main.ts",
             "polyfills": ["src/polyfills.ts"],
             "tsConfig": "tsconfig.app.json",
-            "assets": [
-              "src/robots.txt",
-              "src/sitemap.xml",
-              "src/assets",
-              "src/_redirects",
-              {
-                "glob": "**/*",
-                "input": "contentful/dist/",
-                "output": "./assets/contentful/dist/"
-              }
-            ],
+            "assets": ["src/robots.txt", "src/sitemap.xml", "src/assets", "src/_redirects"],
             "loader": {
               ".html": "text",
               ".css": "text"

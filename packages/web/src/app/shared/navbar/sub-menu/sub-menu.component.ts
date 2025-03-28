@@ -3,9 +3,8 @@ import { Location, NgClass } from '@angular/common';
 import { ChangeDetectorRef, Component, NgZone } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
-import { first, fromEvent, of, switchMap } from 'rxjs';
+import { first, fromEvent, switchMap } from 'rxjs';
 
-import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 
 export interface Anchor {
@@ -42,37 +41,25 @@ export class SubMenuComponent {
   constructor(
     private router: Router,
     private location: Location,
-    private cmsService: CMSService,
     changeDetectorRef: ChangeDetectorRef,
-    localization: LocalizationService,
+    localizationService: LocalizationService,
     zone: NgZone,
   ) {
     this.setActiveAnchorOnScroll();
     this.scrollToCorrectAnchorOnPageLoad();
 
     /**
-     * A couple of steps is required to safely retrieve sub menu items:
-     *  1. If the page comes from the CMS, wait for it to be loaded. If
-     *     the page is client side only, proceed immediately to the next step.
-     *  2. Switch the observable to listen for localization changes
-     *  3. When localization changes, wait for the DOM to stabilize
-     *     before retrieving the anchor elements from the DOM.
+     * When localization changes, wait for the DOM to stabilize
+     * before retrieving the anchor elements from the DOM.
      **/
-    this.cmsService
-      .listenCurrentRouteIsCms()
+    localizationService
+      .listenLocalization()
       .pipe(
-        switchMap((isCms) => {
-          if (isCms) {
-            return this.cmsService.listenContentLoadedFromCMS();
-          }
-          return of(undefined);
-        }),
-        switchMap(() => localization.listenLocalization()),
         takeUntilDestroyed(),
         switchMap(() => zone.onStable.pipe(first())),
       )
       .subscribe(() => {
-        this.anchors = this.getAnchors(localization.getCurrentLocalization());
+        this.anchors = this.getAnchors(localizationService.getCurrentLocalization());
         // @ts-expect-error TS2322 (LEGO-3683)
         this.activeAnchor = this.anchors[0]?.name;
         changeDetectorRef.detectChanges();

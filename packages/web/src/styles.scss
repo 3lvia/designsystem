@@ -90,3 +90,21 @@ app-root {
     display: none;
   }
 }
+
+img,
+picture,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+figure {
+  margin: 0;
+}
+
+.figure--center {
+  img {
+    margin: 0 auto;
+  }
+}

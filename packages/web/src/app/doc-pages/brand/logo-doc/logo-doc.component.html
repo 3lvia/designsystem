@@ -1,0 +1,182 @@
+@let faviconTitle = locale() === 'nb-NO' ? 'Logoer for applikasjoner' : 'Application logos';
+<app-component-header [figmaUrl]="docPage.figmaUrl">
+  <ng-container ngProjectAs="headerTitle">
+    {{ locale() === 'nb-NO' ? docPage.titleNo : docPage.title }}
+  </ng-container>
+  <div
+    ngProjectAs="headerDescription"
+    [innerHTML]="(locale() === 'nb-NO' ? docPage.descriptionNo : docPage.description) ?? '' | safeHtml"
+  ></div>
+</app-component-header>
+<div class="page-body">
+  <figure class="figure--center">
+    <img
+      class="theme-image-background"
+      style="max-width: 50vw"
+      src="assets/doc-pages/brand/logo/logo_animation.gif"
+      alt=""
+    />
+  </figure>
+  <app-component-section sectionTitle="Elvia">
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Lys bakgrunn' : 'Light background'">
+      <div
+        class="grid e-theme-light"
+        style="background: var(--e-light-theme-white); color: var(--e-light-theme-white--contrast)"
+      >
+        @for (logo of logosOnLight; track logo.url) {
+          <div class="item">
+            <img [src]="logo.url" [alt]="logo.name" />
+            <p class="e-title-caps item__name">{{ logo.name }}</p>
+            <div class="e-text-center">
+              <a class="e-btn e-btn--tertiary" [href]="logo.url" [download]="logo.name">
+                <span class="e-btn__icon">
+                  <e-icon name="download" />
+                </span>
+                <span class="e-btn__title">SVG</span>
+              </a>
+            </div>
+          </div>
+        }
+      </div>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Mørk bakgrunn' : 'Dark background'">
+      <div class="grid e-color-background-3">
+        @for (logo of logosOnDark; track logo.url) {
+          <div class="item">
+            <img [src]="logo.url" [alt]="logo.name" />
+            <p class="e-title-caps item__name">{{ logo.name }}</p>
+            <div class="e-text-center">
+              <a class="e-btn e-btn--tertiary" [href]="logo.url" [download]="logo.name">
+                <span class="e-btn__icon">
+                  <e-icon name="download" />
+                </span>
+                <span class="e-btn__title">SVG</span>
+              </a>
+            </div>
+          </div>
+        }
+      </div>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Favikon' : 'Favicon'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Husk å legge til et favorittikon i appen din. Favikoner brukes i adressefeltet på nettlesere, ved
+          siden av systemnavnet, for å gjøre det enkelt å gjenkjenne et Elvia-system.
+        </p>
+        <p>
+          De fleste applikasjoner har sine egne symboler som bør brukes som favorittikoner. Finn alle symboler
+          under
+          <a class="e-link e-link--inline" routerLink="." [fragment]="faviconTitle">{{ faviconTitle }}</a
+          >. Ikke nøl med å <a class="e-link e-link--inline" routerLink="/about/contact">kontakte oss</a> for
+          logoforespørsler angående nye applikasjoner.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Remember to add a favicon to your application. Favicons are used in the address bar on browsers,
+          next to the system name, to make recognizing an Elvia system easy.
+        </p>
+        <p>
+          Most applications have their own symbols that should be used as favicons. Find all symbols under
+          <a class="e-link e-link--inline" routerLink="." [fragment]="faviconTitle">{{ faviconTitle }}</a
+          >. Don't hesitate to <a class="e-link e-link--inline" routerLink="/about/contact">contact us</a> for
+          logo requests regarding new applications.
+        </p>
+      }
+      <app-component-subsubsection [sectionTitle]="locale() === 'nb-NO' ? 'Lyst tema' : 'Light theme'">
+        <figure class="figure--center">
+          <img src="assets/doc-pages/brand/logo/favicon_display_light.svg" alt="favicon example" />
+        </figure>
+      </app-component-subsubsection>
+      <app-component-subsubsection [sectionTitle]="locale() === 'nb-NO' ? 'Mørkt tema' : 'Dark theme'">
+        <figure class="figure--center">
+          <img src="assets/doc-pages/brand/logo/favicon_display.svg" alt="favicon example" />
+        </figure>
+      </app-component-subsubsection>
+    </app-component-subsection>
+  </app-component-section>
+
+  <app-component-section [sectionTitle]="faviconTitle">
+    <div
+      class="grid e-theme-light"
+      style="background: var(--e-light-theme-white); color: var(--e-light-theme-white--contrast)"
+    >
+      @for (logo of logoApps; track logo.url) {
+        <div class="item">
+          <img [src]="logo.url" [alt]="logo.name" />
+          <p class="e-title-caps item__name">{{ logo.name }}</p>
+          <div class="e-text-center">
+            <a class="e-btn e-btn--tertiary" [href]="logo.url" [download]="logo.name">
+              <span class="e-btn__icon">
+                <e-icon name="download" />
+              </span>
+              <span class="e-btn__title">SVG</span>
+            </a>
+          </div>
+        </div>
+      }
+    </div>
+  </app-component-section>
+  <app-component-section [sectionTitle]="locale() === 'nb-NO' ? 'Bruk' : 'Usage'">
+    @if (locale() === 'nb-NO') {
+      <p>Elvia-logoene symboliserer at et system er en del av Elvias portefølje.</p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>The Elvia logos symbolize that a system is part of Elvia's portfolio.</p>
+    }
+
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Margin' : 'Space and sizing'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Det bør alltid være tilstrekkelig plass rundt logoen for å unngå konflikt med andre visuelle
+          elementer. Anbefalt plass rundt logoen er 50 % av høyden.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          There should always be sufficient space around the logo to avoid conflict with other visual
+          elements. Recommended padding around the logo is 50% of the height.
+        </p>
+      }
+      <figure class="figure--center">
+        <img
+          class="theme-image-background"
+          src="assets/doc-pages/brand/logo/margin.svg"
+          alt="margin example"
+        />
+        <figcaption class="e-text-img">
+          @if (locale() === 'nb-NO') {
+            Denne logoen er 100 piksler høy, noe som betyr at avstanden må være minst 50 piksler, slik at den
+            totale elementhøyden blir 200 piksler.
+          }
+          @if (locale() === 'en-GB') {
+            This logo is 100px tall, meaning that the spacing has to be at least 50px, making the total
+            element height 200px.
+          }
+        </figcaption>
+      </figure>
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Minimumsstørrelse' : 'Minimum size'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          <b>Minimumshøyden er 25px</b> for å forhindre at logoen smelter sammen på små flater. For bedre
+          klarhet kan du også bruke Elvias ikon på små flater.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          The <b>minimum height is 25px</b> to prevent the logo from merging on small surfaces. For better
+          clarity, you can also use Elvia's icon on small surfaces.
+        </p>
+      }
+      <figure class="figure--center">
+        <img
+          class="theme-image-background"
+          src="assets/doc-pages/brand/logo/minimum_size.svg"
+          alt="minimum size example"
+          style="min-height: 25px"
+        />
+      </figure>
+    </app-component-subsection>
+  </app-component-section>
+</div>

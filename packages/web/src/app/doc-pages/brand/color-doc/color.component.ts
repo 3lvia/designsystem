@@ -1,6 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 
 import { CodeViewerComponent } from '../../../shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
@@ -15,9 +14,9 @@ import { ColorTokenTableComponent } from './color-token-table/color-token-table.
 import { PurposeTokenIllustrationComponent } from './illustrations/purpose-token-illustration/purpose-token-illustration.component';
 import { ThemeTokenIllustrationComponent } from './illustrations/theme-token-illustration/theme-token-illustration.component';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { getDocPage } from 'src/app/shared/doc-pages';
 
-const docPage = getDocPagesNotFromCMS('color');
+const docPage = getDocPage('color');
 @Component({
   selector: 'app-color',
   templateUrl: './color.component.html',
@@ -73,23 +72,12 @@ export class ColorComponent {
   title = docPage.title;
   titleNo = docPage.titleNo;
 
-  constructor(
-    private titleService: Title,
-    private localizationService: LocalizationService,
-  ) {
-    this.setTabTitle();
+  constructor(private localizationService: LocalizationService) {
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
       .subscribe((locale) => {
         this.locale = locale;
-        this.setTabTitle();
       });
   }
-
-  setTabTitle = (): void => {
-    this.titleService.setTitle(
-      (this.locale === 'nb-NO' && this.titleNo ? this.titleNo : this.title) + ' | Elvia design system',
-    );
-  };
 }

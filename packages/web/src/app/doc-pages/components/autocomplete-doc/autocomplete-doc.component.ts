@@ -1,5 +1,4 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
 import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
@@ -11,9 +10,9 @@ import { AutocompleteCegComponent } from './autocomplete-ceg/autocomplete-ceg.co
 import { autocompleteData } from './autocomplete-data';
 import { AutocompleteFilterCegComponent } from './autocomplete-filter-ceg/autocomplete-filter-ceg.component';
 import { AutocompleteLabelCegComponent } from './autocomplete-label-ceg/autocomplete-label-ceg.component';
-import { getComponent } from 'src/app/shared/doc-pages';
+import { getDocPage } from 'src/app/shared/doc-pages';
 
-const docPage = getComponent('autocomplete');
+const docPage = getDocPage('autocomplete');
 @Component({
   selector: 'app-autocomplete-doc',
   templateUrl: './autocomplete-doc.component.html',
@@ -34,10 +33,6 @@ export class AutocompleteDocComponent {
   figmaUrl = docPage.figmaUrl;
   description = docPage.description;
   title = docPage.title;
-
-  constructor(private titleService: Title) {
-    this.titleService.setTitle(this.title + ' | Elvia design system');
-  }
 
   componentData = autocompleteData;
 

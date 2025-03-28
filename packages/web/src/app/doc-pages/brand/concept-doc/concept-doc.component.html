@@ -1,0 +1,353 @@
+<app-component-header [figmaUrl]="docPage.figmaUrl">
+  <ng-container ngProjectAs="headerTitle">
+    {{ locale() === 'nb-NO' ? docPage.titleNo : docPage.title }}
+  </ng-container>
+  <div
+    ngProjectAs="headerDescription"
+    [innerHTML]="(locale() === 'nb-NO' ? docPage.descriptionNo : docPage.description) ?? '' | safeHtml"
+  ></div>
+</app-component-header>
+<div class="page-body">
+  <figure class="figure--center">
+    <img class="theme-image-background" src="assets/doc-pages/brand/concept/logo_animation.gif" alt="" />
+  </figure>
+  <app-component-section
+    [sectionTitle]="locale() === 'nb-NO' ? 'Til stede i hverdagen' : 'Present in everyday life'"
+  >
+    @if (locale() === 'nb-NO') {
+      <p>
+        Som merkevare er <b>Elvia PÅ og aktivert</b>. På samme måte som lyspæren tennes i nattbordslampen,
+        eller mobiltelefonen lades når den kobles til stikkontakten, er Elvia sømløst til stede.
+      </p>
+      <p>
+        Navnet Elvia kommer fra de norske ordene el og via. Navnet forklarer at vi forsyner over 2 millioner
+        nordmenn med strøm hver eneste dag - vi sørger for at du er på i en elektrisk hverdag.
+      </p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>
+        As a brand, Elvia is <b>ON and activated</b>. In the same way as the light bulb turns on in the
+        bedside table lamp, or the mobile phone is charged when connected to the socket, Elvia is seamlessly
+        present.
+      </p>
+      <p>
+        The name Elvia came from the Norwegian words el and via. The name explains that we supply over 2
+        million Norwegians with electricity every single day - we make sure that you are on in an electric
+        everyday life.
+      </p>
+    }
+  </app-component-section>
+  <app-component-section [sectionTitle]="locale() === 'nb-NO' ? 'Verdier' : 'Values'">
+    @if (locale() === 'nb-NO') {
+      <p>
+        Verdiene våre må gjenspeile oss som selskap i alt vi gjør og hvordan vi oppfattes på forretningsnivå
+        og overfor kundene. Våre verdier er <b>åpen</b>, <b>skikkelig</b> og <b>djerv</b> og står for:
+      </p>
+      <ol class="e-list e-list--icons e-my-32">
+        <li>
+          <span class="e-list__icon">
+            <e-icon name="open" />
+          </span>
+          <b>Åpen</b> - Vi er imøtekommende og lyttende. Vi spiller på lag, deler kunnskap på tvers og unner
+          hverandre suksess.
+        </li>
+        <li>
+          <span class="e-list__icon">
+            <e-icon name="decent" />
+          </span>
+          <b>Skikkelig</b> - Vi er ærlige og ansvarlige i vår forretningsdrift. Vi holder det vi lover, og er
+          grundige og profesjonelle i vårt arbeid.
+        </li>
+        <li>
+          <span class="e-list__icon">
+            <e-icon name="fearless" />
+          </span>
+          <b>Djerv</b> - Vi skal være modige, handlekraftige og tørre å prøve. Vi skal alltid jakte
+          forbedring.
+        </li>
+      </ol>
+      <p>
+        Disse verdiene må ligge til grunn for all kommunikasjon – både internt og eksternt. Verdiene må
+        gjenspeiles i vår bedriftskultur og være en del av vårt arbeid hver dag.
+      </p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>
+        Our values must reflect us as a company in everything we do and how we are perceived at the business
+        level and towards customers. Our values are <b>open</b>, <b>decent</b> and <b>bold</b> and stand for:
+      </p>
+      <ol class="e-list e-list--icons e-my-32">
+        <li>
+          <span class="e-list__icon">
+            <e-icon name="open" />
+          </span>
+          <b>Open</b> - We are welcoming and responsive, we play as a team, share knowledge across the board
+          and wish each other success.
+        </li>
+        <li>
+          <span class="e-list__icon">
+            <e-icon name="decent" />
+          </span>
+          <b>Decent</b> - We are honest and responsible in our business operations. We keep our promises and
+          are thorough and professional in our work.
+        </li>
+        <li>
+          <span class="e-list__icon">
+            <e-icon name="fearless" />
+          </span>
+          <b>Bold</b> - We must be brave, decisive and dare to try. We will always strive for improvement.
+        </li>
+      </ol>
+      <p>
+        These values must be a base for all communication - both internally and externally. The values ​​must
+        be reflected in our corporate culture and be part of our work every day.
+      </p>
+    }
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'Gi kunnskap og opplyse' : 'Provide knowledge and enlighten'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Gjennom innholdet vårt ønsker vi at kunden skal forstå hvem vi er, hva vi jobber med og hva vårt
+          samfunnsoppdrag er. Derfor er det viktig at innholdet vårt tar utgangspunkt i kundene/brukerne og
+          deres behov.
+        </p>
+        <p>
+          På denne måten vil vi kunne gi dem den relevante informasjonen de trenger, samtidig som vi gir dem
+          muligheten til å lære.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Through our content, we want the customer to understand who we are, what we work with, and what our
+          social mission is.
+        </p>
+        <p>
+          Therefore, it is important that our content is based on the customer/users and their needs. In this
+          way, we will be able to give them the relevant information they need, while giving them the
+          opportunity to learn.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'Hjelp til selvhjelp' : 'Help for self-help'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>Vår bransje er ofte forvirrende for forbrukeren, og vi ønsker å være en del av løsningen.</p>
+        <p>
+          Vi er eksperter på vårt fag og vår bransje, og vi vil dele denne kunnskapen med kunden gjennom godt
+          innhold. Innholdet skal hjelpe brukeren til å finne løsninger på eventuelle utfordringer eller
+          spørsmål de måtte ha, slik at de ikke trenger å kontakte oss før de virkelig trenger det.
+        </p>
+        <p>For å oppnå dette er det viktig at innholdet er det:</p>
+        <ul class="e-list">
+          <li>
+            <b>Klart og enkelt</b> - Tilpass språket etter hvem du snakker med (kunden, installatøren osv.) og
+            hvilken brukergruppe du ønsker å nå. Gjør deg forstått ved å være tydelig og konkret. Bruk enkle
+            ord og uttrykk og tilpass det til brukeren. En entreprenør eller ingeniør trenger for eksempel mer
+            fagterminologi enn Ola og Kari Nordmann.
+          </li>
+          <li>
+            <b>Nyttig og relevant</b> - Spør deg selv før du begynner å skrive: Hva er formålet med dette
+            innholdet? Hvem skal lese det? Hva trenger de å vite? Når trenger de det? Akkurat som du gjør i
+            samtaler ansikt til ansikt, tilpasser du tonen avhengig av hvem du skriver til og hva du skriver
+            om.
+          </li>
+          <li>
+            <b>Vennlig</b> - Skriv som et menneske og vær personlig i din fremtoning. Ikke vær redd for å
+            strekke deg litt ekstra hvis det gjør innholdet mer relaterbart. Alt innholdet vårt, fra hvordan
+            du åpner HAN-porten, hva jordfeil er til strømbruddvarsler, bør være varmt og menneskelig.
+          </li>
+        </ul>
+      }
+      @if (locale() === 'en-GB') {
+        <p>Our industry is often confusing for the consumer, and we want to be part of the solution.</p>
+        <p>
+          We are experts in our profession and our industry, and we will share this knowledge with the
+          customer through good content. The content should help the user to find solutions to any challenges
+          or questions they may have, so that they do not have to contact us until they really need it.
+        </p>
+        <p>To achieve this, it is important that the content is:</p>
+        <ul class="e-list">
+          <li>
+            <b>Clear and simple</b> - Adapt the language according to who you are talking to (the customer,
+            the installer, etc.) and which user group you want to reach. Make yourself understood by being
+            clear and concrete. Use simple words and phrases and customize it to the user. For example, a
+            contractor or engineer will need more subject terminology than Ola and Kari Nordmann.
+          </li>
+          <li>
+            <b>Useful and relevant</b> - Before you start writing, ask yourself: What is the purpose of this
+            content? Who should read it? What do they need to know? When do they need it? Just as you do in
+            face-to-face conversations, you adjust your tone depending on who you are writing to and what you
+            are writing about.
+          </li>
+          <li>
+            <b>Friendly</b> - Write like a human being and be personal in your appearance. Do not be afraid to
+            stretch a little extra if it makes the content more relatable. All our content, from how to open
+            the HAN-port, what earth faults are to power outages alerts, should be warm and human.
+          </li>
+        </ul>
+      }
+    </app-component-subsection>
+  </app-component-section>
+  <app-component-section [sectionTitle]="locale() === 'nb-NO' ? 'Designspråk' : 'Design language'">
+    @if (locale() === 'nb-NO') {
+      <p>
+        En stor del av Elvia-merkevaren oversettes visuelt gjennom avrundede former, kurver og sirkler. Vi
+        bruker grønne detaljer for å kommunisere at vi er aktive og på.
+      </p>
+    }
+    @if (locale() === 'en-GB') {
+      <p>
+        A big part of the Elvia brand is translated visually through rounded forms, curves and circles. We use
+        green details to communicate that we are active and on.
+      </p>
+    }
+
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'Energiring og lyssirkel' : 'Energy ring and light circle'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          Elvia har en energiring som kommuniserer at vi leverer energi og lys og at det har ringvirkninger
+          for samfunnet.
+        </p>
+        <p>
+          Energiringen definerer et område rundt logoen og/eller lyssirkelen og kan variere i størrelse.
+          Energiringen skal aldri være innenfor det beskyttede området i logoen (se eksempelet nedenfor, der
+          området er definert i grønt).
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          Elvia has an energy ring that communicates that we deliver energy and light and that it has ripple
+          effects for society.
+        </p>
+        <p>
+          The energy ring defines an area around the logo and/or light circle and can vary in size. The energy
+          ring should never be inside the protected area of the logo (see the example below, where the area is
+          defined in green).
+        </p>
+      }
+      <figure class="figure--center">
+        <img
+          class="theme-image-background"
+          src="assets/doc-pages/brand/concept/energy_ring.png"
+          alt="Example of protection area around the logo in an energy ring"
+        />
+        <figcaption class="e-text-img">
+          {{
+            locale() === 'nb-NO'
+              ? 'Eksempel på beskyttelsesområde rundt logoen i en energiring'
+              : 'Example of protection area around the logo in an energy ring'
+          }}
+        </figcaption>
+      </figure>
+      @if (locale() === 'nb-NO') {
+        <p>
+          Når energiringen plasseres på samme overflate som en "AV-tekst", skal linjetykkelsen på ringen og
+          omrisset av teksten være den samme. Bare én ring skal brukes. Se
+          <a class="e-link e-link--inline" routerLink="/brand/layout">eksempler på layout</a>.
+        </p>
+        <p>
+          Lyssirkelen rundt logoen (til høyre i bildet over) er fleksibel og kan forstørres. Når sirkelen
+          forstørres, skal midtpunktet alltid være sentrert i "A-punktet" i logoen. Lyssirkelen skal aldri
+          være mindre enn i eksemplene ovenfor.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          When the energy ring is placed on the same surface as an "OFF text", the line thickness of the ring
+          and the outline of the text should be the same. Only one ring should be used. See
+          <a class="e-link e-link--inline" routerLink="/brand/layout">layout examples</a>.
+        </p>
+        <p>
+          The light circle around the logo (seen to the right in the image above) is flexible and can be
+          enlarged. When the circle is enlarged, the center point should always be centered in the “A-dot” in
+          the logo. The circle of light should never be smaller than in the examples above.
+        </p>
+      }
+    </app-component-subsection>
+    <app-component-subsection [sectionTitle]="locale() === 'nb-NO' ? 'Elvia-kurven' : 'The Elvia curve'">
+      @if (locale() === 'nb-NO') {
+        <p>
+          Elvia-kurven stammer fra energiringen vår og brukes ofte til inndeling av innhold, for eksempel i
+          bunntekster eller skillelinjer.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          The Elvia curve stems from our energy ring and is commonly used for content division, such as in
+          footers or dividers.
+        </p>
+      }
+      @if (locale() === 'nb-NO') {
+        <app-quote>
+          <p class="e-m-0"><b>Formelen for diameter</b>: Bredden på skjermen * 6,85 (685vw)</p>
+        </app-quote>
+      }
+      @if (locale() === 'en-GB') {
+        <app-quote>
+          <p class="e-m-0"><b>Horizontal curve:</b> Circle diameter = Width of screen * 6,85 (685vw)</p>
+        </app-quote>
+        <app-quote class="e-mt-40">
+          <p class="e-m-0"><b>Vertical curve</b>: Circle diameter = Height of screen * 4 (400vh)</p>
+        </app-quote>
+      }
+      <figure class="figure--center e-mt-40">
+        <img
+          class="theme-image-background"
+          src="assets/doc-pages/brand/concept/curved_divider.svg"
+          alt="curved divider"
+        />
+      </figure>
+      <figure class="figure--center e-mt-40">
+        <img
+          class="theme-image-background"
+          src="assets/doc-pages/brand/concept/curved_footer.svg"
+          alt="curved footer"
+        />
+      </figure>
+    </app-component-subsection>
+    <app-component-subsection
+      [sectionTitle]="locale() === 'nb-NO' ? 'Grønt i detaljene' : 'Green in details'"
+    >
+      @if (locale() === 'nb-NO') {
+        <p>
+          I designspråket vårt bruker vi grønne detaljer for å skape kontrast til det ellers dominerende
+          svart-hvite designet. Dette kan for eksempel være en grønn detalj i ikoner eller illustrasjoner,
+          eller når den er integrert i tekst-stiler.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          In our design language, we use green details to contrast from the otherwise dominantly black and
+          white design. This could for example be a green detail in icons or illustrations, or when
+          incorporated in text styles.
+        </p>
+      }
+      <figure class="figure--center e-my-40">
+        <img
+          [src]="`assets/doc-pages/brand/concept/on_${theme()}.png`"
+          alt="vi gir deg muligheten til å være på"
+        />
+      </figure>
+      @if (locale() === 'nb-NO') {
+        <p>
+          Du kan lese om tekstmerkevarebygging i vår
+          <a class="e-link e-link--inline" routerLink="/brand/typography">typografidokumentasjon</a> og lære
+          mer om fargebruk i våre
+          <a class="e-link e-link--inline" routerLink="/brand/color">retningslinjer for farger</a>.
+        </p>
+      }
+      @if (locale() === 'en-GB') {
+        <p>
+          You can read about text branding in our
+          <a class="e-link e-link--inline" routerLink="/brand/typography">typography documentation</a> and
+          learn more about color usage in our
+          <a class="e-link e-link--inline" routerLink="/brand/color">color guidelines</a>.
+        </p>
+      }
+    </app-component-subsection>
+  </app-component-section>
+</div>

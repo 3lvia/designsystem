@@ -1,0 +1,117 @@
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-section sectionTitle="Date and time">
+    <app-component-subsection sectionTitle="Date">
+      <p>
+        In Elvia we follow the Norwegian standard with the order <b>dd.mm.yyyy</b> for date and
+        <b>hh.mm</b> for time.
+      </p>
+      <div class="e-alert e-alert--info e-mt-16" role="note">
+        <div class="e-alert__icon">
+          <e-icon name="informationCircle" class="e-icon--color-grey"> </e-icon>
+        </div>
+        <h3 class="e-alert__title">Tip</h3>
+        <p class="e-alert__text">
+          Use <b>dd.mm.yyyy</b> and <b>hh.mm</b> also when using en-US as the locale.
+        </p>
+      </div>
+      <ul class="e-list e-my-32">
+        <li>2 digits for month and day - 4 digits for year (dd.mm.yyyy)</li>
+        <li>Punctuation between day, month and year (01.01.2021)</li>
+        <li>In continuous text write out the whole month (January 1)</li>
+        <li>Always lowercase, period, and spaces on day and month (1. januar)</li>
+        <li>If the year is omitted, there must be a period after the day and month. (01.01.)</li>
+      </ul>
+      <app-do-dont-text>
+        <ng-container ngProjectAs="do">
+          <p>01.01.</p>
+          <p>01.01.2021</p>
+          <p>01.01.2021 kl. 12.00</p>
+          <p>1. januar</p>
+          <p>1. januar 2021</p>
+          <p>Mandag 1. januar</p>
+        </ng-container>
+        <ng-container ngProjectAs="dont">
+          <p>01/01/21</p>
+          <p>1.1.11</p>
+          <p>10.10.21</p>
+          <p>1. jan 2021</p>
+          <p>1. jan -21</p>
+          <p>1. Januar</p>
+          <p>12.12.2020 12.00</p>
+          <p>Mandag 1. jan</p>
+        </ng-container>
+      </app-do-dont-text>
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Time">
+      <p>Four-digit time with a full stop (hh.mm). Only include seconds if necessary.</p>
+      <app-do-dont-text>
+        <ng-container ngProjectAs="do">
+          <p>12.00</p>
+          <p>kl. 12.00</p>
+        </ng-container>
+        <ng-container ngProjectAs="dont">
+          <p>12:00</p>
+          <p>12:00:00</p>
+        </ng-container>
+      </app-do-dont-text>
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Period">
+      <p>
+        Use an en-dash (–) without spaces on either side to connect days, dates, and times.
+        <i>(Mac: option + hyphen)</i>
+      </p>
+      <app-do-dont-text>
+        <ng-container ngProjectAs="do">
+          <p>Monday–Friday</p>
+          <p>16–18</p>
+        </ng-container>
+        <ng-container ngProjectAs="dont">
+          <p>Monday-Friday</p>
+          <p>kl. 16 t.o.m kl. 18</p>
+        </ng-container>
+      </app-do-dont-text>
+    </app-component-subsection>
+  </app-component-section>
+  <app-component-section sectionTitle="Numbers">
+    <p>
+      Large numbers are arranged in groups of three and three digits. Three-digit numbers and less should be
+      written together. Use commas in decimal numbers.
+    </p>
+    <app-do-dont-text>
+      <ng-container ngProjectAs="do">
+        <p>2 500 000 kwh</p>
+        <p>2 500 hus</p>
+        <p>0,003</p>
+        <p>250</p>
+      </ng-container>
+      <ng-container ngProjectAs="dont">
+        <p>2500000 kwh</p>
+        <p>2500 hus</p>
+        <p>0.003</p>
+        <p>2 50</p>
+      </ng-container>
+    </app-do-dont-text>
+  </app-component-section>
+  <app-component-section sectionTitle="Phone numbers">
+    <p>Phone numbers should be divided into groups of two and two digits.</p>
+    <p>Telephone numbers in the 8xx series must be written in three groups of three + two + three digits.</p>
+    <p>Telephone numbers of three, four and five digits are written in one group.</p>
+    <app-do-dont-text>
+      <ng-container ngProjectAs="do">
+        <p>22 22 22 22</p>
+        <p>800 22 222</p>
+        <p>02024</p>
+      </ng-container>
+      <ng-container ngProjectAs="dont">
+        <p>222 22 222</p>
+        <p>80 02 22 22</p>
+        <p>02 0 24</p>
+      </ng-container>
+    </app-do-dont-text>
+  </app-component-section>
+</div>

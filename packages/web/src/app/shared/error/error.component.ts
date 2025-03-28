@@ -1,5 +1,4 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -9,8 +8,4 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class ErrorComponent {
-  constructor(private titleService: Title) {
-    this.titleService.setTitle('404: Not Found | Elvia design system');
-  }
-}
+export class ErrorComponent {}

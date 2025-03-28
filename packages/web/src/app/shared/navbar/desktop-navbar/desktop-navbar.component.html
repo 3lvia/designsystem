@@ -1,11 +1,15 @@
+@let locale = currentLocale | async;
+
 <ul class="scroll-container" [ngClass]="{ 'bottom-gradient': listOverflows }" #scrollContainer>
   @if (navbarList.length) {
-    @for (navbarItem of navbarList; track navbarItem.fullPath) {
+    @for (navbarItem of navbarList; track navbarItem.docUrl) {
       <li>
-        <a [routerLink]="navbarItem.fullPath" routerLinkActive="active" class="navbar-item__link">
-          <div class="navbar-item__link-text e-text-sm-strong">{{ navbarItem.title }}</div>
+        <a [routerLink]="navbarItem.absolutePath" routerLinkActive="active" class="navbar-item__link">
+          <div class="navbar-item__link-text e-text-sm-strong">
+            {{ locale === 'nb-NO' ? (navbarItem.titleNo ?? navbarItem.title) : navbarItem.title }}
+          </div>
         </a>
-        @if (navbarItem.fullPath === activeRoute) {
+        @if (navbarItem.absolutePath === activeRoute) {
           <app-sub-menu
             class="e-ml-24 overflow-hidden"
             #subMenu

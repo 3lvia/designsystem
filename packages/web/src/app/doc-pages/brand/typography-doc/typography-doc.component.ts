@@ -1,6 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 
 import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
@@ -15,9 +14,9 @@ import { TypographyOutlineExampleComponent } from './typography-outline-example/
 import { TypographyTitleExampleComponent } from './typography-title-example/typography-title-example.component';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { StaticCegComponent } from 'src/app/shared/component-documentation/ceg';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { getDocPage } from 'src/app/shared/doc-pages';
 
-const docPage = getDocPagesNotFromCMS('typography');
+const docPage = getDocPage('typography');
 @Component({
   selector: 'app-typography-doc',
   templateUrl: './typography-doc.component.html',
@@ -45,18 +44,12 @@ export class TypographyDocComponent {
   figmaUrl = docPage.figmaUrl;
   locale: Locale = 'en-GB';
 
-  constructor(
-    private titleService: Title,
-    private localizationService: LocalizationService,
-  ) {
+  constructor(private localizationService: LocalizationService) {
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
       .subscribe((locale) => {
         this.locale = locale;
-        this.titleService.setTitle(
-          ((this.locale === 'nb-NO' && this.titleNo) || this.title) + ' | Elvia design system',
-        );
       });
   }
 }

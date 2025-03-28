@@ -1,14 +1,8 @@
 <!--HEADER-->
 <app-component-header>
-  <ng-container ngProjectAs="headerTitle">The design system</ng-container>
-
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
   <ng-container ngProjectAs="headerDescription">
-    <div class="e-text-lead">
-      Elvia’s design system - or
-      <strong>Elvis</strong>
-      , for short - is a scalable system of visual language, components and design assets which enables us to
-      work together towards an ultimate brand experience.
-    </div>
+    {{ description }}
   </ng-container>
 </app-component-header>
 

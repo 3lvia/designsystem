@@ -1,4 +1,4 @@
-<app-property-search-input (search)="searchProps($event)" />
+<app-property-search-input (searched)="searchProps($event)" />
 <div class="e-table-container">
   @if (filteredComponentProps.length > 0) {
     <app-property-table-desktop [props]="filteredComponentProps" class="e-none-sm" />

@@ -1,0 +1,43 @@
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-section sectionTitle="Usage">
+    <p>
+      Groups can be seen as simple tables and are typically used when the data isn’t complex or large enough
+      to be displayed in a <a class="e-link e-link--inline" routerLink="components/table">table</a>. They work
+      best when the data listed is consistent and of a similar type. To best fit specific needs, groups can be
+      combined with other elements to create several layout variations.
+    </p>
+  </app-component-section>
+  <app-component-section sectionTitle="Layout">
+    Although group layout can vary in structure, the core concept stays the same, with each item separated by
+    a <a class="e-link e-link--inline" routerLink="components/divider">divider</a>. If the group consists of
+    links or an accordion that affects the whole row, make sure to have the touch target also cover the full
+    row. Exceptions here are made in more advanced lists with multiple elements per row.
+  </app-component-section>
+  <app-component-section sectionTitle="Examples">
+    <app-component-subsection sectionTitle="Text group">
+      <app-static-ceg fullWidth>
+        <app-group-text-example-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Link group">
+      <app-static-ceg fullWidth>
+        <app-group-link-example-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Accordion group">
+      <app-static-ceg fullWidth>
+        <app-group-accordion-example-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Action group">
+      <app-static-ceg fullWidth>
+        <app-group-action-example-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+  </app-component-section>
+</div>

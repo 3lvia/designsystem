@@ -1,0 +1,364 @@
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+<div class="page-body">
+  <app-component-section sectionTitle="About">
+    <p>
+      Accessibility is often linked to disabilities, but designing for permanent disabilities also benefits
+      those with temporary or situational limitations. For example, solutions for the deaf can help users in
+      noisy environments. Inclusive design improves experiences for everyone.
+    </p>
+    <figure class="figure--center">
+      <img
+        class="theme-image-background"
+        src="/assets/doc-pages/tools/accessibility/disabilities.png"
+        alt="Example of different disabilities like situational, temporary and permanent."
+        width="320"
+      />
+      <figcaption class="e-text-img">
+        Example of different disabilities like situational, temporary and permanent. Source:
+        <a
+          class="e-link e-link--inline e-link--new-tab"
+          href="https://inclusive.microsoft.design/"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="e-link__title">Microsoft Inclusive Design</span>
+          <span class="e-link__icon">
+            <e-icon name="newTabBold" />
+          </span>
+        </a>
+      </figcaption>
+    </figure>
+  </app-component-section>
+
+  <app-component-section sectionTitle="WCAG">
+    <p>Web Content Accessibility Guidelines (WCAG) ensure web accessibility.</p>
+    <ul class="e-list">
+      <li><b>WCAG 2.0 (2008)</b> became an ISO standard in 2012.</li>
+      <li>
+        <b>WCAG 2.1 (2018)</b> was adopted as a requirement in 2020 and legally applied in 2021. It builds on
+        <b>WCAG 2.0</b>, adding better support for mobile devices.
+      </li>
+      <li>Applies to intranets, extranets, and mobile apps.</li>
+    </ul>
+    <p>
+      Read the full guidelines on the
+      <a
+        class="e-link e-link--inline e-link--new-tab"
+        href="https://www.w3.org/WAI/standards-guidelines/wcag/"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="e-link__title">w3c official site</span>
+        <span class="e-link__icon">
+          <e-icon name="newTabBold" />
+        </span>
+      </a>
+      or see a summary of WCAG 2.1 on the
+      <a
+        class="e-link e-link--inline e-link--new-tab"
+        href="https://www.uutilsynet.no/"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="e-link__title">Norwegian Digitization Directorate</span>
+        <span class="e-link__icon">
+          <e-icon name="newTabBold" />
+        </span>
+      </a>
+      .
+    </p>
+  </app-component-section>
+
+  <app-component-section sectionTitle="For developers">
+    <p>Ensure your code is accessible with these best practices:</p>
+    <ul class="e-list">
+      <li>
+        <a
+          class="e-link e-link--inline e-link--new-tab"
+          href="https://www.w3.org/WAI/standards-guidelines/wcag/"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="e-link__title">WCAG 2 Overview</span>
+          <span class="e-link__icon">
+            <e-icon name="newTabBold" />
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          class="e-link e-link--inline e-link--new-tab"
+          href="https://www.uutilsynet.no/"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="e-link__title">UU tilsynet</span>
+          <span class="e-link__icon">
+            <e-icon name="newTabBold" />
+          </span>
+        </a>
+      </li>
+    </ul>
+
+    <app-component-subsection sectionTitle="ARIA">
+      <ul class="e-list">
+        <li>
+          <a
+            class="e-link e-link--inline e-link--new-tab"
+            href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="e-link__title">Read about all the different ARIA attributes</span>
+            <span class="e-link__icon">
+              <e-icon name="newTabBold" />
+            </span>
+          </a>
+        </li>
+        <li>
+          <a
+            class="e-link e-link--inline e-link--new-tab"
+            href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="e-link__title">Read about all the different ARIA roles </span>
+            <span class="e-link__icon">
+              <e-icon name="newTabBold" />
+            </span>
+          </a>
+        </li>
+      </ul>
+      <p>
+        Accessible Rich Internet Applications (ARIA) are roles and attributes that should be added to web
+        content to make the content more accessible. When creating code it is important to always check if the
+        content should have any aria attributes or roles depending on the purpose of the content.
+      </p>
+      <ul class="e-list">
+        <li><b>Alternative text</b>: Use <code>alt=""</code> for images; leave empty for decorative ones.</li>
+        <li><b>ARIA labels</b>: Provide text alternatives for non-visible elements.</li>
+        <li><b>ARIA hidden</b>: Hide elements from assistive tools when necessary.</li>
+      </ul>
+    </app-component-subsection>
+
+    <app-component-subsection sectionTitle="Good semantics">
+      <a
+        class="e-link e-link--inline e-link--new-tab"
+        href="https://developer.mozilla.org/en-US/docs/Web/HTML"
+        target="_blank"
+        rel="noopener"
+      >
+        <span class="e-link__title">Read about all the different ARIA roles </span>
+        <span class="e-link__icon">
+          <e-icon name="newTabBold" />
+        </span>
+      </a>
+      <p>
+        The markup of HTML using tags is one of the most important ways to ensure your content is accessible.
+        Use the correct HTML tags like <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>,
+        <code>&lt;p&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code>,
+        <code>&lt;article&gt;</code> etc. for your elements as much as possible throughout your code. It is
+        also important to note the order of your elements, <code>&lt;h1&gt;</code> before
+        <code>&lt;h2&gt;</code> and so on.
+      </p>
+    </app-component-subsection>
+
+    <app-component-subsection sectionTitle="Keyboard navigation">
+      <p>
+        Here are some tips to achieve the desired keyboard navigation in the code. Read more about keyboard
+        navigation in general further down on this page.
+      </p>
+
+      <ul class="e-list">
+        <li>Group elements together to make navigation more efficient and easy.</li>
+        <li>
+          Using radio buttons or any other HTML element as base elements can sometimes be handy to get the
+          wanted logic inherently.
+        </li>
+        <li>
+          Tabindex can be used to make an element focusable, by setting the <code>tabindex="0"</code> or a
+          positive number. To make an already focusable element non-focusable, apply
+          <code>tabindex="-1"</code>.
+        </li>
+      </ul>
+    </app-component-subsection>
+
+    <app-component-subsection sectionTitle="Available classes">
+      <ul class="e-list">
+        <li>
+          All form elements can use the <code>.e-form-field</code> classes for label, error messages and
+          alignment of form elements (see
+          <a class="e-link e-link--inline" routerLink="/components/input">
+            <span class="e-link__title">Text Field</span> </a
+          >).
+        </li>
+        <li>
+          The class <code>.e-sr-only</code> can be used to remove the element visually while still available
+          for screen readers.
+        </li>
+        <li>
+          Use background classes <code>.e-color-background-*</code> to automatically get the correct text
+          contrast.
+        </li>
+      </ul>
+    </app-component-subsection>
+
+    <app-component-subsection sectionTitle="Testing">
+      <p>
+        Test with screen readers and tools like <b>Axe</b> and <b>SonarCloud</b>, but prioritize real-user
+        testing.
+      </p>
+    </app-component-subsection>
+  </app-component-section>
+
+  <app-component-section sectionTitle="For content editors">
+    <p>Write accessible digital content:</p>
+    <ul class="e-list">
+      <li>Use <b>concise, meaningful</b> titles.</li>
+      <li>Add <b>alt text</b> for images.</li>
+      <li>Provide <b>subtitles</b> for videos.</li>
+      <li>Use <b>descriptive link text</b> instead of “click here.”</li>
+    </ul>
+    <app-do-dont-text>
+      <a class="e-link e-link--inline" href="#" ngProjectAs="do"
+        ><span class="e-link__title">Les våre beste tips for elsikkerhet</span></a
+      >
+      <a class="e-link e-link--inline" href="#" ngProjectAs="dont"
+        ><span class="e-link__title">Les mer</span></a
+      >
+    </app-do-dont-text>
+    <app-do-dont-text>
+      <button class="e-btn" ngProjectAs="do"><span class="e-btn__title">Send</span></button>
+      <button class="e-btn" ngProjectAs="dont"><span class="e-btn__title">Click here</span></button>
+    </app-do-dont-text>
+    <p>
+      See our <a class="e-link e-link--inline" routerLink="/brand/tone-of-voice">tone of voice</a>-page for
+      more guides on how to write in the Elvia style and tone.
+    </p>
+  </app-component-section>
+
+  <app-component-section sectionTitle="Keyboard navigation">
+    <p>
+      Keyboard navigation should take care of people who can’t access the website with a mouse. This can be
+      people who are blind, partially sighted, or impaired motor skills in the arms and hands. A user should
+      be able to use the tab key to navigate and activate every interactive element on a page.
+    </p>
+    <figure class="figure--center">
+      <img
+        [src]="
+          (theme | async) === 'light'
+            ? 'assets/doc-pages/tools/accessibility/keyboard_navigation_light.svg'
+            : 'assets/doc-pages/tools/accessibility/keyboard_navigation_dark.png'
+        "
+        alt=""
+      />
+    </figure>
+    <app-component-subsection sectionTitle="Common keys">
+      <ul class="e-list">
+        <li><b>Tab</b> – navigate forward to the next interactive element</li>
+        <li><b>Shift+Tab</b> – navigate backwards to the previous interactive element</li>
+        <li><b>Space</b> – activate the interactive element. Check or uncheck a checkbox and toggle</li>
+        <li><b>Enter</b> – activate the interactive element</li>
+        <li>
+          <b>Arrow keys</b> - move within an element. <b>Up/Down</b>: move between radio buttons and options
+          in a dropdown. <b>Right/Left</b>: adjust slider, move between dates in a date picker and options in
+          radio filter, segmented control and tab
+        </li>
+        <li><b>Esc</b> – close a modal or dropdown and return focus to the element that activated it</li>
+      </ul>
+    </app-component-subsection>
+
+    <app-component-subsection sectionTitle="Focus indicator">
+      <p>
+        It should be easy to see the focused element on the page. Our focus indicator is a blue outline around
+        the interactive element with 2px padding. This blue color is not part of Elvia's identity color
+        palette and should only be used for keyboard navigation. The reason for this is to let the focus color
+        stand out even more from our content and profile.
+      </p>
+      <div class="e-flex e-gap-24">
+        <div class="e-flex e-flex-direction-column e-align-items-start e-gap-16">
+          <button class="e-btn e-btn--sm e-btn---focus"><span class="e-btn__title">Lagre</span></button>
+          <a class="e-link e-link--sm e-link---focus" href="#">Glemt passord?</a>
+          <label class="e-checkbox e-checkbox--small e-checkbox---focus">
+            <input type="checkbox" name="example" value="example" />
+            <span class="e-checkbox__mark"> </span>
+            <span class="e-checkbox__label">Option</span>
+          </label>
+        </div>
+        <img
+          src="assets/doc-pages/tools/accessibility/keyboard_focus_indicator.svg"
+          alt="three circles demonstrating the contrast color"
+        />
+      </div>
+    </app-component-subsection>
+
+    <app-component-subsection sectionTitle="Tab order">
+      <p>
+        Follow the <b>visual order</b> (left to right, top to bottom). Related controls should use a single
+        tab stop with arrow key navigation.
+      </p>
+    </app-component-subsection>
+
+    <app-component-subsection sectionTitle="Things to keep in mind">
+      <ul class="e-list">
+        <li>
+          Non-clickable elements should not be possible to reach, or elements that are temporarily hidden and
+          not visible for somebody using a mouse
+        </li>
+        <li>
+          If you get a tooltip on hover with the mouse, you should get the same when you focus the element
+        </li>
+        <li>Watch out for keyboard traps, the user should always be able to leave a dialog or go back</li>
+        <li>If an interaction reveals hidden content, ensure the focus is moved to the revealed content</li>
+      </ul>
+    </app-component-subsection>
+  </app-component-section>
+
+  <app-component-section sectionTitle="Useful links">
+    <p>Explore more accessibility resources here:</p>
+    <ul class="e-list">
+      <li>
+        <a
+          class="e-link e-link--inline e-link--new-tab"
+          href="https://www.w3.org/WAI/standards-guidelines/wcag/"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="e-link__title">WCAG 2 Overview</span>
+          <span class="e-link__icon">
+            <e-icon name="newTabBold" />
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          class="e-link e-link--inline e-link--new-tab"
+          href="https://webaim.org/resources/contrastchecker/"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="e-link__title">WebAIM contrast checker</span>
+          <span class="e-link__icon">
+            <e-icon name="newTabBold" />
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          class="e-link e-link--inline e-link--new-tab"
+          href="https://www.uutilsynet.no/"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="e-link__title">The Authority for Universal Design of ICT</span>
+          <span class="e-link__icon">
+            <e-icon name="newTabBold" />
+          </span>
+        </a>
+      </li>
+    </ul>
+  </app-component-section>
+</div>

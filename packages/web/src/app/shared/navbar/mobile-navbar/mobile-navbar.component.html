@@ -1,10 +1,14 @@
+@let locale = currentLocale | async;
+
 <div class="list-container">
-  @for (link of navbarList; track link) {
+  @for (navbarItem of navbarList; track navbarItem.docUrl) {
     <a
       class="e-link e-link--action e-flex e-justify-content-between e-py-24 bottom-border"
-      [routerLink]="link.fullPath"
+      [routerLink]="navbarItem.absolutePath"
     >
-      <span class="e-link__title">{{ link.title }}</span>
+      <span class="e-link__title">{{
+        locale === 'nb-NO' ? (navbarItem.titleNo ?? navbarItem.title) : navbarItem.title
+      }}</span>
       <span class="e-link__icon">
         <e-icon name="arrowRightCircleColor" />
         <e-icon name="arrowRightCircleFilledColor" />

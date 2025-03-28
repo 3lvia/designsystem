@@ -1,6 +1,5 @@
 import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import type { DropdownItem } from '@elvia/elvis-dropdown';
 import { openElviaToast } from '@elvia/elvis-toast';
 
@@ -347,8 +346,4 @@ export class v2PlaygroundComponent {
   sliderOnValueChange = (event: CustomEvent): void => {
     console.log('Slider value changed: ', event.detail.value);
   };
-
-  constructor(private titleService: Title) {
-    this.titleService.setTitle('DEV-playground | Elvia design system');
-  }
 }

@@ -1,0 +1,59 @@
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body">
+  <figure class="figure--center e-mt-32">
+    <img [src]="`assets/doc-pages/patterns/comments/comment_${theme()}.png`" alt="" />
+  </figure>
+  <app-component-section sectionTitle="Usage">
+    <p>
+      We use comments for leaving notes, or to help users communicate with each other. Users can see others’
+      comments and write, edit and delete their own. These actions are visible to users when hovering over
+      their comments.
+    </p>
+  </app-component-section>
+  <app-component-section sectionTitle="Layout">
+    <app-component-subsection sectionTitle="Input field">
+      <p>
+        The comment input field should be easy to find and always visible, and it should therefore be sticky.
+        The comment field is flexible in width and height but has a minimum width of 325px and a maximum of
+        600px. You can use both normal and compact size of the input field.
+      </p>
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Empty state">
+      When there’s no comments in a comment area, leave an element to show where the comments will appear. You
+      can add an illustration together with text if suitable. See more in the
+      <a class="e-link e-link--inline" routerLink="/patterns/empty-states">empty states</a> pattern.
+    </app-component-subsection>
+  </app-component-section>
+  <app-component-section sectionTitle="Examples">
+    <app-component-subsection sectionTitle="No comments">
+      <figure class="e-my-16">
+        @if (theme() === 'light') {
+          <img [src]="`assets/doc-pages/patterns/comments/no_comment_light.svg`" alt="" />
+        } @else {
+          <img [src]="`assets/doc-pages/patterns/comments/no_comment_dark.png`" alt="" />
+        }
+      </figure>
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Actions">
+      <app-component-subsubsection sectionTitle="Hover">
+        <figure class="e-my-16">
+          <img [src]="`assets/doc-pages/patterns/comments/hover_${theme()}.png`" alt="" />
+        </figure>
+      </app-component-subsubsection>
+      <app-component-subsubsection sectionTitle="Edit">
+        <figure class="e-my-16">
+          <img [src]="`assets/doc-pages/patterns/comments/edit_${theme()}.png`" alt="" />
+        </figure>
+      </app-component-subsubsection>
+      <app-component-subsubsection sectionTitle="Delete">
+        <figure class="e-my-16">
+          <img [src]="`assets/doc-pages/patterns/comments/delete_${theme()}.png`" alt="" />
+        </figure>
+      </app-component-subsubsection>
+    </app-component-subsection>
+  </app-component-section>
+</div>

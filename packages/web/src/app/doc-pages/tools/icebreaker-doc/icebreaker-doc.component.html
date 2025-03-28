@@ -1,0 +1,95 @@
+@let _theme = theme | async;
+
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-section sectionTitle="A picture of your window">
+    <figure class="figure--center">
+      <img [src]="`assets/doc-pages/tools/icebreakers/window_${_theme}.png`" alt="" />
+    </figure>
+    <ol class="e-list e-list--numbers">
+      <li>Ask each participant to take a picture of the view out of their closest window.</li>
+      <li>Take some time for everyone to upload their pictures to a shared space (for example Miro).</li>
+      <li>When everyone’s finished uploading, take turns explaining your surroundings.</li>
+    </ol>
+  </app-component-section>
+  <app-component-section sectionTitle="If you were a...">
+    <figure class="figure--center">
+      <img [src]="`assets/doc-pages/tools/icebreakers/if_${_theme}.png`" alt="" />
+    </figure>
+    <ol class="e-list e-list--numbers">
+      <li>Ask the group a question in the format of “If you were a fruit, what would you be?”.</li>
+      <li>Let participants take turns to come up with their answers and motivations.</li>
+      <li>Discuss the results together.</li>
+    </ol>
+
+    <div class="e-alert e-alert--info" role="note">
+      <div class="e-alert__icon">
+        <e-icon name="informationCircle" class="e-icon--color-grey"> </e-icon>
+      </div>
+      <p class="e-alert__text">
+        Be creative and find new uses of this method by switching out fruit to create new questions.For
+        example: “If you were an emoji ...”, “If you were a super hero ...”, “If you were a design system
+        component ...”, etc.
+      </p>
+    </div>
+  </app-component-section>
+  <app-component-section sectionTitle="Squiggle birds">
+    <figure class="figure--center">
+      <img [src]="`assets/doc-pages/tools/icebreakers/squiggle_birds_${_theme}.png`" alt="" />
+    </figure>
+    <ol class="e-list e-list--numbers">
+      <li>
+        Ask participants to fill a paper with squiggles. They should be roundish but can otherwise vary widely
+        in both shape and size.
+      </li>
+      <li>
+        Now, everyone is challenged to transform their squiggles into birds. This could be done by adding
+        triangles for beaks, dots for eyes, and simple lines for legs. Encourage creativity!
+      </li>
+      <li>Take turns to let everyone in the group share their masterpieces.</li>
+    </ol>
+    <div class="e-alert e-alert--info" role="note">
+      <div class="e-alert__icon">
+        <e-icon name="informationCircle" class="e-icon--color-grey"> </e-icon>
+      </div>
+      <p class="e-alert__text">
+        You don’t have to be a good drawer for this exercise, and it’s especially helpful when warming up for
+        a sketching workshop. If you want more variation, you can try changing the theme of animals to draw,
+        or even decide to draw a squiggle zoo of various animals.
+      </p>
+    </div>
+  </app-component-section>
+  <app-component-section sectionTitle="Two truths and a lie">
+    <figure class="figure--center">
+      <img [src]="`assets/doc-pages/tools/icebreakers/two_truths_and_a_lie_${_theme}.png`" alt="" />
+    </figure>
+    <ol class="e-list e-list--numbers">
+      <li>Ask each participant to think of two truths and one lie about themselves.</li>
+      <li>Let each participant take turns to present their statements while the rest take guesses.</li>
+      <li>After revealing the right answers, move on to the next participant until everyone’s done</li>
+    </ol>
+  </app-component-section>
+  <app-component-section sectionTitle="Weather report">
+    <figure class="figure--center">
+      <img [src]="`assets/doc-pages/tools/icebreakers/weather_${_theme}.png`" alt="" />
+    </figure>
+    <ol class="e-list e-list--numbers">
+      <li>Ask participants to think of their day or week as a weather report.</li>
+      <li>Let participants take turns to hold their weather reports to the group.</li>
+      <li>Discuss the results together when everyone’s finished.</li>
+    </ol>
+    <div class="e-alert e-alert--info" role="note">
+      <div class="e-alert__icon">
+        <e-icon name="informationCircle" class="e-icon--color-grey"> </e-icon>
+      </div>
+      <p class="e-alert__text">
+        If you have access to a whiteboard, prepare the exercise by drawing some weather scenarios (sunshine,
+        cloud, storm, rain, etc.) as examples for the participants.
+      </p>
+    </div>
+  </app-component-section>
+</div>

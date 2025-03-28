@@ -1,5 +1,14 @@
 import { DocPageName, Pages } from './shared.enum';
-import { DocPage, HomeMenuCard } from './shared.interface';
+import { DocPage, DocPageType, HomeMenuCard } from './shared.interface';
+
+// Tabs in the main header menu and mobile menu
+export const mainMenuItems = [
+  { title: 'About', path: '/about' },
+  { title: 'Brand', path: '/brand' },
+  { title: 'Components', path: '/components' },
+  { title: 'Patterns', path: '/patterns' },
+  { title: 'Tools', path: '/tools' },
+] as const;
 
 // Used for shortcuts at home page
 export const homeMenu: HomeMenuCard[] = [
@@ -10,8 +19,6 @@ export const homeMenu: HomeMenuCard[] = [
     absolutePath: '/components/',
     imageUrl: 'assets/doc-page-icons/shortcut-icons/Component.svg',
     imageUrlOn: 'assets/doc-page-icons/shortcut-icons/ComponentOn.svg',
-    imageUrlDark: 'assets/doc-page-icons/shortcut-icons/ComponentDark.svg',
-    imageUrlOnDark: 'assets/doc-page-icons/shortcut-icons/ComponentOnDark.svg',
   },
   {
     title: 'The Concept',
@@ -20,8 +27,6 @@ export const homeMenu: HomeMenuCard[] = [
     absolutePath: '/brand/the-concept/',
     imageUrl: 'assets/doc-page-icons/shortcut-icons/Concept.svg',
     imageUrlOn: 'assets/doc-page-icons/shortcut-icons/ConceptOn.svg',
-    imageUrlDark: 'assets/doc-page-icons/shortcut-icons/ConceptDark.svg',
-    imageUrlOnDark: 'assets/doc-page-icons/shortcut-icons/ConceptOnDark.svg',
   },
   {
     title: 'Accessibility',
@@ -30,17 +35,18 @@ export const homeMenu: HomeMenuCard[] = [
     absolutePath: '/tools/accessibility/',
     imageUrl: 'assets/doc-page-icons/shortcut-icons/Accessibility.svg',
     imageUrlOn: 'assets/doc-page-icons/shortcut-icons/AccessibilityOn.svg',
-    imageUrlDark: 'assets/doc-page-icons/shortcut-icons/AccessibilityDark.svg',
-    imageUrlOnDark: 'assets/doc-page-icons/shortcut-icons/AccessibilityOnDark.svg',
   },
 ];
 
-export const componentsDocPages: DocPage[] = [
+const docPagesComponents: DocPage[] = [
   {
     title: 'CSS Library',
     description: `The CSS library <code>@elvia/elvis</code> consists of the most basic components like links, tags and inputs as well as utilities like colors, typography, icons and logos.`,
     docUrl: Pages.CssLibrary,
     absolutePath: '/components/' + Pages.CssLibrary,
+    type: 'Component',
+    isMainPage: true,
+    imageUrl: 'assets/doc-page-icons/components/css_library.svg',
   },
   {
     title: 'Accordion',
@@ -52,6 +58,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['expandable', 'disclosure', 'pocket', 'collapse'],
     relatedPages: ['button', 'groups'],
+    imageUrl: 'assets/doc-page-icons/components/accordion.svg',
   },
   {
     title: 'Alert',
@@ -63,6 +70,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['notifications', 'feedback', 'banner', 'flag', 'snackbar', 'message', 'confirmation'],
     relatedPages: ['toast', 'badge', 'cookies', 'validations'],
+    imageUrl: 'assets/doc-page-icons/components/alert.svg',
   },
   {
     title: 'App Bridge',
@@ -73,6 +81,7 @@ export const componentsDocPages: DocPage[] = [
     figmaUrl: 'https://www.figma.com/design/g0Dva16HcsfI0JUmSJY2lE/App-bridge?node-id=1-539&m=dev',
     type: 'Component',
     searchTerms: ['internal', 'application', 'link', 'open'],
+    imageUrl: 'assets/doc-page-icons/components/app_bridge.svg',
   },
   {
     title: 'Autocomplete',
@@ -84,6 +93,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['predictive', 'word completion', 'combobox', 'suggest', 'filter'],
     relatedPages: ['input', 'dropdown', 'search', 'filters'],
+    imageUrl: 'assets/doc-page-icons/components/autocomplete.svg',
   },
   {
     title: 'Badge',
@@ -95,6 +105,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['notification', 'mark', 'counter'],
     relatedPages: ['tag', 'chip', 'alert'],
+    imageUrl: 'assets/doc-page-icons/components/badge.svg',
   },
   {
     title: 'Box',
@@ -106,6 +117,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['tile'],
     relatedPages: ['card', 'popover', 'layout'],
+    imageUrl: 'assets/doc-page-icons/components/box.svg',
   },
   {
     title: 'Button',
@@ -118,6 +130,7 @@ export const componentsDocPages: DocPage[] = [
     searchTerms: ['cta', 'call to action', 'click'],
     elvisClassName: 'e-btn',
     relatedPages: ['context-menu', 'toggle', 'link', 'icon'],
+    imageUrl: 'assets/doc-page-icons/components/button.svg',
   },
   {
     title: 'Breadcrumb',
@@ -129,6 +142,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['navigation', 'path'],
     relatedPages: ['link', 'header'],
+    imageUrl: 'assets/doc-page-icons/components/breadcrumb.svg',
   },
   {
     title: 'Card',
@@ -140,6 +154,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['collection', 'tile'],
     relatedPages: ['link', 'box', 'groups'],
+    imageUrl: 'assets/doc-page-icons/components/card.svg',
   },
   {
     title: 'Carousel',
@@ -151,6 +166,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['horizontal', 'scroll', 'viewer', 'gallery'],
     relatedPages: ['button', 'stepper', 'thumbnail', 'images'],
+    imageUrl: 'assets/doc-page-icons/components/carousel.svg',
   },
   {
     title: 'Chip',
@@ -162,6 +178,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['legend', 'pills', 'filter'],
     relatedPages: ['badge', 'radio-filter', 'tag', 'filters'],
+    imageUrl: 'assets/doc-page-icons/components/chip.svg',
   },
   {
     title: 'Checkbox',
@@ -174,6 +191,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['tick', 'select', 'option', 'selection', 'multiselect'],
     relatedPages: ['radiobutton', 'toggle', 'filters', 'forms'],
+    imageUrl: 'assets/doc-page-icons/components/checkbox.svg',
   },
   {
     title: 'Content Loader',
@@ -185,6 +203,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['placeholder', 'skeleton', 'loading', 'shimmer', 'loader'],
     relatedPages: ['progressbar', 'illustration', 'empty-states'],
+    imageUrl: 'assets/doc-page-icons/components/content_loader.svg',
   },
   {
     title: 'Context Menu',
@@ -197,6 +216,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['menu', 'popup', 'more', 'actions'],
     relatedPages: ['button', 'popover', 'icon'],
+    imageUrl: 'assets/doc-page-icons/components/context_menu.svg',
   },
   {
     title: 'Datepicker',
@@ -208,6 +228,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['calendar', 'date', 'time', 'input'],
     relatedPages: ['datepicker-range', 'timepicker', 'forms', 'filters'],
+    imageUrl: 'assets/doc-page-icons/components/datepicker.svg',
   },
   {
     title: 'Datepicker Range',
@@ -219,6 +240,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['calendar', 'date', 'time', 'input'],
     relatedPages: ['timepicker', 'datepicker', 'forms', 'filters'],
+    imageUrl: 'assets/doc-page-icons/components/datepicker_range.svg',
   },
   {
     title: 'Drag & Drop',
@@ -230,6 +252,7 @@ export const componentsDocPages: DocPage[] = [
     searchTerms: ['file', 'upload'],
     elvisClassName: 'e-dragdrop',
     relatedPages: ['file-upload', 'forms', 'groups'],
+    imageUrl: 'assets/doc-page-icons/components/drag_and_drop.svg',
   },
   {
     title: 'Divider',
@@ -240,6 +263,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['line', 'separator', 'section', 'hr', 'br'],
     relatedPages: ['layout', 'groups'],
+    imageUrl: 'assets/doc-page-icons/components/divider.svg',
   },
   {
     title: 'Dropdown',
@@ -251,6 +275,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['select', 'option', 'multiselect', 'pull-down', 'combobox'],
     relatedPages: ['autocomplete', 'radiobutton', 'forms'],
+    imageUrl: 'assets/doc-page-icons/components/dropdown.svg',
   },
   {
     title: 'File Upload',
@@ -262,6 +287,7 @@ export const componentsDocPages: DocPage[] = [
     searchTerms: ['file', 'upload'],
     elvisClassName: 'e-fileupload',
     relatedPages: ['drag-and-drop', 'thumbnail', 'forms', 'groups'],
+    imageUrl: 'assets/doc-page-icons/components/file_upload.svg',
   },
   {
     title: 'Header',
@@ -273,6 +299,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['navigation', 'menu', 'top', 'bar', 'logo', 'title', 'toolbar', 'sidebar', 'topbar'],
     relatedPages: ['breadcrumb', 'link', 'onboarding'],
+    imageUrl: 'assets/doc-page-icons/components/header.svg',
   },
   {
     title: 'Text Field',
@@ -283,6 +310,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['input', 'text', 'number', 'email', 'password', 'textarea'],
     relatedPages: ['dropdown', 'autocomplete', 'comments', 'forms'],
+    imageUrl: 'assets/doc-page-icons/components/input.svg',
   },
   {
     title: 'Tag',
@@ -294,6 +322,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['label', 'lozenge', 'status', 'ribbon', 'category', 'categorize', 'organize'],
     relatedPages: ['chip', 'badge', 'graph'],
+    imageUrl: 'assets/doc-page-icons/components/tag.svg',
   },
   {
     title: 'Link',
@@ -305,6 +334,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['anchor', 'url', 'href', 'navigate', 'navigation', 'click'],
     relatedPages: ['breadcrumb', 'card', 'header', 'groups'],
+    imageUrl: 'assets/doc-page-icons/components/link.svg',
   },
   {
     title: 'List',
@@ -316,6 +346,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['bullet', 'numbered', 'unordered', 'ordered', 'ul', 'ol', 'li'],
     relatedPages: ['icon', 'groups'],
+    imageUrl: 'assets/doc-page-icons/components/list.svg',
   },
   {
     title: 'Modal',
@@ -327,6 +358,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['dialog', 'popup', 'confirm', 'prompt', 'window', 'layer', 'overlay'],
     relatedPages: ['popover', 'context-menu', 'tooltip'],
+    imageUrl: 'assets/doc-page-icons/components/modal.svg',
   },
   {
     title: 'Outline',
@@ -337,6 +369,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['keyboard', 'focus', 'accessibility', 'a11y', 'outline', 'focus-visible'],
     relatedPages: ['accessibility'],
+    imageUrl: 'assets/doc-page-icons/components/outline.svg',
   },
   {
     title: 'Pagination',
@@ -348,6 +381,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['page', 'navigation', 'next', 'previous'],
     relatedPages: ['table', 'stepper', 'accordion'],
+    imageUrl: 'assets/doc-page-icons/components/pagination.svg',
   },
   {
     title: 'Popover',
@@ -369,6 +403,7 @@ export const componentsDocPages: DocPage[] = [
       'callout',
     ],
     relatedPages: ['modal', 'context-menu', 'tooltip'],
+    imageUrl: 'assets/doc-page-icons/components/popover.svg',
   },
   {
     title: 'Progressbar',
@@ -390,6 +425,7 @@ export const componentsDocPages: DocPage[] = [
       'meter',
     ],
     relatedPages: ['content-loader', 'file-upload', 'empty-states'],
+    imageUrl: 'assets/doc-page-icons/components/progressbar.svg',
   },
   {
     title: 'Radio Button',
@@ -403,6 +439,7 @@ export const componentsDocPages: DocPage[] = [
     searchTerms: ['choice', 'option', 'select', 'toggle'],
     elvisClassName: 'e-radio',
     relatedPages: ['checkbox', 'dropdown', 'forms', 'filters'],
+    imageUrl: 'assets/doc-page-icons/components/radio_button.svg',
   },
   {
     title: 'Radio Filter',
@@ -415,6 +452,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['choice', 'option', 'select', 'filter'],
     relatedPages: ['segmented-control', 'chip', 'forms', 'filters'],
+    imageUrl: 'assets/doc-page-icons/components/radio_filter.svg',
   },
   {
     title: 'Search',
@@ -427,6 +465,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['find', 'filter'],
     relatedPages: ['autocomplete', 'forms', 'filters', 'empty-states'],
+    imageUrl: 'assets/doc-page-icons/components/search.svg',
   },
   {
     title: 'Segmented Control',
@@ -438,6 +477,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['content switch', 'choice', 'option', 'select', 'filter'],
     relatedPages: ['radio-filter', 'tabs', 'radiobutton', 'filters'],
+    imageUrl: 'assets/doc-page-icons/components/segmented_control.svg',
   },
   {
     title: 'Slider',
@@ -449,6 +489,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['range', 'input', 'adjust', 'value', 'number', 'handle', 'track'],
     relatedPages: ['input', 'radiobutton', 'forms'],
+    imageUrl: 'assets/doc-page-icons/components/slider.svg',
   },
   {
     title: 'Spotlight',
@@ -460,6 +501,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['highlight', 'focus'],
     relatedPages: ['box', 'onboarding', 'illustration'],
+    imageUrl: 'assets/doc-page-icons/components/spotlight.svg',
   },
   {
     title: 'Stepper',
@@ -471,6 +513,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['steps', 'progress', 'process'],
     relatedPages: ['carousel', 'pagination', 'tabs', 'forms'],
+    imageUrl: 'assets/doc-page-icons/components/stepper.svg',
   },
   {
     title: 'Tabs',
@@ -482,6 +525,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['pivot', 'choice', 'option', 'view', 'filter'],
     relatedPages: ['segmented-control', 'radio-filter', 'stepper'],
+    imageUrl: 'assets/doc-page-icons/components/tabs.svg',
   },
   {
     title: 'Table',
@@ -493,6 +537,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['data', 'row', 'column', 'th', 'td', 'tr', 'tbody', 'thead', 'tfoot'],
     relatedPages: ['pagination', 'chip', 'filters', 'graph'],
+    imageUrl: 'assets/doc-page-icons/components/table.svg',
   },
   {
     title: 'Toggle',
@@ -505,6 +550,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['switch', 'on', 'off', 'option', 'state', 'radio', 'lever'],
     relatedPages: ['checkbox', 'radiobutton', 'segmented-control', 'forms'],
+    imageUrl: 'assets/doc-page-icons/components/toggle.svg',
   },
   {
     title: 'Timepicker',
@@ -516,6 +562,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['clock', 'hour', 'minute', 'interval', 'duration', 'period', 'input'],
     relatedPages: ['datepicker', 'datepicker-range', 'popover', 'forms'],
+    imageUrl: 'assets/doc-page-icons/components/timepicker.svg',
   },
   {
     title: 'Thumbnail',
@@ -527,6 +574,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['image', 'preview', 'picture', 'photo', 'gallery'],
     relatedPages: ['carousel', 'file-upload', 'images'],
+    imageUrl: 'assets/doc-page-icons/components/thumbnail.svg',
   },
   {
     title: 'Toast',
@@ -538,6 +586,7 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['notifications', 'feedback', 'flag', 'snackbar', 'message', 'confirmation'],
     relatedPages: ['alert', 'popover'],
+    imageUrl: 'assets/doc-page-icons/components/toast.svg',
   },
   {
     title: 'Tooltip',
@@ -549,174 +598,12 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
     searchTerms: ['info', 'infotip', 'help', 'hint', 'popup'],
     relatedPages: ['popover', 'icon', 'button'],
+    imageUrl: 'assets/doc-page-icons/components/tooltip.svg',
   },
 ];
 
-// Brand pages
-export const docPagesBrand: DocPage[] = [
-  {
-    title: 'The Concept',
-    docUrl: Pages.TheConcept,
-    absolutePath: '/brand/' + Pages.TheConcept,
-  },
-  {
-    title: 'Colors',
-    docUrl: Pages.Color,
-    absolutePath: '/brand/' + Pages.Color,
-  },
-  {
-    title: 'Icons',
-    docUrl: Pages.Icon,
-    absolutePath: '/brand/' + Pages.Icon,
-  },
-  {
-    title: 'Images',
-    docUrl: Pages.Images,
-    absolutePath: '/brand/' + Pages.Images,
-  },
-  {
-    title: 'Layout',
-    docUrl: Pages.Layout,
-    absolutePath: '/brand/' + Pages.Layout,
-  },
-  {
-    title: 'Logo',
-    docUrl: Pages.Logo,
-    absolutePath: '/brand/' + Pages.Logo,
-  },
-  {
-    title: 'Tone of Voice',
-    docUrl: Pages.ToneOfVoice,
-    absolutePath: '/brand/' + Pages.ToneOfVoice,
-  },
-  {
-    title: 'Typography',
-    docUrl: Pages.Typography,
-    absolutePath: '/brand/' + Pages.Typography,
-  },
-  {
-    title: 'Illustrations',
-    docUrl: Pages.Illustration,
-    absolutePath: '/brand/' + Pages.Illustration,
-  },
-];
-
-// Pattern pages
-export const docPagesPattern: DocPage[] = [
-  {
-    title: 'Comments',
-    docUrl: Pages.Comments,
-    absolutePath: '/patterns/' + Pages.Comments,
-  },
-  {
-    title: 'Cookies',
-    docUrl: Pages.Cookies,
-    absolutePath: '/patterns/' + Pages.Cookies,
-  },
-  {
-    title: 'Empty States',
-    docUrl: Pages.EmptyStates,
-    absolutePath: '/patterns/' + Pages.EmptyStates,
-  },
-  {
-    title: 'Filters',
-    docUrl: Pages.Filters,
-    absolutePath: '/patterns/' + Pages.Filters,
-  },
-  {
-    title: 'Forms',
-    docUrl: Pages.Forms,
-    absolutePath: '/patterns/' + Pages.Forms,
-  },
-  {
-    title: 'Groups',
-    docUrl: Pages.Groups,
-    absolutePath: '/patterns/' + Pages.Groups,
-  },
-  {
-    title: 'Onboarding',
-    docUrl: Pages.Onboarding,
-    absolutePath: '/patterns/' + Pages.Onboarding,
-  },
-  {
-    title: 'Validations',
-    docUrl: Pages.Validations,
-    absolutePath: '/patterns/' + Pages.Validations,
-  },
-  {
-    title: 'Graph',
-    docUrl: Pages.Graph,
-    absolutePath: '/patterns/' + Pages.Graph,
-  },
-];
-
-// Accessibility
-export const docPagesTools: DocPage[] = [
-  {
-    title: 'Accessibility',
-    docUrl: Pages.Accessibility,
-    absolutePath: '/tools/' + Pages.Accessibility,
-  },
-  {
-    title: 'Design Process',
-    docUrl: Pages.DesignProcess,
-    absolutePath: '/tools/' + Pages.DesignProcess,
-  },
-  {
-    title: 'Evaluation',
-    docUrl: Pages.Evaluation,
-    absolutePath: '/tools/' + Pages.Evaluation,
-  },
-  {
-    title: 'Icebreakers',
-    docUrl: Pages.Icebreakers,
-    absolutePath: '/tools/' + Pages.Icebreakers,
-  },
-  {
-    title: 'Ideation',
-    docUrl: Pages.Ideation,
-    absolutePath: '/tools/' + Pages.Ideation,
-  },
-  {
-    title: 'Personas',
-    docUrl: Pages.Personas,
-    absolutePath: '/tools/' + Pages.Personas,
-  },
-  {
-    title: 'Templates',
-    docUrl: Pages.Templates,
-    absolutePath: '/tools/' + Pages.Templates,
-  },
-  {
-    title: 'User Feedback',
-    docUrl: Pages.UserFeedback,
-    absolutePath: '/tools/' + Pages.UserFeedback,
-  },
-  {
-    title: 'Utility Classes',
-    docUrl: Pages.UtilityClasses,
-    absolutePath: '/tools/' + Pages.UtilityClasses,
-  },
-];
-
-// Only pages not in Contentful except the component-pages
-export const docPagesNotFromCMS: DocPage[] = [
-  {
-    title: 'The Design System',
-    description:
-      'Elvia’s design system - or Elvis, for short - is a scalable system of visual language, components and design assets which enables us to work together towards an ultimate brand experience.',
-    docUrl: Pages.TheDesignSystem,
-
-    absolutePath: '/about/' + Pages.TheDesignSystem,
-  },
-  {
-    title: 'Empty States',
-    docUrl: Pages.EmptyStates,
-    absolutePath: '/patterns/' + Pages.EmptyStates,
-    description:
-      'Empty states are moments when there is no data and nothing to display. In these cases, the user needs to be informed of what’s happening and what to do about it. You can benefit from a good empty state to boost engagement, delight, and teach users.',
-    figmaUrl: 'https://www.figma.com/file/vzIO9S7owUHPlDYpWKRaWW/?node-id=0%3A1',
-  },
+// About pages
+const docPagesAbout: DocPage[] = [
   {
     title: 'Get started',
     description: `We are an open-source design system to be used for Elvia’s external and internal systems to provide a
@@ -724,6 +611,28 @@ export const docPagesNotFromCMS: DocPage[] = [
     like accessibility guidelines and design principles.`,
     docUrl: Pages.GetStarted,
     absolutePath: '/about/' + Pages.GetStarted,
+    type: 'About',
+    isMainPage: true,
+    imageUrl: 'assets/doc-page-icons/about/get_started.svg',
+  },
+  {
+    title: 'Contact',
+    description: `Currently, no dedicated team is working on the design system. If you have any questions, please use our Slack channel <a class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
+    <span class="e-link__title">#designsystemet</span>
+    </a> or contact Tom Schrier.`,
+    docUrl: Pages.Contact,
+    absolutePath: '/about/' + Pages.Contact,
+    type: 'About',
+    imageUrl: 'assets/doc-page-icons/about/contact.svg',
+  },
+  {
+    title: 'The Design System',
+    description:
+      'Elvia’s design system – Elvis – is a scalable system of visual language, components, and design assets that enables us to work together towards an ultimate brand experience.',
+    docUrl: Pages.TheDesignSystem,
+    absolutePath: '/about/' + Pages.TheDesignSystem,
+    type: 'About',
+    imageUrl: 'assets/doc-page-icons/about/the_design_system.svg',
   },
   {
     title: 'Tutorial',
@@ -733,6 +642,130 @@ export const docPagesNotFromCMS: DocPage[] = [
       </a>. You may want to check that your packages are up to date.`,
     docUrl: Pages.Tutorial,
     absolutePath: '/about/' + Pages.Tutorial,
+    type: 'About',
+    imageUrl: 'assets/doc-page-icons/about/tutorial.svg',
+  },
+  {
+    title: 'FAQ',
+    description:
+      'We try to answer the most asked questions. If you can’t find the answers you were looking for, contact us on Slack.',
+    docUrl: Pages.Faq,
+    absolutePath: '/about/' + Pages.Faq,
+    type: 'About',
+    imageUrl: 'assets/doc-page-icons/about/faq.svg',
+  },
+];
+
+// Brand pages
+const docPagesBrand: DocPage[] = [
+  {
+    title: 'The Concept',
+    titleNo: 'Elvia konseptet',
+    description:
+      'Our concept and values should reflect us as a company in everything we do and how we are perceived on a corporate level and towards the customers. The purpose of Elvia`s brand and visual identity is to appear clear and comprehensive to our customers, partners, employees and society at large.',
+    descriptionNo:
+      'Vårt konsept og våre verdier skal gjenspeile oss som selskap i alt vi gjør og hvordan vi oppfattes internt og overfor kundene. Formålet med Elvias merkevare og visuelle identitet er å fremstå tydelig og helhetlig for våre kunder, samarbeidspartnere, ansatte og samfunnet for øvrig.',
+    docUrl: Pages.TheConcept,
+    absolutePath: '/brand/' + Pages.TheConcept,
+    type: 'Brand',
+    isMainPage: true,
+    figmaUrl: 'https://www.figma.com/file/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=2995%3A3',
+    imageUrl: 'assets/doc-page-icons/brand/the_concept.svg',
+  },
+  {
+    title: 'Examples',
+    titleNo: 'Eksempler',
+    description: "Here you will find examples of how Elvia's identity should be used.",
+    descriptionNo: 'Her finner du eksempler på hvordan Elvias identitet skal brukes.',
+    docUrl: Pages.Examples,
+    absolutePath: '/brand/' + Pages.Examples,
+    type: 'Brand',
+    figmaUrl:
+      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=9080-63651&t=GyjDwdkUZQM6kkra-4',
+    imageUrl: 'assets/doc-page-icons/brand/examples.svg',
+  },
+  {
+    title: 'Colors',
+    titleNo: 'Farger',
+    description:
+      'Elvia colors are a reference for energy and light. It plays an important part to bring the concept ON/OFF to life. For consistency, you shall use the defined color palette throughout our interface.',
+    descriptionNo:
+      'Elvia-fargene er en referanse for energi og lys. Det spiller en viktig rolle for å gi konseptet PÅ/AV liv. For konsistens skal du bruke den definerte fargepaletten i hele grensesnittet vårt.',
+    docUrl: Pages.Color,
+    absolutePath: '/brand/' + Pages.Color,
+    type: 'Brand',
+    figmaUrl: 'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=18027-22975',
+    imageUrl: 'assets/doc-page-icons/brand/colors.svg',
+  },
+  {
+    title: 'Icons',
+    titleNo: 'Ikoner',
+    description:
+      'In our icon library, you’ll find all available icons in the design system, as well guides on how to use them.',
+    descriptionNo:
+      'I ikonbiblioteket vårt finner du alle tilgjengelige ikoner i designsystemet, samt veiledninger om hvordan du bruker dem.',
+    docUrl: Pages.Icon,
+    absolutePath: '/brand/' + Pages.Icon,
+    type: 'Brand',
+    figmaUrl:
+      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=2973-294&t=GyjDwdkUZQM6kkra-4',
+    imageUrl: 'assets/doc-page-icons/brand/icons.svg',
+  },
+  {
+    title: 'Illustrations',
+    titleNo: 'Illustrasjoner',
+    description:
+      'An illustration can help to communicate a message visually and add personality to the page. Using illustration is a powerful tool when users are frustrated, lost or something went wrong.',
+    descriptionNo:
+      'En illustrasjon kan bidra til å formidle et budskap visuelt og gi siden personlighet. Bruk av illustrasjoner er et effektivt verktøy når brukerne er frustrerte, har gått seg vill eller når noe har gått galt.',
+    docUrl: Pages.Illustration,
+    absolutePath: '/brand/' + Pages.Illustration,
+    type: 'Brand',
+    figmaUrl:
+      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=18692-26758&t=GyjDwdkUZQM6kkra-4',
+    imageUrl: 'assets/doc-page-icons/brand/illustrations.svg',
+  },
+  {
+    title: 'Images',
+    titleNo: 'Bilder',
+    description:
+      'Elvia’s images should appear professional, time-relevant, and forward-looking within their category. The tone of voice must be down-to-earth and unobtrusive to communicate with the recipient on a human level.',
+    descriptionNo:
+      'Bilder fra Elvia skal fremstå som proffe, tidsrelevante og fremoverlente innenfor sin kategori. Tone of voice skal være jordnært og ujålete for å kommunisere på et menneskelig plan mot mottaker.',
+    docUrl: Pages.Images,
+    absolutePath: '/brand/' + Pages.Images,
+    type: 'Brand',
+    figmaUrl:
+      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=8936-70585&t=GyjDwdkUZQM6kkra-4',
+    imageUrl: 'assets/doc-page-icons/brand/images.svg',
+  },
+  {
+    title: 'Layout',
+    titleNo: 'Layout',
+    description:
+      'Layout provides rules to give designs consistent rhythm in the application, as well as across applications to ensure a holistic design in Elvia. The layout consist of grid, spacing and box design. ',
+    descriptionNo:
+      'Layout gir regler for å gi design konsekvent rytme i applikasjonen, samt på tvers av applikasjoner for å sikre et helhetlig design i Elvia. Layouten består av rutenett, mellomrom og boksdesign. ',
+    docUrl: Pages.Layout,
+    absolutePath: '/brand/' + Pages.Layout,
+    type: 'Brand',
+    figmaUrl:
+      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=8936-67993&t=GyjDwdkUZQM6kkra-4',
+    imageUrl: 'assets/doc-page-icons/brand/layout.svg',
+  },
+  {
+    title: 'Logo',
+    titleNo: 'Logo',
+    description:
+      'Elvia can be described as the power source in your home. Just like our services, our logo acts as the power source that the consumer can turn on and off when needed.',
+    descriptionNo:
+      'Elvia kan beskrives som strømkilden i hjemmet ditt. Akkurat som tjenestene våre fungerer logoen vår som strømkilden som forbrukeren kan slå av og på etter behov.',
+    docUrl: Pages.Logo,
+    absolutePath: '/brand/' + Pages.Logo,
+    type: 'Brand',
+    figmaUrl:
+      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=8156-54785&t=GyjDwdkUZQM6kkra-4',
+    imageUrl: 'assets/doc-page-icons/brand/logo.svg',
   },
   {
     title: 'Shadow',
@@ -745,89 +778,207 @@ export const docPagesNotFromCMS: DocPage[] = [
     absolutePath: '/brand/' + Pages.Shadow,
     type: 'Brand',
     figmaUrl: 'https://www.figma.com/file/E2yRkpqSSuRnq8RDXO4Mly/Shadow?node-id=90%3A24',
+    imageUrl: 'assets/doc-page-icons/brand/shadow.svg',
   },
   {
-    title: 'Colors',
-    titleNo: 'Farger',
+    title: 'Theme',
+    titleNo: 'Tema',
     description:
-      'Elvia colors are a reference for energy and light. It plays an important part to bring the concept ON/OFF to life. For consistency, you shall use the defined color palette throughout our interface.',
+      'The design system has two themes; light and dark. The light theme is the default for all components, tokens, and variables. The colors page documents the two color palettes and the color tokens.',
     descriptionNo:
-      'Elvia-fargene er en referanse for energi og lys. Det spiller en viktig rolle for å gi konseptet PÅ/AV liv. For konsistens skal du bruke den definerte fargepaletten i hele grensesnittet vårt.',
-    docUrl: Pages.Color,
-    absolutePath: '/brand/' + Pages.Color,
+      'Designsystemet har to temaer; lys og mørk. Det lyse temaet er standard for alle komponenter, tokens og variabler. Fargesiden dokumenterer de to fargepalettene og fargetokens.',
+    docUrl: Pages.Theme,
+    absolutePath: '/brand/' + Pages.Theme,
     type: 'Brand',
-    figmaUrl: 'https://www.figma.com/file/Q4bR2dykeg5bSC2VGPZRAL/Colours?node-id=0%3A1',
+    figmaUrl:
+      'https://www.figma.com/file/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?type=design&node-id=12571-146013&mode=design',
+    imageUrl: 'assets/doc-page-icons/brand/theme.svg',
   },
   {
-    title: 'Icons',
-    titleNo: 'Ikoner',
-    description: `In our icon library, you’ll find all available icons in the design system, 
-    as well guides on how to use them. Missing a specific icon? Let us know on our Slack channel 
-  <a class="e-link e-link--inline e-link--new-tab e-mr-8" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" rel="noopener">
-  <span class="e-link__title">#designsystemet</span>
-  <span class="e-link__icon"><e-icon name="newTabBold"></e-icon></span>
-</a>
-   and we’ll look into adding it to the library.`,
-    descriptionNo: `I ikonbiblioteket vårt finner du alle tilgjengelige ikoner i designsystemet, samt veiledninger om hvordan du bruker dem. Savner du et bestemt ikon? Gi oss beskjed på vår Slack-kanal 
-   <a class="e-link e-link--inline e-link--new-tab e-mr-8" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" rel="noopener">
-   <span class="e-link__title">#designsystemet</span>
-   <span class="e-link__icon"><e-icon name="newTabBold"></e-icon></span>
- </a>
-   så skal vi se på muligheten for å legge det til i biblioteket.`,
-    docUrl: Pages.Icon,
-    absolutePath: '/brand/' + Pages.Icon,
-    figmaUrl: 'https://www.figma.com/file/0RM10vUNKdYVlW5BuXwqQK/Icons?node-id=0%3A1',
-    type: 'Brand',
-  },
-  {
-    title: 'Illustrations',
-    titleNo: 'Illustrasjoner',
-    docUrl: Pages.Illustration,
-    figmaUrl: 'https://www.figma.com/file/twcgKk3NMXmi2uBjMdZSKo/?node-id=1%3A11',
-    absolutePath: '/brand/' + Pages.Illustration,
-    description: `An illustration can help to communicate a message visually and add personality to the page. Using illustration is a powerful tool when users are frustrated, lost or something went wrong. See <a class="e-link e-link--inline" href="/patterns/${Pages.EmptyStates}">empty states</a> for guidelines.`,
-    descriptionNo: `En illustrasjon kan bidra til å formidle et budskap visuelt og gi siden personlighet. Bruk av illustrasjoner er et effektivt verktøy når brukerne er frustrerte, har gått seg vill eller når noe har gått galt. Se <a class="e-link e-link--inline" href="/patterns/${Pages.EmptyStates}">empty states</a> for retningslinjer.`,
-    searchTerms: [],
-    relatedPages: [],
-  },
-  {
-    title: 'Layout',
-    titleNo: 'Layout',
+    title: 'Tone of Voice',
+    titleNo: 'Tone of Voice',
     description:
-      'Layout provides rules to give designs consistent rhythm in the application, as well as across applications to ensure a holistic design in Elvia. The layout consist of grid, spacing and box design.',
+      "To create clear content and simultaneously have a consistent linguistic personality, it is important that we have a defined Tone of Voice. This section explains the difference between Elvia's style and tone and how they are connected when we communicate with our customers.",
     descriptionNo:
-      'Layout gir regler for å gi design konsekvent rytme i applikasjonen, samt på tvers av applikasjoner for å sikre et helhetlig design i Elvia. Layouten består av rutenett, mellomrom og boksdesign.',
-    figmaUrl: 'https://www.figma.com/file/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=8936%3A67993',
-    docUrl: 'layout',
-    absolutePath: '/brand/' + 'layout',
+      'For å skape tydelig innhold og samtidig ha en gjennomgående språklig personlighet, er det viktig at vi har en definert «Tone of Voice». Denne delen forklarer forskjellen på Elvias stil og tone og hvordan de henger sammen når vi skal kommunisere med kundene våre; enten det er skriftlig eller muntlig.',
+    docUrl: Pages.ToneOfVoice,
+    absolutePath: '/brand/' + Pages.ToneOfVoice,
     type: 'Brand',
+    figmaUrl:
+      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=3288-17915&t=GyjDwdkUZQM6kkra-4',
+    imageUrl: 'assets/doc-page-icons/brand/tone_of_voice.svg',
   },
   {
     title: 'Typography',
     titleNo: 'Typografi',
-    description: `Elvia has a profile font called Red Hat that should be used throughout all material. The Red Hat font family includes two types: Display and Text. `,
-    descriptionNo: `Elvia har en typografi kalt Red Hat som skal brukes i alt materiale. Skriftfamilien Red Hat inneholder tre typer: Display and Text. `,
+    description: 'Elvia has a profile font called Red Hat that should be used throughout all material.',
+    descriptionNo: 'Elvia har en typografi kalt Red Hat som skal brukes i alt materiale.',
     docUrl: Pages.Typography,
     absolutePath: '/brand/' + Pages.Typography,
-    figmaUrl: 'https://www.figma.com/file/hvQucRpSHYZtSiIKM7NgBo/Typography?node-id=0%3A1',
     type: 'Brand',
+    figmaUrl:
+      'https://www.figma.com/design/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=17004-26243&t=GyjDwdkUZQM6kkra-4',
+    imageUrl: 'assets/doc-page-icons/brand/typography.svg',
   },
+];
+
+// Pattern pages
+const docPagesPattern: DocPage[] = [
   {
-    title: 'Utility Classes',
+    title: 'Comments',
     description:
-      'Elvis offers several utility classes that can be applied on elements without making any extra CSS classes or modifications in your project.',
-    docUrl: Pages.UtilityClasses,
-    absolutePath: '/tools/' + Pages.UtilityClasses,
-    type: 'Tools',
+      'With a comment, users can leave notes for themselves or others. The comment is linked to your profile with date and time stamp.',
+    docUrl: Pages.Comments,
+    absolutePath: '/patterns/' + Pages.Comments,
+    type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/file/vzIO9S7owUHPlDYpWKRaWW/?node-id=514%3A19826',
+    imageUrl: 'assets/doc-page-icons/patterns/comments.svg',
   },
   {
-    title: 'Contact',
-    description: `Currently, no dedicated team is working on the design system. If you have any questions, please use our Slack channel <a class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
-    <span class="e-link__title">#designsystemet</span>
-    </a> or contact Tom Schrier.`,
-    docUrl: Pages.Contact,
-    absolutePath: '/about/' + Pages.Contact,
-    type: 'About',
+    title: 'Cookies',
+    description:
+      'Web cookies are data files we can use to keep track of visitors’ preferences or identities, but we have to ask for consent to be able to use them.',
+    docUrl: Pages.Cookies,
+    absolutePath: '/patterns/' + Pages.Cookies,
+    type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/file/vzIO9S7owUHPlDYpWKRaWW/?node-id=259%3A4034',
+    imageUrl: 'assets/doc-page-icons/patterns/cookies.svg',
+  },
+  {
+    title: 'Data Formats',
+    description:
+      'Guidelines for how data formats are presented, to ensure that we have a consistent language across Elvia.',
+    docUrl: Pages.DataFormats,
+    absolutePath: '/patterns/' + Pages.DataFormats,
+    type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/design/vzIO9S7owUHPlDYpWKRaWW/x.-Patterns?node-id=1304-61817',
+    imageUrl: 'assets/doc-page-icons/patterns/data_formats.svg',
+  },
+  {
+    title: 'Empty States',
+    description:
+      'Empty states are moments when there is no data and nothing to display. In these cases, the user needs to be informed of what’s happening and what to do about it. You can benefit from a good empty state to boost engagement, delight, and teach users.',
+    docUrl: Pages.EmptyStates,
+    absolutePath: '/patterns/' + Pages.EmptyStates,
+    type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/file/vzIO9S7owUHPlDYpWKRaWW/?node-id=0%3A1',
+    imageUrl: 'assets/doc-page-icons/patterns/empty_states.svg',
+  },
+  {
+    title: 'Filters',
+    description:
+      'Use filter patterns to filter groups of items or objects. Although usually used alongside complex tables, filtering can be done in different ways and can be as simple as an input field.',
+    docUrl: Pages.Filters,
+    absolutePath: '/patterns/' + Pages.Filters,
+    type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/file/vzIO9S7owUHPlDYpWKRaWW/?node-id=583%3A25052',
+    imageUrl: 'assets/doc-page-icons/patterns/filters.svg',
+  },
+  {
+    title: 'Forms',
+    description:
+      'A form is a group of input fields and selections for users to enter data. Forms can be simple or complex, but always try to make it easy, clear and quickly for the user to use.',
+    docUrl: Pages.Forms,
+    absolutePath: '/patterns/' + Pages.Forms,
+    type: 'Patterns',
+    imageUrl: 'assets/doc-page-icons/patterns/forms.svg',
+  },
+  {
+    title: 'Graph',
+    description:
+      'Graphs are a tool to display data more visually than tables. They are a good solution when you want the user to quickly take in the data rather than read it.',
+    docUrl: Pages.Graph,
+    absolutePath: '/patterns/' + Pages.Graph,
+    type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/file/Fqa50iJ7U9qxsUkiAwEJhf/?node-id=1%3A10',
+    imageUrl: 'assets/doc-page-icons/patterns/graph.svg',
+  },
+  {
+    title: 'Groups',
+    description: 'Groups are collections of items arranged together in a list.',
+    docUrl: Pages.Groups,
+    absolutePath: '/patterns/' + Pages.Groups,
+    type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/file/vzIO9S7owUHPlDYpWKRaWW/?node-id=54%3A3913',
+    imageUrl: 'assets/doc-page-icons/patterns/groups.svg',
+  },
+  {
+    title: 'Onboarding',
+    description:
+      'Onboarding guides users through new or important features using a spotlight and descriptions. It typically appears on first entry or after major updates.',
+    docUrl: Pages.Onboarding,
+    absolutePath: '/patterns/' + Pages.Onboarding,
+    type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/design/vzIO9S7owUHPlDYpWKRaWW/x.-Patterns?node-id=1414-59161',
+    imageUrl: 'assets/doc-page-icons/patterns/onboarding.svg',
+  },
+  {
+    title: 'Validations',
+    description:
+      'With validation, we control field and input formats and help users to understand what needs to be corrected.',
+    docUrl: Pages.Validations,
+    absolutePath: '/patterns/' + Pages.Validations,
+    type: 'Patterns',
+    figmaUrl: 'https://www.figma.com/design/vzIO9S7owUHPlDYpWKRaWW/x.-Patterns?node-id=338-14890',
+    imageUrl: 'assets/doc-page-icons/patterns/validations.svg',
+  },
+];
+
+// Tools
+const docPagesTools: DocPage[] = [
+  {
+    title: 'Accessibility',
+    description:
+      'We design inclusive solutions that ensure all users, regardless of permanent, temporary, or situational disabilities, can fully engage with the user experience.',
+    docUrl: Pages.Accessibility,
+    absolutePath: '/tools/' + Pages.Accessibility,
+    type: 'Tools',
+    imageUrl: `assets/doc-page-icons/tools/accessibility.svg`,
+  },
+  {
+    title: 'Design Process',
+    description:
+      'In Elvia, we strive towards working after the Double diamond design process and its four stages: discover, define, develop and deliver. We do this to make sure that we deliver solutions well suited for our end users.',
+    docUrl: Pages.DesignProcess,
+    absolutePath: '/tools/' + Pages.DesignProcess,
+    type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/design_process.svg',
+  },
+  {
+    title: 'Evaluation',
+    description:
+      'Evaluation is the method of analyzing your results and making the best selections through unbiased appraisal. Use an evaluation method when you already have a set of ideas to choose from.',
+    docUrl: Pages.Evaluation,
+    absolutePath: '/tools/' + Pages.Evaluation,
+    type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/evaluation.svg',
+  },
+  {
+    title: 'Icebreakers',
+    description:
+      'Icebreakers are warm-up exercises that can help group participants get to know each other, spark innovation for workshops or meetings, or just get everyone talking.',
+    docUrl: Pages.Icebreakers,
+    absolutePath: '/tools/' + Pages.Icebreakers,
+    type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/icebreakers.svg',
+  },
+  {
+    title: 'Ideation',
+    description:
+      'Ideation is the creative process of finding new ideas and various solutions to a problem by thinking wide. Before starting generating ideas, some sort of problem statement should be in place.',
+    docUrl: Pages.Ideation,
+    absolutePath: '/tools/' + Pages.Ideation,
+    type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/ideation.svg',
+  },
+  {
+    title: 'Personas',
+    description:
+      'Using personas helps us to ensure quality in our solutions by making it easier to relate and empathize to users and their needs.',
+    docUrl: Pages.Personas,
+    absolutePath: '/tools/' + Pages.Personas,
+    type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/personas.svg',
   },
   {
     title: 'Team symbol',
@@ -836,33 +987,57 @@ export const docPagesNotFromCMS: DocPage[] = [
     docUrl: Pages.TeamSymbol,
     absolutePath: '/tools/' + Pages.TeamSymbol,
     type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/team_symbol.svg',
+  },
+  {
+    title: 'Templates',
+    description:
+      'Here you can find a collection of Elvia’s templates. These are maintained and updated regularly.',
+    docUrl: Pages.Templates,
+    absolutePath: '/tools/' + Pages.Templates,
+    type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/templates.svg',
+  },
+  {
+    title: 'User Feedback',
+    description:
+      'There’s a number of tools we use recurrently to analyze behaviour and test our solutions on real users. Whether it’s for user research or testing solutions, we have summarized a list of the most popular tools in Elvia below.',
+    docUrl: Pages.UserFeedback,
+    absolutePath: '/tools/' + Pages.UserFeedback,
+    type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/user_feedback.svg',
+  },
+  {
+    title: 'Utility Classes',
+    description:
+      'Elvis offers utility classes that can be applied to elements without making extra CSS classes or modifications in your project.',
+    docUrl: Pages.UtilityClasses,
+    absolutePath: '/tools/' + Pages.UtilityClasses,
+    type: 'Tools',
+    imageUrl: 'assets/doc-page-icons/tools/utility_classes.svg',
   },
 ];
 
-export function getComponent(docUrl: DocPageName) {
-  const page = componentsDocPages.find((component) => component.docUrl === docUrl);
-  if (!page) {
-    throw new Error(`Component not found: ${docUrl}`);
-  }
-  return page;
-}
-export function getDocPagesNotFromCMS(docUrl: DocPageName) {
-  const page = docPagesNotFromCMS.find((component) => component.docUrl === docUrl);
-  if (!page) {
-    throw new Error(`Page not found: ${docUrl}`);
-  }
-  return page;
-}
+export const allDocPages: DocPage[] = [
+  ...docPagesComponents,
+  ...docPagesAbout,
+  ...docPagesBrand,
+  ...docPagesPattern,
+  ...docPagesTools,
+];
+
 export function getDocPage(docUrl: DocPageName) {
-  const allDocPages: DocPage[] = [
-    ...componentsDocPages,
-    ...docPagesBrand,
-    ...docPagesPattern,
-    ...docPagesTools,
-  ];
-  const page = allDocPages.find((component) => component.docUrl === docUrl);
+  const page = allDocPages.find((page) => page.docUrl === docUrl);
   if (!page) {
-    throw new Error(`Page not found: ${docUrl}`);
+    throw new Error(`Page not found: '${docUrl}'`);
   }
   return page;
+}
+
+export function getDocPagesByType(type: DocPageType) {
+  const pages = allDocPages.filter((page) => page.type === type);
+  if (!pages.length) {
+    throw new Error(`Pages not found for type: '${type}'`);
+  }
+  return pages;
 }

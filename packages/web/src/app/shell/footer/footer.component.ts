@@ -1,7 +1,6 @@
-import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { NavigationEnd, Router, RouterLink } from '@angular/router';
+
+import { DesignsystemSlackLinkComponent } from 'src/app/shared/designsystem-slack-link/designsystem-slack-link.component';
 
 interface IconLink {
   url: string;
@@ -13,18 +12,13 @@ interface IconLink {
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
-  imports: [NgClass, RouterLink],
+  imports: [DesignsystemSlackLinkComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class FooterComponent {
   bgClass = '';
   currentYear = new Date().getFullYear();
   links: IconLink[] = [
-    {
-      url: 'https://app.contentful.com/spaces/zez3t3t1iiwd/home',
-      imgSrc: 'assets/icons/contentful-logo.svg',
-      alt: 'Contentful icon',
-    },
     {
       url: 'https://www.figma.com/files/880078299274452916/project/5995782/Designsystem-(Elvis)',
       imgSrc: 'assets/icons/figma-logo.svg',
@@ -36,17 +30,4 @@ export class FooterComponent {
       alt: 'GitHub icon',
     },
   ];
-
-  constructor(private router: Router) {
-    this.router.events.pipe(takeUntilDestroyed()).subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        const eventUrl = event.urlAfterRedirects;
-        if (eventUrl === '/not-found') {
-          this.bgClass = 'not-found';
-        } else {
-          this.bgClass = '';
-        }
-      }
-    });
-  }
 }

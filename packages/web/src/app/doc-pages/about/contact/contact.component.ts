@@ -1,10 +1,9 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 
 import { ComponentHeaderComponent } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.component';
 import { ComponentSubsectionComponent } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { getDocPage } from 'src/app/shared/doc-pages';
 import { SafeHtmlPipe } from 'src/app/shared/safeHtml.pipe';
 
 interface ContactInfo {
@@ -18,7 +17,7 @@ interface ContactInfo {
   loadedImg: boolean;
 }
 
-const docPage = getDocPagesNotFromCMS('contact');
+const docPage = getDocPage('contact');
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -26,7 +25,7 @@ const docPage = getDocPagesNotFromCMS('contact');
   imports: [ComponentHeaderComponent, ComponentSubsectionComponent, NgClass, SafeHtmlPipe],
 })
 export class ContactComponent {
-  description = docPage.description;
+  description = docPage.description ?? '';
   title = docPage.title;
   contactList: ContactInfo[] = [
     {
@@ -40,10 +39,6 @@ export class ContactComponent {
       loadedImg: false,
     },
   ];
-
-  constructor(private titleService: Title) {
-    this.titleService.setTitle(this.title + ' | ' + 'Elvia design system');
-  }
 
   veryImportantFunction = (name: string, legacy: string): void => {
     const element = document.getElementById(name);

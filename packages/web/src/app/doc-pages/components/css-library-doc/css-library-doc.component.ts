@@ -1,5 +1,4 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import changelogJson from '@elvia/elvis/CHANGELOG.json';
 
 import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
@@ -9,9 +8,9 @@ import { ComponentSubsectionComponent } from '../../../shared/component-document
 import { CopyComponent } from '../../../shared/copy/copy.component';
 import ComponentData from '../component-data.interface';
 import { CssLibraryIllustrationComponent } from './css-library-illustration/css-library-illustration.component';
-import { getComponent } from 'src/app/shared/doc-pages';
+import { getDocPage } from 'src/app/shared/doc-pages';
 
-const docPage = getComponent('css-library');
+const docPage = getDocPage('css-library');
 @Component({
   selector: 'app-css-library-doc',
   templateUrl: './css-library-doc.component.html',
@@ -39,8 +38,4 @@ export class CSSLibraryDocComponent {
   importDeprecationScript = "import '@elvia/elvis/checkDeprecations.js';";
   title = docPage.title;
   description = docPage.description;
-
-  constructor(private titleService: Title) {
-    this.titleService.setTitle('CSS Library | Elvia design system');
-  }
 }

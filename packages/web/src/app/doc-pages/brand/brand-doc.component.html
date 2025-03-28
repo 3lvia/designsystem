@@ -1,0 +1,10 @@
+<h1 class="e-title-md e-mb-40 e-mt-0">Brand</h1>
+<nav class="components-overview-cards">
+  @for (page of docPages; track page.title) {
+    <a [routerLink]="page.absolutePath">
+      <elvia-card [heading]="locale() === 'nb-NO' ? page.titleNo : page.title" maxHeadingLines="2">
+        <app-inline-svg slot="icon" [src]="page.imageUrl" />
+      </elvia-card>
+    </a>
+  }
+</nav>

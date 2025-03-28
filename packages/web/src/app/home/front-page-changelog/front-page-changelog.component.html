@@ -1,12 +1,6 @@
 @for (changelog of changelogs; track changelog.name) {
   <div class="changelog-container">
     <div class="changelog-name-and-icon">
-      @let iconSrc = (componentIcons | async)?.[(changelog.name | FrontPageChangelogUrlPipe)];
-      @if (iconSrc) {
-        <img class="e-mr-24" alt="" [src]="iconSrc" />
-      } @else {
-        <div class="e-content-loader e-mr-24" style="width: 40px; height: 40px"></div>
-      }
       <a class="e-link e-link--lg" [routerLink]="changelog.url" fragment="Changelog">
         {{ changelog.name === 'elvis' ? 'CSS Library' : (changelog.name | FrontPageChangelogNamePipe) }}
       </a>

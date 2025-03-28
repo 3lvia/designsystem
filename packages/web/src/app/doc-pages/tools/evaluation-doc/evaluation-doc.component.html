@@ -1,0 +1,73 @@
+@let _theme = theme | async;
+
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <div ngProjectAs="headerDescription" [innerHTML]="description"></div>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-section sectionTitle="KJ analysis">
+    <figure class="figure--center">
+      <img [src]="`assets/doc-pages/tools/evaluation/kj_analysis_${_theme}.png`" alt="" />
+    </figure>
+    <ol class="e-list e-list--numbers">
+      <li>Organize the ideas into groups. Similar types of ideas should be in the same group.</li>
+      <li>Label each group after their overarching themes.</li>
+      <li>
+        Vote on your favorite groups. Choose if you want to perform another voting session between these
+        themes or if you want to go back to ideate more within a selected theme.
+      </li>
+    </ol>
+    <div class="e-alert e-alert--info" role="note">
+      <div class="e-alert__icon">
+        <e-icon name="informationCircle" class="e-icon--color-grey"> </e-icon>
+      </div>
+      <p class="e-alert__text">
+        Make sure to note all theme and ranking outcomes - these results could be used as guides for upcoming
+        focus areas in the future.
+      </p>
+    </div>
+  </app-component-section>
+
+  <app-component-section sectionTitle="Dot voting">
+    <figure class="figure--center">
+      <img [src]="`assets/doc-pages/tools/evaluation/dot_voting_${_theme}.png`" alt="" />
+    </figure>
+    <ol class="e-list e-list--numbers">
+      <li>Give each participant a limited number of votes, represented by dot stickers.</li>
+      <li>
+        The number of votes should depend on the number of ideas and participants. When the voting session
+        (done in silence) is finished, count the results and arrange them by popularity.
+      </li>
+      <li>Discuss the reasons behind the results and see if the top ideas can be taken forward.</li>
+    </ol>
+    <div class="e-alert e-alert--info" role="note">
+      <div class="e-alert__icon">
+        <e-icon name="informationCircle" class="e-icon--color-grey"> </e-icon>
+      </div>
+      <p class="e-alert__text">
+        If you don’t have dot stickers you can just let participants cast votes by marking with pens. This
+        works remotely as well, as you can use any sort of shapes as votes digitally.
+      </p>
+    </div>
+  </app-component-section>
+
+  <app-component-section sectionTitle="MoSCoW">
+    <figure class="figure--center">
+      <img [src]="`assets/doc-pages/tools/evaluation/moscow_${_theme}.png`" alt="" />
+    </figure>
+    <ol class="e-list e-list--numbers">
+      <li>Draw a table of four areas: Must, Should, Could and Won’t.</li>
+      <li>
+        Divide your ideas between the areas, reasoning in terms of:
+        <ul class="e-list">
+          <li><b>Must</b> - what will be essential to make the delivery a success?</li>
+          <li><b>Should</b> - what will be important, but not essential?</li>
+          <li><b>Could</b> - what could heighten the experience?</li>
+          <li><b>Won’t</b> - what won’t be included at this time?</li>
+        </ul>
+      </li>
+      <li>Discuss your results and use it to prioritize your further work.</li>
+    </ol>
+  </app-component-section>
+</div>

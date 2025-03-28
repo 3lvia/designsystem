@@ -29,7 +29,6 @@
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
       "matchDepNames": [
-        "/^contentful/",
         "/^vue-tsc/",
         "/^vite/",
         "/^vue/",
@@ -55,12 +54,6 @@
       "matchDepNames": ["/^@playwright/", "/^playwright/"]
     },
     {
-      "groupName": "all @contentful dependencies",
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true,
-      "matchDepNames": ["/^@contentful//"]
-    },
-    {
       "groupName": "yarn dependency",
       "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true,
@@ -80,9 +73,5 @@
     }
   ],
   "ignoreDeps": ["@emotion/react", "@emotion/styled", "react", "react-dom"],
-  "ignorePaths": [
-    "**/node_modules/**",
-    "packages/components/components/**",
-    "packages/elvis*"
-  ]
+  "ignorePaths": ["**/node_modules/**", "packages/components/components/**", "packages/elvis*"]
 }

@@ -10,9 +10,9 @@ import { ComponentPropertiesTableComponent } from 'src/app/shared/component-docu
 import { ComponentHeaderComponent } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.component';
 import { ComponentSectionComponent } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.component';
 import { ComponentSubsectionComponent } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.component';
-import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
+import { getDocPage } from 'src/app/shared/doc-pages';
 
-const illustrationDocPage = getDocPagesNotFromCMS('illustration');
+const illustrationDocPage = getDocPage('illustration');
 
 @Component({
   selector: 'app-illustrations-doc',

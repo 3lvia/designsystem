@@ -1,0 +1,28 @@
+.background--light {
+  background-color: var(--e-color-static-white);
+  color: var(--e-color-static-white--contrast);
+}
+
+.background--dark {
+  background-color: var(--e-color-background-3);
+  color: var(--e-color-background-3--contrast);
+}
+
+.grid {
+  border-radius: 8px;
+  display: grid;
+  gap: 64px;
+  grid-template-columns: repeat(auto-fill, minmax(128px, 1fr));
+  padding: 24px;
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__name {
+      margin-top: 24px;
+      margin-bottom: 32px;
+    }
+  }
+}

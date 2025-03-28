@@ -10,7 +10,7 @@
   height: var(--footer-height);
   display: grid;
   padding: 48px;
-  grid-template-areas: 'copyright contact contact contact links';
+  grid-template-areas: 'copyright contact links';
   gap: 32px 0;
   align-items: center;
   background-color: var(--footer-background);

@@ -4,15 +4,12 @@
       <h1 class="big-header e-m-0">
         @if (fontLoaded) {
           <div>
-            <span class="title" [ngClass]="{ 'green-dot': holiday !== 'ConstitutionDay' }">{{
-              pageTitle
-            }}</span>
+            <span class="title" [class.green-dot]="holiday !== 'ConstitutionDay'">{{ pageTitle }}</span>
             @if (holiday === 'ConstitutionDay') {
               <span class="e-ml-8" style="color: var(--e-color-brand-accent)">!</span>
             }
           </div>
-        }
-        @if (!fontLoaded) {
+        } @else {
           <div class="content-loader-title">
             <span class="e-content-loader e-w-75" style="height: 60px"></span>
             <span class="e-content-loader e-w-50 e-mt-24" style="height: 60px"></span>
@@ -35,8 +32,7 @@
               </span>
             }
           </div>
-        }
-        @if (!fontLoaded) {
+        } @else {
           <div class="content-loader-text">
             <span class="e-content-loader e-content-loader--text"></span>
             <span class="e-content-loader e-content-loader--text e-mt-24"></span>
@@ -45,13 +41,10 @@
         }
       </div>
       @if (fontLoaded) {
-        <a class="e-btn e-btn--lg e-mt-48" [routerLink]="['/about/get-started']">
-          <span class="e-btn__title">
-            <div>Get started</div>
-          </span>
+        <a class="e-btn e-btn--lg e-mt-48" routerLink="/about/get-started">
+          <span class="e-btn__title"> Get started </span>
         </a>
-      }
-      @if (!fontLoaded) {
+      } @else {
         <div class="e-mt-48">
           <span class="e-content-loader" style="width: 160px; height: 48px"></span>
         </div>
@@ -82,32 +75,24 @@
   @for (page of pages; track page) {
     @if (!fontLoaded) {
       <div class="card-link e-content-loader" style="height: 100%"></div>
-    }
-    @if (page.absolutePath && fontLoaded) {
-      <a [routerLink]="[page.absolutePath]" class="card-link">
-        <elvia-card
-          [description]="(isMobileScreenWidth | async) ? null : page.description"
-          [heading]="page.title"
-        >
-          <img
-            slot="icon"
-            src="{{ (currentTheme | async) === 'dark' ? page.imageUrlDark : page.imageUrl }}"
-            alt=""
-          />
-          <div slot="iconHover">
-            <img
-              src="{{ (currentTheme | async) === 'dark' ? page.imageUrlOnDark : page.imageUrlOn }}"
-              alt=""
-            />
-          </div>
-        </elvia-card>
-      </a>
+    } @else {
+      @if (page.absolutePath) {
+        <a [routerLink]="[page.absolutePath]" class="card-link">
+          <elvia-card
+            [description]="(isMobileScreenWidth | async) ? null : page.description"
+            [heading]="page.title"
+          >
+            <app-inline-svg slot="icon" [src]="page.imageUrl" />
+            <app-inline-svg slot="iconHover" [src]="page.imageUrlOn" />
+          </elvia-card>
+        </a>
+      }
     }
   }
 </div>
 
 <div class="home-whats-new e-mt-80">
-  <div class="e-title-md e-mb-56" style="display: flex; justify-content: center">What's new?</div>
+  <h2 class="e-title-md e-m-0 e-mb-56 e-text-center">What's new?</h2>
   @defer {
     <app-front-page-changelog />
   }
