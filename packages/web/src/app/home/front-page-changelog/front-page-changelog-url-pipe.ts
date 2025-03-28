@@ -10,7 +10,7 @@ export class FrontPageChangelogUrlPipe implements PipeTransform {
       if (name === 'elvis') {
         return name;
       }
-      const formattedUrl = name.split('-').slice(1).join('-').toLowerCase();
+      const formattedUrl = name.split('-').slice(1).join('-');
       return formattedUrl;
     } catch (_error) {
       console.warn(`"name": "${name}" in changelog is invalid. Should be "elvis-(name)" or "elvis"`);
