@@ -606,7 +606,6 @@ const docPagesComponents: DocPage[] = [
 const docPagesAbout: DocPage[] = [
   {
     title: 'Get started',
-    titleNo: 'Kom i gang',
     description: `We are an open-source design system to be used for Elvia’s external and internal systems to provide a
     comprehensive and user-friendly experience. We offer classes, variables and components, as well as tools
     like accessibility guidelines and design principles.`,
@@ -618,7 +617,6 @@ const docPagesAbout: DocPage[] = [
   },
   {
     title: 'Contact',
-    titleNo: 'Kontakt',
     description: `Currently, no dedicated team is working on the design system. If you have any questions, please use our Slack channel <a class="e-link e-link--inline e-link--new-tab" target="_blank" rel="noopener" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
     <span class="e-link__title">#designsystemet</span>
     </a> or contact Tom Schrier.`,
@@ -629,7 +627,6 @@ const docPagesAbout: DocPage[] = [
   },
   {
     title: 'The Design System',
-    titleNo: 'Designsystemet',
     description:
       'Elvia’s design system – Elvis – is a scalable system of visual language, components, and design assets that enables us to work together towards an ultimate brand experience.',
     docUrl: Pages.TheDesignSystem,
@@ -650,7 +647,6 @@ const docPagesAbout: DocPage[] = [
   },
   {
     title: 'FAQ',
-    titleNo: 'Vanlige spørsmål',
     description:
       'We try to answer the most asked questions. If you can’t find the answers you were looking for, contact us on Slack.',
     docUrl: Pages.Faq,
