@@ -12,12 +12,12 @@ import { FormsModule } from '@angular/forms';
 export class PropertySearchInputComponent {
   private readonly inputElement = viewChild.required<ElementRef<HTMLInputElement>>('searchInputElement');
 
-  readonly search = output<string>();
+  readonly searched = output<string>();
 
   searchTerm = '';
 
   emitSearch(): void {
-    this.search.emit(this.searchTerm);
+    this.searched.emit(this.searchTerm);
   }
 
   clearSearchField(): void {
