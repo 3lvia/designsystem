@@ -45,5 +45,6 @@ export const routes: Routes = [
   {
     path: 'not-found',
     loadComponent: () => import('./shared/error/error.component').then((m) => m.ErrorComponent),
+    title: '404',
   },
 ];
