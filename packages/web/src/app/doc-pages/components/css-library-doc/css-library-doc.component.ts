@@ -1,5 +1,4 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import changelogJson from '@elvia/elvis/CHANGELOG.json';
 
 import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
@@ -39,8 +38,4 @@ export class CSSLibraryDocComponent {
   importDeprecationScript = "import '@elvia/elvis/checkDeprecations.js';";
   title = docPage.title;
   description = docPage.description;
-
-  constructor(private titleService: Title) {
-    this.titleService.setTitle('CSS Library | Elvia design system');
-  }
 }

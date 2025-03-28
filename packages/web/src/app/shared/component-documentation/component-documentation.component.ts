@@ -1,5 +1,4 @@
 import { Component, OnInit, booleanAttribute, input } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import data from '@elvia/elvis/.internal/classlist.json';
 
@@ -55,8 +54,6 @@ export class ComponentDocumentationComponent implements OnInit {
   elvisClassName: keyof typeof data.block | undefined;
   relatedPages: DocPageName[] | undefined;
 
-  constructor(private titleService: Title) {}
-
   ngOnInit() {
     const docPage = getDocPage(this.docUrl());
     this.title = docPage.title;
@@ -69,8 +66,6 @@ export class ComponentDocumentationComponent implements OnInit {
         this.elvisClassName = ('e-' + this.docUrl()) as keyof typeof data.block;
       }
     }
-
-    this.titleService.setTitle(this.title + ' | Elvia design system');
   }
 
   get lastUpdatedDate(): string {

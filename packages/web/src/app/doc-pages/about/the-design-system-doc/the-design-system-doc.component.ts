@@ -1,5 +1,4 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
 import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
@@ -29,7 +28,4 @@ const docPage = getDocPage('the-design-system');
 export class TheDesignSystemDocComponent {
   title = docPage.title;
   description = docPage.description;
-  constructor(private titleService: Title) {
-    this.titleService.setTitle(this.title + ' | ' + 'Elvia design system');
-  }
 }

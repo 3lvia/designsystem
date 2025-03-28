@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Title } from '@angular/platform-browser';
 
 import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
@@ -33,23 +32,12 @@ export class ShadowDocComponent {
   styleText = styleText;
   doDontText = doAndDont;
 
-  constructor(
-    private titleService: Title,
-    private localizationService: LocalizationService,
-  ) {
-    this.setTabTitle();
+  constructor(private localizationService: LocalizationService) {
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
       .subscribe((locale) => {
         this.locale = locale;
-        this.setTabTitle();
       });
   }
-
-  setTabTitle = (): void => {
-    this.titleService.setTitle(
-      (this.locale === 'nb-NO' && this.titleNo ? this.titleNo : this.title) + ' | Elvia design system',
-    );
-  };
 }

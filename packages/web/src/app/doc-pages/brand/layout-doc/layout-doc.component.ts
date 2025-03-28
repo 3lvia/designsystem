@@ -1,6 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 
 import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
@@ -48,23 +47,12 @@ export class LayoutDocComponent {
   figmaUrl = docPage.figmaUrl;
   locale: Locale = 'en-GB';
 
-  constructor(
-    private titleService: Title,
-    private localizationService: LocalizationService,
-  ) {
-    this.setTabTitle();
+  constructor(private localizationService: LocalizationService) {
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
       .subscribe((locale) => {
         this.locale = locale;
-        this.setTabTitle();
       });
   }
-
-  setTabTitle = (): void => {
-    this.titleService.setTitle(
-      (this.locale === 'nb-NO' && this.titleNo ? this.titleNo : this.title) + ' | Elvia design system',
-    );
-  };
 }

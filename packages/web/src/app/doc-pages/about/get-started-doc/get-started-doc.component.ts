@@ -1,5 +1,4 @@
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
@@ -25,8 +24,4 @@ const docPage = getDocPage('get-started');
 export class GetStartedDocComponent {
   description = docPage.description;
   title = docPage.title;
-
-  constructor(private titleService: Title) {
-    this.titleService.setTitle('Get started | Elvia design system');
-  }
 }

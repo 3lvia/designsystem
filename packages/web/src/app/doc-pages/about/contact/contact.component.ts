@@ -1,6 +1,5 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
 
 import { ComponentHeaderComponent } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.component';
 import { ComponentSubsectionComponent } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.component';
@@ -40,10 +39,6 @@ export class ContactComponent {
       loadedImg: false,
     },
   ];
-
-  constructor(private titleService: Title) {
-    this.titleService.setTitle(this.title + ' | ' + 'Elvia design system');
-  }
 
   veryImportantFunction = (name: string, legacy: string): void => {
     const element = document.getElementById(name);

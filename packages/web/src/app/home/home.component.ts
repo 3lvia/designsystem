@@ -1,7 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 
 import { BreakpointService } from '../core/services/breakpoint.service';
@@ -57,10 +56,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  constructor(
-    localizationService: LocalizationService,
-    private titleService: Title,
-  ) {
+  constructor(localizationService: LocalizationService) {
     localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
@@ -74,7 +70,6 @@ export class HomeComponent implements OnInit {
     document.fonts.ready.then(() => {
       this.fontLoaded = true;
     });
-    this.titleService.setTitle('Elvia design system');
   }
 
   private setHoliday = (): void => {

@@ -1,6 +1,5 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, effect, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { Title } from '@angular/platform-browser';
 import { RouterLink } from '@angular/router';
 import changelogJson from '@elvia/elvis-icons/CHANGELOG.json';
 
@@ -49,12 +48,4 @@ export class IconDocComponent {
 
   scriptCodeHTML = `<script src="path_to_file/elvis.js"></script>`;
   iconExample = `<i class="e-icon e-icon--chat e-icon--md" aria-hidden="true"></i>`;
-
-  constructor(private titleService: Title) {
-    effect(() => {
-      this.titleService.setTitle(
-        (this.locale() === 'nb-NO' ? this.docPage.titleNo : this.docPage.title) + ' | Elvia design system',
-      );
-    });
-  }
 }
