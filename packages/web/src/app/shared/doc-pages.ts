@@ -928,7 +928,6 @@ const docPagesPattern: DocPage[] = [
 const docPagesTools: DocPage[] = [
   {
     title: 'Accessibility',
-    titleNo: 'Tilgjengelighet',
     description:
       'We design inclusive solutions that ensure all users, regardless of permanent, temporary, or situational disabilities, can fully engage with the user experience.',
     docUrl: Pages.Accessibility,
@@ -938,11 +937,8 @@ const docPagesTools: DocPage[] = [
   },
   {
     title: 'Design Process',
-    titleNo: 'Designprosess',
     description:
       'In Elvia, we strive towards working after the Double diamond design process and its four stages: discover, define, develop and deliver. We do this to make sure that we deliver solutions well suited for our end users.',
-    descriptionNo:
-      'Elvia utvikler interne systemer som brukes av ansatte og løsninger som brukes av eksterne som leverandører, bedrifter og privatkunder. Vi leverer også tjenester relatert til det å bygge ut, drifte og vedlikeholde strømnettet. Når vi utvikler systemer og tjenester etterstreber vi å bruke designprosess der det gir mening.',
     docUrl: Pages.DesignProcess,
     absolutePath: '/tools/' + Pages.DesignProcess,
     type: 'Tools',
