@@ -1,11 +1,16 @@
 {
   "recommendations": [
-    "esbenp.prettier-vscode",
-    "bierner.comment-tagged-templates",
-    "styled-components.vscode-styled-components",
-    "ms-playwright.playwright",
-    "streetsidesoftware.code-spell-checker",
     "angular.ng-template",
-    "dbaeumer.vscode-eslint"
+    "bierner.comment-tagged-templates",
+    "cbuisson.vue",
+    "christian-kohler.npm-intellisense",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "meganrogge.template-string-converter",
+    "ms-playwright.playwright",
+    "naumovs.color-highlight",
+    "streetsidesoftware.code-spell-checker",
+    "styled-components.vscode-styled-components"
   ]
 }

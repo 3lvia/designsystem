@@ -104,18 +104,6 @@ Setup for development environment:
       changed).
    4. Run `yarn start:react` to run the react test-project (testing components).
    5. Run `yarn start:vue` to run the vue test-project (testing components).
-3. Useful extensions:
-   1. Angular Language Service
-   2. ESLint
-   3. Prettier
-   4. vscode-styled-components
-   5. Vue - Official
-4. Less useful, but still nice extensions:
-   1. Color Highlight
-   2. GitLense
-   3. npm Intellisense
-   4. Template string converter
-   5. Angular Snippets
 
 ### Start developing
 
