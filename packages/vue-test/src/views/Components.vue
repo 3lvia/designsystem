@@ -298,7 +298,7 @@ const dropdownOptions = [
 ];
 
 // Modal
-const isModalShowing = false;
+const isModalShowing = ref(false);
 
 // Segmented control
 
