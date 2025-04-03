@@ -9,7 +9,8 @@
         {
           "type": "patch",
           "changes": [
-            "The <code>inlineStyle</code> and <code>className</code> prop values are now passed to the tooltip popup instead of the slot content. Be aware that your <code>inlineStyle</code> can interfere with the <code>@floating-ui</code> positioning."
+            "The <code>inlineStyle</code> and <code>className</code> prop values are now passed to the tooltip popup instead of the slot content. Be aware that your <code>inlineStyle</code> can interfere with the <code>@floating-ui</code> positioning.",
+            "Updated internal dependencies."
           ]
         }
       ]
