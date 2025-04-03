@@ -118,16 +118,15 @@ export const Tooltip: React.FC<TooltipProps> = ({
       {isOpen && !isDisabled && (
         <FloatingPortal>
           <TooltipPopup
-            position={placement as TooltipPosition}
-            ref={refs.setFloating}
-            style={floatingStyles}
+            aria-live="polite"
+            className={className ?? ''}
             fadeOut={fadeOut}
             onAnimationEnd={onAnimationEnd}
-            aria-live="polite"
+            position={placement as TooltipPosition}
+            ref={refs.setFloating}
+            style={{ ...floatingStyles, ...inlineStyle }}
           >
-            <TooltipContent className={className ?? ''} style={{ ...inlineStyle }} ref={overlayRef}>
-              {content}
-            </TooltipContent>
+            <TooltipContent ref={overlayRef}>{content}</TooltipContent>
           </TooltipPopup>
         </FloatingPortal>
       )}
