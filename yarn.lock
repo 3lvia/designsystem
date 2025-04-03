@@ -751,23 +751,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helpers@npm:^7.26.10":
+"@babel/helpers@npm:^7.26.10, @babel/helpers@npm:^7.26.9":
   version: 7.27.0
   resolution: "@babel/helpers@npm:7.27.0"
   dependencies:
     "@babel/template": "npm:^7.27.0"
     "@babel/types": "npm:^7.27.0"
   checksum: 10/0dd40ba1e5ba4b72d1763bb381384585a56f21a61a19dc1b9a03381fe8e840207fdaa4da645d14dc028ad768087d41aad46347cc6573bd69d82f597f5a12dc6f
-  languageName: node
-  linkType: hard
-
-"@babel/helpers@npm:^7.26.9":
-  version: 7.26.9
-  resolution: "@babel/helpers@npm:7.26.9"
-  dependencies:
-    "@babel/template": "npm:^7.26.9"
-    "@babel/types": "npm:^7.26.9"
-  checksum: 10/267dfa7d04dff7720610497f466aa7b60652b7ec8dde5914527879350c9d655271e892117c5b2f0f083d92d2a8e5e2cf9832d4f98cd7fb72d78f796002af19a1
   languageName: node
   linkType: hard
 
@@ -14124,7 +14114,7 @@ __metadata:
     react-dom: "npm:^18.3.1"
     sass: "npm:^1.86.2"
     typescript: "npm:~5.5.4"
-    vite: "npm:6.2.4"
+    vite: "npm:6.2.5"
   languageName: unknown
   linkType: soft
 
@@ -16843,6 +16833,58 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vite@npm:6.2.5":
+  version: 6.2.5
+  resolution: "vite@npm:6.2.5"
+  dependencies:
+    esbuild: "npm:^0.25.0"
+    fsevents: "npm:~2.3.3"
+    postcss: "npm:^8.5.3"
+    rollup: "npm:^4.30.1"
+  peerDependencies:
+    "@types/node": ^18.0.0 || ^20.0.0 || >=22.0.0
+    jiti: ">=1.21.0"
+    less: "*"
+    lightningcss: ^1.21.0
+    sass: "*"
+    sass-embedded: "*"
+    stylus: "*"
+    sugarss: "*"
+    terser: ^5.16.0
+    tsx: ^4.8.1
+    yaml: ^2.4.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    jiti:
+      optional: true
+    less:
+      optional: true
+    lightningcss:
+      optional: true
+    sass:
+      optional: true
+    sass-embedded:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+    tsx:
+      optional: true
+    yaml:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 10/354023589439e7e2bcb77af79d24cd06ce20cfc48b409e663c44e515b373b89eb8f29362223eac16a3ff080d3114e40bc5df158372279d92ad03eb270f9e9762
+  languageName: node
+  linkType: hard
+
 "vite@npm:^5.4.14 || ^6.0.0":
   version: 6.2.0
   resolution: "vite@npm:6.2.0"
@@ -16947,7 +16989,7 @@ __metadata:
     "@vitejs/plugin-vue": "npm:^5.2.3"
     sass: "npm:^1.86.2"
     typescript: "npm:~5.5.4"
-    vite: "npm:6.2.4"
+    vite: "npm:6.2.5"
     vue: "npm:^3.5.13"
     vue-router: "npm:^4.5.0"
     vue-tsc: "npm:^2.2.8"
