@@ -34,7 +34,7 @@ jobs:
       - name: Install Dependencies
         run: yarn install
       - name: Build web folder
-        run: yarn build:web:prod
+        run: yarn build
       - name: Install OIDC Client from Core Package
         run: yarn install @actions/core@1.6.0 @actions/http-client
       - name: Get Id Token
