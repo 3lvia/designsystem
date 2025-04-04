@@ -36,7 +36,7 @@ jobs:
       - name: Build web folder
         run: yarn build
       - name: Install OIDC Client from Core Package
-        run: yarn install @actions/core@1.6.0 @actions/http-client
+        run: yarn add @actions/core@1.6.0 @actions/http-client
       - name: Get Id Token
         uses: actions/github-script@v6
         id: idtoken
