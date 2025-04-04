@@ -31,6 +31,8 @@ jobs:
         with:
           cache: 'yarn'
           node-version-file: '.nvmrc'
+      - name: Install Dependencies
+        run: yarn install
       - name: Build web folder
         run: yarn build:web:prod
       - name: Install OIDC Client from Core Package
