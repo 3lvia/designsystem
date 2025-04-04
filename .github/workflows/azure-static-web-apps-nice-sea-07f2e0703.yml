@@ -4,9 +4,7 @@
 name: Azure Static Web Apps CI/CD
 
 on:
-  push:
-    branches:
-      - master
+  workflow_dispatch:
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
@@ -21,6 +19,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+      pull-requests: write
     steps:
       - uses: actions/checkout@v3
         with:
@@ -48,6 +47,7 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_NICE_SEA_07F2E0703 }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: 'upload'
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
           # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
@@ -55,6 +55,7 @@ jobs:
           api_location: '' # Api source code path - optional
           output_location: 'packages/web/dist/elvia-designsystem/browser' # Built app content directory - optional
           github_id_token: ${{ steps.idtoken.outputs.result }}
+          skip_api_build: true # Set the value to true to skip building the API functions.
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
