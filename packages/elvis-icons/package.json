@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@lit/react": "^1.0.7",
-    "dompurify": "^3.2.4",
+    "dompurify": "^3.2.5",
     "lit": "^3.2.1",
     "lit-html": "^3.2.1"
   },
