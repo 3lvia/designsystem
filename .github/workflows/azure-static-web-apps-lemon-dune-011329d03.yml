@@ -10,8 +10,9 @@ on:
       - master
 
 permissions:
-  issues: write
   contents: read
+  id-token: write
+  issues: write
   pull-requests: write
 
 jobs:
@@ -20,9 +21,6 @@ jobs:
       github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
     name: Build and Deploy Job
-    permissions:
-      id-token: write
-      contents: read
     steps:
       - uses: actions/checkout@v4
         with:
@@ -70,3 +68,4 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_LEMON_DUNE_011329D03 }}
           action: 'close'
+          github_id_token: ${{ steps.idtoken.outputs.result }}
