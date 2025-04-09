@@ -30,7 +30,7 @@ jobs:
       - name: Fetch secrets from Vault
         uses: 3lvia/core-github-actions-templates/vault@trunk
         with:
-          environment: dev
+          environment: prod
           system: kunde
           secrets: |
             kunde/kv/data/static_web_app/designsystem api_key | AZURE_STATIC_WEB_APPS_API_TOKEN ;
@@ -60,7 +60,7 @@ jobs:
       - name: Fetch secrets from Vault
         uses: 3lvia/core-github-actions-templates/vault@trunk
         with:
-          environment: dev
+          environment: prod
           system: kunde
           secrets: |
             kunde/kv/data/static_web_app/designsystem api_key | AZURE_STATIC_WEB_APPS_API_TOKEN ;
