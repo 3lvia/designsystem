@@ -171,9 +171,9 @@ information on how to use them.
 3. **Commit & push**: to your branch.
 4. **Pull request**: Create a pull request with all the changes at the
    [Design system Github repo](https://github.com/3lvia/designsystem/pulls).
-5. **Preview**: Netlify will generate a preview link when the pull request is created. The link can be used to
-   send a preview of the changes e.g. to designers or other developers. Find the link at the bottom of the
-   checkpoint-list in the pull request.
+5. **Preview**: Azure Static Web Apps will generate a preview link when the pull request is created. The link
+   can be used to send a preview of the changes e.g. to designers or other developers. Find the link in the
+   comment that the Azure Static Web Apps bot generates.
 6. **Merge branch**: When the branch has been approved by one other member of the team, merge the changes into
    master.
 7. **Publish to NPM**: Whenever something is merged or pushed to master, any packages with a new version in

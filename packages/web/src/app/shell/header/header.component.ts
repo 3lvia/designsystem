@@ -44,7 +44,7 @@ export class HeaderComponent {
   get devMode(): boolean {
     return (
       window.location.href.indexOf('localhost') > -1 ||
-      window.location.href.indexOf('elvis-designsystem.netlify.app') > -1 ||
+      window.location.href.indexOf('azurestaticapps.net') > -1 ||
       window.location.href.indexOf('#dev') > -1
     );
   }

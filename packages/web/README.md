@@ -3,16 +3,12 @@
 [Design.elvia.io](https://design.elvia.io/) is meant to be the main source of information for all users of
 Elvia design system.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a7c263fb-8570-458d-8d9e-4fb84fbb2f8e/deploy-status)](https://app.netlify.com/sites/elvis-designsystem/deploys)
-
 ## 💻 Development
 
-Everything connected to the documentation page is located in the **packages/web** folder. The website is built
-and deployed at [Elvia's Netlify](https://app.netlify.com/sites/elvis-designsystem/overview).
-
-### Technology
-
-- We use **Angular** for the main documentation page and **Netlify** to host the site.
+Everything connected to the documentation page is located in the **packages/web** folder. We use **Angular**
+for the main documentation page and deploy it via [Azure Static Web Apps](https://portal.azure.com/). Look for
+"elvia-designsystem" under "All resources". The deployment GitHub action is located in the
+[workflows folder](../../.github/workflows).
 
 ### Running project
 

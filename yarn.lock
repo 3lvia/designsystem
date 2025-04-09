@@ -4528,22 +4528,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@netlify/functions@npm:^3.0.4":
-  version: 3.0.4
-  resolution: "@netlify/functions@npm:3.0.4"
-  dependencies:
-    "@netlify/serverless-functions-api": "npm:1.36.0"
-  checksum: 10/02abb3cb2a0620ccb80155db2073e7bc32400b48574db2f770ae18e08b14adb3e98867c65a11d5cb98c6aa60941b7cf71a955c76a6857147f8234bfd19b39ef0
-  languageName: node
-  linkType: hard
-
-"@netlify/serverless-functions-api@npm:1.36.0":
-  version: 1.36.0
-  resolution: "@netlify/serverless-functions-api@npm:1.36.0"
-  checksum: 10/bdbc266ef0dc640b96f0ec1244c417f24edab95711947fc702ebd61893ec383e135dcbb9ec8a06c6e6bf3036d23e2f2fd161b376120a30fa4fe20eb1bfe32578
-  languageName: node
-  linkType: hard
-
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -8485,7 +8469,6 @@ __metadata:
     "@elvia/elvis-toast": "workspace:*"
     "@elvia/elvis-tooltip": "workspace:*"
     "@elvia/elvis-typography": "workspace:*"
-    "@netlify/functions": "npm:^3.0.4"
     "@types/file-saver": "npm:^2.0.7"
     "@types/natural-compare-lite": "npm:^1.4.2"
     "@types/node": "npm:22.14.0"

@@ -59,9 +59,6 @@ testem.log
 Thumbs.db
 .env
 
-# Local Netlify folder
-.netlify
-
 # Angular cache
 packages/web/.angular/*
 
