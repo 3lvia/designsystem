@@ -7,8 +7,6 @@
 
 Read our documentation at: [Design.elvia.io](https://design.elvia.io/)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/a7c263fb-8570-458d-8d9e-4fb84fbb2f8e/deploy-status)](https://app.netlify.com/sites/elvis-designsystem/deploys)
-
 Elvia’s design system (Elvis) is a scalable system of visual language, components and design assets which
 enables us to work together towards an ultimate brand experience.
 
@@ -67,7 +65,7 @@ as you follow their license.
 
 - We use **Yarn**, NPM will probably not work as expected.
 - We use a monorepo structure with **Yarn workspaces**.
-- We use **Angular** for the main documentation page and **Netlify** to host the site.
+- We use **Angular** for the main documentation page and **Azure Static Web Apps** to host the site.
 - We use **React** to build our components and wrap them as
   **[Custom elements](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_custom_elements)** to
   make them accessible for multiple JavaScript frameworks.
