@@ -23,7 +23,7 @@
     "@lit/react": "^1.0.7",
     "dompurify": "^3.2.5",
     "lit": "^3.2.1",
-    "lit-html": "^3.2.1"
+    "lit-html": "^3.3.0"
   },
   "peerDependencies": {
     "react": "^18.0.0"
