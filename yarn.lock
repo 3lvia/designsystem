@@ -2380,7 +2380,7 @@ __metadata:
     "@lit/react": "npm:^1.0.7"
     "@types/react": "npm:^18.3.20"
     dompurify: "npm:^3.2.5"
-    lit: "npm:^3.2.1"
+    lit: "npm:^3.3.0"
     lit-html: "npm:^3.2.1"
     tsup: "npm:^8.4.0"
     typescript: "npm:~5.8.2"
@@ -4308,12 +4308,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lit/reactive-element@npm:^2.0.4":
-  version: 2.0.4
-  resolution: "@lit/reactive-element@npm:2.0.4"
+"@lit/reactive-element@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@lit/reactive-element@npm:2.1.0"
   dependencies:
     "@lit-labs/ssr-dom-shim": "npm:^1.2.0"
-  checksum: 10/16aa5a8d917bce24d6c7cb5979f0a978e91f6205b4d9a8ebea2baf965e7a8215dab581b83b331123b04190612f4992ecc7b219cf00cf9b82f53403b08b1b6d49
+  checksum: 10/c13dbc370550b8f3cbdfff3524c4bf58fbda6e91689951ca376104d95c80df96182e0b1c9480786740711f67493f50166d261c79b020eb7a4a10b6794921c790
   languageName: node
   linkType: hard
 
@@ -11899,18 +11899,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit-element@npm:^4.1.0":
-  version: 4.1.1
-  resolution: "lit-element@npm:4.1.1"
+"lit-element@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "lit-element@npm:4.2.0"
   dependencies:
     "@lit-labs/ssr-dom-shim": "npm:^1.2.0"
-    "@lit/reactive-element": "npm:^2.0.4"
-    lit-html: "npm:^3.2.0"
-  checksum: 10/5d1576f63fec21ac10247a67232ff7f1640210cd5b10b8082eb692242b1f74ef2a822d05bd0e330baf5eeb6f0f9c8d5a223e11525f4f96ea668e74009f0d0d23
+    "@lit/reactive-element": "npm:^2.1.0"
+    lit-html: "npm:^3.3.0"
+  checksum: 10/0760140f9cf7eb71e327f04d51a41e3ae4c3fca2ddccca05fa3458d67124a2008044ef3d3812d021e2297ba8b3af7c06fa56b03860877bc09567c334b9d390ad
   languageName: node
   linkType: hard
 
-"lit-html@npm:^3.2.0, lit-html@npm:^3.2.1":
+"lit-html@npm:^3.2.1":
   version: 3.2.1
   resolution: "lit-html@npm:3.2.1"
   dependencies:
@@ -11919,14 +11919,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lit@npm:^3.2.1":
-  version: 3.2.1
-  resolution: "lit@npm:3.2.1"
+"lit-html@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "lit-html@npm:3.3.0"
   dependencies:
-    "@lit/reactive-element": "npm:^2.0.4"
-    lit-element: "npm:^4.1.0"
-    lit-html: "npm:^3.2.0"
-  checksum: 10/6a2cd0547b3ccff11f41753d1d98d789ed1051aef8fb0865344c7e1e4d77aafcf384f660c6d98125cc81ea0c9f87786528742d359359a52d7af956eefb713fe4
+    "@types/trusted-types": "npm:^2.0.2"
+  checksum: 10/667992d927e841d9e74cf615e3556edcdc71392953d3eaf963187b4f0159e52ec7826331a650456f1c573a461f71e6c41da36b8efacef1dffc6cce07e548d8b0
+  languageName: node
+  linkType: hard
+
+"lit@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "lit@npm:3.3.0"
+  dependencies:
+    "@lit/reactive-element": "npm:^2.1.0"
+    lit-element: "npm:^4.2.0"
+    lit-html: "npm:^3.3.0"
+  checksum: 10/442b8eabd5d1b4aee0ab34db0b67d5c07a988f30d345f4a68263275acf826816ba30937bb8d5d331dc260c2127cd8953f332dcc45edbf080d61c21291cb06330
   languageName: node
   linkType: hard
 
