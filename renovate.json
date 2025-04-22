@@ -73,5 +73,10 @@
     }
   ],
   "ignoreDeps": ["@emotion/react", "@emotion/styled", "react", "react-dom"],
-  "ignorePaths": ["**/node_modules/**", "packages/components/components/**", "packages/elvis*"]
+  "ignorePaths": [
+    "**/node_modules/**",
+    "packages/components/components/**",
+    "packages/elvis*",
+    "packages/elvis-icons"
+  ]
 }
