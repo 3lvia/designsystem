@@ -1,7 +1,7 @@
 name: Playwright Tests
 permissions:
   contents: read
-  actions: read
+  actions: write
 on:
   workflow_dispatch:
   pull_request:
