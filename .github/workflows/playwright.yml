@@ -1,9 +1,14 @@
 name: Playwright Tests
+permissions:
+  contents: read
+  actions: read
+  checks: write
 on:
   workflow_dispatch:
   pull_request:
     paths:
       - 'packages/components/components/**'
+      - '.github/workflows/**'
   push:
     branches:
       - master
