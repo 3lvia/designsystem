@@ -1,4 +1,7 @@
 name: Percy CI
+permissions:
+  contents: read
+  checks: write
 on:
   workflow_dispatch:
   push:
