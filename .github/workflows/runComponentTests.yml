@@ -6,6 +6,7 @@ on:
     paths:
       - 'packages/components/components/**'
       - 'yarn.lock'
+      - '.github/workflows/**'
 jobs:
   runComponentTests:
     runs-on: ubuntu-latest
