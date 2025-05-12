@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import * as template from './chip-image-empty-ceg.component.html';
@@ -12,11 +12,12 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ChipImageEmptyCegComponent implements StaticComponentExample {
+  private themeService = inject(ThemeService);
   html = template.default;
   currentTheme: Theme = 'light';
 
-  constructor(themeService: ThemeService) {
-    themeService
+  constructor() {
+    this.themeService
       .listenTheme()
       .pipe(takeUntilDestroyed())
       .subscribe((newTheme) => (this.currentTheme = newTheme));

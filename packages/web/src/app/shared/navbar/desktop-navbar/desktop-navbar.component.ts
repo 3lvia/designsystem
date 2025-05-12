@@ -17,7 +17,6 @@ import { fromEvent, merge, switchMap, take } from 'rxjs';
 import { LocalePickerComponent } from '../locale-picker/locale-picker.component';
 import { NavbarBase } from '../navbar-base';
 import { SubMenuComponent } from '../sub-menu/sub-menu.component';
-import { RouterService } from 'src/app/core/services/router.service';
 
 const animationMotion = '320ms cubic-bezier(0.5, 0, 0.31, 1)';
 @Component({
@@ -36,6 +35,8 @@ const animationMotion = '320ms cubic-bezier(0.5, 0, 0.31, 1)';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit {
+  private ngZone = inject(NgZone);
+
   private readonly destroyRef = inject(DestroyRef);
 
   private readonly scrollContainer = viewChild.required<ElementRef<HTMLDivElement>>('scrollContainer');
@@ -48,11 +49,8 @@ export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit 
     return this.activeRoute.split('/')[1];
   }
 
-  constructor(
-    private ngZone: NgZone,
-    routerService: RouterService,
-  ) {
-    super(routerService);
+  constructor() {
+    super();
     this.setActiveRoute();
 
     this.navbarListChange

@@ -1,8 +1,7 @@
 import { AsyncPipe, NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ThemeName } from '@elvia/elvis-colors';
-import { Observable } from 'rxjs';
 
 import { CopyComponent } from '../../../../shared/copy/copy.component';
 import { BreakpointService } from 'src/app/core/services/breakpoint.service';
@@ -23,9 +22,12 @@ interface Shadow {
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ShadowViewerComponent {
+  private breakpointService = inject(BreakpointService);
+  private localizationService = inject(LocalizationService);
+
   currentLocale: Locale = 'en-GB';
   activeTheme: ThemeName = 'light';
-  isMobile: Observable<boolean>;
+  isMobile = this.breakpointService.matches(['sm']);
   shadows: Shadow[] = [
     { title: 'Soft', token: 'e-shadow-soft', blur: 50, opacity: 3 },
     { title: 'Medium', token: 'e-shadow-medium', blur: 40, opacity: 6 },
@@ -48,10 +50,8 @@ export class ShadowViewerComponent {
     },
   } as const satisfies Record<string, Record<Locale, string>>;
 
-  constructor(breakpointService: BreakpointService, localeService: LocalizationService) {
-    this.isMobile = breakpointService.matches(['sm']);
-
-    localeService
+  constructor() {
+    this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())
       .subscribe((locale) => {

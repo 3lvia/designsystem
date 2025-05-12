@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, HostListener } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, HostListener, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { Observable, filter, fromEvent, map, tap } from 'rxjs';
@@ -14,6 +14,8 @@ import { ShortcutModalContentComponent } from './shortcut-modal-content/shortcut
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ShortcutComponent {
+  private router = inject(Router);
+
   showShortcutGlossary = false;
   showShortcutGlossaryButton = false;
   // @ts-expect-error TS2564 (LEGO-3683)
@@ -22,7 +24,7 @@ export class ShortcutComponent {
   private shortcutGlossaryButtonTimeoutId: number | undefined;
   private shortcuts = shortcuts;
 
-  constructor(router: Router) {
+  constructor() {
     this.listenForShortcut(this.shortcuts).subscribe((triggeredShortcut) => {
       this.closeShortcutGlossary();
       this.hideShortcutGlossaryButton();
@@ -32,7 +34,7 @@ export class ShortcutComponent {
       if (triggeredShortcut.type === 'action') {
         triggeredShortcut.action();
       } else {
-        router.navigate([triggeredShortcut.url]);
+        this.router.navigate([triggeredShortcut.url]);
       }
     });
   }

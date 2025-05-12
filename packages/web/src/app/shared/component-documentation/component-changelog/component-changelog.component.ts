@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, inject, input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -32,6 +32,8 @@ import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.
   styleUrls: ['./component-changelog.component.scss'],
 })
 export class ComponentChangelogComponent implements OnInit {
+  private breakpointService = inject(BreakpointService);
+
   // TODO: Skipped for migration because:
   //  Your application code writes to the input. This prevents migration.
   @Input() changelog?: Changelog;
@@ -66,7 +68,7 @@ export class ComponentChangelogComponent implements OnInit {
   // @ts-expect-error TS2564 (LEGO-3683)
   private searcher: Searcher<ChangelogEntry>;
 
-  constructor(private breakpointService: BreakpointService) {
+  constructor() {
     // Reset search value and filter when the screen is resized to mobile
     this.breakpointService
       .matches(['sm'])

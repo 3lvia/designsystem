@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { ChangeDetectorRef, Component, OnDestroy, OnInit, input } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit, inject, input } from '@angular/core';
 import { Observable, Subject, combineLatest } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -22,6 +22,8 @@ interface Prop {
   imports: [CodeGeneratorComponent, AsyncPipe],
 })
 export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
+  private changeDetectorRef = inject(ChangeDetectorRef);
+
   private unsubscriber = new Subject<void>();
   readonly controlManager = input.required<UnknownCegControlManager>();
   readonly elementName = input('');
@@ -32,8 +34,6 @@ export class DynamicCodeGeneratorComponent implements OnInit, OnDestroy {
   angularCode = '';
   reactCode = '';
   vueCode = '';
-
-  constructor(private changeDetectorRef: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.initialProps = this.getFlatPropList(

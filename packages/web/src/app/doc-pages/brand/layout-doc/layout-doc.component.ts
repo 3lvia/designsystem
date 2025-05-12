@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 
@@ -40,6 +40,8 @@ const docPage = getDocPage('layout');
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LayoutDocComponent {
+  private localizationService = inject(LocalizationService);
+
   title = docPage.title;
   titleNo = docPage.titleNo;
   description = docPage.description;
@@ -47,7 +49,7 @@ export class LayoutDocComponent {
   figmaUrl = docPage.figmaUrl;
   locale: Locale = 'en-GB';
 
-  constructor(private localizationService: LocalizationService) {
+  constructor() {
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())

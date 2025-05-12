@@ -1,6 +1,6 @@
 import { A11yModule, CdkTrapFocus } from '@angular/cdk/a11y';
 import { CommonModule, NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
@@ -35,6 +35,9 @@ type MenuType = 'search' | 'mobileMenu' | null;
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HeaderComponent {
+  private themeService = inject(ThemeService);
+  private breakpointService = inject(BreakpointService);
+
   visibleMenuType: MenuType = null;
   mainMenuItems = mainMenuItems;
 
@@ -60,10 +63,7 @@ export class HeaderComponent {
     }
   }
 
-  constructor(
-    private themeService: ThemeService,
-    private breakpointService: BreakpointService,
-  ) {
+  constructor() {
     this.closeThemeMenuOnMobile();
 
     this.themeService

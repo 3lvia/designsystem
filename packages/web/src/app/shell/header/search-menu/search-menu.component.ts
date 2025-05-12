@@ -7,6 +7,7 @@ import {
   HostListener,
   OnInit,
   effect,
+  inject,
   output,
   viewChild,
 } from '@angular/core';
@@ -30,6 +31,10 @@ import { SearchResult, Searcher } from 'src/app/shared/searcher';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SearchMenuComponent implements OnInit {
+  private localizationService = inject(LocalizationService);
+  private router = inject(Router);
+  breakpointService = inject(BreakpointService);
+
   private readonly searchInputElement = viewChild.required<ElementRef<HTMLInputElement>>('searchInput');
   readonly closeSearchMenu = output<void>();
 
@@ -43,11 +48,7 @@ export class SearchMenuComponent implements OnInit {
   filteredResults: SearchResult<SearchItem>[] = [];
   synonymComponents: SearchItem[] = [];
 
-  constructor(
-    private localizationService: LocalizationService,
-    private router: Router,
-    public breakpointService: BreakpointService,
-  ) {
+  constructor() {
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())

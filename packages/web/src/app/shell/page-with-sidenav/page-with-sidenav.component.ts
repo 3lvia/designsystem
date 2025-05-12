@@ -1,5 +1,5 @@
 import { TitleCasePipe } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, input, signal } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject, input, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 
@@ -24,19 +24,21 @@ import { IfViewportSizeDirective } from '../../shared/viewport-size/if-viewport-
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PageWithSidenavComponent {
+  private routerService = inject(RouterService);
+
   isLandingPage = input(false);
   backBtn = signal('');
   currentRoute = signal('');
 
-  constructor(urlService: RouterService) {
+  constructor() {
     /**
      * We need this initial setter, because the url is resolved
      * before this component is mounted, thus the urlPathChange()
      * will not trigger on initial render (when pressing F5).
      */
-    this.setCurrentRoute(urlService.getCurrentUrlPath());
+    this.setCurrentRoute(this.routerService.getCurrentUrlPath());
 
-    urlService
+    this.routerService
       .urlPathChange()
       .pipe(takeUntilDestroyed())
       .subscribe((e) => this.setCurrentRoute(e));

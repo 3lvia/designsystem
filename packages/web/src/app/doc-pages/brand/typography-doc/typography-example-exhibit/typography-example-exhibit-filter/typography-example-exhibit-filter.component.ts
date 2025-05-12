@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, input, output } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject, input, output } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import '@elvia/elvis-radio-filter';
 import '@elvia/elvis-segmented-control';
@@ -17,6 +17,8 @@ type DisplayCategories = 'Title' | 'Body' | 'Body text' | 'Special' | 'Special t
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TypographyExampleExhibitFilterComponent {
+  protected breakpointService = inject(BreakpointService);
+
   readonly activeCategory = input.required<Category>();
   readonly newActiveCategory = output<Category>();
 
@@ -30,8 +32,8 @@ export class TypographyExampleExhibitFilterComponent {
     { label: 'Special text' },
   ];
 
-  constructor(public breakpointService: BreakpointService) {
-    breakpointService
+  constructor() {
+    this.breakpointService
       .matches(['xs', 'sm'])
       .pipe(takeUntilDestroyed())
       .subscribe(
