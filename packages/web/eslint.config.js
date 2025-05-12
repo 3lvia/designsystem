@@ -94,4 +94,11 @@ module.exports = tseslint.config(
       '@angular-eslint/template/valid-aria': 'error',
     },
   },
+  {
+    files: ['**/*.html'],
+    rules: {
+      '@angular-eslint/template/prefer-self-closing-tags': 'error',
+    },
+    ignores: ['**/*-ceg*.html'],
+  },
 );

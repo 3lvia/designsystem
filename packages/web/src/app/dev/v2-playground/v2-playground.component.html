@@ -90,7 +90,7 @@
       <!--Breadcrumb-->
       <div class="example-wrapper">
         <h3>Breadcrumbs</h3>
-        <elvia-breadcrumb [items]="breadcrumbsTestNoUrl"></elvia-breadcrumb>
+        <elvia-breadcrumb [items]="breadcrumbsTestNoUrl" />
       </div>
 
       <!--Card-->
@@ -106,7 +106,7 @@
             [description]="'description3'"
             [icon]="'3'"
             [borderColor]="'green'"
-          ></elvia-card>
+          />
         </div>
         <div class="e-mt-32 e-gap-16" style="display: grid; grid-template-columns: 1fr 1fr">
           <elvia-card
@@ -125,7 +125,7 @@
             "
             [type]="'detail'"
             [tag]="'Detail Tag'"
-          ></elvia-card>
+          />
         </div>
         <elvia-card
           heading="Heading long that overflows and becomes truncated"
@@ -195,7 +195,7 @@
                   color="orange"
                   type="legend"
                   (isSelectedOnChange)="handleOnChange($any($event))"
-                ></elvia-chip>
+                />
               </div>
             }
 
@@ -258,7 +258,7 @@
           [value]="date"
           resetTime
           (valueOnChange)="writeDate($any($event).detail.value)"
-        ></elvia-datepicker>
+        />
       </div>
 
       <!--Date range picker-->
@@ -266,13 +266,13 @@
         <h3>Date range picker</h3>
         <elvia-datepicker-range
           (valueOnChangeISOString)="writeDate($any($event).detail.value)"
-        ></elvia-datepicker-range>
+        />
         <elvia-datepicker-range
           hasTimepickers
           [minDate]="minDateRange"
           [maxDate]="maxDateRange"
           (valueOnChangeISOString)="writeDate($any($event).detail.value)"
-        ></elvia-datepicker-range>
+        />
       </div>
 
       <!--Divider-->
@@ -284,10 +284,10 @@
         </elvia-divider>
         <h4>Vertical divider</h4>
         <div style="height: 100px">
-          <elvia-divider type="simple" orientation="vertical"></elvia-divider>
+          <elvia-divider type="simple" orientation="vertical" />
         </div>
         <h4>Curved divider</h4>
-        <elvia-divider type="curved"></elvia-divider>
+        <elvia-divider type="curved" />
       </div>
 
       <!--Dropdown-->
@@ -299,7 +299,7 @@
           label="Select location"
           (valueOnChange)="onDropdownSelect($any($event).detail.value)"
           [labelTransformation]="labelTransformation"
-        ></elvia-dropdown>
+        />
         <h3>Dropdown</h3>
         <elvia-dropdown
           [items]="dropdownItems"
@@ -307,14 +307,14 @@
           label="Select location"
           (valueOnChange)="onDropdownSelect($any($event).detail.value)"
           [errorOptions]="errorOptions"
-        ></elvia-dropdown>
+        />
         <elvia-dropdown
           [items]="dropdownImageItems"
           label="Tilordne"
           placeholder="Tilordne person"
           size="small"
           (valueOnChange)="onDropdownSelect($any($event).detail.value)"
-        ></elvia-dropdown>
+        />
       </div>
 
       <!--Icon-->
@@ -377,7 +377,7 @@
       <!--Paginator-->
       <div class="example-wrapper">
         <h3>Paginator</h3>
-        <elvia-pagination numberOfElements="100"></elvia-pagination>
+        <elvia-pagination numberOfElements="100" />
       </div>
 
       <!--Popover-->
@@ -407,7 +407,7 @@
           [isIndeterminate]="indeterminate"
           [value]="progressValue"
           [isError]="progressError"
-        ></elvia-progress-linear>
+        />
         <div style="margin-bottom: 32px; display: flex">
           <div style="display: flex; width: 100%; justify-content: space-between">
             <button class="e-btn" (click)="progressValue = progressValue + 10">Increase Progress</button>
@@ -427,7 +427,7 @@
           [name]="'readRadioFilters'"
           [ariaLabel]="'{value} filtrering valgt'"
           (valueOnChange)="logValue('Radio filter', $any($event).detail.value)"
-        ></elvia-radio-filter>
+        />
       </div>
 
       <!--Segmented control-->
@@ -436,7 +436,7 @@
         <elvia-segmented-control
           [items]="[{ label: 'Different' }, { label: 'Length' }, { label: 'Woords' }]"
           (valueOnChange)="logValue('Segmented', $any($event).detail.value)"
-        ></elvia-segmented-control>
+        />
         <elvia-segmented-control
           [type]="'icon'"
           [items]="[
@@ -452,7 +452,7 @@
             },
           ]"
           (valueOnChange)="logValue('Segmented', $any($event).detail.value)"
-        ></elvia-segmented-control>
+        />
       </div>
 
       Slider
@@ -469,7 +469,7 @@
       <div class="example-wrapper">
         <h3>Spotlight</h3>
         @if (showSpotlight) {
-          <elvia-spotlight [position]="{ horizontal: 450, vertical: 300 }" [radius]="150"></elvia-spotlight>
+          <elvia-spotlight [position]="{ horizontal: 450, vertical: 300 }" [radius]="150" />
         }
         <button class="e-btn" style="position: relative; z-index: 999999" (click)="toggleSpotlight()">
           Toggle spotlight
@@ -502,38 +502,38 @@
       <!--Tabs-->
       <div class="example-wrapper">
         <h3>Tabs</h3>
-        <elvia-tabs [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']" [value]="1"></elvia-tabs>
+        <elvia-tabs [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']" [value]="1" />
       </div>
 
       <!--Timepicker-->
       <div class="example-wrapper">
         <h3>Timepicker</h3>
         <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: baseline">
-          <elvia-timepicker></elvia-timepicker>
+          <elvia-timepicker />
 
-          <elvia-timepicker [errorOptions]="errorOptions"></elvia-timepicker>
+          <elvia-timepicker [errorOptions]="errorOptions" />
 
-          <elvia-timepicker label="Custom label"></elvia-timepicker>
+          <elvia-timepicker label="Custom label" />
 
-          <elvia-timepicker label=""></elvia-timepicker>
+          <elvia-timepicker label="" />
 
-          <elvia-timepicker size="small"></elvia-timepicker>
+          <elvia-timepicker size="small" />
 
           <elvia-timepicker
             label="Only hours"
             [value]="timepickerValue"
             minuteInterval="60"
-          ></elvia-timepicker>
+          />
 
-          <elvia-timepicker isDisabled="true"></elvia-timepicker>
+          <elvia-timepicker isDisabled="true" />
 
-          <elvia-timepicker label="Required" isRequired="true"></elvia-timepicker>
+          <elvia-timepicker label="Required" isRequired="true" />
 
-          <elvia-timepicker [minTime]="timepickerMin" [maxTime]="timepickerMax"></elvia-timepicker>
+          <elvia-timepicker [minTime]="timepickerMin" [maxTime]="timepickerMax" />
 
-          <elvia-timepicker [minTime]="timepickerMin"></elvia-timepicker>
+          <elvia-timepicker [minTime]="timepickerMin" />
 
-          <elvia-timepicker [maxTime]="timepickerMax"></elvia-timepicker>
+          <elvia-timepicker [maxTime]="timepickerMax" />
         </div>
       </div>
 
@@ -553,7 +553,7 @@
             <elvia-tooltip
               content="This is a tooltip! The content is pretty long."
               trigger="tooltip!"
-            ></elvia-tooltip>
+            />
           </p>
 
           <elvia-tooltip
@@ -585,7 +585,7 @@
           </elvia-tooltip>
 
           <elvia-tooltip content="This should not be visible if mouseleave before delay">
-            <elvia-accordion slot="trigger" openLabel="Accordion as tooltip trigger"></elvia-accordion>
+            <elvia-accordion slot="trigger" openLabel="Accordion as tooltip trigger" />
           </elvia-tooltip>
         </div>
       </div>

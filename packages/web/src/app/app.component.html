@@ -1,16 +1,16 @@
-<app-header></app-header>
-<elvia-toast></elvia-toast>
+<app-header />
+<elvia-toast />
 
 <main [ngClass]="{ 'not-found': currentRoute === 'notFound' }">
   @if (currentRoute !== 'pageWithSidenav') {
-    <router-outlet></router-outlet>
+    <router-outlet />
   } @else {
     <app-page-with-sidenav class="page-with-sidenav" [isLandingPage]="isLandingPage">
-      <router-outlet></router-outlet>
+      <router-outlet />
     </app-page-with-sidenav>
   }
 </main>
 
-<app-footer class="e-pt-80"></app-footer>
+<app-footer class="e-pt-80" />
 
 <app-shortcut />
