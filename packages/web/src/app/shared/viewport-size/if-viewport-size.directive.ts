@@ -1,4 +1,4 @@
-import { Directive, Input, OnDestroy, TemplateRef, ViewContainerRef } from '@angular/core';
+import { Directive, Input, OnDestroy, TemplateRef, ViewContainerRef, inject } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { BreakpointService, ScreenSize } from 'src/app/core/services/breakpoint.service';
@@ -16,6 +16,10 @@ import { BreakpointService, ScreenSize } from 'src/app/core/services/breakpoint.
   selector: '[ifViewportSize]',
 })
 export class IfViewportSizeDirective implements OnDestroy {
+  private breakpointService = inject(BreakpointService);
+  private templateRef = inject<TemplateRef<any>>(TemplateRef);
+  private viewContainerRef = inject(ViewContainerRef);
+
   private subscription = new Subscription();
 
   // TODO: Skipped for migration because:
@@ -25,17 +29,11 @@ export class IfViewportSizeDirective implements OnDestroy {
     this.subscription = this.breakpointService.matches(values).subscribe(this.updateView);
   }
 
-  constructor(
-    private breakpointService: BreakpointService,
-    private vcRef: ViewContainerRef,
-    private templateRef: TemplateRef<any>,
-  ) {}
-
   updateView = (matches: boolean) => {
-    if (matches && !this.vcRef.length) {
-      this.vcRef.createEmbeddedView(this.templateRef);
-    } else if (!matches && this.vcRef.length) {
-      this.vcRef.clear();
+    if (matches && !this.viewContainerRef.length) {
+      this.viewContainerRef.createEmbeddedView(this.templateRef);
+    } else if (!matches && this.viewContainerRef.length) {
+      this.viewContainerRef.clear();
     }
   };
 

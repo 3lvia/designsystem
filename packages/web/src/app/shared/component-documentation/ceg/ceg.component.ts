@@ -51,6 +51,10 @@ interface SlotMap {
   ],
 })
 export class CegComponent implements AfterViewInit, AfterContentInit {
+  private zone = inject(NgZone);
+  private activatedRoute = inject(ActivatedRoute);
+  private location = inject(Location);
+
   readonly fullWidth = input(false, { transform: booleanAttribute });
 
   readonly componentContainer = viewChild.required<ElementRef<HTMLDivElement>>('componentContainer');
@@ -80,12 +84,6 @@ export class CegComponent implements AfterViewInit, AfterContentInit {
         takeUntilDestroyed(this.destroyRef),
       );
   }
-
-  constructor(
-    private zone: NgZone,
-    private route: ActivatedRoute,
-    private location: Location,
-  ) {}
 
   ngAfterContentInit(): void {
     const tsComponentExample = this.tsComponentExample();
@@ -130,7 +128,7 @@ export class CegComponent implements AfterViewInit, AfterContentInit {
 
   private setCegStateFromURL(): void {
     this.zone.onStable.pipe(takeUntilDestroyed(this.destroyRef), first()).subscribe(() => {
-      const componentType = this.route.snapshot.queryParamMap.get('type');
+      const componentType = this.activatedRoute.snapshot.queryParamMap.get('type');
       if (componentType) {
         this.componentExample().cegContent.setActiveComponentTypeName(componentType);
       }

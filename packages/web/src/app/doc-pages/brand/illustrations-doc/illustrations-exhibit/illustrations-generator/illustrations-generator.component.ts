@@ -1,4 +1,4 @@
-import { Component, ElementRef, effect, input } from '@angular/core';
+import { Component, ElementRef, effect, inject, input } from '@angular/core';
 
 import { IllustrationColor } from '../../illustrations-data';
 import { IllustrationName } from '../illustrations-exhibit-data';
@@ -8,10 +8,12 @@ import { IllustrationName } from '../illustrations-exhibit-data';
   template: '',
 })
 export class IllustrationsGeneratorComponent {
+  private elementRef = inject(ElementRef);
+
   illustrationName = input.required<IllustrationName | undefined | null>();
   color = input<IllustrationColor | null>();
 
-  constructor(private el: ElementRef) {
+  constructor() {
     effect(() => {
       this.updateIllustration();
     });
@@ -25,12 +27,12 @@ export class IllustrationsGeneratorComponent {
       return;
     }
     const illustrationElement = document.createElement(`elvia-illustrations-${this.illustrationName()}`);
-    this.el.nativeElement.innerHTML = '';
-    this.el.nativeElement.appendChild(illustrationElement);
+    this.elementRef.nativeElement.innerHTML = '';
+    this.elementRef.nativeElement.appendChild(illustrationElement);
   };
 
   private updateColor = () => {
-    const illustrationElement = this.el.nativeElement.querySelector(
+    const illustrationElement = this.elementRef.nativeElement.querySelector(
       `elvia-illustrations-${this.illustrationName()}`,
     );
     if (illustrationElement) {

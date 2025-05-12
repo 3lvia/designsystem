@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
@@ -23,6 +23,8 @@ const docPage = getDocPage('shadow');
   ],
 })
 export class ShadowDocComponent {
+  private localizationService = inject(LocalizationService);
+
   figmaUrl = docPage.figmaUrl;
   title = docPage.title;
   titleNo = docPage.titleNo;
@@ -32,7 +34,7 @@ export class ShadowDocComponent {
   styleText = styleText;
   doDontText = doAndDont;
 
-  constructor(private localizationService: LocalizationService) {
+  constructor() {
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())

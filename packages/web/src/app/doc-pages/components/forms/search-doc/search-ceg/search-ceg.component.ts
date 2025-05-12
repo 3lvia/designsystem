@@ -1,4 +1,4 @@
-import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef } from '@angular/core';
+import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, inject } from '@angular/core';
 
 import * as template from './search-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -10,16 +10,16 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SearchCegComponent implements StaticComponentExample, AfterViewInit {
+  private elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
+
   html = template.default;
 
-  constructor(private element: ElementRef<HTMLElement>) {}
-
   get buttonElement() {
-    return this.element.nativeElement.querySelector('button') as HTMLButtonElement | undefined;
+    return this.elementRef.nativeElement.querySelector('button') as HTMLButtonElement | undefined;
   }
 
   get inputElement() {
-    return this.element.nativeElement.querySelector('input') as HTMLInputElement | undefined;
+    return this.elementRef.nativeElement.querySelector('input') as HTMLInputElement | undefined;
   }
 
   ngAfterViewInit(): void {

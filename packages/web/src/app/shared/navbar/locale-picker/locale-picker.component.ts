@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
@@ -12,9 +12,11 @@ import { Locale, LocalizationService } from 'src/app/core/services/localization.
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LocalePickerComponent {
+  private localizationService = inject(LocalizationService);
+
   selectedLocale: Locale = 'en-GB';
 
-  constructor(private localizationService: LocalizationService) {
+  constructor() {
     this.localizationService
       .listenLocalization()
       .pipe(takeUntilDestroyed())

@@ -1,6 +1,6 @@
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 import { Location, NgClass } from '@angular/common';
-import { ChangeDetectorRef, Component, NgZone } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { first, fromEvent, switchMap } from 'rxjs';
@@ -35,16 +35,16 @@ export interface Anchor {
   imports: [NgClass],
 })
 export class SubMenuComponent {
+  private router = inject(Router);
+  private location = inject(Location);
+  private localizationService = inject(LocalizationService);
+  private changeDetectorRef = inject(ChangeDetectorRef);
+  private ngZone = inject(NgZone);
+
   anchors: Anchor[] = [];
   activeAnchor = '';
 
-  constructor(
-    private router: Router,
-    private location: Location,
-    changeDetectorRef: ChangeDetectorRef,
-    localizationService: LocalizationService,
-    zone: NgZone,
-  ) {
+  constructor() {
     this.setActiveAnchorOnScroll();
     this.scrollToCorrectAnchorOnPageLoad();
 
@@ -52,17 +52,17 @@ export class SubMenuComponent {
      * When localization changes, wait for the DOM to stabilize
      * before retrieving the anchor elements from the DOM.
      **/
-    localizationService
+    this.localizationService
       .listenLocalization()
       .pipe(
         takeUntilDestroyed(),
-        switchMap(() => zone.onStable.pipe(first())),
+        switchMap(() => this.ngZone.onStable.pipe(first())),
       )
       .subscribe(() => {
-        this.anchors = this.getAnchors(localizationService.getCurrentLocalization());
+        this.anchors = this.getAnchors(this.localizationService.getCurrentLocalization());
         // @ts-expect-error TS2322 (LEGO-3683)
         this.activeAnchor = this.anchors[0]?.name;
-        changeDetectorRef.detectChanges();
+        this.changeDetectorRef.detectChanges();
       });
   }
 
