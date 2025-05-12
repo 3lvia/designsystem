@@ -10,7 +10,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
   >
     <span class="e-link__title">#designsystemet</span>
     <span class="e-link__icon">
-      <e-icon name="newTabBold"> </e-icon>
+      <e-icon name="newTabBold" />
     </span>
   </a>`,
   styles: `

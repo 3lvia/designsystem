@@ -4,7 +4,7 @@
       [items]="changelogRadioFilterItems"
       [value]="radioFilterValue"
       (valueOnChange)="radioFilterValue = $any($event).detail.value; searchChangelog()"
-    ></elvia-radio-filter>
+    />
     <div class="e-form-field">
       <div class="e-input">
         <e-icon name="searchColor" />
@@ -41,7 +41,7 @@
       .
     </p>
   }
-  <ng-container [ngTemplateOutlet]="changelogFilter"></ng-container>
+  <ng-container [ngTemplateOutlet]="changelogFilter" />
 </ng-template>
 
 <ng-template #changelogTemplateContent>
@@ -180,10 +180,10 @@
 
 <!-- No accordion  -->
 @if (!hasAccordion() || (changelog && changelog.length <= 2)) {
-  <ng-container *ngTemplateOutlet="changelogTemplateHeader"></ng-container>
-  <ng-container *ngTemplateOutlet="changelogTemplateContent"></ng-container>
+  <ng-container *ngTemplateOutlet="changelogTemplateHeader" />
+  <ng-container *ngTemplateOutlet="changelogTemplateContent" />
 } @else {
-  <ng-container *ngTemplateOutlet="changelogTemplateHeader"></ng-container>
+  <ng-container *ngTemplateOutlet="changelogTemplateHeader" />
   <elvia-accordion
     type="overflow"
     overflowHeight="500"
@@ -196,7 +196,7 @@
     (onClose)="accordionIsOpen = false"
   >
     <div slot="content">
-      <ng-container *ngTemplateOutlet="changelogTemplateContent"></ng-container>
+      <ng-container *ngTemplateOutlet="changelogTemplateContent" />
     </div>
   </elvia-accordion>
 }

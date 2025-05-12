@@ -38,7 +38,7 @@
           <p class="e-m-0">Upload a cool <app-svg-abbreviation-popover /> that best symbolizes your team.</p>
           <app-why-svg-popover />
         </div>
-        <ng-container [ngTemplateOutlet]="symbolImage"></ng-container>
+        <ng-container [ngTemplateOutlet]="symbolImage" />
         @if (!generatedSvg) {
           <button class="e-btn e-btn--tertiary e-mt-24" (click)="fileInput.click()">
             <span class="e-btn__icon">
@@ -73,7 +73,7 @@
 
       <div class="step-container">
         <p>Generate random colors and choose one that you like.</p>
-        <ng-container [ngTemplateOutlet]="symbolImage"></ng-container>
+        <ng-container [ngTemplateOutlet]="symbolImage" />
 
         @if (generatedColors.length > 1) {
           <ul class="generated-colors">
@@ -115,7 +115,7 @@
 
       <div class="step-container">
         <p>The team name will appear in one of the symbols that we generate for you.</p>
-        <ng-container [ngTemplateOutlet]="symbolImage"></ng-container>
+        <ng-container [ngTemplateOutlet]="symbolImage" />
         <div class="e-form-field e-mt-24 e-mb-48">
           <div class="e-input">
             <input id="team-name" placeholder="Team name" [(ngModel)]="teamName" />

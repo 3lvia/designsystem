@@ -59,7 +59,7 @@
           <e-icon [name]="currentTheme + 'Theme'" size="xs" />
           <span class="e-text-md">Theme</span>
         </button>
-        <app-theme-switch slot="content" (preferredThemeSwitched)="closeThemeMenu()"></app-theme-switch>
+        <app-theme-switch slot="content" (preferredThemeSwitched)="closeThemeMenu()" />
       </elvia-popover>
 
       <elvia-divider orientation="vertical" className="e-mx-24" inlineStyle="{ maxHeight: '20px' }" />

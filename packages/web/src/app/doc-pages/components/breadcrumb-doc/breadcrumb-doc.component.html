@@ -1,11 +1,11 @@
 <app-component-documentation docUrl="breadcrumb" [componentData]="componentData">
   <app-static-ceg ceg>
-    <app-breadcrumb-ceg></app-breadcrumb-ceg>
+    <app-breadcrumb-ceg />
   </app-static-ceg>
 
   <!-- USAGE -->
   <app-component-section usage [sectionTitle]="'Usage'">
-    <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    <app-when-to-use [whens]="does" [whenNots]="donts" />
     <app-component-subsection [sectionTitle]="'Levels'">
       The breadcrumb should start with home (landing page) and end with the current page. All pages besides
       the current page are a link. The breadcrumb is hidden until you have two levels (no breadcrumbs are
