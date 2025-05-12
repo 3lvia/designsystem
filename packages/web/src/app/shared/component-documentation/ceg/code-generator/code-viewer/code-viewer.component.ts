@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, booleanAttribute, input, output } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, booleanAttribute, inject, input, output } from '@angular/core';
 
 import { IfViewportSizeDirective } from '../../../../viewport-size/if-viewport-size.directive';
 import { TabToSegmentedControlItemPipe } from '../../../tabToSegmentedControlItem.pipe';
@@ -24,6 +24,9 @@ import { BreakpointService } from 'src/app/core/services/breakpoint.service';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CodeViewerComponent {
+  private formatCodePipe = inject(FormatCodePipe);
+  breakpointService = inject(BreakpointService);
+
   readonly tabs = input<Tab[]>(['HTML']);
   readonly fileName = input('');
   readonly activeCode = input('');
@@ -58,14 +61,9 @@ export class CodeViewerComponent {
     return this.tabs()[this.activeTabIndex()];
   }
 
-  constructor(
-    private codeFormatter: FormatCodePipe,
-    public breakpointService: BreakpointService,
-  ) {}
-
   async copyCode() {
     await navigator.clipboard
-      .writeText(await this.codeFormatter.transform(this.activeCode(), this.language))
+      .writeText(await this.formatCodePipe.transform(this.activeCode(), this.language))
       .then(() => {
         this.copyMessage = 'Copied!';
         const copyTimeout = setTimeout(() => {

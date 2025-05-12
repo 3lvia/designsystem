@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AutocompleteItem } from '@elvia/elvis-autocomplete/react';
 import { Observable, Subject, debounceTime, from, switchMap } from 'rxjs';
@@ -20,12 +20,14 @@ const DEMO_API_URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AutocompleteFilterCegComponent implements StaticComponentExample {
+  private http = inject(HttpClient);
+
   html = template.default;
   autocompleteItems: AutocompleteItem[] = [];
 
   private valueChangesSubject = new Subject<string>();
 
-  constructor(private http: HttpClient) {
+  constructor() {
     this.valueChangesSubject
       .pipe(
         takeUntilDestroyed(),

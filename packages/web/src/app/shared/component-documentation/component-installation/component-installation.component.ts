@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, inject, input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { CopyComponent } from '../../copy/copy.component';
@@ -17,13 +17,15 @@ import ComponentData from 'src/app/doc-pages/components/component-data.interface
   imports: [CopyComponent, TabToSegmentedControlItemPipe],
 })
 export class ComponentInstallationComponent {
+  private preferredLanguageService = inject(PreferredLanguageService);
+
   readonly componentData = input.required<ComponentData>();
   reactElementName = computed(() => this.componentData().name);
   packageName = computed(() => getPackageName(this.componentData().name));
   activeTabIndex = 0;
   tabs: Tab[] = ['Angular', 'React', 'Vue'];
 
-  constructor(private preferredLanguageService: PreferredLanguageService) {
+  constructor() {
     this.preferredLanguageService
       .listenLanguage(this.tabs.map((tab) => tab.toLowerCase() as LanguageType))
       .pipe(takeUntilDestroyed())

@@ -18,13 +18,15 @@ import { RouterService } from 'src/app/core/services/router.service';
 })
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class NavbarBase {
+  protected routerService = inject(RouterService);
+
   private navbarListChangedSubject = new Subject<void>();
   @HostBinding('attr.role') hostRole = 'navigation';
   navbarList: DocPage[] = [];
   navbarListChange = this.navbarListChangedSubject.asObservable();
   currentLocale = inject(LocalizationService).listenLocalization();
 
-  constructor(protected routerService: RouterService) {
+  constructor() {
     this.getNavItemsOnLocaleOrUrlChange();
   }
 
