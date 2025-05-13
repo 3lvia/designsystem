@@ -53,6 +53,12 @@ describe('Elvis Tabs', () => {
       const tabLabel = screen.getByText('Oranges');
       expect(tabLabel).toHaveStyle('text-shadow: 0 0 0 black,0 0 0.5px black');
     });
+
+    it('should have aria-controls and id', () => {
+      const tabs = screen.getAllByRole('tab');
+      expect(tabs[0].getAttribute('aria-controls')).toBe('ewc-tabpanel-0');
+      expect(tabs[0].getAttribute('id')).toBe('ewc-tabs-0');
+    });
   });
 
   describe('className and inlineStyle passed to wrapper', () => {

@@ -264,6 +264,13 @@ export class v2PlaygroundComponent {
     { label: 'Kiwi', isDisabled: true },
   ];
 
+  selectedTabIndex = 1;
+
+  tabsValueOnChange(value: number): void {
+    console.log('New tab index:', value);
+    this.selectedTabIndex = value;
+  }
+
   stepperStates: StepStates = {
     '1': { isCompleted: true, heading: 'Title #1' },
     '2': { heading: 'Title #2' },

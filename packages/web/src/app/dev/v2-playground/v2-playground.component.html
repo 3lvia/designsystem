@@ -502,7 +502,43 @@
       <!--Tabs-->
       <div class="example-wrapper">
         <h3>Tabs</h3>
-        <elvia-tabs [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']" [value]="1" />
+        <elvia-tabs
+          [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
+          [value]="selectedTabIndex"
+          (valueOnChange)="tabsValueOnChange($any($event).detail.value)"
+        />
+        @switch (selectedTabIndex) {
+          @case (0) {
+            <div id="ewc-tabpanel-0" aria-labelledby="ewc-tabs-0">
+              <p>Apples are made of 25% air, which is why they float.</p>
+              <button class="e-btn e-btn--sm">Buy 🍎</button>
+            </div>
+          }
+          @case (1) {
+            <div id="ewc-tabpanel-1" aria-labelledby="ewc-tabs-1">
+              <p>Oranges were originally green when first cultivated.</p>
+              <button class="e-btn e-btn--sm">Buy 🍊</button>
+            </div>
+          }
+          @case (2) {
+            <div id="ewc-tabpanel-2" aria-labelledby="ewc-tabs-2">
+              <p>Bananas are berries, but strawberries are not.</p>
+              <button class="e-btn e-btn--sm">Buy 🍌</button>
+            </div>
+          }
+          @case (3) {
+            <div id="ewc-tabpanel-3" aria-labelledby="ewc-tabs-3">
+              <p>Grapes explode when you put them in the microwave.</p>
+              <button class="e-btn e-btn--sm">Buy 🍇</button>
+            </div>
+          }
+          @case (4) {
+            <div id="ewc-tabpanel-4" aria-labelledby="ewc-tabs-4">
+              <p>Kiwis were originally called <em>Chinese gooseberries</em>.</p>
+              <button class="e-btn e-btn--sm">Buy 🥝</button>
+            </div>
+          }
+        }
       </div>
 
       <!--Timepicker-->
