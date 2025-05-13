@@ -130,6 +130,14 @@ describe('Elvis Tabs', () => {
         <div data-testid="tabs-wrapper">
           <Tabs items={items} tabIdPrefix={'test'} />
           <Tabs items={items} value={2} />
+
+          <div id="ewc-tabpanel-0" aria-labelledby="ewc-tabs-0"></div>
+          <div id="ewc-tabpanel-1" aria-labelledby="ewc-tabs-1"></div>
+          <div id="ewc-tabpanel-2" aria-labelledby="ewc-tabs-2"></div>
+
+          <div id="ewc-tabpanel-test-0" aria-labelledby="ewc-tabs-test-0"></div>
+          <div id="ewc-tabpanel-test-1" aria-labelledby="ewc-tabs-test-1"></div>
+          <div id="ewc-tabpanel-test-2" aria-labelledby="ewc-tabs-test-2"></div>
         </div>,
       );
 
