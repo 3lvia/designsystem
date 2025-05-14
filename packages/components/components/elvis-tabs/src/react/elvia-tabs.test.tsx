@@ -53,6 +53,12 @@ describe('Elvis Tabs', () => {
       const tabLabel = screen.getByText('Oranges');
       expect(tabLabel).toHaveStyle('text-shadow: 0 0 0 black,0 0 0.5px black');
     });
+
+    it('should have aria-controls and id', () => {
+      const tabs = screen.getAllByRole('tab');
+      expect(tabs[0].getAttribute('aria-controls')).toBe('ewc-tabpanel-0');
+      expect(tabs[0].getAttribute('id')).toBe('ewc-tabs-0');
+    });
   });
 
   describe('className and inlineStyle passed to wrapper', () => {
@@ -124,6 +130,14 @@ describe('Elvis Tabs', () => {
         <div data-testid="tabs-wrapper">
           <Tabs items={items} tabIdPrefix={'test'} />
           <Tabs items={items} value={2} />
+
+          <div id="ewc-tabpanel-0" aria-labelledby="ewc-tabs-0" role="tabpanel"></div>
+          <div id="ewc-tabpanel-1" aria-labelledby="ewc-tabs-1" role="tabpanel"></div>
+          <div id="ewc-tabpanel-2" aria-labelledby="ewc-tabs-2" role="tabpanel"></div>
+
+          <div id="ewc-tabpanel-test-0" aria-labelledby="ewc-tabs-test-0" role="tabpanel"></div>
+          <div id="ewc-tabpanel-test-1" aria-labelledby="ewc-tabs-test-1" role="tabpanel"></div>
+          <div id="ewc-tabpanel-test-2" aria-labelledby="ewc-tabs-test-2" role="tabpanel"></div>
         </div>,
       );
 

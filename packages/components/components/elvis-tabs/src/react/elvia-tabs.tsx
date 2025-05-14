@@ -30,6 +30,7 @@ export const Tabs: FC<TabsProps> = ({
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(value);
   const uniqueId = `ewc-tabs-${tabIdPrefix ? tabIdPrefix + '-' : ''}`;
+  const tabpanelId = `ewc-tabpanel-${tabIdPrefix ? tabIdPrefix + '-' : ''}`;
   const { ref: scrollContainerRef } = useRovingFocus<HTMLDivElement>({
     dir: 'horizontal',
     observableAttributes: ['aria-hidden'],
@@ -104,7 +105,7 @@ export const Tabs: FC<TabsProps> = ({
         {items &&
           items.map((item, i) => (
             <Tab
-              aria-controls={uniqueId + i}
+              aria-controls={tabpanelId + i}
               aria-selected={selectedIndex === i}
               id={uniqueId + i}
               isInverted={isInverted ?? false}
