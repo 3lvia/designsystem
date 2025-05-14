@@ -8,7 +8,7 @@
             border: opacityColor.name | needsBorder: theme(),
             chosen: isChosen(opacityColor.name),
           }"
-          [style.bottom]="($count - j) * 8 + 'px'"
+          [style.bottom]="`${($count - j) * 8}px`"
           [style.background-color]="opacityColor.hex"
         ></li>
       }

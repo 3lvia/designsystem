@@ -4,7 +4,7 @@
       <div class="e-flex e-flex-direction-column e-align-items-center e-gap-8">
         <button
           (click)="setPreferredTheme(theme)"
-          [attr.aria-label]="'set ' + theme + ' theme'"
+          [attr.aria-label]="`set ${theme} theme`"
           [ngClass]="{ 'e-thumbnail---selected': (preferredTheme | async) === theme }"
           class="e-thumbnail"
         >

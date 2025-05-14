@@ -98,6 +98,7 @@ module.exports = tseslint.config(
     files: ['**/*.html'],
     rules: {
       '@angular-eslint/template/prefer-self-closing-tags': 'error',
+      '@angular-eslint/template/prefer-template-literal': 'error',
       '@angular-eslint/template/prefer-static-string-properties': 'error',
     },
     ignores: ['**/*-ceg*.html'],

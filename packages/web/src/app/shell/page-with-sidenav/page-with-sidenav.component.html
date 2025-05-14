@@ -4,7 +4,7 @@
   <div class="page-content">
     @if (!isLandingPage()) {
       <div class="page-content-header page-body">
-        <a class="e-none-lg e-none-xl e-link e-link--sm" [routerLink]="'/' + currentRoute()">
+        <a class="e-none-lg e-none-xl e-link e-link--sm" [routerLink]="`/${currentRoute()}`">
           <span class="e-link__icon"><e-icon name="arrowLeftBold" /></span>
           <span class="e-link__title">{{ backBtn() | titlecase }}</span>
         </a>
