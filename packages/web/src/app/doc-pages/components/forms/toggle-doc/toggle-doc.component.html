@@ -4,10 +4,10 @@
   </app-static-ceg>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="does" [whenNots]="donts" />
 
-    <app-component-subsection [sectionTitle]="'Use label'">
+    <app-component-subsection sectionTitle="Use label">
       You should always have a label next to the toggle to tell the user what they are turning on/off. When
       stacking multiple toggels vertically, the label should be placed right to align the buttons for ease of
       use.
@@ -15,15 +15,15 @@
   </app-component-section>
 
   <!--STATES-->
-  <app-component-section states [sectionTitle]="'States'">
+  <app-component-section states sectionTitle="States">
     <app-static-ceg nonInteractive>
       <app-toggle-states-ceg />
     </app-static-ceg>
   </app-component-section>
 
   <!-- OPTIONS -->
-  <app-component-section options [sectionTitle]="'Options'">
-    <app-component-subsection [sectionTitle]="'Label position'">
+  <app-component-section options sectionTitle="Options">
+    <app-component-subsection sectionTitle="Label position">
       Place the label on the right or left side of the toggle.
       <app-static-ceg>
         <app-toggle-label-ceg />
@@ -32,15 +32,15 @@
   </app-component-section>
 
   <!-- SIZE -->
-  <app-component-section size [sectionTitle]="'Size'">
+  <app-component-section size sectionTitle="Size">
     The toggles come in two sizes. Regardless of the size you choose, you should never combine the two and
     always use the same size of toggle throughout the page.
-    <app-component-subsection [sectionTitle]="'Medium'">
+    <app-component-subsection sectionTitle="Medium">
       <app-static-ceg>
         <app-toggle-size-md-ceg />
       </app-static-ceg>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Small'">
+    <app-component-subsection sectionTitle="Small">
       Small toggles are typically used in Elvia’s internal systems, where screen real estate is an important
       factor.
       <app-static-ceg>
@@ -50,8 +50,8 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Changing the aria-checked attribute'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Changing the aria-checked attribute">
       When a click event is fired on the toggle, your click handler must change the value of the
       <span class="code-text">aria-checked</span>
       attribute from
@@ -60,11 +60,11 @@
       <span class="code-text">false</span>
       , or vice versa.
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+    <app-component-subsection sectionTitle="Keyboard navigation">
       The toggle is built up of a checkbox making the keyboard navigation identical to the keyboard navigation
       for native checkboxes.
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Label'">
+    <app-component-subsection sectionTitle="Label">
       Make sure to always add a label that is linked to the toggle, to make it clear for assistive tools what
       the toggle is doing.
     </app-component-subsection>

@@ -30,9 +30,9 @@
             <div class="profile-info">
               <div class="e-title-caps">{{ contact.title }}</div>
               <div class="e-title-sm e-mt-8" style="margin-bottom: 4px">
-                {{ contact.firstName + ' ' + contact.lastName }}
+                {{ `${contact.firstName} ${contact.lastName}` }}
               </div>
-              <a class="e-text-md" [href]="'mailto:' + contact.email">
+              <a class="e-text-md" [href]="`mailto:${contact.email}`">
                 {{ contact.email }}
               </a>
               <div class="profile-slack-button e-mt-16">

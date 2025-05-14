@@ -4,7 +4,7 @@
   </app-static-ceg>
 
   <!--STATES-->
-  <app-component-section states [sectionTitle]="'States'">
+  <app-component-section states sectionTitle="States">
     Use
     <code>e-thumbnail---selected</code>
     to visually show the selected thumbnail in a group with a dark border.
@@ -20,7 +20,7 @@
   </app-component-section>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <div class="e-flex e-flex-direction-column e-gap-16">
       <img [src]="selectedImage" alt="Selected image" style="width: 248px" />
       <div class="e-flex e-gap-8 e-align-items-left">
@@ -30,7 +30,7 @@
             [ngClass]="{ 'e-thumbnail---selected': image.src === selectedImage }"
             (click)="selectedImage = image.src"
           >
-            <img [src]="image.src" [alt]="'example ' + ($index + 1)" />
+            <img [src]="image.src" [alt]="`example ${$index + 1}`" />
           </button>
         }
       </div>
@@ -40,8 +40,8 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'ARIA'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="ARIA">
       <ul class="e-list">
         <li>
           <strong>Aria label:</strong>

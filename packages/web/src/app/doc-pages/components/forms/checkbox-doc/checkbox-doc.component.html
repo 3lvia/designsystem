@@ -4,21 +4,21 @@
   </app-static-ceg>
 
   <!-- TYPE -->
-  <app-component-section type [sectionTitle]="'Type'">
-    <app-component-subsection [sectionTitle]="'Standard'">
+  <app-component-section type sectionTitle="Type">
+    <app-component-subsection sectionTitle="Standard">
       <app-static-ceg>
         <app-checkbox-standard-ceg />
       </app-static-ceg>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Nested'">
+    <app-component-subsection sectionTitle="Nested">
       This example is not interactable and logic for adding the indeterminate state should be applied as
       described below.
       <app-static-ceg>
         <app-checkbox-nested-ceg />
       </app-static-ceg>
 
-      <app-component-subsubsection [sectionTitle]="'Indeterminate'">
+      <app-component-subsubsection sectionTitle="Indeterminate">
         Use the indeterminate state,
         <span class="code-text">e-checkbox--indeterminate</span>
         , when you have sublist of checkboxes, where only some of them are checked. This class has to be
@@ -28,7 +28,7 @@
   </app-component-section>
 
   <!-- SIZE -->
-  <app-component-section size [sectionTitle]="'Size'">
+  <app-component-section size sectionTitle="Size">
     Checkboxes come in two sizes: medium and small.
     <app-static-ceg>
       <app-checkbox-size-ceg />
@@ -36,26 +36,26 @@
   </app-component-section>
 
   <!-- STATES -->
-  <app-component-section states [sectionTitle]="'States'">
+  <app-component-section states sectionTitle="States">
     <app-static-ceg nonInteractive>
       <app-checkbox-states-ceg />
     </app-static-ceg>
   </app-component-section>
 
   <!-- USAGE -->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="does" [whenNots]="donts" />
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Label'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Label">
       Make sure to always add a label that is linked to the checkbox, to make it clear for assistive tools
       what the checkbox is doing. Use the
       <span class="code-text">e-form-field</span>
       classes to get correct styling of labels.
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'State'">
+    <app-component-subsection sectionTitle="State">
       The states have associated classes that can be used to programmatically add the desired styling.
       Remember to always add the state attribute (
       <span class="code-text">checked</span>
@@ -67,7 +67,7 @@
       <span class="code-text">invalid</span>
       and so on) to the input to inform assistive tools of the current state.
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Validation'">
+    <app-component-subsection sectionTitle="Validation">
       Remember to add validation classes to help users understand what needs to be corrected.
       <a class="e-link e-link--inline" [routerLink]="['/patterns/validations']">
         Read more about how the validation should happen

@@ -4,25 +4,25 @@
   </app-ceg>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="does" [whenNots]="donts" />
   </app-component-section>
 
   <!-- TYPE -->
-  <app-component-section type [sectionTitle]="'Type'">
-    <app-component-subsection [sectionTitle]="'Simple'">
+  <app-component-section type sectionTitle="Type">
+    <app-component-subsection sectionTitle="Simple">
       The simple slider allows users to set and select a single value from a range.
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Range'">
+    <app-component-subsection sectionTitle="Range">
       The range slider allows the user to specify a numeric range value that must be no less than a given
       value and no greater than another given value.
     </app-component-subsection>
   </app-component-section>
 
   <!-- OPTIONS -->
-  <app-component-section options [sectionTitle]="'Options'">
-    <app-component-subsection [sectionTitle]="'Unit'">
+  <app-component-section options sectionTitle="Options">
+    <app-component-subsection sectionTitle="Unit">
       The
       <code>unit</code>
       prop allows you to add a custom suffix to the input field(s) of the slider and the value shown in the
@@ -37,8 +37,8 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Keyboard navigation">
       <div class="accessibility-keyboard-navigation">
         <div>
           <kbd class="icon">

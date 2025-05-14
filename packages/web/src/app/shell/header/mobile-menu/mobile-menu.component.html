@@ -10,7 +10,7 @@
       </a>
     }
     @if (devMode) {
-      <a class="links e-py-24" [routerLink]="'dev'" (click)="closeMenu.emit()">
+      <a class="links e-py-24" routerLink="dev" (click)="closeMenu.emit()">
         <span class="e-title-caps">Dev</span>
         <span class="links-icon">
           <e-icon name="arrowRightBold" size="xxs" />

@@ -4,19 +4,19 @@
   </app-static-ceg>
 
   <!--SIZE-->
-  <app-component-section size [sectionTitle]="'Size'">
+  <app-component-section size sectionTitle="Size">
     Tables are available in two levels of density. When using tables, make sure to always use the same type of
     density and style on all tables throughout the page.
-    <app-component-subsection [sectionTitle]="'Medium'">
+    <app-component-subsection sectionTitle="Medium">
       Used when displaying information that should be perceived as easy to read and provides good scanability
       with more space than the small version. Medium is most used in external systems.
-      <app-component-subsubsection [sectionTitle]="'Desktop'">
+      <app-component-subsubsection sectionTitle="Desktop">
         <app-static-ceg>
           <app-table-size-medium-desktop-ceg />
         </app-static-ceg>
       </app-component-subsubsection>
 
-      <app-component-subsubsection [sectionTitle]="'Mobile'">
+      <app-component-subsubsection sectionTitle="Mobile">
         The Elvia design system does not include table functionality, which means the design for mobiles
         included here will not automatically appear when switching to smaller screens. The text in the last
         column will always be aligned to the right on phones.
@@ -26,17 +26,17 @@
       </app-component-subsubsection>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Small'">
+    <app-component-subsection sectionTitle="Small">
       Small tables should be used when you need to show more data in less space, typically in internal
       systems. They could also provide a better overview when used to show lots of similar types of data
       that’s typically easier for the user to navigate in.
-      <app-component-subsubsection [sectionTitle]="'Desktop'">
+      <app-component-subsubsection sectionTitle="Desktop">
         <app-static-ceg>
           <app-table-size-small-desktop-ceg />
         </app-static-ceg>
       </app-component-subsubsection>
 
-      <app-component-subsubsection [sectionTitle]="'Mobile'">
+      <app-component-subsubsection sectionTitle="Mobile">
         The Elvia design system does not include table functionality, which means the design for mobiles
         included here will not automatically appear when switching to smaller screens. The text in the last
         column will always be aligned to the right on phones.
@@ -48,7 +48,7 @@
   </app-component-section>
 
   <!--OPTIONS-->
-  <app-component-section options [sectionTitle]="'Options'">
+  <app-component-section options sectionTitle="Options">
     <div class="e-flex e-flex-direction-column e-gap-16 e-mt-40 e-px-16">
       <elvia-accordion openLabel="Accordion" closeLabel="Accordion" isFullWidth="true" size="large">
         <div slot="content" class="e-text-lg e-mt-16">
@@ -80,7 +80,7 @@
               <code>e-icon--expand_circle-filled-color</code>
             </li>
           </ul>
-          <app-component-subsubsection [sectionTitle]="'Desktop'">
+          <app-component-subsubsection sectionTitle="Desktop">
             <div width="100%" style="width: 100; overflow-x: auto">
               <iframe
                 style="border: 1px solid var(--e-color-border-2)"
@@ -92,7 +92,7 @@
               ></iframe>
             </div>
           </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile'">
+          <app-component-subsubsection sectionTitle="Mobile">
             <div width="100%" style="width: 100; overflow-x: auto">
               <iframe
                 style="border: 1px solid var(--e-color-border-2)"
@@ -122,12 +122,12 @@
       <elvia-accordion openLabel="Button" closeLabel="Button" isFullWidth="true" size="large">
         <div slot="content" class="e-text-lg e-mt-16">
           Use icon buttons when you need actions in your table.
-          <app-component-subsubsection [sectionTitle]="'Desktop'">
+          <app-component-subsubsection sectionTitle="Desktop">
             <app-static-ceg>
               <app-table-button-desktop-ceg />
             </app-static-ceg>
           </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile'">
+          <app-component-subsubsection sectionTitle="Mobile">
             <app-static-ceg [phoneExample]="true">
               <app-table-button-mobile-ceg />
             </app-static-ceg>
@@ -150,12 +150,12 @@
             <code>e-table-mobile__checkbox-selected</code>
             to all selected rows.
           </div>
-          <app-component-subsubsection [sectionTitle]="'Desktop'">
+          <app-component-subsubsection sectionTitle="Desktop">
             <app-static-ceg>
               <app-table-checkbox-desktop-ceg />
             </app-static-ceg>
           </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile'">
+          <app-component-subsubsection sectionTitle="Mobile">
             <app-static-ceg [phoneExample]="true">
               <app-table-checkbox-mobile-ceg />
             </app-static-ceg>
@@ -174,7 +174,7 @@
             Avoid information overload by hiding details that users don't need to have available at all times
             to complete their tasks.
           </p>
-          <app-component-subsubsection [sectionTitle]="'Info or Question?'">
+          <app-component-subsubsection sectionTitle="Info or Question?">
             <div class="e-mt-16 e-flex e-gap-16">
               <e-icon name="informationCircle" size="sm" />
               <e-icon name="questionCircle" size="sm" />
@@ -188,7 +188,7 @@
               and need an explanation to fully understand it.
             </p>
           </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Tooltip'">
+          <app-component-subsubsection sectionTitle="Tooltip">
             <p class="e-m-0">
               Tooltips are normally used to complete a sentence, defining abbreviations or explaining
               something unclear. Keep tooltips short.
@@ -197,7 +197,7 @@
               <app-table-detailed-information-tooltip-ceg />
             </app-static-ceg>
           </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Popover'">
+          <app-component-subsubsection sectionTitle="Popover">
             <p class="e-m-0">
               Use a popover to show detailed or less frequently accessed information, such as longer texts,
               illustrations, models, etc.
@@ -222,12 +222,12 @@
       <elvia-accordion openLabel="Input" closeLabel="Input" isFullWidth="true" size="large">
         <div slot="content" class="e-text-lg e-mt-16">
           Use an input field when the user can edit values in the table.
-          <app-component-subsubsection [sectionTitle]="'Desktop'">
+          <app-component-subsubsection sectionTitle="Desktop">
             <app-static-ceg>
               <app-table-input-desktop-ceg />
             </app-static-ceg>
           </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile'">
+          <app-component-subsubsection sectionTitle="Mobile">
             <app-static-ceg [phoneExample]="true">
               <app-table-input-mobile-ceg />
             </app-static-ceg>
@@ -260,7 +260,7 @@
             horizontal and vertical scroll. You can choose to have either row headers sticky, column headers
             sticky, or both.
           </div>
-          <app-component-subsubsection [sectionTitle]="'Desktop'">
+          <app-component-subsubsection sectionTitle="Desktop">
             <h5 class="e-title-caps">Row header</h5>
             The first column will be sticky on the left side including the linked column header.
             <app-static-ceg>
@@ -273,7 +273,7 @@
               <app-table-sticky-column-header-desktop-ceg />
             </app-static-ceg>
           </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile'">
+          <app-component-subsubsection sectionTitle="Mobile">
             When the row headers are sticky these headers should also be sticky on mobile. The row currently
             displaying will follow on top until the next row is reached. Column headers will not be sticky on
             mobile.
@@ -314,12 +314,12 @@
       <elvia-accordion openLabel="Select" closeLabel="Select" isFullWidth="true" size="large">
         <div slot="content" class="e-text-lg e-mt-16">
           Use select when navigating forward from the selected row.
-          <app-component-subsubsection [sectionTitle]="'Desktop'">
+          <app-component-subsubsection sectionTitle="Desktop">
             <app-static-ceg>
               <app-table-select-desktop-ceg />
             </app-static-ceg>
           </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile'">
+          <app-component-subsubsection sectionTitle="Mobile">
             <app-static-ceg [phoneExample]="true">
               <app-table-select-mobile-ceg />
             </app-static-ceg>
@@ -359,7 +359,7 @@
             </li>
           </ul>
 
-          <app-component-subsubsection [sectionTitle]="'Desktop'">
+          <app-component-subsubsection sectionTitle="Desktop">
             On desktop, the sorting arrow appears when hovering over any of the sortable top tabs. When
             clicked, the table will sort according to the chosen column; ascending (up), descending (down), or
             original order (no arrow).
@@ -375,7 +375,7 @@
             </div>
           </app-component-subsubsection>
 
-          <app-component-subsubsection [sectionTitle]="'Mobile'">
+          <app-component-subsubsection sectionTitle="Mobile">
             On mobile, the function is displayed in a sorting menu, which also impacts the highlighted title.
             <div class="e-mt-16" width="100%" style="width: 100; overflow-x: auto">
               <iframe
@@ -410,13 +410,13 @@
   </app-component-section>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="does" [whenNots]="donts" />
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Caption'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Caption">
       Include a
       <code>caption</code>
       element as the
@@ -426,7 +426,7 @@
       class, you can visually hide the caption from the page while still enabling assistive technology users
       to read/hear it.
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Scope'">
+    <app-component-subsection sectionTitle="Scope">
       The
       <code>scope</code>
       attribute should be places on all table header elements to make it clear if the headers is a row or
@@ -436,7 +436,7 @@
       <code>th</code>
       element to the first cell on a row if this element acts as a header.
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Sorting'">
+    <app-component-subsection sectionTitle="Sorting">
       Use the
       <code>aria-sort</code>
       attribute in the header cell for the currently sorted column or row. Set the attribute to

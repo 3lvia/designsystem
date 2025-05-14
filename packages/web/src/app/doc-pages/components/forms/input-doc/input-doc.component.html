@@ -4,13 +4,13 @@
   </app-static-ceg>
 
   <!-- TYPE -->
-  <app-component-section type [sectionTitle]="'Type'">
-    <app-component-subsection [sectionTitle]="'Textfield'">
+  <app-component-section type sectionTitle="Type">
+    <app-component-subsection sectionTitle="Textfield">
       <app-static-ceg>
         <app-input-type-normal-ceg />
       </app-static-ceg>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Textarea'">
+    <app-component-subsection sectionTitle="Textarea">
       <app-static-ceg>
         <app-input-type-textarea-ceg />
       </app-static-ceg>
@@ -18,8 +18,8 @@
   </app-component-section>
 
   <!-- OPTIONS -->
-  <app-component-section options [sectionTitle]="'Options'">
-    <app-component-subsection [sectionTitle]="'With button'">
+  <app-component-section options sectionTitle="Options">
+    <app-component-subsection sectionTitle="With button">
       The
       <code>view_on</code>
       icon button should be used when showing and hiding a password.
@@ -28,7 +28,7 @@
       </app-static-ceg>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Without label'">
+    <app-component-subsection sectionTitle="Without label">
       If you have an input field without a label, make sure that assistive tools are informed in some other
       way with a description for the input.
       <app-static-ceg>
@@ -36,7 +36,7 @@
       </app-static-ceg>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Optional inputs'">
+    <app-component-subsection sectionTitle="Optional inputs">
       The
       <code>e-form-field__label--optional</code>
       class should be added to the label when the input is not required.
@@ -45,7 +45,7 @@
       </app-static-ceg>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Full width'">
+    <app-component-subsection sectionTitle="Full width">
       The
       <code>e-form-field--full-width</code>
       class should be added to the field when the input should take 100% of the width available.
@@ -59,7 +59,7 @@
       </app-static-ceg>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Inlined'">
+    <app-component-subsection sectionTitle="Inlined">
       Use the
       <code>e-inlined-field</code>
       class outside the form-field element to align inputs on the same line. When the zip code is filled in,
@@ -69,7 +69,7 @@
       </app-static-ceg>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Read-only'">
+    <app-component-subsection sectionTitle="Read-only">
       The
       <code>readonly</code>
       attribute makes the input immutable, meaning the user can not edit the input or its value. Use
@@ -88,7 +88,7 @@
       </app-static-ceg>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Loading'">
+    <app-component-subsection sectionTitle="Loading">
       The
       <code>e-input---loading</code>
       class should be added to indicate that the text field is loading, for instance if the current value is
@@ -98,7 +98,7 @@
       </app-static-ceg>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Suffix'">
+    <app-component-subsection sectionTitle="Suffix">
       A span with the class
       <code>e-input__suffix</code>
       can be used to add a suffix to the input field. This can be used to add a unit or similar to the input
@@ -110,17 +110,17 @@
   </app-component-section>
 
   <!-- SIZE -->
-  <app-component-section size [sectionTitle]="'Size'">
+  <app-component-section size sectionTitle="Size">
     There are two different sizes of the input component; medium and small. The small text fields are
     typically used in Elvia's internal systems, where screen real estate is an important factor. Regardless of
     which style you use for text fields, you should always stick with the same type throughout the page and
     never mix the two.
-    <app-component-subsection [sectionTitle]="'Medium'">
+    <app-component-subsection sectionTitle="Medium">
       <app-static-ceg>
         <app-input-size-medium-ceg />
       </app-static-ceg>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Small'">
+    <app-component-subsection sectionTitle="Small">
       <app-static-ceg>
         <app-input-size-small-ceg />
       </app-static-ceg>
@@ -128,9 +128,9 @@
   </app-component-section>
 
   <!-- USAGE -->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="does" [whenNots]="donts" />
-    <app-component-subsection [sectionTitle]="'Validation'">
+    <app-component-subsection sectionTitle="Validation">
       By default, all fields must be required. Validation is based on the field being filled out. Validation
       takes place along the way, and the user must also be presented with guidance or error messages.
       <a class="e-link e-link--inline" [routerLink]="['/patterns/validations']">
@@ -139,13 +139,13 @@
       <p>Use the classes:</p>
       <ul class="e-list">
         <li>
-          <app-copy [message]="'e-form-field'"><code>e-form-field</code></app-copy>
+          <app-copy message="e-form-field"><code>e-form-field</code></app-copy>
         </li>
         <li>
-          <app-copy [message]="'e-form-field__error'"><code>e-form-field__error</code></app-copy>
+          <app-copy message="e-form-field__error"><code>e-form-field__error</code></app-copy>
         </li>
         <li>
-          <app-copy [message]="'e-form-field__error--visible'">
+          <app-copy message="e-form-field__error--visible">
             <code>e-form-field__error--visible</code>
           </app-copy>
         </li>
@@ -155,7 +155,7 @@
         <app-input-validation-ceg />
       </app-static-ceg>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Patterns'">
+    <app-component-subsection sectionTitle="Patterns">
       Read more about how to use different forms and patterns in forms on our
       <a class="e-link e-link--inline" [routerLink]="['/patterns/forms']">forms</a>
       page.
@@ -163,14 +163,14 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Label'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Label">
       Make sure to always add a label that is linked to the input, to make it clear for assistive tools what
       the input is doing. Use the
       <code>e-form-field</code>
       classes to get correct styling of labels.
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'State'">
+    <app-component-subsection sectionTitle="State">
       Remember to add attributes to the input-fields to the describe the current state of the input to inform
       assistive technologies. For example
       <code>required</code>
@@ -197,7 +197,7 @@
       </p>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Validation'">
+    <app-component-subsection sectionTitle="Validation">
       Remember to add validation classes to help users understand what needs to be corrected.
       <a class="e-link e-link--inline" [routerLink]="['/patterns/validations']">
         Read more about how the validation should happen

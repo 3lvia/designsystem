@@ -11,7 +11,7 @@
       @for (item of mainMenuItems; track item.title) {
         <a
           class="e-title-caps hover-underline tabs-links"
-          [routerLink]="['/' + item.path]"
+          [routerLink]="[`/${item.path}`]"
           routerLinkActive="active"
           role="tab"
           (click)="closeOverlay()"
@@ -56,7 +56,7 @@
           (click)="openThemeMenu()"
           [ngClass]="{ active: themeMenuIsOpen }"
         >
-          <e-icon [name]="currentTheme + 'Theme'" size="xs" />
+          <e-icon [name]="`${currentTheme}Theme`" size="xs" />
           <span class="e-text-md">Theme</span>
         </button>
         <app-theme-switch slot="content" (preferredThemeSwitched)="closeThemeMenu()" />

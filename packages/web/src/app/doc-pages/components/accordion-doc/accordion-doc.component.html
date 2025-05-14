@@ -4,34 +4,34 @@
   </app-ceg>
 
   <!--Type-->
-  <app-component-section type [sectionTitle]="'Type'">
-    <app-component-subsection [sectionTitle]="'Normal'">
+  <app-component-section type sectionTitle="Type">
+    <app-component-subsection sectionTitle="Normal">
       Normal will always have the same position above the content . Normal shows either none or all of the
       content.
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Overflow'">
+    <app-component-subsection sectionTitle="Overflow">
       Overflow is placed below the content and moves down if expanded. Overflow shows some of the content and
       can be expanded to show all.
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Single'">
+    <app-component-subsection sectionTitle="Single">
       Single are an accordion without label and can be placed next to other elements, for example in an list
       or table.
     </app-component-subsection>
   </app-component-section>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="doesAccordion" [whenNots]="dontsAccordion" />
   </app-component-section>
 
   <!--GROUP-->
-  <app-component-section group [sectionTitle]="'Group'">
+  <app-component-section group sectionTitle="Group">
     Group multiple accordions to make it easy for users to find relevant content faster. Let users know what
     to expect by making sure the accordion labels are descriptive. Think of the usefulness of a
     well-structured FAQ (Frequently Asked Questions). Read more on group patterns at our
     <a [routerLink]="['/patterns/groups']" class="e-link e-link--inline">group documentation page</a>
     .
-    <app-component-subsection implementation [sectionTitle]="'Implementation'">
+    <app-component-subsection implementation sectionTitle="Implementation">
       To create an accordion group, use multiple accordions with
       <code>isFullWidth=true</code>
       grouped together, along with dividers and spacing. If you want only one accordion to be open at a time,
@@ -49,8 +49,8 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Keyboard navigation">
       <div class="accessibility-keyboard-navigation">
         <div>
           <span class="keyboard-button">Space</span>
@@ -60,7 +60,7 @@
         </div>
       </div>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'ARIA'">
+    <app-component-subsection sectionTitle="ARIA">
       <ul class="e-list">
         <li>
           <strong>Aria label:</strong>

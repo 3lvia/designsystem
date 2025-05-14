@@ -4,9 +4,9 @@
   </app-ceg>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="does" [whenNots]="donts" />
-    <app-component-subsection [sectionTitle]="'Loop'">
+    <app-component-subsection sectionTitle="Loop">
       You can choose whether you want it to loop or not. In the last step, the right button then switches to a
       confirmation button. This can be used in a dialog for example, and the dialog will then close when
       clicking confirm button.
@@ -14,8 +14,8 @@
   </app-component-section>
 
   <!--IMPLEMENTATION-->
-  <app-component-section implementation [sectionTitle]="'Implementation'">
-    <app-component-subsection [sectionTitle]="'Items'">
+  <app-component-section implementation sectionTitle="Implementation">
+    <app-component-subsection sectionTitle="Items">
       If you want to have more control over the items, you can send just the number of items in to the
       carousel instead of a list of items/slots. This will only show the carousel with the correct number of
       steps. If you choose to use only the carousel, without sending in items, you have to add the animation
@@ -24,8 +24,8 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Keyboard navigation">
       <div class="accessibility-keyboard-navigation">
         <div>
           <kbd>ArrowLeft/ArrowRight</kbd>

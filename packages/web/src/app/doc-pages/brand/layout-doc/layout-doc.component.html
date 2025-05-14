@@ -21,7 +21,7 @@
       <span class="e-link__title">CSS grid</span>
       <span class="e-link__icon"><e-icon name="newTabBold" /></span></a
     >.
-    <app-component-subsection [sectionTitle]="'Old implementation (not recommended)'">
+    <app-component-subsection sectionTitle="Old implementation (not recommended)">
       <p>
         We previously had a common grid that shared the same philosophy as the Bootstrap grid-system, but we
         no longer recommend this. We still have the documentation available for those who have already
@@ -53,7 +53,7 @@
         <!--Layout-->
         <elvia-accordion closeLabel="Layout" isFullWidth="true" openLabel="Layout" size="large">
           <div slot="content">
-            <app-component-subsubsection [sectionTitle]="'Alignment'">
+            <app-component-subsubsection sectionTitle="Alignment">
               Use
               <code>justify-content</code>
               ,
@@ -68,7 +68,7 @@
               </app-static-ceg>
             </app-component-subsubsection>
 
-            <app-component-subsubsection [sectionTitle]="'Ordering'">
+            <app-component-subsubsection sectionTitle="Ordering">
               Use
               <code>order</code>
               to choose the order of columns.
@@ -77,7 +77,7 @@
               </app-static-ceg>
             </app-component-subsubsection>
 
-            <app-component-subsubsection [sectionTitle]="'Levels'">
+            <app-component-subsubsection sectionTitle="Levels">
               The grid can have levels.
               <app-static-ceg fullWidth>
                 <app-layout-levels-ceg />
@@ -104,7 +104,7 @@
               <app-layout-gutters-ceg />
             </app-static-ceg>
 
-            <app-component-subsubsection [sectionTitle]="'Custom padding (gutters)'">
+            <app-component-subsubsection sectionTitle="Custom padding (gutters)">
               Combine the padding classes (e.g.
               <code>px-lg-3</code>
               ) and negative margin classes (e.g.
@@ -115,7 +115,7 @@
               </app-static-ceg>
             </app-component-subsubsection>
 
-            <app-component-subsubsection [sectionTitle]="'No gutters'">
+            <app-component-subsubsection sectionTitle="No gutters">
               Use
               <code>no-gutters</code>
               to remove gutters on the row.

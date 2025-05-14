@@ -3,8 +3,8 @@
 <div class="info e-color-text-1">
   @let iconText =
     preferredLanguage() === 'react'
-      ? '<Icon name="' + transformedName() + '" size="sm" />'
-      : '<e-icon name="' + transformedName() + '" size="sm"></e-icon>';
+      ? `<Icon name="${transformedName()}" size="sm" />`
+      : `<e-icon name="${transformedName()}" size="sm"></e-icon>`;
   <div class="text">
     <h3 class="e-text-md-strong e-m-0">{{ selectedIcon()?.pretty }}</h3>
     <span class="e-text-sm e-color-text-2 e-none-sm">

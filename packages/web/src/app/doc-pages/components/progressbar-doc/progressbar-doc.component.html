@@ -4,7 +4,7 @@
   </app-ceg>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     The progress bar is used to show loading, both locally and for full page actions where the
     <a class="e-link e-link--inline" [routerLink]="['/components/contentLoader']">Content loader</a>
     isn't suitable. It is for example used in
@@ -13,8 +13,8 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'ARIA'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="ARIA">
       <ul class="e-list">
         <li>
           <strong>Aria label:</strong>
@@ -35,7 +35,7 @@
         </li>
       </ul>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Recommended practices'">
+    <app-component-subsection sectionTitle="Recommended practices">
       To improve the accessibility of a page with a loading progress bar, include the
       <code>aria-describedby</code>
       attribute on the region being loaded and set it to reference the progress bar's
