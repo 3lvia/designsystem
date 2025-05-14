@@ -4,7 +4,7 @@
   </app-ceg>
 
   <!--IMPLEMENTATION-->
-  <app-component-section implementation [sectionTitle]="'Implementation'">
+  <app-component-section implementation sectionTitle="Implementation">
     The badge component acts as a wrapper. You should only use badges on Icon Button or Thumbnails. Note how
     the badge places itself relative to its content, meaning you can place a badge component within other
     elements, such as the icon in an Icon Button element. Use slots to give the badge its content.
@@ -14,8 +14,8 @@
   </app-component-section>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
-    <app-component-subsection [sectionTitle]="'Color'">
+  <app-component-section usage sectionTitle="Usage">
+    <app-component-subsection sectionTitle="Color">
       <div class="e-m-0">
         The green badge is the default, but use the color that suits your case best. Red can be used in cases
         where the case is negative, like deviations or missing information. The neutral (black/white) badge
@@ -43,7 +43,7 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
+  <app-component-section accessibility sectionTitle="Accessibility">
     You can't rely on the badge's content being announced correctly. You should include a detailed
     description, such as
     <span class="code-text">aria-label</span>

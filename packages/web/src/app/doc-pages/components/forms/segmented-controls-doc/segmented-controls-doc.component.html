@@ -4,13 +4,13 @@
   </app-ceg>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="does" [whenNots]="donts" />
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Keyboard navigation">
       <div class="accessibility-keyboard-navigation">
         <div>
           <span class="keyboard-button icon">
@@ -33,8 +33,8 @@
   </app-component-section>
 
   <!-- IMPLEMENTATION -->
-  <app-component-section implementation [sectionTitle]="'Implementation'">
-    <app-component-subsection [sectionTitle]="'Icons'">
+  <app-component-section implementation sectionTitle="Implementation">
+    <app-component-subsection sectionTitle="Icons">
       The icons should be sent in as HTML string and using elvis icons are recommended as this also supports
       the size-prop. If you send in icons in a different way the size prop will not work and the icons needs
       to be adjusted manually.

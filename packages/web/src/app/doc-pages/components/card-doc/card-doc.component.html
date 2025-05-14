@@ -4,36 +4,36 @@
   </app-ceg>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="doesCard" [whenNots]="dontsCard" />
   </app-component-section>
 
   <!--TYPES-->
-  <app-component-section type [sectionTitle]="'Types'">
-    <app-component-subsection [sectionTitle]="'Simple card'">
+  <app-component-section type sectionTitle="Types">
+    <app-component-subsection sectionTitle="Simple card">
       Use simple card when an icon together with a short title is enough information to describe the link.
-      <app-component-subsubsection [sectionTitle]="'Visual item'">
+      <app-component-subsubsection sectionTitle="Visual item">
         Select between an icon or a number as a visual item. A number is used if you need a counter.
       </app-component-subsubsection>
-      <app-component-subsubsection [sectionTitle]="'Description'">
+      <app-component-subsubsection sectionTitle="Description">
         You can add a description together with the label. Usually only one word so keep it short! If you need
         a longer description use detail card instead.
       </app-component-subsubsection>
-      <app-component-subsubsection [sectionTitle]="'Colored line'">
+      <app-component-subsubsection sectionTitle="Colored line">
         The colored line can be used to categorize or to visualize a status. Do not use only one color on all
         cards or without a purpose. Multiple cards with colored line can feel cluttered.
       </app-component-subsubsection>
-      <app-component-subsubsection [sectionTitle]="'Hover'">
+      <app-component-subsubsection sectionTitle="Hover">
         The icon is scaling up and a green border appears when hovering. You can add an extra hover effect by
         switching a black icon with a two-colored icon.
       </app-component-subsubsection>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Detail card'">
+    <app-component-subsection sectionTitle="Detail card">
       Use detail card when you need to give more information about the link.
-      <app-component-subsubsection [sectionTitle]="'Tag'">
+      <app-component-subsubsection sectionTitle="Tag">
         If you need to categorize the cards you can add a tag.
       </app-component-subsubsection>
-      <app-component-subsubsection [sectionTitle]="'Corner icon'">
+      <app-component-subsubsection sectionTitle="Corner icon">
         You can add a corner icon if you need to add special information to some of the cards. For example: if
         some of the card links are locked and require access.
       </app-component-subsubsection>
@@ -41,7 +41,7 @@
   </app-component-section>
 
   <!--IMPLEMENTATION-->
-  <app-component-section implementation [sectionTitle]="'Implementation'">
+  <app-component-section implementation sectionTitle="Implementation">
     To implement the card component as a link it must be wrapped in a link or an anchor tag.
     <app-static-ceg>
       <app-card-links-ceg />
@@ -49,13 +49,13 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Element'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Element">
       Remember to wrap the card inside a link element
       <span class="code-text">&lt;a&gt;</span>
       to ensure correct HTML markup.
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Section Heading elements'">
+    <app-component-subsection sectionTitle="Section Heading elements">
       Assign the correct heading level to the card heading using the
       <span class="code-text">headingLevel</span>
       attribute. Do not skip one or more heading levels.

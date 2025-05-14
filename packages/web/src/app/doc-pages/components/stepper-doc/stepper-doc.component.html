@@ -4,7 +4,7 @@
   </app-ceg>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="does" [whenNots]="donts" />
   </app-component-section>
 
@@ -22,8 +22,8 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Keyboard navigation">
       <div class="accessibility-keyboard-navigation">
         <div>
           <kbd>ArrowLeft/ArrowRight</kbd>

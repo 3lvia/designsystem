@@ -4,13 +4,13 @@
   </app-static-ceg>
 
   <!--TYPE-->
-  <app-component-section type [sectionTitle]="'Options'">
-    <app-component-subsection [sectionTitle]="'Signal colors'">
+  <app-component-section type sectionTitle="Options">
+    <app-component-subsection sectionTitle="Signal colors">
       <app-static-ceg>
         <app-tag-signal-colored-ceg />
       </app-static-ceg>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Data colors'">
+    <app-component-subsection sectionTitle="Data colors">
       <app-static-ceg>
         <app-tag-data-colored-ceg />
       </app-static-ceg>
@@ -18,13 +18,13 @@
   </app-component-section>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="headerDoes" [whenNots]="headerDonts" />
-    <app-component-subsection [sectionTitle]="'Keep it short'">
+    <app-component-subsection sectionTitle="Keep it short">
       Tags should be easy to scan to quickly get an overview, so keep it short and descriptive. Maximum two
       words.
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Color usage'">
+    <app-component-subsection sectionTitle="Color usage">
       Tags can be used with any color, but when visualising status, we typically use the combinations seen in
       the examples.
     </app-component-subsection>

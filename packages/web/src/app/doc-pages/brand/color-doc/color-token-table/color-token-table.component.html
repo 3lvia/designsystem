@@ -16,17 +16,15 @@
 </div>
 
 <app-color-token-subtable
-  [title]="'Assorted'"
-  [subtitle]="
-    'Assorted tokens that have more or less specific usecases like focus outline or component details '
-  "
+  title="Assorted"
+  subtitle="Assorted tokens that have more or less specific usecases like focus outline or component details "
   [colors]="[{ colors: assortedColors }]"
   [searchValue]="filterInput.value"
 />
 
 <app-color-token-subtable
-  [title]="'Text'"
-  [subtitle]="'Color for all text'"
+  title="Text"
+  subtitle="Color for all text"
   [colors]="[
     { colors: textColorsDefault },
     { title: 'State', description: 'Colors used for different CSS states.', colors: textColorsState },
@@ -35,8 +33,8 @@
 />
 
 <app-color-token-subtable
-  [title]="'Background'"
-  [subtitle]="'Colors for pages, elements, and overlays'"
+  title="Background"
+  subtitle="Colors for pages, elements, and overlays"
   [colors]="[
     { colors: backgroundColorsDefault },
     {
@@ -59,8 +57,8 @@
 />
 
 <app-color-token-subtable
-  [title]="'Border'"
-  [subtitle]="'Colors for components and dividers'"
+  title="Border"
+  subtitle="Colors for components and dividers"
   [colors]="[
     { colors: borderColors },
     {
@@ -73,15 +71,15 @@
 />
 
 <app-color-token-subtable
-  [title]="'Signal'"
-  [subtitle]="'Signals something to a user. Used on elements like icons and alerts'"
+  title="Signal"
+  subtitle="Signals something to a user. Used on elements like icons and alerts"
   [colors]="[{ colors: signalColors }]"
   [searchValue]="filterInput.value"
 />
 
 <app-color-token-subtable
-  [title]="'Data'"
-  [subtitle]="'Used to represent some data in visualizations, like tables or graphs'"
+  title="Data"
+  subtitle="Used to represent some data in visualizations, like tables or graphs"
   [colors]="[
     { colors: dataColors },
     {
@@ -104,8 +102,8 @@
 />
 
 <app-color-token-subtable
-  [title]="'Illustrations'"
-  [subtitle]="'Colors for all parts of illustrations'"
+  title="Illustrations"
+  subtitle="Colors for all parts of illustrations"
   [colors]="[
     { colors: illustrationColors },
     {
@@ -123,8 +121,8 @@
 />
 
 <app-color-token-subtable
-  [title]="'Icon'"
-  [subtitle]="'Only for icons or svg representing an icon'"
+  title="Icon"
+  subtitle="Only for icons or svg representing an icon"
   [colors]="[{ colors: iconColors }]"
   [searchValue]="filterInput.value"
 >

@@ -215,7 +215,7 @@
     </app-component-subsection>
   </app-component-section>
 
-  <app-component-section [sectionTitle]="'Implementation'">
+  <app-component-section sectionTitle="Implementation">
     <p>
       All typography can be used through a set of classes. The classes set multiple attributes, like
       font-size, line-height and font-weight. These are all available when using Elvis. All of our typography
@@ -223,18 +223,18 @@
     </p>
     <span class="e-tag">e-text-lead</span>
 
-    <app-component-subsection [sectionTitle]="'Colors'">
+    <app-component-subsection sectionTitle="Colors">
       The typographies can be used together with our color tokens. The available text colors are listed under
       the text category in the
       <a class="e-link e-link--inline" [routerLink]="['/brand/color']" fragment="Tokens">tokens overview.</a>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Alignment'">
+    <app-component-subsection sectionTitle="Alignment">
       You can find different alignment classes that can be applied on elements in the
       <a class="e-link e-link--inline" routerLink="/tools/utility-classes" fragment="Text"
         >utility overview.</a
       >
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Abbreviations'">
+    <app-component-subsection sectionTitle="Abbreviations">
       To use abbreviations, you can combine the class <code>e-text-abbreviation</code> and a
       <a class="e-link e-link--inline" [routerLink]="['/components/popover']">popover</a>
       . Remember to add the class
@@ -245,9 +245,9 @@
     </app-component-subsection>
   </app-component-section>
 
-  <app-component-section [sectionTitle]="'Changelog'">
+  <app-component-section sectionTitle="Changelog">
     @defer {
-      <app-component-changelog [elvisComponentToFilter]="'Typography'" />
+      <app-component-changelog elvisComponentToFilter="Typography" />
     }
   </app-component-section>
 </div>

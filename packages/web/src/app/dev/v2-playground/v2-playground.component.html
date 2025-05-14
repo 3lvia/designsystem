@@ -97,34 +97,30 @@
       <div class="example-wrapper">
         <h3>Card</h3>
         <div class="e-gap-32" style="display: grid; grid-template-columns: 1fr 1fr">
-          <elvia-card [heading]="'Hover!'" [borderColor]="'red'">
+          <elvia-card heading="Hover!" borderColor="red">
             <e-icon name="searchBold" size="md" slot="icon" />
             <e-icon name="searchBoldColor" size="md" slot="iconHover" />
           </elvia-card>
           <elvia-card
-            [heading]="'Title3 is longer and overflows'"
-            [description]="'description3'"
-            [icon]="'3'"
-            [borderColor]="'green'"
+            heading="Title3 is longer and overflows"
+            description="description3"
+            icon="3"
+            borderColor="green"
           />
         </div>
         <div class="e-mt-32 e-gap-16" style="display: grid; grid-template-columns: 1fr 1fr">
           <elvia-card
-            [heading]="'Heading long that overflows and becomes truncated'"
-            [description]="
-              'It is not only outdoors that you should watch for dangerous conditions, there are also things in the home that you should be aware of. For example, if you experience a shock when you turn on the water tap or other electrical appliances, it is a bad sign. The same applies if the fuse blows without you knowing why, or if the fuse blows every time you use two appliances at the same time. This should not happen and may be a sign that there is a danger on the way in the electrical system.'
-            "
-            [type]="'detail'"
+            heading="Heading long that overflows and becomes truncated"
+            description="It is not only outdoors that you should watch for dangerous conditions, there are also things in the home that you should be aware of. For example, if you experience a shock when you turn on the water tap or other electrical appliances, it is a bad sign. The same applies if the fuse blows without you knowing why, or if the fuse blows every time you use two appliances at the same time. This should not happen and may be a sign that there is a danger on the way in the electrical system."
+            type="detail"
           >
             <e-icon name="lock" size="xs" slot="cornerIcon" />
           </elvia-card>
           <elvia-card
-            [heading]="'Heading 6'"
-            [description]="
-              'It is not only outdoors that you should watch for dangerous conditions, there are also things in the home that you should be aware of. For example, if you experience a shock when you turn on the water tap or other electrical appliances, it is a bad sign. The same applies if the fuse blows without you knowing why, or if the fuse blows every time you use two appliances at the same time. This should not happen and may be a sign that there is a danger on the way in the electrical system.'
-            "
-            [type]="'detail'"
-            [tag]="'Detail Tag'"
+            heading="Heading 6"
+            description="It is not only outdoors that you should watch for dangerous conditions, there are also things in the home that you should be aware of. For example, if you experience a shock when you turn on the water tap or other electrical appliances, it is a bad sign. The same applies if the fuse blows without you knowing why, or if the fuse blows every time you use two appliances at the same time. This should not happen and may be a sign that there is a danger on the way in the electrical system."
+            type="detail"
+            tag="Detail Tag"
           />
         </div>
         <elvia-card
@@ -348,7 +344,7 @@
         <elvia-modal
           (onClose)="isMultiPageModalShowing = false"
           [isShowing]="isMultiPageModalShowing"
-          [heading]="'Title of content'"
+          heading="Title of content"
           [hasCloseButton]="true"
         >
           <div
@@ -417,9 +413,9 @@
         <h3>Radio filter</h3>
         <elvia-radio-filter
           [items]="radioFilterValues"
-          [value]="'read'"
-          [name]="'readRadioFilters'"
-          [ariaLabel]="'{value} filtrering valgt'"
+          value="read"
+          name="readRadioFilters"
+          ariaLabel="{value} filtrering valgt"
           (valueOnChange)="logValue('Radio filter', $any($event).detail.value)"
         />
       </div>
@@ -432,7 +428,7 @@
           (valueOnChange)="logValue('Segmented', $any($event).detail.value)"
         />
         <elvia-segmented-control
-          [type]="'icon'"
+          type="icon"
           [items]="[
             {
               icon: '<e-icon name=\'thumbnail\'></e-icon>',

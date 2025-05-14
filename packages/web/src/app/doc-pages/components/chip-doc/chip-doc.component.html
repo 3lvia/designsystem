@@ -4,8 +4,8 @@
   </app-ceg>
 
   <!-- TYPE -->
-  <app-component-section type [sectionTitle]="'Type'">
-    <app-component-subsection [sectionTitle]="'Removable'">
+  <app-component-section type sectionTitle="Type">
+    <app-component-subsection sectionTitle="Removable">
       Removable chip is used to show what filter the user have selected and can easily be removed by clicking
       on them.
       <div class="chip-list">
@@ -20,7 +20,7 @@
       </div>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Legend'">
+    <app-component-subsection sectionTitle="Legend">
       Legend chips are a combination of a chip and a legend with multiple choice. It visualizes the color of
       the data you are toggling on/off in a graph or map. Different <code>markerStyle</code>s can be used to
       differentiate data in the graph or map.
@@ -37,19 +37,19 @@
       </div>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Choice'">
+    <app-component-subsection sectionTitle="Choice">
       Choice chips are always showing all options the user can select from and can be toggled on/off (multiple
       choice).
       <div class="chip-list">
-        <elvia-chip [value]="'Løpsk måler'" type="choice" iconType="checkmark" isSelected="true" />
-        <elvia-chip [value]="'Koblingsfeil'" type="choice" isSelected="false" />
+        <elvia-chip value="Løpsk måler" type="choice" iconType="checkmark" isSelected="true" />
+        <elvia-chip value="Koblingsfeil" type="choice" isSelected="false" />
       </div>
     </app-component-subsection>
   </app-component-section>
 
   <!-- COLOR -->
-  <app-component-section color [sectionTitle]="'Color'">
-    <app-component-subsection [sectionTitle]="'Default color'">
+  <app-component-section color sectionTitle="Color">
+    <app-component-subsection sectionTitle="Default color">
       The default color is green. It is the main color to use when there is only one category.
       <div class="chip-list">
         @for (chip of deletableChipsList; track chip) {
@@ -62,7 +62,7 @@
       </div>
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Color variants'">
+    <app-component-subsection sectionTitle="Color variants">
       To categorize chips, different colors can be used to distinguish them from each other. All chips in the
       same color should be placed together. See the properties table at the bottom for all available colors.
       <div class="chip-list">
@@ -78,8 +78,8 @@
     </app-component-subsection>
   </app-component-section>
 
-  <app-component-section options [sectionTitle]="'Options'">
-    <app-component-subsection [sectionTitle]="'Image'">
+  <app-component-section options sectionTitle="Options">
+    <app-component-subsection sectionTitle="Image">
       You can have an image (32px * 32px) in a removable chip. An example of use is when you assign yourself
       or others to a task.
       <app-static-ceg class="e-mb-48">
@@ -94,13 +94,13 @@
   </app-component-section>
 
   <!-- USAGE -->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="does" />
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Keyboard navigation">
       <div class="accessibility-keyboard-navigation e-mt-40">
         <div>
           <span class="keyboard-button">Space</span>
@@ -114,7 +114,7 @@
         </div>
       </div>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'ARIA'">
+    <app-component-subsection sectionTitle="ARIA">
       <ul class="e-list">
         <li>
           <strong>Aria label:</strong>

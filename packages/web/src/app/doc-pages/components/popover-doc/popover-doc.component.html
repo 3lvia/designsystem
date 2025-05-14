@@ -4,7 +4,7 @@
   </app-ceg>
 
   <!--STRUCTURE-->
-  <app-component-section structure [sectionTitle]="'Structure'">
+  <app-component-section structure sectionTitle="Structure">
     A popover is a shell with options like close button, heading and text. Content like text and inputs are
     added inside. Popover closes after clicking outside the popover, “X" or ESC KEY.
     @if (!loadedPopoverStructure) {
@@ -17,49 +17,49 @@
       (load)="hideContentLoader($event)"
     />
     <div class="usage-image-mobile">
-      <app-component-subsubsection [sectionTitle]="'Heading'">
+      <app-component-subsubsection sectionTitle="Heading">
         The heading should be short and clear. The heading is optional.
       </app-component-subsubsection>
-      <app-component-subsubsection [sectionTitle]="'Content'">
+      <app-component-subsubsection sectionTitle="Content">
         You can have different type of content like text, buttons, input etc. The content will have 100%
         width, unless the content only consists of text, then the recommended max-width is 450px.
       </app-component-subsubsection>
-      <app-component-subsubsection [sectionTitle]="'Trigger'">
+      <app-component-subsubsection sectionTitle="Trigger">
         The trigger can be any kind of button.
       </app-component-subsubsection>
-      <app-component-subsubsection [sectionTitle]="'Close button'">
+      <app-component-subsubsection sectionTitle="Close button">
         The popover will close if you click outside, ESC key, or the button connected to it. The close button
         is optional and can be removed in special cases like in a menu list.
       </app-component-subsubsection>
     </div>
 
-    <app-component-subsubsection [sectionTitle]="'Text'">
+    <app-component-subsubsection sectionTitle="Text">
       Recommended width for text popover is 450px. This is measured with the line length and number of
       characters - to get a good readability.
     </app-component-subsubsection>
-    <app-component-subsubsection [sectionTitle]="'Custom content'">
+    <app-component-subsubsection sectionTitle="Custom content">
       Insert input, selection controls, buttons etc.
     </app-component-subsubsection>
   </app-component-section>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="does" [whenNots]="donts" />
 
-    <app-component-subsection [sectionTitle]="'Responsive'">
+    <app-component-subsection sectionTitle="Responsive">
       The popover include responsive functionality and is suited for all devices. However you should keep in
       mind that it can be overwhelming on mobile if the popover has a lot of content.
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Position'">
+    <app-component-subsection sectionTitle="Position">
       Popover can be positioned above and below the clickable trigger and aligned in the center, left or
       right.
     </app-component-subsection>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Keyboard navigation">
       <div class="accessibility-keyboard-navigation">
         <div>
           <span class="keyboard-button">Space</span>
@@ -76,8 +76,8 @@
   </app-component-section>
 
   <!--IMPLEMENTATION-->
-  <app-component-section implementation [sectionTitle]="'Implementation'">
-    <app-component-subsection [sectionTitle]="'Trigger'">
+  <app-component-section implementation sectionTitle="Implementation">
+    <app-component-subsection sectionTitle="Trigger">
       When the trigger is selected remember to add the
       <span class="code-text">e-btn---selected</span>
       class for the trigger.

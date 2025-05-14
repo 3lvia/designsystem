@@ -135,37 +135,37 @@
         <div slot="content">
           <ul class="e-list">
             <li>
-              <app-copy [message]="'e-icon--xxl'">
+              <app-copy message="e-icon--xxl">
                 <span class="e-text-lg-strong">e-icon--xxl - 56px</span>
               </app-copy>
             </li>
             <li>
-              <app-copy [message]="'e-icon--xl'">
+              <app-copy message="e-icon--xl">
                 <span class="e-text-lg-strong">e-icon--xl - 48px</span>
               </app-copy>
             </li>
             <li>
-              <app-copy [message]="'e-icon--lg'">
+              <app-copy message="e-icon--lg">
                 <span class="e-text-lg-strong">e-icon--lg - 40px</span>
               </app-copy>
             </li>
             <li>
-              <app-copy [message]="'e-icon--md'">
+              <app-copy message="e-icon--md">
                 <span class="e-text-lg-strong">e-icon--md - 32px</span>
               </app-copy>
             </li>
             <li>
-              <app-copy [message]="'e-icon--sm'">
+              <app-copy message="e-icon--sm">
                 <span class="e-text-lg-strong">e-icon--sm - 24px</span>
               </app-copy>
             </li>
             <li>
-              <app-copy [message]="'e-icon--xs'">
+              <app-copy message="e-icon--xs">
                 <span class="e-text-lg-strong">e-icon--xs - 16px</span>
               </app-copy>
             </li>
             <li>
-              <app-copy [message]="'e-icon--xxs'">
+              <app-copy message="e-icon--xxs">
                 <span class="e-text-lg-strong">e-icon--xxs - 8px</span>
               </app-copy>
             </li>
@@ -331,17 +331,17 @@
       The recommended method to use Elvia icons is through the
       <code>&#64;elvia/elvis-icons</code> and <code>&#64;elvia/elvis-assets-icons</code> packages. <br />
       All icons are also available through the <code>elvis.js</code> script in the
-      <a [routerLink]="'/components/css-library'" class="e-link e-link--inline">&#64;elvia/elvis package</a>,
+      <a routerLink="/components/css-library" class="e-link e-link--inline">&#64;elvia/elvis package</a>,
       however this method is not recommended as it introduces a bundle size overhead.
     }
     @if (locale() === 'nb-NO') {
       Den anbefalte metoden for å bruke Elvia-ikoner er gjennom
       <code>&#64;elvia/elvis-icons</code>- og <code>&#64;elvia/elvis-assets-icons</code>-pakkene. <br />
       Alle ikoner er også tilgjengelige gjennom <code>elvis.js</code>-skriptet i
-      <a [routerLink]="'/components/css-library'" class="e-link e-link--inline">&#64;elvia/elvis-pakken</a>,
+      <a routerLink="/components/css-library" class="e-link e-link--inline">&#64;elvia/elvis-pakken</a>,
     }
 
-    <app-component-subsection [sectionTitle]="'Icon packages'">
+    <app-component-subsection sectionTitle="Icon packages">
       <app-icon-installation />
     </app-component-subsection>
     <app-component-subsection>
@@ -396,7 +396,7 @@
   </app-component-section>
 
   <!--Changelog-->
-  <app-component-section [sectionTitle]="'Changelog'">
+  <app-component-section sectionTitle="Changelog">
     @defer {
       <app-component-changelog [changelog]="changelog" />
     }

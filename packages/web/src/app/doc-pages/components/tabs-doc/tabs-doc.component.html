@@ -4,20 +4,20 @@
   </app-ceg>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="does" [whenNots]="donts" />
-    <app-component-subsection [sectionTitle]="'Label'">
+    <app-component-subsection sectionTitle="Label">
       Tabs with more than 6 options should be avoided and never fewer than 2 tabs. Keep the option label
       short, descriptive and unique and not longer than two words.
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Responsive'">
+    <app-component-subsection sectionTitle="Responsive">
       Tabs in mobile will stay the same but work like a carousel (tabs with horizontal scroll).
     </app-component-subsection>
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Keyboard navigation">
       <div class="accessibility-keyboard-navigation">
         <p class="e-m-0">
           <kbd>Space</kbd>

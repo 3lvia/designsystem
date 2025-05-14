@@ -4,10 +4,10 @@
   </app-static-ceg>
 
   <!--TYPE-->
-  <app-component-section type [sectionTitle]="'Type'">
+  <app-component-section type sectionTitle="Type">
     Font-size is inherited from the closest element to the list element to look better with the surrounding
     content.
-    <app-component-subsection [sectionTitle]="'Bullet list'">
+    <app-component-subsection sectionTitle="Bullet list">
       This is a regular unordered list.
       <app-static-ceg>
         <app-list-bullet-ceg />
@@ -15,7 +15,7 @@
       <app-when-to-use [whens]="doesExample1" />
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Numbered list'">
+    <app-component-subsection sectionTitle="Numbered list">
       This is an ordered list, or numbered list, that can be used for items that have a natural order.
       <app-static-ceg>
         <app-list-numbered-ceg />
@@ -23,7 +23,7 @@
       <app-when-to-use [whens]="doesExample3" />
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Icon list'">
+    <app-component-subsection sectionTitle="Icon list">
       This list uses icons as markers to help visualize the points.
       <app-static-ceg>
         <app-list-icon-ceg />

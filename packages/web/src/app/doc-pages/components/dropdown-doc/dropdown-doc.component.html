@@ -4,8 +4,8 @@
   </app-ceg>
 
   <!--OPTIONS-->
-  <app-component-section options [sectionTitle]="'Options'">
-    <app-component-subsection [sectionTitle]="'Icons'">
+  <app-component-section options sectionTitle="Options">
+    <app-component-subsection sectionTitle="Icons">
       <p>
         It's possible to display icons in the dropdown. Simply add a key value pair of
         <code class="code-text">icon: innerHTML</code>
@@ -25,7 +25,7 @@
         <app-dropdown-icons-ceg />
       </app-static-ceg>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Images'">
+    <app-component-subsection sectionTitle="Images">
       <p>Add an image to your option. Most used when you need a profile picture together with the name.</p>
       <p>
         This is done using the same <code>icon</code> key value pair of <code>items</code>. A helper-class
@@ -35,7 +35,7 @@
         <app-dropdown-images-ceg />
       </app-static-ceg>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Nested dropdowns'">
+    <app-component-subsection sectionTitle="Nested dropdowns">
       <div>
         The dropdown also supports nested dropdowns. This is done by utilizing the
         <span class="code-text">children</span>
@@ -48,7 +48,7 @@
         <app-dropdown-tree-ceg />
       </app-static-ceg>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Status icon'">
+    <app-component-subsection sectionTitle="Status icon">
       <div>
         Add a status icon on the right side to specific options of any dropdown. Use it to quickly notify the
         user to pay extra attention to some options over others. Each status consists of a predefined color
@@ -104,7 +104,7 @@
         <app-dropdown-status-ceg />
       </app-static-ceg>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Full width'">
+    <app-component-subsection sectionTitle="Full width">
       <div>
         The dropdown component can ignore its default 448px maximum width and expand to fill its parent's
         width by using the
@@ -112,11 +112,11 @@
         prop.
       </div>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Load more options'">
+    <app-component-subsection sectionTitle="Load more options">
       <div>
         Use the load more button if you have too many options to load and display everything from the start -
         if not, consider our
-        <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete']" [fragment]="'Overview'">
+        <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete']" fragment="Overview">
           autocomplete
         </a>
         . Also, make use of it in similar scenarios if multiselection is needed, as this feature is not
@@ -147,7 +147,7 @@
         <app-dropdown-load-more-ceg />
       </app-static-ceg>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Empty option'">
+    <app-component-subsection sectionTitle="Empty option">
       <div>
         If you need an option that is empty, use a placeholder option to clear the dropdown. It should have an
         item with a <code>label</code> resembling the placeholder, and a <code>value</code> of
@@ -160,20 +160,20 @@
   </app-component-section>
 
   <!--SIZE-->
-  <app-component-section size [sectionTitle]="'Size'">
+  <app-component-section size sectionTitle="Size">
     There are two different sizes of dropdown; medium and small. Much like small text fields, the small
     dropdown is a version of the text field that’s primarily designed for internal systems, and shouldn’t be
     mixed with the other input style.
   </app-component-section>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="does" [whenNots]="donts" />
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Keyboard navigation">
       <div class="accessibility-keyboard-navigation">
         <div>
           <span class="keyboard-button">Space</span>
@@ -192,7 +192,7 @@
         </div>
       </div>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'ARIA'">
+    <app-component-subsection sectionTitle="ARIA">
       <ul class="e-list">
         <li>
           <strong>aria-label:</strong>

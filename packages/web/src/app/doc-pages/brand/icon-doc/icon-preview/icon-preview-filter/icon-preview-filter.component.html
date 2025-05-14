@@ -17,7 +17,7 @@
   <elvia-radio-filter
     [items]="filterItems"
     [value]="filter()"
-    [name]="'iconRadioFilters'"
+    name="iconRadioFilters"
     [inlineStyle]="{ flexWrap: 'noWrap' }"
     (valueOnChange)="filter.set($any($event).detail.value)"
   />
@@ -31,7 +31,7 @@
       <elvia-radio-filter
         [items]="filterItems"
         [value]="filter()"
-        [name]="'iconRadioFilters'"
+        name="iconRadioFilters"
         [inlineStyle]="{ flexWrap: 'noWrap' }"
         (valueOnChange)="filter.set($any($event).detail.value)"
       />

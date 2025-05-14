@@ -4,19 +4,19 @@
   </app-ceg>
 
   <!-- USAGE -->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="does" [whenNots]="donts" />
   </app-component-section>
 
   <!-- SIZE -->
-  <app-component-section size [sectionTitle]="'Size'">
+  <app-component-section size sectionTitle="Size">
     There are two different sizes of the autocomplete; medium and small. Much like small text fields, the
     small autocomplete is a version of the text field that’s primarily designed for internal systems, and
     shouldn’t be mixed with the other input style.
   </app-component-section>
 
   <!-- IMPLEMENTATION -->
-  <app-component-section implementation [sectionTitle]="'Implementation'">
+  <app-component-section implementation sectionTitle="Implementation">
     You can disable the basic filtering in the autocomplete by setting the
     <code>hasBuiltInFilter</code>
     prop to
@@ -70,8 +70,8 @@
   </app-component-section>
 
   <!-- OPTIONS -->
-  <app-component-section options [sectionTitle]="'Options'">
-    <app-component-subsection [sectionTitle]="'Items'">
+  <app-component-section options sectionTitle="Options">
+    <app-component-subsection sectionTitle="Items">
       Use the
       <code>label</code>
       in the
@@ -87,8 +87,8 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Keyboard navigation">
       <div class="accessibility-keyboard-navigation">
         <div class="e-mb-16">
           Use the
@@ -114,7 +114,7 @@
         </div>
       </div>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'ARIA'">
+    <app-component-subsection sectionTitle="ARIA">
       <ul class="e-list">
         <li>
           <strong>aria-label:</strong>

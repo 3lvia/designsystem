@@ -4,8 +4,8 @@
   </app-static-ceg>
 
   <!--STATES-->
-  <app-component-section states [sectionTitle]="'States'">
-    <app-component-subsection [sectionTitle]="'On dragover'">
+  <app-component-section states sectionTitle="States">
+    <app-component-subsection sectionTitle="On dragover">
       Use the class modifier
       <span class="code-text">e-fileupload--dragover</span>
       on dragging over.
@@ -13,7 +13,7 @@
         <app-file-upload-dragover-ceg />
       </app-static-ceg>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Uploading'" [figmaOnly]="true">
+    <app-component-subsection sectionTitle="Uploading" [figmaOnly]="true">
       Use our
       <a class="e-link e-link--inline" [routerLink]="['/components/button']">icon buttons</a>
       and
@@ -30,7 +30,7 @@
         ></iframe>
       </div>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Uploaded'" [figmaOnly]="true">
+    <app-component-subsection sectionTitle="Uploaded" [figmaOnly]="true">
       Use our
       <a class="e-link e-link--inline" [routerLink]="['/components/button']">icon buttons</a>
       and

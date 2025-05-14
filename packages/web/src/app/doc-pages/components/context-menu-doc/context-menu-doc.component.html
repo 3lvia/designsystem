@@ -4,61 +4,61 @@
   </app-ceg>
 
   <!--STRUCTURE-->
-  <app-component-section structure [sectionTitle]="'Structure'">
+  <app-component-section structure sectionTitle="Structure">
     <img
       alt="Context menu structure"
       src="/assets/popover/Popover list example.svg"
       class="usage-image-desktop e-w-100 e-mt-40 theme-image-background"
     />
     <div class="usage-image-mobile">
-      <app-component-subsubsection [sectionTitle]="'Trigger'">
+      <app-component-subsubsection sectionTitle="Trigger">
         The trigger is often a 'more menu' icon button.
       </app-component-subsubsection>
-      <app-component-subsubsection [sectionTitle]="'Hover'">
+      <app-component-subsubsection sectionTitle="Hover">
         You get a light grey color as a background when you hover.
       </app-component-subsubsection>
-      <app-component-subsubsection [sectionTitle]="'Content'">
+      <app-component-subsubsection sectionTitle="Content">
         Structures as a list of buttons where the entire area is clickable.
       </app-component-subsubsection>
     </div>
   </app-component-section>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="does" [whenNots]="donts" />
 
-    <app-component-subsection [sectionTitle]="'Responsive'">
+    <app-component-subsection sectionTitle="Responsive">
       The context menu includes responsive functionality and is suited for all devices. However you should
       keep in mind that it can be overwhelming on mobile if the context menu has a lot of content.
     </app-component-subsection>
 
-    <app-component-subsection [sectionTitle]="'Position'">
+    <app-component-subsection sectionTitle="Position">
       The context menu can be positioned above and below the clickable trigger and aligned in the center, left
       or right.
     </app-component-subsection>
   </app-component-section>
 
   <!--OPTIONS-->
-  <app-component-section options [sectionTitle]="'Options'">
-    <app-component-subsubsection [sectionTitle]="'Icons'">
+  <app-component-section options sectionTitle="Options">
+    <app-component-subsubsection sectionTitle="Icons">
       Use icons to help users easily recognize known actions.
       <app-static-ceg>
         <app-context-menu-icons-ceg />
       </app-static-ceg>
     </app-component-subsubsection>
-    <app-component-subsubsection [sectionTitle]="'Headings'">
+    <app-component-subsubsection sectionTitle="Headings">
       Different actions can be separated by headings and provide more context to the actions.
       <app-static-ceg>
         <app-context-menu-headings-ceg />
       </app-static-ceg>
     </app-component-subsubsection>
-    <app-component-subsubsection [sectionTitle]="'Selectable'">
+    <app-component-subsubsection sectionTitle="Selectable">
       Always one alternative selected, works likes a radio button.
       <app-static-ceg>
         <app-context-menu-selectable-ceg />
       </app-static-ceg>
     </app-component-subsubsection>
-    <app-component-subsubsection [sectionTitle]="'Disabled '">
+    <app-component-subsubsection sectionTitle="Disabled ">
       Buttons and links inside the context menu may be disabled. If you use icons, make sure to set their
       color to
       <code>disabled</code>
@@ -70,8 +70,8 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Keyboard navigation">
       <div class="accessibility-keyboard-navigation">
         <div>
           <kbd>Space</kbd>
@@ -91,7 +91,7 @@
         </div>
       </div>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Screen reader support'">
+    <app-component-subsection sectionTitle="Screen reader support">
       <div>
         To make the context menu accessible for screen readers, remember to add the following attributes to
         your DOM elements:
@@ -117,8 +117,8 @@
   </app-component-section>
 
   <!--IMPLEMENTATION-->
-  <app-component-section implementation [sectionTitle]="'Implementation'">
-    <app-component-subsection [sectionTitle]="'Trigger'">
+  <app-component-section implementation sectionTitle="Implementation">
+    <app-component-subsection sectionTitle="Trigger">
       When the trigger is selected remember to add the
       <code>e-btn---selected</code>
       class for the trigger.

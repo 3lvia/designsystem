@@ -4,9 +4,9 @@
   </app-ceg>
 
   <!--USAGE-->
-  <app-component-section usage [sectionTitle]="'Usage'">
+  <app-component-section usage sectionTitle="Usage">
     <app-when-to-use [whens]="whens" [whenNots]="whenNots" />
-    <app-component-subsection [sectionTitle]="'Lack of space'">
+    <app-component-subsection sectionTitle="Lack of space">
       <div>
         <strong>On mobile</strong>
         - You can put radio filter in a popover if there is a lack of space or if it should take up less
@@ -20,7 +20,7 @@
         />
       </div>
     </app-component-subsection>
-    <app-component-subsection [sectionTitle]="'Icons'">
+    <app-component-subsection sectionTitle="Icons">
       <div>You can have an icon together with the text.</div>
       <app-static-ceg>
         <app-radio-filter-icon-ceg />
@@ -29,8 +29,8 @@
   </app-component-section>
 
   <!--ACCESSIBILITY-->
-  <app-component-section accessibility [sectionTitle]="'Accessibility'">
-    <app-component-subsection [sectionTitle]="'Keyboard navigation'">
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Keyboard navigation">
       Radio filters work like and built up of a radiobuttons, making the keyboard navigation identical to the
       keyboard navigation for native radiobuttons.
       <div class="accessibility-keyboard-navigation e-mt-40">
