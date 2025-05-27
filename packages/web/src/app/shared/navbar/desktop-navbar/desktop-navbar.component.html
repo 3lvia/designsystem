@@ -1,29 +1,27 @@
 @let locale = currentLocale | async;
 
 <ul class="scroll-container" [ngClass]="{ 'bottom-gradient': listOverflows }" #scrollContainer>
-  @if (navbarList.length) {
-    @for (navbarItem of navbarList; track navbarItem.docUrl) {
-      <li>
-        <a [routerLink]="navbarItem.absolutePath" routerLinkActive="active" class="navbar-item__link">
-          <div class="navbar-item__link-text e-text-sm-strong">
-            {{ locale === 'nb-NO' ? (navbarItem.titleNo ?? navbarItem.title) : navbarItem.title }}
-          </div>
-        </a>
-        @if (navbarItem.absolutePath === activeRoute) {
-          <app-sub-menu
-            class="e-ml-24 overflow-hidden"
-            #subMenu
-            [@animateHeightOnItemEnter]="subMenu.anchors.length > 0 ? 'true' : 'false'"
-          />
-        }
-      </li>
-      @if (navbarItem.isMainPage) {
-        <div class="e-ml-16 e-mr-64">
-          <elvia-divider />
+  @for (navbarItem of navbarList; track navbarItem.docUrl) {
+    <li>
+      <a [routerLink]="navbarItem.absolutePath" routerLinkActive="active" class="navbar-item__link">
+        <div class="navbar-item__link-text e-text-sm-strong">
+          {{ locale === 'nb-NO' ? (navbarItem.titleNo ?? navbarItem.title) : navbarItem.title }}
         </div>
+      </a>
+      @if (navbarItem.absolutePath === activeRoute) {
+        <app-sub-menu
+          class="e-ml-24 overflow-hidden"
+          #subMenu
+          [@animateHeightOnItemEnter]="subMenu.anchors.length > 0 ? 'true' : 'false'"
+        />
       }
+    </li>
+    @if (navbarItem.isMainPage) {
+      <div class="e-ml-16 e-mr-64">
+        <elvia-divider />
+      </div>
     }
-  } @else {
+  } @empty {
     <span class="e-content-loader content-loader"></span>
   }
 </ul>
