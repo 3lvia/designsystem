@@ -34,7 +34,7 @@
     "@types/gulp": "^4.0.17",
     "@types/gulp-svgmin": "^1.2.4",
     "@types/node": "^22.15.29",
-    "gulp": "^5.0.0",
+    "gulp": "^5.0.1",
     "gulp-svgmin": "^4.1.0",
     "sharp": "^0.34.1",
     "ts-node": "^10.9.2",
