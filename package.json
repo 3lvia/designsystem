@@ -34,7 +34,7 @@
     "node": ">=22.15.0"
   },
   "dependencies": {
-    "prettier": "^3.6.0"
+    "prettier": "^3.6.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
