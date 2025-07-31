@@ -1,7 +1,7 @@
 import esbuild from 'esbuild';
-import chalk from 'chalk';
-
 import fs from 'fs/promises';
+import pico from 'picocolors';
+
 import generateIllustrations from './generateIllustrations.config';
 
 const cleanDistFolder = async () => {
@@ -42,7 +42,7 @@ export const build = async () => {
       esbuild.build(baseConfig),
       generateIllustrations({ outDir: 'dist', watch: watchMode }),
     ]).then(() =>
-      console.log(chalk.green(`⚡️ Built ${numberOfIllustrations} illustrations in ${Date.now() - start}ms`)),
+      console.log(pico.green(`⚡️ Built ${numberOfIllustrations} illustrations in ${Date.now() - start}ms`)),
     );
   }
 };

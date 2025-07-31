@@ -1,8 +1,8 @@
-import chalk from 'chalk';
 import esbuild from 'esbuild';
 import { postcssModules, sassPlugin } from 'esbuild-sass-plugin';
 import fs from 'node:fs';
 import path from 'node:path';
+import pico from 'picocolors';
 import tinyGlob from 'tiny-glob';
 
 import cleanDistFolders from './cleanDist';
@@ -99,7 +99,7 @@ export const build = async () => {
       buildWebComponents({ outDir: rootDir, watch: watchMode }),
       buildToolbox({ outDir: rootDir, watch: watchMode }),
     ]).then(() =>
-      console.log(chalk.green(`⚡️ Built ${componentDataList.length} components in ${Date.now() - start}ms`)),
+      console.log(pico.green(`⚡️ Built ${componentDataList.length} components in ${Date.now() - start}ms`)),
     );
   }
 };
