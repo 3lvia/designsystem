@@ -29,8 +29,8 @@
     }
   },
   "devDependencies": {
-    "chalk": "^5.4.1",
     "esbuild": "^0.25.8",
+    "picocolors": "^1.1.1",
     "svgo": "^4.0.0",
     "tsx": "^4.20.3"
   }
