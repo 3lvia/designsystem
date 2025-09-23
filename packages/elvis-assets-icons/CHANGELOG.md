@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 3.13.1 (23.09.25)
+
+### Path
+
+- Added terms to icons that did not have any terms.
+
 ## 3.13.0 (03.03.25)
 
 ### New feature
