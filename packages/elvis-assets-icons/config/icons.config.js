@@ -56,6 +56,10 @@ module.exports = [
   },
   { name: 'agreements-color', terms: ['document', 'file'], thirdparty: { name: ['streamline'] } },
   {
+    name: 'alien_species',
+    terms: ['biodiversity', 'line clearing', 'cross', 'error', 'warning', 'alien', 'plant', 'leaf'],
+  },
+  {
     name: 'analytics_bars',
     terms: ['data', 'effect', 'board', 'wave', 'measure'],
     thirdparty: { name: ['streamline'] },
@@ -153,11 +157,23 @@ module.exports = [
     thirdparty: { name: ['streamline'] },
   },
   {
+    name: 'ask_information-filled-color',
+    terms: ['ask', 'info', 'talk', 'help', 'bubble'],
+    thirdparty: { name: ['streamline'] },
+  },
+  {
+    name: 'ask_information-filled-color-2',
+    terms: ['ask', 'info', 'talk', 'help', 'bubble'],
+    thirdparty: { name: ['streamline'] },
+  },
+  {
     name: 'attendance',
     terms: ['person', 'check', 'participation'],
     thirdparty: { name: ['streamline'] },
     streamlineIcons: ['single-neutral-actions-check-1'],
   },
+  { name: 'aus-filled-color', terms: ['heart', 'lightning', 'bolt', 'electricity'] },
+  { name: 'aus-filled-color-2', terms: ['heart', 'lightning', 'bolt', 'electricity'] },
   { name: 'attachment', terms: ['link', 'connection', 'file'], thirdparty: { name: ['streamline'] } },
   {
     name: 'attachment-color',
@@ -165,6 +181,7 @@ module.exports = [
     thirdparty: { name: ['streamline'], duplicate: ['attachment'] },
   },
   { name: 'bin', terms: ['delete', 'trash'], thirdparty: { name: ['streamline'] } },
+  { name: 'biological_diversity', terms: ['forest', 'biodiversity', 'line clearing', 'question'] },
   { name: 'bookmark', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'bookmark-filled', terms: [], thirdparty: { name: ['streamline'], duplicate: ['bookmark'] } },
   { name: 'bookshelf', terms: ['library', 'bookcase'], thirdparty: { name: ['streamline'] } },
@@ -243,6 +260,10 @@ module.exports = [
   { name: 'check_shield', terms: ['guard', 'safe'], thirdparty: { name: ['streamline'] } },
   { name: 'checklist-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'cleaning_vacuum', terms: ['tidy', 'washing'], thirdparty: { name: ['streamline'] } },
+  { name: 'cleanup-filled-color', terms: ['spade'] },
+  { name: 'cleanup-filled-color-2', terms: ['spade'] },
+  { name: 'climb-filled-color', terms: ['arrow', 'climb', 'mountain', 'elevation'] },
+  { name: 'climb-filled-color-2', terms: ['arrow', 'climb', 'mountain', 'elevation'] },
   { name: 'clock', terms: ['time', 'date'], thirdparty: { name: ['streamline'] } },
   { name: 'close', terms: ['x', 'remove'], thirdparty: { name: ['streamline'] } },
   { name: 'close-bold', terms: ['x', 'remove'], thirdparty: { name: ['streamline'] } },
@@ -320,6 +341,7 @@ module.exports = [
   { name: 'danger_electricity-color', terms: ['electricity'], thirdparty: { name: ['streamline'] } },
   { name: 'dark_theme', terms: ['theme', 'moon', 'night', 'dark'], thirdparty: { name: ['streamline'] } },
   { name: 'dashboard', terms: ['circle', 'dots'], thirdparty: { name: ['streamline'] } },
+  { name: 'dead_wood', terms: ['biodiversity', 'line clearing', 'bug', 'termite'] },
   {
     name: 'dashboard-color',
     terms: ['circle', 'dots'],
@@ -334,6 +356,10 @@ module.exports = [
   { name: 'diversity', terms: ['human', 'heath'], thirdparty: { name: ['streamline'] } },
   { name: 'download', terms: ['save', 'last ned'], thirdparty: { name: ['streamline'] } },
   { name: 'drag_handle', terms: ['drop', 'grab', 'sort', 'move'], thirdparty: { name: ['streamline'] } },
+  {
+    name: 'edge_zones',
+    terms: ['water', 'tree', 'edge', 'forest', 'river', 'biodiversity', 'line clearing'],
+  },
   { name: 'edit', terms: ['pencil', 'pen'], thirdparty: { name: ['streamline'] } },
   { name: 'electric_cabinet', terms: ['electricity'], thirdparty: { name: ['streamline'] } },
   {
@@ -589,6 +615,7 @@ module.exports = [
   },
   { name: 'move_circle', terms: ['move', 'transfer'], thirdparty: { name: ['streamline'] } },
   { name: 'move_truck-color', terms: ['car', 'semi'], thirdparty: { name: ['streamline'] } },
+  { name: 'nature_diversity', terms: ['forest', 'biodiversity', 'line clearing', 'question'] },
   { name: 'movie', deprecated: '10.6.0', newIconName: 'media-color' },
   { name: 'new_tab', terms: ['external', 'open', 'link'], thirdparty: { name: ['streamline'] } },
   {
@@ -704,6 +731,8 @@ module.exports = [
     terms: ['add', 'maximize', 'expand', 'create'],
     thirdparty: { name: ['streamline'] },
   },
+  { name: 'pole_saw-filled-color', terms: ['saw', 'tool', 'tree', 'line clearing', 'wood'] },
+  { name: 'pole_saw-filled-color-2', terms: ['saw', 'tool', 'tree', 'line clearing', 'wood'] },
   {
     name: 'position-bold',
     terms: ['location', 'place', 'locate', 'position', 'area', 'map'],
