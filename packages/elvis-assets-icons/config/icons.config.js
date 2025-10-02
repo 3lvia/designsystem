@@ -157,23 +157,11 @@ module.exports = [
     thirdparty: { name: ['streamline'] },
   },
   {
-    name: 'ask_information-filled-color',
-    terms: ['ask', 'info', 'talk', 'help', 'bubble'],
-    thirdparty: { name: ['streamline'] },
-  },
-  {
-    name: 'ask_information-filled-color-2',
-    terms: ['ask', 'info', 'talk', 'help', 'bubble'],
-    thirdparty: { name: ['streamline'] },
-  },
-  {
     name: 'attendance',
     terms: ['person', 'check', 'participation'],
     thirdparty: { name: ['streamline'] },
     streamlineIcons: ['single-neutral-actions-check-1'],
   },
-  { name: 'aus-filled-color', terms: ['heart', 'lightning', 'bolt', 'electricity'] },
-  { name: 'aus-filled-color-2', terms: ['heart', 'lightning', 'bolt', 'electricity'] },
   { name: 'attachment', terms: ['link', 'connection', 'file'], thirdparty: { name: ['streamline'] } },
   {
     name: 'attachment-color',
@@ -260,10 +248,6 @@ module.exports = [
   { name: 'check_shield', terms: ['guard', 'safe'], thirdparty: { name: ['streamline'] } },
   { name: 'checklist-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'cleaning_vacuum', terms: ['tidy', 'washing'], thirdparty: { name: ['streamline'] } },
-  { name: 'cleanup-filled-color', terms: ['spade'] },
-  { name: 'cleanup-filled-color-2', terms: ['spade'] },
-  { name: 'climb-filled-color', terms: ['arrow', 'climb', 'mountain', 'elevation'] },
-  { name: 'climb-filled-color-2', terms: ['arrow', 'climb', 'mountain', 'elevation'] },
   { name: 'clock', terms: ['time', 'date'], thirdparty: { name: ['streamline'] } },
   { name: 'close', terms: ['x', 'remove'], thirdparty: { name: ['streamline'] } },
   { name: 'close-bold', terms: ['x', 'remove'], thirdparty: { name: ['streamline'] } },
@@ -731,8 +715,6 @@ module.exports = [
     terms: ['add', 'maximize', 'expand', 'create'],
     thirdparty: { name: ['streamline'] },
   },
-  { name: 'pole_saw-filled-color', terms: ['saw', 'tool', 'tree', 'line clearing', 'wood'] },
-  { name: 'pole_saw-filled-color-2', terms: ['saw', 'tool', 'tree', 'line clearing', 'wood'] },
   {
     name: 'position-bold',
     terms: ['location', 'place', 'locate', 'position', 'area', 'map'],
