@@ -2962,7 +2962,7 @@ __metadata:
     "@elvia/elvis-colors": "npm:^4.4.2"
     "@elvia/elvis-typography": "npm:^3.1.1"
     gulp: "npm:^5.0.1"
-    gulp-autoprefixer: "npm:^9.0.0"
+    gulp-autoprefixer: "npm:^10.0.0"
     gulp-clean-css: "npm:^4.3.0"
     gulp-rename: "npm:^2.1.0"
     gulp-tap: "npm:^2.0.0"
@@ -6156,7 +6156,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/vinyl@npm:*, @types/vinyl@npm:^2.0.9":
+"@types/vinyl@npm:*, @types/vinyl@npm:^2.0.12":
   version: 2.0.12
   resolution: "@types/vinyl@npm:2.0.12"
   dependencies:
@@ -7235,7 +7235,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.4.16":
+"autoprefixer@npm:^10.4.21":
   version: 10.4.21
   resolution: "autoprefixer@npm:10.4.21"
   dependencies:
@@ -10162,20 +10162,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-autoprefixer@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "gulp-autoprefixer@npm:9.0.0"
+"gulp-autoprefixer@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "gulp-autoprefixer@npm:10.0.0"
   dependencies:
-    autoprefixer: "npm:^10.4.16"
-    gulp-plugin-extras: "npm:^0.2.2"
-    postcss: "npm:^8.4.31"
+    autoprefixer: "npm:^10.4.21"
+    gulp-plugin-extras: "npm:^1.1.0"
+    postcss: "npm:^8.5.6"
     vinyl-sourcemaps-apply: "npm:^0.2.1"
   peerDependencies:
     gulp: ">=4"
   peerDependenciesMeta:
     gulp:
       optional: true
-  checksum: 10/cb27cf948e4769504959d51d7f6c53fe2106fc2561bff915aead51df53d42053c70fa578a7f2d04366ba9c70c8babd3225e91b89a6d32a0c5ec7e7b52f6e8183
+  checksum: 10/57fc5b7913f57d29e76834a84827ebe5c2c4061536b1dafe78ae15d980ac39d8ab0566fe5cefd8fd1430d618fd8f8e2eec746ceecd6b7ef2cf2b7e2d5806a4b8
   languageName: node
   linkType: hard
 
@@ -10213,14 +10213,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-plugin-extras@npm:^0.2.2":
-  version: 0.2.2
-  resolution: "gulp-plugin-extras@npm:0.2.2"
+"gulp-plugin-extras@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "gulp-plugin-extras@npm:1.1.0"
   dependencies:
-    "@types/vinyl": "npm:^2.0.9"
+    "@types/vinyl": "npm:^2.0.12"
     chalk: "npm:^5.3.0"
     easy-transform-stream: "npm:^1.0.1"
-  checksum: 10/96ce1f063f67891d3a02e30c5c63c2d2f41606816700102b289179cbffee4201e59f6e607355638852a42f7936e6de4ab2ecff22013ff62775a2ba2d873fc39e
+  checksum: 10/8b4968efffa152c3b98bfe4778b20df103c3b922062e431ca4dfe074dff7fe4baa1918f817c82e0699030179fecde1bf7a7a4752fb14a0ad42e55c178cebb242
   languageName: node
   linkType: hard
 
@@ -13689,7 +13689,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.0.0, postcss@npm:^8.4.31, postcss@npm:^8.4.35, postcss@npm:^8.4.49, postcss@npm:^8.5.3, postcss@npm:^8.5.6":
+"postcss@npm:^8.0.0, postcss@npm:^8.4.35, postcss@npm:^8.4.49, postcss@npm:^8.5.3, postcss@npm:^8.5.6":
   version: 8.5.6
   resolution: "postcss@npm:8.5.6"
   dependencies:
