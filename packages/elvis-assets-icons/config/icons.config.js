@@ -56,6 +56,10 @@ module.exports = [
   },
   { name: 'agreements-color', terms: ['document', 'file'], thirdparty: { name: ['streamline'] } },
   {
+    name: 'alien_species',
+    terms: ['biodiversity', 'line clearing', 'cross', 'error', 'warning', 'alien', 'plant', 'leaf'],
+  },
+  {
     name: 'analytics_bars',
     terms: ['data', 'effect', 'board', 'wave', 'measure'],
     thirdparty: { name: ['streamline'] },
@@ -165,6 +169,7 @@ module.exports = [
     thirdparty: { name: ['streamline'], duplicate: ['attachment'] },
   },
   { name: 'bin', terms: ['delete', 'trash'], thirdparty: { name: ['streamline'] } },
+  { name: 'biological_diversity', terms: ['forest', 'biodiversity', 'line clearing', 'question'] },
   { name: 'bookmark', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'bookmark-filled', terms: [], thirdparty: { name: ['streamline'], duplicate: ['bookmark'] } },
   { name: 'bookshelf', terms: ['library', 'bookcase'], thirdparty: { name: ['streamline'] } },
@@ -320,6 +325,7 @@ module.exports = [
   { name: 'danger_electricity-color', terms: ['electricity'], thirdparty: { name: ['streamline'] } },
   { name: 'dark_theme', terms: ['theme', 'moon', 'night', 'dark'], thirdparty: { name: ['streamline'] } },
   { name: 'dashboard', terms: ['circle', 'dots'], thirdparty: { name: ['streamline'] } },
+  { name: 'dead_wood', terms: ['biodiversity', 'line clearing', 'bug', 'termite'] },
   {
     name: 'dashboard-color',
     terms: ['circle', 'dots'],
@@ -334,6 +340,10 @@ module.exports = [
   { name: 'diversity', terms: ['human', 'heath'], thirdparty: { name: ['streamline'] } },
   { name: 'download', terms: ['save', 'last ned'], thirdparty: { name: ['streamline'] } },
   { name: 'drag_handle', terms: ['drop', 'grab', 'sort', 'move'], thirdparty: { name: ['streamline'] } },
+  {
+    name: 'edge_zones',
+    terms: ['water', 'tree', 'edge', 'forest', 'river', 'biodiversity', 'line clearing'],
+  },
   { name: 'edit', terms: ['pencil', 'pen'], thirdparty: { name: ['streamline'] } },
   { name: 'electric_cabinet', terms: ['electricity'], thirdparty: { name: ['streamline'] } },
   {
@@ -589,6 +599,7 @@ module.exports = [
   },
   { name: 'move_circle', terms: ['move', 'transfer'], thirdparty: { name: ['streamline'] } },
   { name: 'move_truck-color', terms: ['car', 'semi'], thirdparty: { name: ['streamline'] } },
+  { name: 'nature_diversity', terms: ['forest', 'biodiversity', 'line clearing', 'question'] },
   { name: 'movie', deprecated: '10.6.0', newIconName: 'media-color' },
   { name: 'new_tab', terms: ['external', 'open', 'link'], thirdparty: { name: ['streamline'] } },
   {

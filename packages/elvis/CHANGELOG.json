@@ -3,6 +3,19 @@
   "name": "elvis",
   "content": [
     {
+      "version": "21.2.0",
+      "date": "October 2, 2025",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added the <code>alien_species</code>, <code>biological_diversity</code>, <code>dead_wood</code>, <code>edge_zones</code> and <code>nature_diversity</code> icons."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/tools/icon" }]
+        }
+      ]
+    },
+    {
       "version": "21.1.0",
       "date": "March 3, 2025",
       "changelog": [
