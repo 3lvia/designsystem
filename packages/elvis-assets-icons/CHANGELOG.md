@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 3.14.0 (02.10.25)
+
+### New feature
+
+- Added the `alien_species`, `biological_diversity`, `dead_wood`, `edge_zones` and `nature_diversity` icons.
+
 ## 3.13.1 (23.09.25)
 
 ### Path
