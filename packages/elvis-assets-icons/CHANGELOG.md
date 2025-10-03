@@ -1,5 +1,11 @@
 # Elvis-assets-icon
 
+## 3.14.1 (03.10.25)
+
+### Patch
+
+- Re-export some some icons that did not respect the current theme when downloaded as an PNG.
+
 ## 3.14.0 (02.10.25)
 
 ### New feature
