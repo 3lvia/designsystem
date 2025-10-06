@@ -278,6 +278,18 @@ const docPagesComponents: DocPage[] = [
     imageUrl: 'assets/doc-page-icons/components/dropdown.svg',
   },
   {
+    title: 'Empty State',
+    description:
+      'Empty states are moments when there is no data and nothing to display. In these cases, the user needs to be informed of what’s happening and what to do about it. You can benefit from a good empty state to boost engagement, delight, and teach users.',
+    docUrl: Pages.EmptyState,
+    absolutePath: '/components/' + Pages.EmptyState,
+    type: 'Component',
+    elvisClassName: 'e-empty-state',
+    relatedPages: ['illustration', 'tone-of-voice', 'content-loader'],
+    figmaUrl: 'https://www.figma.com/file/vzIO9S7owUHPlDYpWKRaWW/?node-id=0%3A1',
+    imageUrl: 'assets/doc-page-icons/components/empty_state.svg',
+  },
+  {
     title: 'File Upload',
     description: 'Upload files through a file input element or a placeholder area.',
     docUrl: Pages.FileUpload,
