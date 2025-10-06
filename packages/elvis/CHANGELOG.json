@@ -14,6 +14,19 @@
       ]
     },
     {
+      "version": "21.2.1",
+      "date": "October 3, 2025",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "Re-export some some icons that did not respect the current theme when downloaded as an PNG."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/tools/icon" }]
+        }
+      ]
+    },
+    {
       "version": "21.2.0",
       "date": "October 2, 2025",
       "changelog": [
