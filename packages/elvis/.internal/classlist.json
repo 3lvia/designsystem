@@ -249,6 +249,18 @@
 				"e-thumbnail---hover": {}
 			}
 		},
+		"e-empty-state": {
+			"element": {
+				"e-empty-state__heading": {},
+				"e-empty-state__illustration": {},
+				"e-empty-state__description": {},
+				"e-empty-state__action": {}
+			},
+			"modifier": {
+				"e-empty-state--left-aligned": {},
+				"e-empty-state--lg": {}
+			}
+		},
 		"e-dragdrop": {
 			"modifier": {
 				"e-dragdrop--dragover": {}
@@ -951,6 +963,13 @@
 		"e-thumbnail": {},
 		"e-thumbnail---selected": {},
 		"e-thumbnail---hover": {},
+		"e-empty-state": {},
+		"e-empty-state__heading": {},
+		"e-empty-state__illustration": {},
+		"e-empty-state__description": {},
+		"e-empty-state__action": {},
+		"e-empty-state--left-aligned": {},
+		"e-empty-state--lg": {},
 		"e-checkbox--inverted": {},
 		"e-checkbox__mark": {},
 		"e-checkbox__label": {},
