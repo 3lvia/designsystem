@@ -26,8 +26,8 @@ export const routes: Routes = [
   },
   {
     path: Pages.EmptyStates,
-    loadComponent: () =>
-      import('./empty-states-doc/empty-states-doc.component').then((m) => m.EmptyStatesDocComponent),
+    pathMatch: 'full',
+    redirectTo: `/components/${Pages.EmptyState}`,
     title: 'Empty States',
   },
   {
