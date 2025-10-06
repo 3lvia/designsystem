@@ -1,0 +1,88 @@
+<app-component-documentation docUrl="empty-state" isElvis>
+  <!-- CEG -->
+  <app-static-ceg ceg hideReact>
+    <app-empty-state-ceg />
+  </app-static-ceg>
+
+  <!-- USAGE -->
+  <app-component-section usage sectionTitle="Usage">
+    <app-when-to-use [whens]="whenToUse" [whenNots]="whenNotToUse" />
+
+    <app-component-subsection sectionTitle="Inform the user">
+      <p>
+        A good empty state should explain what's going on in plain language. Tell the user what the next step
+        is and guide them forward with a
+        <a class="e-link e-link--inline" [routerLink]="['/components/button']">button</a> or
+        <a class="e-link e-link--inline" [routerLink]="['/components/link']">link</a> if needed.
+      </p>
+    </app-component-subsection>
+
+    <app-component-subsection sectionTitle="Tone of voice">
+      <p>
+        Don't use product-specific terms that the user may not understand. Use a positive tone, motivate the
+        user and add an emoji in the message to express personality.
+      </p>
+    </app-component-subsection>
+
+    <app-component-subsection sectionTitle="Illustrations">
+      <p>
+        Browse through our
+        <a class="e-link e-link--inline" [routerLink]="['/brand/illustration']">illustrations</a> to find the
+        right one for your case.
+        <a class="e-link e-link--inline" [routerLink]="['/about/contact']">Contact us</a> if you need help to
+        create new illustrations.
+      </p>
+    </app-component-subsection>
+  </app-component-section>
+
+  <app-component-subsection sectionTitle="Text suggestions">
+    <h4 class="e-title-xs">No result (search)</h4>
+    <ul class="e-list">
+      <li>"Her var det ingen treff. Prøv med et annet søk."</li>
+      <li>"Ingen resultater. Prøv et annet søk eller fjern noen filtre."</li>
+    </ul>
+    <h4 class="e-title-xs">No data (first use, cleared by user)</h4>
+    <ul class="e-list">
+      <li>"Her var det tomt. Kom i gang ved å legge til noe."</li>
+      <li>"Ingen ting å se her. Kom i gang ved å legge til noe."</li>
+    </ul>
+    <h4 class="e-title-xs">Error</h4>
+    <ul class="e-list">
+      <li>"Noe gikk galt. Prøv igjen senere."</li>
+      <li>"Vi klarte ikke å hente data. Prøv igjen senere."</li>
+    </ul>
+  </app-component-subsection>
+
+  <!--Type-->
+  <app-component-section type sectionTitle="Type">
+    <app-component-subsection sectionTitle="Default">
+      <p>When the empty state is related to only parts of the content, you should use the default variant.</p>
+      <app-static-ceg hideReact>
+        <app-empty-state-type-default-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Large" sectionClass="e-empty-state--lg">
+      <p>Empty states that are displayed on the entire page should use the large variant.</p>
+      <app-static-ceg hideReact nonInteractive>
+        <app-empty-state-type-large-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+    <app-component-subsection sectionTitle="Start aligned" sectionClass="e-empty-state--start-aligned">
+      <p>
+        The content can be start aligned if it fits the layout better. However, on mobile the vertical layout
+        will be used to make better use of the space.
+      </p>
+      <app-static-ceg hideReact>
+        <app-empty-state-type-start-aligned-ceg />
+      </app-static-ceg>
+    </app-component-subsection>
+  </app-component-section>
+
+  <!--ACCESSIBILITY-->
+  <app-component-section accessibility sectionTitle="Accessibility">
+    <app-component-subsection sectionTitle="Heading">
+      Use a heading level that fits the context. If the empty state is the main content of the page, use
+      <code>h1</code>. If it is part of a section, use <code>h2</code> or lower.
+    </app-component-subsection>
+  </app-component-section>
+</app-component-documentation>

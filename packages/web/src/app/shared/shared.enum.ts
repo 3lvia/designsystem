@@ -27,6 +27,7 @@ export enum Pages {
   Divider = 'divider',
   DragAndDrop = 'drag-and-drop',
   Dropdown = 'dropdown',
+  EmptyState = 'empty-state',
   FileUpload = 'file-upload',
   Header = 'header',
   Input = 'input',

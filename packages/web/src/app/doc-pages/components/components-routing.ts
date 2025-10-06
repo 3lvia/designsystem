@@ -109,6 +109,12 @@ export const routes: Routes = [
     title: 'Dropdown',
   },
   {
+    path: Pages.EmptyState,
+    loadComponent: () =>
+      import('./empty-state-doc/empty-state-doc.component').then((m) => m.EmptyStateDocComponent),
+    title: 'Empty State',
+  },
+  {
     path: Pages.Illustration,
     redirectTo: `/brand/${Pages.Illustration}`,
     title: 'Illustration',

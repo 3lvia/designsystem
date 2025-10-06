@@ -1,0 +1,124 @@
+@use '../utilities/mixins';
+@use '../utilities/breakpoints';
+
+.e-empty-state {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.e-empty-state__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.e-empty-state__illustration {
+  flex-shrink: 0;
+  height: 230px;
+
+  .e-empty-state:has(.e-empty-state__content) & {
+    margin-block-end: 48px;
+
+    @include breakpoints.breakpoint-up(Mobile) {
+      margin-block-end: 24px;
+    }
+  }
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    height: 170px;
+  }
+}
+
+.e-empty-state__heading {
+  @include mixins.typography('title-md');
+  margin-block: 0;
+  margin-inline: 0;
+
+  .e-empty-state__content:has(.e-empty-state__description, .e-empty-state__action) & {
+    margin-block-end: 16px;
+  }
+}
+
+.e-empty-state__description {
+  @include mixins.typography('text-md');
+  margin-block: 0;
+  margin-inline: 0;
+
+  .e-empty-state__content:has(.e-empty-state__action) & {
+    margin-block-end: 48px;
+  }
+}
+
+.e-empty-state__action {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+.e-empty-state--start-aligned {
+  align-content: center;
+  gap: 0 88px;
+  flex-direction: row;
+  text-align: start;
+
+  @include breakpoints.breakpoint-up(Tablet) {
+    gap: 0 48px;
+  }
+
+  @include breakpoints.breakpoint-up(Mobile) {
+    flex-direction: column;
+    gap: 32px 0;
+  }
+
+  &:has(.e-empty-state__content) .e-empty-state__illustration {
+    margin-block: 0;
+    margin-inline: 0;
+  }
+
+  .e-empty-state__heading {
+    @include mixins.typography('title-sm');
+
+    .e-empty-state__content:has(.e-empty-state__description, .e-empty-state__action) & {
+      margin-block-end: 24px;
+
+      @include breakpoints.breakpoint-up(Mobile) {
+        margin-block-end: 8px;
+      }
+    }
+
+    @include breakpoints.breakpoint-up(Mobile) {
+      @include mixins.typography('text-md-strong');
+    }
+  }
+
+  .e-empty-state__action {
+    justify-content: start;
+  }
+}
+
+.e-empty-state--lg {
+  .e-empty-state__illustration {
+    height: 300px;
+    margin-block-end: 48px;
+
+    @include breakpoints.breakpoint-up(Mobile) {
+      height: 200px;
+      margin-block-end: 24px;
+    }
+  }
+
+  .e-empty-state__heading {
+    @include mixins.typography('title-lg');
+  }
+
+  .e-empty-state__description {
+    @include mixins.typography('text-lg');
+
+    .e-empty-state__content:has(.e-empty-state__action) & {
+      margin-block-end: 64px;
+    }
+  }
+}

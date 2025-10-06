@@ -3,6 +3,17 @@
   "name": "elvis",
   "content": [
     {
+      "version": "21.3.0",
+      "date": "October 6, 2025",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added the Empty State component"],
+          "pages": [{ "displayName": "Empty State", "url": "https://design.elvia.io/components/empty_state" }]
+        }
+      ]
+    },
+    {
       "version": "21.2.1",
       "date": "October 3, 2025",
       "changelog": [
