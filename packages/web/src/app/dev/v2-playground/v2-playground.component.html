@@ -1,611 +1,311 @@
 <h1>Angular Preview</h1>
 <div class="components-examples" id="dev-component-examples">
-  <div class="example-wrapper">
-    <!--Test the component here (delete what was here previously). When done add it to the list alphabetically-->
-    <div class="example-wrapper"></div>
-    <!--Accordion-->
-    <div class="example-wrapper">
-      <h3>Accordion</h3>
-      <button (click)="isOpen = !isOpen">helo</button>
-      <elvia-accordion
-        [isOpen]="isOpen"
-        size="medium"
-        type="normal"
-        typography="title-caps"
-        (onOpen)="onOpen()"
-        (onClose)="onClose()"
-      >
-        <div slot="content">
-          <div class="e-text-lg" style="display: flex; flex-direction: column; justify-content: flex-start">
-            <label class="e-checkbox" for="elvis-checkbox">
-              <input type="checkbox" id="elvis-checkbox" />
-              <span class="e-checkbox__mark"></span>
-              <span class="e-checkbox__label">Checkbox option 1</span>
-            </label>
-            <label class="e-checkbox" for="elvis-checkbox2">
-              <input type="checkbox" id="elvis-checkbox2" />
-              <span class="e-checkbox__mark"></span>
-              <span class="e-checkbox__label">Checkbox option 2</span>
-            </label>
-          </div>
+  <elvia-divider type="heading" heading="Default" className="e-mb-32" />
+
+  <div class="example-wrapper e-mb-64">
+    <h3>Fullstendig med to knapper</h3>
+    <section class="e-empty-state">
+      <elvia-illustrations-no-connection class="e-empty-state__illustration" aria-hidden="true" />
+      <div class="e-empty-state__content">
+        <h2 class="e-empty-state__heading">Lorem ipsum dolor sit.</h2>
+        <p class="e-empty-state__description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae odio possimus tempora sit et
+          aspernatur tempore.
+        </p>
+        <div class="e-empty-state__action">
+          <button class="e-btn e-btn--secondary" type="button">Lorem.</button>
+          <button class="e-btn e-btn--primary" type="button">Lorem, ipsum.</button>
         </div>
-      </elvia-accordion>
+      </div>
+    </section>
+  </div>
+
+  <div class="example-wrapper e-mb-64">
+    <h3>Fullstendig med en knapp</h3>
+    <div class="e-empty-state">
+      <elvia-illustrations-sharing class="e-empty-state__illustration" />
+      <div class="e-empty-state__content">
+        <h2 class="e-empty-state__heading">Lorem ipsum dolor sit.</h2>
+        <p class="e-empty-state__description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur, voluptatum esse non a fuga fugiat
+          officia, dignissimos explicabo aut aliquid dolor.
+        </p>
+        <div class="e-empty-state__action">
+          <button class="e-btn e-btn--primary">Lorem.</button>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- App Bridge -->
-    <div class="example-wrapper">
-      <h3>App Bridge</h3>
-      <elvia-app-bridge targetId="707057500020688432" />
+  <div class="example-wrapper e-mb-64">
+    <h3>Fullstendig med to lenker</h3>
+    <div class="e-empty-state">
+      <elvia-illustrations-hello class="e-empty-state__illustration" />
+      <div class="e-empty-state__content">
+        <h2 class="e-empty-state__heading">Lorem.</h2>
+        <p class="e-empty-state__description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <div class="e-empty-state__action">
+          <a class="e-link" href="*">Lorem.</a>
+          <a class="e-link" href="*">Lorem.</a>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Autocomplete -->
-    <div class="example-wrapper">
-      <h3>Autocomplete</h3>
-      <elvia-autocomplete
-        (valueOnChange)="handleOnChange($any($event))"
-        [items]="autocompleteItems"
-        isRequired="true"
-        label="Frukt"
-        placeholder="Jordbær..."
-      />
-      <br />
-      <elvia-autocomplete
-        (valueOnChange)="handleOnChange($any($event))"
-        errorOptions="{ text: 'Skriv inn noe godt' }"
-        label="Lunch"
-        [items]="[
-          { value: 'lange', label: 'Lange' },
-          { value: 'torsk', label: 'Torsk' },
-          { value: 'sjampinjong', label: 'sjampinjong' },
-        ]"
-      />
+  <div class="example-wrapper e-mb-64">
+    <h3>Fullstendig med en lenke</h3>
+    <div class="e-empty-state">
+      <elvia-illustrations-no-connection class="e-empty-state__illustration" />
+      <div class="e-empty-state__content">
+        <h2 class="e-empty-state__heading">Lorem ipsum dolor sit amet consectetur.</h2>
+        <p class="e-empty-state__description">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit quibusdam sit excepturi.
+        </p>
+        <div class="e-empty-state__action">
+          <a class="e-link" href="*">Lorem, ipsum dolor.</a>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Badge -->
-    <div class="example-wrapper">
-      <h3>Badge</h3>
-      <div style="display: flex; gap: 1rem">
-        <elvia-badge [count]="10">
-          <button
-            class="e-thumbnail"
-            aria-label="Thumbnail button that opens the image in a larger view"
-            slot="content"
-          >
-            <img src="https://picsum.photos/56" alt="Thumbnail example image" />
-          </button>
-        </elvia-badge>
-      </div>
+  <elvia-divider type="heading" heading="Ufullstendige kombinasjoner" className="e-mb-32 e-mt-64" />
 
-      <!--Box-->
-      <div class="example-wrapper">
-        <h3>Box</h3>
-        <div style="padding: 8px">
-          <elvia-box>
-            <h3 slot="heading">Title</h3>
-            <div slot="content">Webcomponentent content for the box component</div>
-          </elvia-box>
+  <div class="example-wrapper e-mb-64">
+    <h3>Ingen tittel - description med action</h3>
+    <div class="e-empty-state">
+      <elvia-illustrations-hello class="e-empty-state__illustration" />
+      <div class="e-empty-state__content">
+        <p class="e-empty-state__description">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        <div class="e-empty-state__action">
+          <button class="e-btn e-btn--primary">Lorem, ipsum.</button>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!--Breadcrumb-->
-      <div class="example-wrapper">
-        <h3>Breadcrumbs</h3>
-        <elvia-breadcrumb [items]="breadcrumbsTestNoUrl" />
+  <div class="example-wrapper e-mb-64">
+    <h3>Ingen actions - heading med desciption</h3>
+    <div class="e-empty-state">
+      <elvia-illustrations-no-connection class="e-empty-state__illustration" />
+      <div class="e-empty-state__content">
+        <h2 class="e-empty-state__heading">Lorem, ipsum.</h2>
+        <p class="e-empty-state__description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam saepe expedita magnam debitis
+          perspiciatis quo. Consequuntur.
+        </p>
       </div>
+    </div>
+  </div>
 
-      <!--Card-->
-      <div class="example-wrapper">
-        <h3>Card</h3>
-        <div class="e-gap-32" style="display: grid; grid-template-columns: 1fr 1fr">
-          <elvia-card heading="Hover!" borderColor="red">
-            <e-icon name="searchBold" size="md" slot="icon" />
-            <e-icon name="searchBoldColor" size="md" slot="iconHover" />
-          </elvia-card>
-          <elvia-card
-            heading="Title3 is longer and overflows"
-            description="description3"
-            icon="3"
-            borderColor="green"
-          />
-        </div>
-        <div class="e-mt-32 e-gap-16" style="display: grid; grid-template-columns: 1fr 1fr">
-          <elvia-card
-            heading="Heading long that overflows and becomes truncated"
-            description="It is not only outdoors that you should watch for dangerous conditions, there are also things in the home that you should be aware of. For example, if you experience a shock when you turn on the water tap or other electrical appliances, it is a bad sign. The same applies if the fuse blows without you knowing why, or if the fuse blows every time you use two appliances at the same time. This should not happen and may be a sign that there is a danger on the way in the electrical system."
-            type="detail"
-          >
-            <e-icon name="lock" size="xs" slot="cornerIcon" />
-          </elvia-card>
-          <elvia-card
-            heading="Heading 6"
-            description="It is not only outdoors that you should watch for dangerous conditions, there are also things in the home that you should be aware of. For example, if you experience a shock when you turn on the water tap or other electrical appliances, it is a bad sign. The same applies if the fuse blows without you knowing why, or if the fuse blows every time you use two appliances at the same time. This should not happen and may be a sign that there is a danger on the way in the electrical system."
-            type="detail"
-            tag="Detail Tag"
-          />
-        </div>
-        <elvia-card
-          heading="Heading long that overflows and becomes truncated"
-          description="It is not only outdoors that you should watch for dangerous conditions"
-          type="detail"
-        >
-          <e-icon name="lock" size="xs" slot="cornerIcon" />
-        </elvia-card>
+  <div class="example-wrapper e-mb-64">
+    <h3>Kun description</h3>
+    <div class="e-empty-state">
+      <elvia-illustrations-sharing class="e-empty-state__illustration" />
+      <div class="e-empty-state__content">
+        <p class="e-empty-state__description">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Saepe laudantium quaerat perspiciatis
+          illum impedit a vitae!
+        </p>
       </div>
+    </div>
+  </div>
 
-      <!--Carousel-->
-      <div class="example-wrapper">
-        <h3>Carousel</h3>
-        <elvia-carousel [hasConfirmationCheckmark]="true">
-          <div slot="title-1">
-            <h3 class="e-title-sm">title 1</h3>
-          </div>
-          <div slot="item-1">
-            <img
-              alt="Carousel example image"
-              src="../../../../assets/carousel/el1.jpeg"
-              style="width: 100%; min-width: 278px; border-radius: 8px"
-            />
-          </div>
-          <div slot="title-2">
-            <h3 class="e-title-sm">title 2</h3>
-          </div>
-          <div slot="item-2">
-            <img
-              alt="Carousel example image"
-              src="../../../../assets/carousel/el2.jpeg"
-              style="width: 100%; min-width: 278px; border-radius: 8px"
-            />
-          </div>
-        </elvia-carousel>
+  <div class="example-wrapper e-mb-64">
+    <h3>kun heading</h3>
+    <div class="e-empty-state">
+      <elvia-illustrations-hello class="e-empty-state__illustration" />
+      <div class="e-empty-state__content">
+        <h2 class="e-empty-state__heading">Lorem, ipsum dolor.</h2>
       </div>
+    </div>
+  </div>
 
-      <!--Chip-->
-      <div class="example-wrapper">
-        <h3>Deletable chips</h3>
-        <div style="display: flex; flex-direction: row">
-          @for (chip of deletableChipsList; track chip) {
-            <div>
-              <!-- <elvia-chip
-            [value]="chip.value"
-            [color]="chip.color"
-            [ariaLabel]="'Fjern filtrering for ' + chip.value"
-            [isDisabled]="chip.isDisabled"
-            (onDelete)="handleOnDelete($any($event).detail.value)"
-            (isSelectedOnChange)="logValue('chip', $any($event).detail.value)"
-            [inlineStyle]="{ margin: '8px' }"
-            /> -->
-            </div>
-          }
-        </div>
-        Value deleted: {{ deleteValue }}
-
-        <div class="e-bg-background-1">
-          <h3>Clickable chips</h3>
-          <button class="e-btn e-mb-16" (click)="changeChipStates()">Flip states</button>
-          <div style="display: flex; flex-direction: row">
-            @for (chip of filteredKeys; track chip) {
-              <div>
-                <elvia-chip
-                  [value]="chip"
-                  [isSelected]="filteredValues[chip]"
-                  color="orange"
-                  type="legend"
-                  (isSelectedOnChange)="handleOnChange($any($event))"
-                />
-              </div>
-            }
-
-            Selected values:
-            @for (key of filteredKeys; track key) {
-              <span>
-                @if (filteredValues[key]) {
-                  <span>{{ key }},</span>
-                }
-              </span>
-            }
-          </div>
+  <div class="example-wrapper e-mb-64">
+    <h3>ingen illustasjon</h3>
+    <div class="e-empty-state">
+      <div class="e-empty-state__content">
+        <h2 class="e-empty-state__heading">Lorem ipsum dolor sit.</h2>
+        <p class="e-empty-state__description">
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque reprehenderit praesentium maiores,
+          dicta sapiente mollitia magnam fuga in deleniti vel adipisci magni nam saepe nihil quibusdam
+          consequatur delectus? Iure sit aperiam velit!
+        </p>
+        <div class="e-empty-state__action">
+          <button class="e-btn e-btn--primary">Lorem, ipsum.</button>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- Context menu -->
-      <div class="example-wrapper">
-        <h3>Context menu</h3>
-        <elvia-context-menu
-          (onOpen)="isContextMenuShowing = true"
-          (onClose)="isContextMenuShowing = false"
-          display="flex"
-        >
-          <button
-            slot="trigger"
-            class="e-btn e-btn--icon"
-            [ngClass]="{ 'e-btn---selected': isContextMenuShowing }"
-            aria-label="More menu"
-            aria-haspopup="menu"
-          >
-            <span class="e-btn__icon">
-              <e-icon name="moreMenu" />
-            </span>
-          </button>
+  <elvia-divider type="heading" heading="Start aligned" className="e-mb-32 e-mt-64" />
 
-          <div slot="content">
-            <div class="ewc-context-menu__list-group">
-              <button role="menuitem">
-                <e-icon name="edit" size="xs" />
-                <span>Oppdater og valider på nytt</span>
-              </button>
-              <button role="menuitem">
-                <e-icon name="bin" size="xs" />
-                <span>Slett</span>
-              </button>
-            </div>
-            <div class="ewc-context-menu__list-group">
-              <a href="#" role="menuitem">
-                <span>Endre passord</span>
-              </a>
-            </div>
-          </div>
-        </elvia-context-menu>
-      </div>
-
-      <!--Datepicker-->
-      <div class="example-wrapper">
-        <h3>DatePicker</h3>
-        <elvia-datepicker [value]="date" resetTime (valueOnChange)="writeDate($any($event).detail.value)" />
-      </div>
-
-      <!--Date range picker-->
-      <div class="example-wrapper">
-        <h3>Date range picker</h3>
-        <elvia-datepicker-range (valueOnChangeISOString)="writeDate($any($event).detail.value)" />
-        <elvia-datepicker-range
-          hasTimepickers
-          [minDate]="minDateRange"
-          [maxDate]="maxDateRange"
-          (valueOnChangeISOString)="writeDate($any($event).detail.value)"
-        />
-      </div>
-
-      <!--Divider-->
-      <div class="example-wrapper">
-        <h3>Divider</h3>
-        <h4>Title divider</h4>
-        <elvia-divider type="heading" typography="caps">
-          <h2 slot="heading">Title with caps</h2>
-        </elvia-divider>
-        <h4>Vertical divider</h4>
-        <div style="height: 100px">
-          <elvia-divider type="simple" orientation="vertical" />
-        </div>
-        <h4>Curved divider</h4>
-        <elvia-divider type="curved" />
-      </div>
-
-      <!--Dropdown-->
-      <div class="example-wrapper">
-        <h3>Dropdown</h3>
-        <elvia-dropdown
-          [items]="dropdownItems"
-          placeholder="Posisjon"
-          label="Select location"
-          (valueOnChange)="onDropdownSelect($any($event).detail.value)"
-          [labelTransformation]="labelTransformation"
-        />
-        <h3>Dropdown</h3>
-        <elvia-dropdown
-          [items]="dropdownItems"
-          placeholder="Posisjon"
-          label="Select location"
-          (valueOnChange)="onDropdownSelect($any($event).detail.value)"
-          [errorOptions]="errorOptions"
-        />
-        <elvia-dropdown
-          [items]="dropdownImageItems"
-          label="Tilordne"
-          placeholder="Tilordne person"
-          size="small"
-          (valueOnChange)="onDropdownSelect($any($event).detail.value)"
-        />
-      </div>
-
-      <!--Icon-->
-      <div class="example-wrapper">
-        <h3>Icon</h3>
-        <e-icon name="arrowRightBold" />
-        <e-icon name="arrowLeftBold" />
-      </div>
-
-      <!--Modal-->
-      <div class="example-wrapper">
-        <h3>Modal</h3>
-        <button class="e-btn" (click)="isModalShowing = !isModalShowing">Show modal</button>
-        <elvia-modal
-          (onClose)="isModalShowing = !isModalShowing"
-          [isShowing]="isModalShowing"
-          [hasCloseButton]="true"
-        >
-          <div slot="heading" class="e-flex e-align-items-center e-gap-8">
-            Jeg er en heading (slot)
-            <e-icon name="moveTruckColor" size="sm" />
-          </div>
-          <div slot="content" class="e-flex e-flex-direction-column e-gap-8">Test</div>
-          <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg e-none-md e-none-lg e-none-xl">
-            Godkjenn</button
-          ><button
-            slot="secondaryButton"
-            class="e-btn e-btn--secondary e-btn--lg e-none-md e-none-lg e-none-xl"
-          >
-            Avbryt
-          </button>
-        </elvia-modal>
-        <h4>Illustration</h4>
-
-        <h4>Multiple pages</h4>
-        <button (click)="isMultiPageModalShowing = true" class="e-btn">Show multi-page modal</button>
-        <elvia-modal
-          (onClose)="isMultiPageModalShowing = false"
-          [isShowing]="isMultiPageModalShowing"
-          heading="Title of content"
-          [hasCloseButton]="true"
-        >
-          <div
-            slot="content"
-            style="display: flex; flex-direction: column; justify-content: space-between; height: 100%"
-          >
-            <div>
-              Body text comes here and can go over several lines. It looks like this when it is two lines.
-            </div>
-            <elvia-carousel items="3">
-              <!-- Carousel contents not shown here for brevity -->
-            </elvia-carousel>
-          </div>
-          <div slot="illustration">
-            <elvia-illustrations-broken />
-          </div>
-        </elvia-modal>
-      </div>
-
-      <!--Paginator-->
-      <div class="example-wrapper">
-        <h3>Paginator</h3>
-        <elvia-pagination numberOfElements="100" />
-      </div>
-
-      <!--Popover-->
-      <div class="example-wrapper">
-        <h3>Popover</h3>
-        <elvia-popover
-          [isShowing]="isPopoverShowing"
-          (onOpen)="popoverOnOpen()"
-          (onClose)="popoverOnClose()"
-          heading="BankID"
-          horizontalPosition="left"
-          verticalPosition="top"
-          width="200"
-        >
-          <button slot="trigger" class="e-btn">Show popover</button>
-          <div slot="content">
-            <p class="e-text-md e-my-16">Alle privatkunder må bruke BankID første gang.</p>
-            <button class="e-btn" (click)="popoverOnClose()">Lukke popover</button>
-          </div>
-        </elvia-popover>
-      </div>
-
-      <!--Progress linear-->
-      <div class="example-wrapper">
-        <h3>Progress linear</h3>
-        <elvia-progress-linear
-          [isIndeterminate]="indeterminate"
-          [value]="progressValue"
-          [isError]="progressError"
-        />
-        <div style="margin-bottom: 32px; display: flex">
-          <div style="display: flex; width: 100%; justify-content: space-between">
-            <button class="e-btn" (click)="progressValue = progressValue + 10">Increase Progress</button>
-            <button class="e-btn" (click)="progressValue = progressValue - 10">Decrease Progress</button>
-            <button class="e-btn" (click)="indeterminate = !indeterminate">Toggle indeterminate</button>
-            <button class="e-btn" (click)="progressError = !progressError">Toggle error</button>
-          </div>
+  <div class="example-wrapper e-mb-64">
+    <h3>Fullstendig start-aligned</h3>
+    <div class="e-empty-state e-empty-state--start-aligned">
+      <elvia-illustrations-hello class="e-empty-state__illustration" />
+      <div class="e-empty-state__content">
+        <h3 class="e-empty-state__heading">Lorem, ipsum dolor.</h3>
+        <p class="e-empty-state__description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi aperiam, deserunt porro quidem
+          voluptate libero distinctio?
+        </p>
+        <div class="e-empty-state__action">
+          <button class="e-btn e-btn--secondary">Lorem, ipsum.</button>
+          <button class="e-btn e-btn--primary">Lorem, ipsum.</button>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!--Radio filter-->
-      <div class="example-wrapper">
-        <h3>Radio filter</h3>
-        <elvia-radio-filter
-          [items]="radioFilterValues"
-          value="read"
-          name="readRadioFilters"
-          ariaLabel="{value} filtrering valgt"
-          (valueOnChange)="logValue('Radio filter', $any($event).detail.value)"
-        />
-      </div>
-
-      <!--Segmented control-->
-      <div class="example-wrapper">
-        <h3>Segmented control</h3>
-        <elvia-segmented-control
-          [items]="[{ label: 'Different' }, { label: 'Length' }, { label: 'Woords' }]"
-          (valueOnChange)="logValue('Segmented', $any($event).detail.value)"
-        />
-        <elvia-segmented-control
-          type="icon"
-          [items]="[
-            {
-              icon: '<e-icon name=\'thumbnail\'></e-icon>',
-              iconSelected: '<e-icon name=\'thumbnailColor\'></e-icon>',
-              ariaLabel: 'Segmented control example label',
-            },
-            {
-              icon: '<e-icon name=\'list\'></e-icon>',
-              iconSelected: '<e-icon name=\'listColor\'></e-icon>',
-              ariaLabel: 'Segmented control example label',
-            },
-          ]"
-          (valueOnChange)="logValue('Segmented', $any($event).detail.value)"
-        />
-      </div>
-
-      Slider
-      <div class="example-wrapper">
-        <h3>Slider</h3>
-        <h4>Simple</h4>
-        <elvia-slider label="I am a label" unit="kWh" />
-
-        <h4>Range</h4>
-        <elvia-slider label="I am also a label" unit="kWh" type="range" />
-      </div>
-
-      <!--Spotlight-->
-      <div class="example-wrapper">
-        <h3>Spotlight</h3>
-        @if (showSpotlight) {
-          <elvia-spotlight [position]="{ horizontal: 450, vertical: 300 }" [radius]="150" />
-        }
-        <button class="e-btn" style="position: relative; z-index: 999999" (click)="toggleSpotlight()">
-          Toggle spotlight
-        </button>
-      </div>
-
-      <div class="example-wrapper">
-        <h3>Stepper</h3>
-        <elvia-stepper
-          [steps]="{
-            '1': { heading: 'Tittel 1', isCompleted: true },
-            '2': { heading: 'Tittel 2', isCompleted: false },
-            '3': { heading: 'Tittel 3' },
-            '4': { heading: 'Tittel 4', nextButtonText: 'Lagre' },
-          }"
-          isForced
-          (onFinish)="log('Stepper onFinish()')"
-          (valueOnChange)="logValue('Stepper', $any($event).detail.value)"
-          (onNextClick)="log('Stepper onNextClick')"
-        >
-          <div slot="content">
-            <div>Trinn 1 innhold</div>
-            <div>Trinn 2 innhold</div>
-            <div>Trinn 3 innhold</div>
-            <div>Trinn 4 innhold</div>
-          </div>
-        </elvia-stepper>
-      </div>
-
-      <!--Tabs-->
-      <div class="example-wrapper">
-        <h3>Tabs</h3>
-        <elvia-tabs
-          [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
-          [value]="selectedTabIndex"
-          (valueOnChange)="tabsValueOnChange($any($event).detail.value)"
-        />
-        @switch (selectedTabIndex) {
-          @case (0) {
-            <div role="tabpanel" id="ewc-tabpanel-0" aria-labelledby="ewc-tabs-0">
-              <p>Apples are made of 25% air, which is why they float.</p>
-              <button class="e-btn e-btn--sm">Buy 🍎</button>
-            </div>
-          }
-          @case (1) {
-            <div role="tabpanel" id="ewc-tabpanel-1" aria-labelledby="ewc-tabs-1">
-              <p>Oranges were originally green when first cultivated.</p>
-              <button class="e-btn e-btn--sm">Buy 🍊</button>
-            </div>
-          }
-          @case (2) {
-            <div role="tabpanel" id="ewc-tabpanel-2" aria-labelledby="ewc-tabs-2">
-              <p>Bananas are berries, but strawberries are not.</p>
-              <button class="e-btn e-btn--sm">Buy 🍌</button>
-            </div>
-          }
-          @case (3) {
-            <div role="tabpanel" id="ewc-tabpanel-3" aria-labelledby="ewc-tabs-3">
-              <p>Grapes explode when you put them in the microwave.</p>
-              <button class="e-btn e-btn--sm">Buy 🍇</button>
-            </div>
-          }
-          @case (4) {
-            <div role="tabpanel" id="ewc-tabpanel-4" aria-labelledby="ewc-tabs-4">
-              <p>Kiwis were originally called <em>Chinese gooseberries</em>.</p>
-              <button class="e-btn e-btn--sm">Buy 🥝</button>
-            </div>
-          }
-        }
-      </div>
-
-      <!--Timepicker-->
-      <div class="example-wrapper">
-        <h3>Timepicker</h3>
-        <div style="display: flex; gap: 32px; flex-wrap: wrap; align-items: baseline">
-          <elvia-timepicker />
-
-          <elvia-timepicker [errorOptions]="errorOptions" />
-
-          <elvia-timepicker label="Custom label" />
-
-          <elvia-timepicker label="" />
-
-          <elvia-timepicker size="small" />
-
-          <elvia-timepicker label="Only hours" [value]="timepickerValue" minuteInterval="60" />
-
-          <elvia-timepicker isDisabled="true" />
-
-          <elvia-timepicker label="Required" isRequired="true" />
-
-          <elvia-timepicker [minTime]="timepickerMin" [maxTime]="timepickerMax" />
-
-          <elvia-timepicker [minTime]="timepickerMin" />
-
-          <elvia-timepicker [maxTime]="timepickerMax" />
+  <div class="example-wrapper e-mb-64">
+    <h3>start-aligned ingen heading</h3>
+    <div class="e-empty-state e-empty-state--start-aligned">
+      <elvia-illustrations-no-connection class="e-empty-state__illustration" />
+      <div class="e-empty-state__content">
+        <p class="e-empty-state__description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem odio quidem incidunt.
+        </p>
+        <div class="e-empty-state__action">
+          <button class="e-btn e-btn--primary">Lorem, ipsum.</button>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!--Toast-->
-      <div class="example-wrapper">
-        <h3>Toast</h3>
-        <button (click)="showToast()">Show toast</button>
+  <div class="example-wrapper e-mb-64">
+    <h3>start-aligned ingen actions</h3>
+    <div class="e-empty-state e-empty-state--start-aligned">
+      <elvia-illustrations-sharing class="e-empty-state__illustration" />
+      <div class="e-empty-state__content">
+        <h3 class="e-empty-state__heading">Lorem, ipsum.</h3>
+        <p class="e-empty-state__description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur inventore quos ad dolore.
+          Labore, maiores pariatur?
+        </p>
       </div>
+    </div>
+  </div>
 
-      <!--Tooltip-->
-      <div class="example-wrapper">
-        <h3>Tooltip</h3>
+  <!-- Start-aligned Only Description -->
+  <div class="example-wrapper e-mb-64">
+    <h3>start-aligned kun beskrivelse</h3>
+    <div class="e-empty-state e-empty-state--start-aligned">
+      <elvia-illustrations-hello class="e-empty-state__illustration" />
+      <div class="e-empty-state__content">
+        <p class="e-empty-state__description">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloremque mollitia, voluptate
+          suscipit obcaecati architecto perferendis, maiores possimus molestiae ex dolorum.
+        </p>
+      </div>
+    </div>
+  </div>
 
-        <div class="e-flex e-flex-direction-row e-gap-16">
-          <p class="e-text-md">
-            This is a text to test out the new
-            <elvia-tooltip content="This is a tooltip! The content is pretty long." trigger="tooltip!" />
-          </p>
+  <elvia-divider type="heading" heading="Full page" className="e-mb-32 e-mt-64" />
 
-          <elvia-tooltip
-            content="This tooltip has a trigger through a slot. Click the button to toggle the tooltip position."
-            [position]="tooltipPosition"
-          >
-            <button
-              slot="trigger"
-              (click)="shuffleTooltipPosition()"
-              class="e-btn e-btn--icon e-btn--lg"
-              aria-label="Vis tooltip"
-            >
-              <span class="e-btn__icon">
-                <e-icon name="star" />
-              </span>
-            </button>
-          </elvia-tooltip>
+  <!-- Large Complete -->
+  <div class="example-wrapper e-mb-64">
+    <h3>Fullstendig large</h3>
+    <div class="e-empty-state e-empty-state--lg">
+      <elvia-illustrations-hello class="e-empty-state__illustration" />
+      <div class="e-empty-state__content">
+        <h2 class="e-empty-state__heading">Lorem ipsum dolor sit.</h2>
+        <p class="e-empty-state__description">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam recusandae aliquam placeat excepturi
+          blanditiis. Repellat, quisquam!
+        </p>
+        <div class="e-empty-state__action">
+          <button class="e-btn e-btn--secondary">Lorem, ipsum.</button>
+          <button class="e-btn e-btn--primary">Lorem, ipsum.</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-          <elvia-tooltip isDisabled="true" content="This should not be visible">
-            <span slot="trigger">Disabled tooltip</span>
-          </elvia-tooltip>
+  <!-- Large No Heading -->
+  <div class="example-wrapper e-mb-64">
+    <h3>large ingen tittel</h3>
+    <div class="e-empty-state e-empty-state--lg">
+      <elvia-illustrations-no-connection class="e-empty-state__illustration" />
+      <div class="e-empty-state__content">
+        <p class="e-empty-state__description">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos alias eius vitae eligendi
+          fugiat facere ex!
+        </p>
+        <div class="e-empty-state__action">
+          <a class="e-link" href="*">Lorem ipsum dolor sit.</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-          <elvia-tooltip>
-            <p slot="content" class="e-text-md e-m-0 e-flex e-align-items-center">
-              <e-icon name="searchBold" size="xs" class="e-icon--color-info e-mr-8" />
-              This is custom content!
-            </p>
-            <div slot="trigger">Tooltip trigger with custom content</div>
-          </elvia-tooltip>
+  <!-- Large No Actions -->
+  <div class="example-wrapper e-mb-64">
+    <h3>large uten actions</h3>
+    <div class="e-empty-state e-empty-state--lg">
+      <elvia-illustrations-sharing class="e-empty-state__illustration" />
+      <div class="e-empty-state__content">
+        <h2 class="e-empty-state__heading">Lorem, ipsum dolor.</h2>
+        <p class="e-empty-state__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+      </div>
+    </div>
+  </div>
 
-          <elvia-tooltip content="This should not be visible if mouseleave before delay">
-            <elvia-accordion slot="trigger" openLabel="Accordion as tooltip trigger" />
-          </elvia-tooltip>
+  <!-- Large Only Description -->
+  <div class="example-wrapper e-mb-64">
+    <h3>large kun beskrivelse</h3>
+    <div class="e-empty-state e-empty-state--lg">
+      <elvia-illustrations-hello class="e-empty-state__illustration" />
+      <div class="e-empty-state__content">
+        <p class="e-empty-state__description">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum quam corporis quaerat voluptatibus
+          vitae illo exercitationem neque quo, perferendis amet. Molestias.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <elvia-divider type="heading" heading="Edge case" className="e-mb-32 e-mt-64" />
+
+  <div class="example-wrapper e-mb-64">
+    <h3>masse tekst</h3>
+    <div class="e-empty-state">
+      <elvia-illustrations-hello class="e-empty-state__illustration" />
+      <div class="e-empty-state__content">
+        <h2 class="e-empty-state__heading">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi dolores tempora repellendus omnis
+          velit voluptatibus cum, eum unde sed distinctio consequuntur incidunt culpa minima architecto
+          blanditiis nulla ea obcaecati labore possimus? Repellat?
+        </h2>
+        <p class="e-empty-state__description">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit non aliquam quidem distinctio
+          tenetur vero obcaecati necessitatibus magni animi saepe quibusdam ex facere sapiente, culpa unde a
+          repellat harum voluptatibus labore dignissimos. Eligendi voluptatem modi sint praesentium, alias
+          adipisci rerum reprehenderit perferendis nam recusandae culpa voluptate fugit odio iusto ducimus
+          itaque voluptatibus in tempore molestias deserunt. Ducimus accusantium nisi porro quibusdam non
+          magnam. Tenetur.
+        </p>
+        <div class="e-empty-state__action">
+          <button class="e-btn e-btn--secondary">Lorem ipsum dolor sit amet consectetur.</button>
+          <button class="e-btn e-btn--primary">Lorem ipsum dolor sit amet consectetur.</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-wrapper e-mb-64">
+    <h3>mange actions</h3>
+    <div class="e-empty-state">
+      <elvia-illustrations-sharing class="e-empty-state__illustration" />
+      <div class="e-empty-state__content">
+        <h2 class="e-empty-state__heading">Lorem, ipsum dolor.</h2>
+        <p class="e-empty-state__description">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+        <div class="e-empty-state__action">
+          <button class="e-btn e-btn--secondary">Lorem.</button>
+          <button class="e-btn e-btn--secondary">Lorem, ipsum.</button>
+          <button class="e-btn e-btn--secondary">Lorem, ipsum dolor.</button>
+          <button class="e-btn e-btn--secondary">Lorem, ipsum.</button>
+          <button class="e-btn e-btn--secondary">Lorem, ipsum dolor.</button>
+          <button class="e-btn e-btn--primary">Lorem.</button>
         </div>
       </div>
     </div>
