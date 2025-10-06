@@ -1,16 +1,77 @@
-<html lang="en"></html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Elvia Percytest</title>
     <link rel="stylesheet" type="text/css" href="../../css/elvis.min.css" />
     <script src="../../elvis.js"></script>
-    <script type="module" src="../../../elvis-illustrations/dist/user.js"></script>
+    <style>
+      .e-empty-state__illustration {
+        aspect-ratio: 1;
+        border-radius: 50%;
+        border: 2px dashed var(--e-color-border-3);
+      }
+    </style>
   </head>
   <body class="e-color-background-1">
     <div class="e-title-sm e-mt-16">Empty State</div>
-    <p>test</p>
-    <elvia-illustrations-user></elvia-illustrations-user>
+
+    <!-- Default -->
+    <h3 class="e-title-caps e-mt-40 e-mb-16">Default</h3>
+    <section class="e-empty-state">
+      <div class="e-empty-state__illustration"></div>
+      <div class="e-empty-state__content">
+        <h2 class="e-empty-state__heading">Oi sann, noe gikk galt 👀</h2>
+        <p class="e-empty-state__description">
+          En melding som forklarer <b> hvorfor </b>
+          dette skjedde og
+          <b> hva </b> brukeren bør gjøre nå.
+        </p>
+        <div class="e-empty-state__action">
+          <button class="e-btn e-btn--secondary" type="button">Tilbake</button>
+          <button class="e-btn e-btn--primary" type="button">Prøv igjen</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- No Actions -->
+    <h3 class="e-title-caps e-mt-40 e-mb-16">No Actions</h3>
+    <div class="e-empty-state">
+      <div class="e-empty-state__illustration"></div>
+      <div class="e-empty-state__content">
+        <h2 class="e-empty-state__heading">Ingen varsler 😌</h2>
+        <p class="e-empty-state__description">
+          Du er helt oppdatert. Nye varsler dukker opp her når noe krever oppmerksomheten din.
+        </p>
+      </div>
+    </div>
+
+    <!-- Large -->
+    <h3 class="e-title-caps e-mt-40 e-mb-16">Large</h3>
+    <section class="e-empty-state e-empty-state--lg">
+      <div class="e-empty-state__illustration"></div>
+      <div class="e-empty-state__content">
+        <h2 class="e-empty-state__heading">
+          Å nei! <br />
+          Vi klarte ikke å koble til 👀
+        </h2>
+        <p class="e-empty-state__description">Siden finnes ikke, prøv igjen i menyen</p>
+        <div class="e-empty-state__action">
+          <a class="e-link e-link--inline" href="#"> Til hjemmesiden </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Start Aligned -->
+    <h3 class="e-title-caps e-mt-40 e-mb-16">Start Aligned</h3>
+    <div class="e-empty-state e-empty-state--start-aligned">
+      <div class="e-empty-state__illustration"></div>
+      <div class="e-empty-state__content">
+        <h3 class="e-empty-state__heading">Ingen fakturaer ☺️</h3>
+        <p class="e-empty-state__description">
+          Du har ikke motatt noen fakturaer fra oss enda. Her vil du etterhvert finne alle dine fakturaer.
+        </p>
+      </div>
     </div>
   </body>
 </html>
