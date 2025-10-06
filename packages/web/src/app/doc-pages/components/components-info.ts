@@ -34,22 +34,22 @@ const componentsInfo: ComponentInfo = {
         Pages.Autocomplete,
         Pages.Datepicker,
         Pages.DatepickerRange,
-        Pages.Timepicker,
         Pages.Dropdown,
         Pages.Input,
         Pages.Search,
+        Pages.Timepicker,
       ],
     },
     {
       title: 'Selection control',
       components: [
-        Pages.Radiobutton,
         Pages.Checkbox,
-        Pages.Toggle,
-        Pages.Slider,
         Pages.Chip,
         Pages.RadioFilter,
+        Pages.Radiobutton,
         Pages.SegmentedControl,
+        Pages.Slider,
+        Pages.Toggle,
       ],
     },
     {
@@ -59,7 +59,7 @@ const componentsInfo: ComponentInfo = {
   ],
   dataDisplay: [
     {
-      title: 'Visualisation',
+      title: 'Visualization',
       components: [Pages.Graph, Pages.List, Pages.Table, Pages.Thumbnail],
     },
     {
@@ -75,11 +75,12 @@ const componentsInfo: ComponentInfo = {
     {
       components: [
         Pages.Alert,
-        Pages.ContentLoader,
-        Pages.Progressbar,
         Pages.Badge,
-        Pages.Spotlight,
+        Pages.ContentLoader,
+        Pages.EmptyState,
         Pages.Outline,
+        Pages.Progressbar,
+        Pages.Spotlight,
         Pages.Toast,
       ],
     },
