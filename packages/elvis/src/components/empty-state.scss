@@ -64,9 +64,13 @@
   flex-direction: row;
   text-align: start;
 
+  @include breakpoints.breakpoint-up(Tablet) {
+    gap: 0 48px;
+  }
+
   @include breakpoints.breakpoint-up(Mobile) {
     flex-direction: column;
-    row-gap: 32px;
+    gap: 32px 0;
   }
 
   &:has(.e-empty-state__content) .e-empty-state__illustration {
