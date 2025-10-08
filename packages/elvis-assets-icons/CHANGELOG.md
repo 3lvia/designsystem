@@ -1,5 +1,12 @@
 # Elvis-assets-icon
 
+## 3.16.0 (08.10.25)
+
+### New Feature
+
+- Added the `nesting_time-color-error`, `pasture_tree-color`, `protected_areas-color-error`,
+  `red_listed_birds-color-error`, `red_listed_species-color-error` icons.
+
 ## 3.15.0 (08.10.25)
 
 ### New Feature

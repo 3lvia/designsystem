@@ -626,6 +626,10 @@ module.exports = [
   { name: 'move_circle', terms: ['move', 'transfer'], thirdparty: { name: ['streamline'] } },
   { name: 'move_truck-color', terms: ['car', 'semi'], thirdparty: { name: ['streamline'] } },
   { name: 'nature_diversity', terms: ['forest', 'biodiversity', 'line clearing', 'question'] },
+  {
+    name: 'nesting_time-color-error',
+    terms: ['bird', 'egg', 'season', 'protection', 'wildlife'],
+  },
   { name: 'movie', deprecated: '10.6.0', newIconName: 'media-color' },
   { name: 'new_tab', terms: ['external', 'open', 'link'], thirdparty: { name: ['streamline'] } },
   {
@@ -686,6 +690,10 @@ module.exports = [
     terms: ['send', 'message'],
     thirdparty: { name: ['streamline'] },
     duplicate: ['paper_plane'],
+  },
+  {
+    name: 'pasture_tree-color',
+    terms: ['tree', 'field', 'forest', 'grazing', 'nature', 'eco', 'wildlife'],
   },
   { name: 'pause_circle-color', terms: ['stop', 'video'], thirdparty: { name: ['streamline'] } },
   {
@@ -819,6 +827,10 @@ module.exports = [
     terms: ['person', 'human', 'user'],
     thirdparty: { name: ['streamline'], duplicate: ['profile'] },
   },
+  {
+    name: 'protected_areas-color-error',
+    terms: ['area', 'park', 'reserve', 'ban', 'restriction', 'nature', 'mountain', 'land'],
+  },
   { name: 'question_circle', terms: ['?', 'help', 'answer'], thirdparty: { name: ['streamline'] } },
   {
     name: 'question_circle-color',
@@ -832,6 +844,14 @@ module.exports = [
   },
   { name: 'quotation-color', terms: ['quote', 'reference'], thirdparty: { name: ['streamline'] } },
   { name: 'recycle', terms: ['arrow'], thirdparty: { name: ['streamline'] } },
+  {
+    name: 'red_listed_birds-color-error',
+    terms: ['endangered', 'wildlife', 'species', 'protection', 'conservation', 'animals', 'bird'],
+  },
+  {
+    name: 'red_listed_species-color-error',
+    terms: ['endangered', 'wildlife', 'species', 'protection', 'conservation', 'flower', 'plant'],
+  },
   { name: 'recycle-color', terms: ['arrow'], thirdparty: { name: ['streamline'], duplicate: ['recycle'] } },
   { name: 'refresh', terms: ['update'], thirdparty: { name: ['streamline'] } },
   { name: 'remove_circle', terms: ['delete', 'dismiss', 'discard'], thirdparty: { name: ['streamline'] } },

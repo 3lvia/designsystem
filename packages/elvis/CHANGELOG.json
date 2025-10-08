@@ -3,6 +3,19 @@
   "name": "elvis",
   "content": [
     {
+      "version": "21.5.0",
+      "date": "October 8, 2025",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added the <code>nesting_time-color-error</code>, <code>pasture_tree-color</code>, <code>protected_areas-color-error</code>, <code>red_listed_birds-color-error</code> and <code>red_listed_species-color-error</code> icons."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/tools/icon" }]
+        }
+      ]
+    },
+    {
       "version": "21.4.0",
       "date": "October 8, 2025",
       "changelog": [
