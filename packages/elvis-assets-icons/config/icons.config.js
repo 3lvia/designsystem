@@ -162,6 +162,14 @@ module.exports = [
     thirdparty: { name: ['streamline'] },
     streamlineIcons: ['single-neutral-actions-check-1'],
   },
+  {
+    name: 'aus',
+    terms: ['heart', 'electric', 'lightning', 'power', 'energy', 'shock', 'love', 'safety', 'bolt'],
+  },
+  {
+    name: 'aus-color',
+    terms: ['heart', 'electric', 'lightning', 'power', 'energy', 'shock', 'love', 'safety', 'bolt'],
+  },
   { name: 'attachment', terms: ['link', 'connection', 'file'], thirdparty: { name: ['streamline'] } },
   {
     name: 'attachment-color',
@@ -248,6 +256,14 @@ module.exports = [
   { name: 'check_shield', terms: ['guard', 'safe'], thirdparty: { name: ['streamline'] } },
   { name: 'checklist-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'cleaning_vacuum', terms: ['tidy', 'washing'], thirdparty: { name: ['streamline'] } },
+  {
+    name: 'climb',
+    terms: ['growth', 'climb', 'chart', 'progress', 'arrow', 'increase', 'trend', 'analytics'],
+  },
+  {
+    name: 'climb-color',
+    terms: ['growth', 'climb', 'chart', 'progress', 'arrow', 'increase', 'trend', 'analytics'],
+  },
   { name: 'clock', terms: ['time', 'date'], thirdparty: { name: ['streamline'] } },
   { name: 'close', terms: ['x', 'remove'], thirdparty: { name: ['streamline'] } },
   { name: 'close-bold', terms: ['x', 'remove'], thirdparty: { name: ['streamline'] } },
@@ -412,6 +428,14 @@ module.exports = [
   { name: 'folder', terms: ['file'], thirdparty: { name: ['streamline'] } },
   { name: 'folder_create', terms: ['add'], thirdparty: { name: ['streamline'] } },
   { name: 'folder_open', terms: [], thirdparty: { name: ['streamline'] } },
+  {
+    name: 'forest_clearing_denied',
+    terms: ['tree', 'cut', 'forest', 'deforestation', 'logging', 'clear', 'wood', 'damage'],
+  },
+  {
+    name: 'forest_clearing_denied-color-error',
+    terms: ['tree', 'cut', 'forest', 'deforestation', 'logging', 'clear', 'wood', 'damage'],
+  },
   { name: 'form_check-color', terms: ['document', 'pencil'], thirdparty: { name: ['streamline'] } },
   {
     name: 'form',
@@ -516,6 +540,8 @@ module.exports = [
   { name: 'it_systems-color', terms: ['computer'] },
   { name: 'laptop-color', terms: ['computer', 'screen', 'pc', 'mac'] },
   { name: 'layers', terms: ['view'], thirdparty: { name: ['streamline'] } },
+  { name: 'lift', terms: ['elevate', 'crane', 'platform', 'height', 'person', 'up'] },
+  { name: 'lift-color', terms: ['elevate', 'crane', 'platform', 'height', 'person', 'up'] },
   { name: 'light_theme', terms: ['theme', 'sun', 'day', 'light'], thirdparty: { name: ['streamline'] } },
   { name: 'laws', terms: ['paragraph', 'paper'] },
   { name: 'laws-color', terms: ['paragraph', 'paper'] },
@@ -715,6 +741,8 @@ module.exports = [
     terms: ['add', 'maximize', 'expand', 'create'],
     thirdparty: { name: ['streamline'] },
   },
+  { name: 'polesaw', terms: ['tool', 'cut', 'trimming', 'maintenance', 'equipment'] },
+  { name: 'polesaw-color', terms: ['tool', 'cut', 'trimming', 'maintenance', 'equipment'] },
   {
     name: 'position-bold',
     terms: ['location', 'place', 'locate', 'position', 'area', 'map'],
@@ -1011,10 +1039,20 @@ module.exports = [
   { name: 'transformer_change', terms: ['trafo', 'transformator', 'transformatorbytte'] },
   { name: 'transformer_change-color', terms: ['trafo', 'transformator', 'transformatorbytte'] },
   { name: 'tree_falling', terms: ['electricity'], thirdparty: { name: ['streamline'] } },
-  { name: 'tree_powerline', terms: ['electricity'], thirdparty: { name: ['streamline'] } },
+  { name: 'tree_powerline', terms: ['hazard', 'electricity', 'wire'], thirdparty: { name: ['streamline'] } },
   {
     name: 'tree_powerline-color',
-    terms: ['electricity'],
+    terms: ['hazard', 'electricity', 'wire'],
+    thirdparty: { name: ['streamline'], duplicate: ['tree_powerline'] },
+  },
+  {
+    name: 'tree_powerline-color-error',
+    terms: ['hazard', 'electricity', 'wire'],
+    thirdparty: { name: ['streamline'], duplicate: ['tree_powerline'] },
+  },
+  {
+    name: 'tree_powerline-color-warning',
+    terms: ['hazard', 'electricity', 'wire'],
     thirdparty: { name: ['streamline'], duplicate: ['tree_powerline'] },
   },
   { name: 'undo', terms: ['back', 'regret'] },
