@@ -3,6 +3,19 @@
   "name": "elvis",
   "content": [
     {
+      "version": "21.4.0",
+      "date": "October 8, 2025",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added the <code>aus</code>, <code>aus-color</code>, <code>climb</code>, <code>climb-color</code>, <code>forest_clearing_denied</code>, <code>forest_clearing_denied-color-error</code>, <code>lift</code>, <code>lift-color</code>, <code>polesaw</code>, <code>polesaw-color</code>, <code>tree_powerline-color-error</code> and <code>tree_powerline-color-warning</code> icons."
+          ],
+          "pages": [{ "displayName": "Icons", "url": "https://design.elvia.io/tools/icon" }]
+        }
+      ]
+    },
+    {
       "version": "21.3.0",
       "date": "October 6, 2025",
       "changelog": [
