@@ -1,5 +1,13 @@
 # Elvis-assets-icon
 
+## 3.15.0 (08.10.25)
+
+### New Feature
+
+- Added the `aus`, `aus-color`, `climb`, `climb-color`, `forest_clearing_denied`,
+  `forest_clearing_denied-color-error`, `lift`, `lift-color`, `polesaw`, `polesaw-color`,
+  `tree_powerline-color-error`, `tree_powerline-color-warning` icons.
+
 ## 3.14.1 (03.10.25)
 
 ### Patch
