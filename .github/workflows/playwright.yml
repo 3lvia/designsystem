@@ -35,7 +35,7 @@ jobs:
         run: npx @percy/cli exec -- yarn test-ct
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_COMPONENTS_TOKEN }}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         if: always()
         with:
           name: playwright-report
