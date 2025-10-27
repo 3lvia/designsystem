@@ -2135,8 +2135,8 @@ __metadata:
   resolution: "@elvia/elvis-assets-icons@workspace:packages/elvis-assets-icons"
   dependencies:
     "@elvia/elvis-colors": "npm:^4.1.0"
-    "@types/gulp": "npm:^4.0.17"
-    "@types/gulp-svgmin": "npm:^1.2.4"
+    "@types/gulp": "npm:^4.0.18"
+    "@types/gulp-svgmin": "npm:^1.2.5"
     "@types/node": "npm:^22.18.12"
     gulp: "npm:^5.0.1"
     gulp-svgmin: "npm:^4.1.0"
@@ -2326,7 +2326,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-colors@workspace:packages/elvis-colors"
   dependencies:
-    "@types/gulp": "npm:^4.0.17"
+    "@types/gulp": "npm:^4.0.18"
     "@types/node": "npm:^22.18.12"
     gulp: "npm:^5.0.1"
     ts-node: "npm:^10.9.2"
@@ -2980,7 +2980,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-typography@workspace:packages/elvis-typography"
   dependencies:
-    "@types/gulp": "npm:^4.0.17"
+    "@types/gulp": "npm:^4.0.18"
     "@types/node": "npm:^22.18.12"
     gulp: "npm:^5.0.1"
     ts-node: "npm:^10.9.2"
@@ -5780,26 +5780,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gulp-svgmin@npm:^1.2.4":
-  version: 1.2.4
-  resolution: "@types/gulp-svgmin@npm:1.2.4"
+"@types/gulp-svgmin@npm:^1.2.5":
+  version: 1.2.5
+  resolution: "@types/gulp-svgmin@npm:1.2.5"
   dependencies:
     "@types/node": "npm:*"
     "@types/svgo": "npm:1"
     "@types/vinyl": "npm:*"
-  checksum: 10/02a2f68b99eae3963df03bb0cd5cb0ebe04b8eeed0a734c6592ad78b2647b461b3143e48accfa427d5d4dd32db4dbbe861ff3733e98f5113f4da2ce372229cbd
+  checksum: 10/33d8e8b397b245ce7c34541321b5ffcce02f8ccd8c5fe087a176472f13df5cfb0c3437e41bbcf7dab4b18f05f30ce51eb24eaa9edfe790b1625a22b364937aa1
   languageName: node
   linkType: hard
 
-"@types/gulp@npm:^4.0.17":
-  version: 4.0.17
-  resolution: "@types/gulp@npm:4.0.17"
+"@types/gulp@npm:^4.0.18":
+  version: 4.0.18
+  resolution: "@types/gulp@npm:4.0.18"
   dependencies:
     "@types/node": "npm:*"
     "@types/undertaker": "npm:>=1.2.6"
     "@types/vinyl-fs": "npm:*"
     chokidar: "npm:^3.3.1"
-  checksum: 10/46b51ffbb0d4d608a720cfd6bcd922c0bb215b41ec87050417b9e1c59992bdb5996a4e477bccf4fff37c0a194a9929446fc5167895c61d1ff6bf9ff6b1b48a4b
+  checksum: 10/adc075665dc911fbdf635349181b7271060d97401212caead2bb85dbe1cd8e5d8e9fdb2d70d24890564529aba92123eaef31f29dcf36ffc8108a2ff826d4f201
   languageName: node
   linkType: hard
 

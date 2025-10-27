@@ -24,7 +24,7 @@
     "!dist/**/*.d.ts.map"
   ],
   "devDependencies": {
-    "@types/gulp": "^4.0.17",
+    "@types/gulp": "^4.0.18",
     "@types/node": "^22.18.12",
     "gulp": "^5.0.1",
     "ts-node": "^10.9.2",
