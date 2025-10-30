@@ -1,77 +1,26 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
+  "extends": [
+    "config:best-practices",
+    "group:allNonMajor",
+    "group:definitelyTyped",
+    "group:testing-libraryMonorepo",
+    "group:playwrightMonorepo",
+    "group:linters",
+    "group:angularMonorepo",
+    "group:angular-cliMonorepo",
+    "group:angular-eslintMonorepo",
+    "group:yarnMonorepo",
+    "group:vueMonorepo",
+    ":automergeMinor",
+    ":semanticCommits",
+    "npm:unpublishSafe"
+  ],
+  "timezone": "Europe/Oslo",
+  "schedule": ["before 7am every weekday"],
   "rebaseWhen": "conflicted",
   "prConcurrentLimit": 5,
   "rangeStrategy": "bump",
-  "schedule": ["after 10pm every weekday", "before 5am every weekday"],
-  "packageRules": [
-    {
-      "groupName": "all angular dependencies",
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true,
-      "matchDepNames": ["/^@angular/"]
-    },
-    {
-      "groupName": "all @testing-library dependencies",
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true,
-      "matchDepNames": ["/^@testing-library/"]
-    },
-    {
-      "groupName": "all @types dependencies",
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true,
-      "matchPackageNames": ["/^@types//"]
-    },
-    {
-      "groupName": "common dependencies",
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true,
-      "matchDepNames": [
-        "/^vue-tsc/",
-        "/^vite/",
-        "/^vue/",
-        "/^@vitejs//",
-        "/^@percy//",
-        "/^sass/",
-        "/^postcss/",
-        "/^express/",
-        "/^tsx/",
-        "/^tsup/",
-        "/^esbuild/",
-        "/^prettier/",
-        "/^tslib/",
-        "/^eslint/",
-        "/^typescript-eslint/",
-        "/^@rollup//"
-      ]
-    },
-    {
-      "groupName": "all playwright dependencies",
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true,
-      "matchDepNames": ["/^@playwright/", "/^playwright/"]
-    },
-    {
-      "groupName": "yarn dependency",
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true,
-      "matchDepNames": ["/^yarn/"]
-    },
-    {
-      "groupName": "typescript-eslint monorepo",
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true,
-      "matchPackageNames": ["/^@typescript-eslint//"]
-    },
-    {
-      "groupName": "@eslint monorepo",
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true,
-      "matchPackageNames": ["/^@eslint//"]
-    }
-  ],
   "ignoreDeps": ["@emotion/react", "@emotion/styled", "react", "react-dom"],
   "ignorePaths": [
     "**/node_modules/**",
