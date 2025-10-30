@@ -42,7 +42,7 @@ export const Pagination: FC<PaginationProps> = function ({
   const [selectedDropdownItemIndex, setSelectedDropdownItemIndex] = useState(dropdownSelectedItemIndex);
   const selectedDropdownValue = dropdownItems[selectedDropdownItemIndex].value;
   const [currentPage, setCurrentPage] = useState(0);
-  const [pageSize, setPageSize] = useState(parseInt(selectedDropdownValue));
+  const pageSize = parseInt(selectedDropdownValue);
 
   const totalPages = Math.ceil(numberOfElements / pageSize);
   const nextEnabled = currentPage < totalPages - 1;
@@ -66,7 +66,6 @@ export const Pagination: FC<PaginationProps> = function ({
     setSelectedDropdownItemIndex(dropdownSelectedItemIndex);
 
     const newPageSize = parseInt(dropdownItems[dropdownSelectedItemIndex].value);
-    setPageSize(newPageSize);
 
     const currentStartIndex = currentPage * pageSize;
     const newPageIndex = Math.floor(currentStartIndex / newPageSize);
@@ -136,8 +135,6 @@ export const Pagination: FC<PaginationProps> = function ({
     const currentStartIndex = currentPage * pageSize;
     const newPageIndex = Math.floor(currentStartIndex / newSelectedDropdownValue);
     setCurrentPage(newPageIndex);
-
-    setPageSize(newSelectedDropdownValue);
 
     //emit dropdownSelectedItemIndex
     dropdownSelectedItemIndexOnChange?.(newIndex);
