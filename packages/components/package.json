@@ -25,7 +25,7 @@
     "@testing-library/react": "16.3.0",
     "@testing-library/user-event": "14.6.1",
     "@types/identity-obj-proxy": "3.0.2",
-    "@types/jest": "29.5.14",
+    "@types/jest": "30.0.0",
     "@types/jest-axe": "3.5.9",
     "esbuild": "^0.25.9",
     "esbuild-sass-plugin": "^3.3.1",
