@@ -11,6 +11,7 @@
     "group:angular-cliMonorepo",
     "group:angular-eslintMonorepo",
     "group:yarnMonorepo",
+    "group:vueMonorepo",
     ":automergeMinor",
     ":semanticCommits",
     "npm:unpublishSafe"
