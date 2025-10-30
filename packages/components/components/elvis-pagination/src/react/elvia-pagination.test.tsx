@@ -266,6 +266,37 @@ describe('Elvis Pagination', () => {
       await user.click(currentPageButton);
       await waitFor(() => expect(valueOnChangeEvent).not.toHaveBeenCalled());
     });
+
+    it('valueOnChange: should emit the correct values', async () => {
+      const user = userEvent.setup();
+      const nextButton = screen.getByRole('button', { name: /neste side/i });
+      await user.click(nextButton);
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledWith({ start: 11, end: 20 }));
+
+      await user.click(nextButton);
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledWith({ start: 21, end: 30 }));
+
+      const page5Button = screen.getByRole('button', { name: /velg side 5/i });
+      await user.click(page5Button);
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledWith({ start: 41, end: 50 }));
+
+      const lastButton = screen.getByRole('button', { name: /velg side 10/i });
+      await user.click(lastButton);
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledWith({ start: 91, end: 100 }));
+    });
+
+    it('valueOnChange: should emit the correct values when changing the page size', async () => {
+      const user = userEvent.setup();
+      const dropdown = screen.getByRole('combobox');
+      await user.click(dropdown);
+      await user.click(screen.getByRole('option', { name: /30/ }));
+
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledWith({ start: 1, end: 30 }));
+
+      const nextButton = screen.getByRole('button', { name: /neste side/i });
+      await user.click(nextButton);
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledWith({ start: 31, end: 60 }));
+    });
   });
 
   describe('the accessibility', () => {
