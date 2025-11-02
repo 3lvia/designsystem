@@ -222,7 +222,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/core@npm:20.3.7, @angular-devkit/core@npm:^20.3.7":
+"@angular-devkit/core@npm:20.3.7":
   version: 20.3.7
   resolution: "@angular-devkit/core@npm:20.3.7"
   dependencies:
@@ -241,7 +241,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular-devkit/schematics@npm:20.3.7, @angular-devkit/schematics@npm:^20.3.7":
+"@angular-devkit/schematics@npm:20.3.7":
   version: 20.3.7
   resolution: "@angular-devkit/schematics@npm:20.3.7"
   dependencies:
@@ -372,7 +372,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/build@npm:^20.3.7":
+"@angular/build@npm:20.3.7":
   version: 20.3.7
   resolution: "@angular/build@npm:20.3.7"
   dependencies:
@@ -466,7 +466,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/cli@npm:^20.3.7":
+"@angular/cli@npm:20.3.7":
   version: 20.3.7
   resolution: "@angular/cli@npm:20.3.7"
   dependencies:
@@ -506,7 +506,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/compiler-cli@npm:^20.3.7":
+"@angular/compiler-cli@npm:20.3.7":
   version: 20.3.7
   resolution: "@angular/compiler-cli@npm:20.3.7"
   dependencies:
@@ -572,7 +572,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/language-service@npm:^20.3.7":
+"@angular/language-service@npm:20.3.7":
   version: 20.3.7
   resolution: "@angular/language-service@npm:20.3.7"
   checksum: 10/afcfacefe3eef13d04c4602b22e4902b6612538bdd89cbf552655a9182c369884e03a691962cee40755eece60236686582b7835d58c832d8e0e2e1cdbd50886a
@@ -664,7 +664,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.23.9, @babel/core@npm:^7.28.0, @babel/core@npm:^7.28.4":
+"@babel/core@npm:7.28.4, @babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.23.9, @babel/core@npm:^7.28.0":
   version: 7.28.4
   resolution: "@babel/core@npm:7.28.4"
   dependencies:
@@ -1886,7 +1886,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-env@npm:^7.28.3":
+"@babel/preset-env@npm:7.28.3":
   version: 7.28.3
   resolution: "@babel/preset-env@npm:7.28.3"
   dependencies:
@@ -1979,7 +1979,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-react@npm:^7.27.1":
+"@babel/preset-react@npm:7.27.1":
   version: 7.27.1
   resolution: "@babel/preset-react@npm:7.27.1"
   dependencies:
@@ -1995,7 +1995,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-typescript@npm:^7.27.1":
+"@babel/preset-typescript@npm:7.27.1":
   version: 7.27.1
   resolution: "@babel/preset-typescript@npm:7.27.1"
   dependencies:
@@ -2138,11 +2138,11 @@ __metadata:
     "@types/gulp": "npm:4.0.18"
     "@types/gulp-svgmin": "npm:1.2.5"
     "@types/node": "npm:22.18.12"
-    gulp: "npm:^5.0.1"
-    gulp-svgmin: "npm:^4.1.0"
-    sharp: "npm:^0.34.4"
-    ts-node: "npm:^10.9.2"
-    typescript: "npm:~5.8.2"
+    gulp: "npm:5.0.1"
+    gulp-svgmin: "npm:4.1.0"
+    sharp: "npm:0.34.4"
+    ts-node: "npm:10.9.2"
+    typescript: "npm:5.8.2"
   languageName: unknown
   linkType: soft
 
@@ -2328,10 +2328,10 @@ __metadata:
   dependencies:
     "@types/gulp": "npm:4.0.18"
     "@types/node": "npm:22.18.12"
-    gulp: "npm:^5.0.1"
-    ts-node: "npm:^10.9.2"
-    tsup: "npm:^8.5.0"
-    typescript: "npm:~5.8.2"
+    gulp: "npm:5.0.1"
+    ts-node: "npm:10.9.2"
+    tsup: "npm:8.5.0"
+    typescript: "npm:5.8.2"
   languageName: unknown
   linkType: soft
 
@@ -2357,13 +2357,13 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-components@workspace:packages/components"
   dependencies:
-    "@babel/core": "npm:^7.28.4"
-    "@babel/preset-env": "npm:^7.28.3"
-    "@babel/preset-react": "npm:^7.27.1"
-    "@babel/preset-typescript": "npm:^7.27.1"
-    "@emotion/babel-plugin": "npm:^11.13.5"
-    "@percy/cli": "npm:^1.31.1"
-    "@percy/playwright": "npm:^1.0.9"
+    "@babel/core": "npm:7.28.4"
+    "@babel/preset-env": "npm:7.28.3"
+    "@babel/preset-react": "npm:7.27.1"
+    "@babel/preset-typescript": "npm:7.27.1"
+    "@emotion/babel-plugin": "npm:11.13.5"
+    "@percy/cli": "npm:1.31.1"
+    "@percy/playwright": "npm:1.0.9"
     "@playwright/experimental-ct-react": "npm:1.56.1"
     "@playwright/test": "npm:1.56.1"
     "@testing-library/dom": "npm:10.4.1"
@@ -2373,25 +2373,25 @@ __metadata:
     "@types/identity-obj-proxy": "npm:3.0.2"
     "@types/jest": "npm:29.5.14"
     "@types/jest-axe": "npm:3.5.9"
-    esbuild: "npm:^0.25.9"
-    esbuild-sass-plugin: "npm:^3.3.1"
-    identity-obj-proxy: "npm:^3.0.0"
-    jest: "npm:^29.7.0"
-    jest-axe: "npm:^10.0.0"
-    jest-environment-jsdom: "npm:^29.7.0"
-    playwright-core: "npm:^1.56.1"
-    postcss: "npm:^8.5.6"
-    postcss-modules: "npm:^6.0.1"
+    esbuild: "npm:0.25.9"
+    esbuild-sass-plugin: "npm:3.3.1"
+    identity-obj-proxy: "npm:3.0.0"
+    jest: "npm:29.7.0"
+    jest-axe: "npm:10.0.0"
+    jest-environment-jsdom: "npm:29.7.0"
+    playwright-core: "npm:1.56.1"
+    postcss: "npm:8.5.6"
+    postcss-modules: "npm:6.0.1"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
-    react-is: "npm:^18.3.1"
-    resize-observer-polyfill: "npm:^1.5.1"
-    sass: "npm:^1.91.0"
-    sass-embedded: "npm:^1.91.0"
-    tiny-glob: "npm:^0.2.9"
-    tsx: "npm:^4.20.5"
-    typescript: "npm:~5.8.2"
-    typescript-plugin-css-modules: "npm:^5.2.0"
+    react-is: "npm:18.3.1"
+    resize-observer-polyfill: "npm:1.5.1"
+    sass: "npm:1.91.0"
+    sass-embedded: "npm:1.91.0"
+    tiny-glob: "npm:0.2.9"
+    tsx: "npm:4.20.5"
+    typescript: "npm:5.8.2"
+    typescript-plugin-css-modules: "npm:5.2.0"
   languageName: unknown
   linkType: soft
 
@@ -2592,10 +2592,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-illustrations@workspace:packages/elvis-illustrations"
   dependencies:
-    esbuild: "npm:^0.25.9"
-    picocolors: "npm:^1.1.1"
-    svgo: "npm:^4.0.0"
-    tsx: "npm:^4.20.5"
+    esbuild: "npm:0.25.9"
+    picocolors: "npm:1.1.1"
+    svgo: "npm:4.0.0"
+    tsx: "npm:4.20.5"
   peerDependencies:
     "@elvia/elvis": ">=16.2.1"
   peerDependenciesMeta:
@@ -2982,10 +2982,10 @@ __metadata:
   dependencies:
     "@types/gulp": "npm:4.0.18"
     "@types/node": "npm:22.18.12"
-    gulp: "npm:^5.0.1"
-    ts-node: "npm:^10.9.2"
-    tsup: "npm:^8.5.0"
-    typescript: "npm:~5.8.2"
+    gulp: "npm:5.0.1"
+    ts-node: "npm:10.9.2"
+    tsup: "npm:8.5.0"
+    typescript: "npm:5.8.2"
   languageName: unknown
   linkType: soft
 
@@ -3003,14 +3003,14 @@ __metadata:
     "@elvia/elvis-assets-icons": "npm:*"
     "@elvia/elvis-colors": "npm:^4.4.2"
     "@elvia/elvis-typography": "npm:^3.1.1"
-    gulp: "npm:^5.0.1"
-    gulp-autoprefixer: "npm:^9.0.0"
-    gulp-clean-css: "npm:^4.3.0"
-    gulp-rename: "npm:^2.1.0"
-    gulp-tap: "npm:^2.0.0"
-    gulp-terser: "npm:^2.1.0"
-    resolve: "npm:^1.22.11"
-    sass: "npm:^1.91.0"
+    gulp: "npm:5.0.1"
+    gulp-autoprefixer: "npm:9.0.0"
+    gulp-clean-css: "npm:4.3.0"
+    gulp-rename: "npm:2.1.0"
+    gulp-tap: "npm:2.0.0"
+    gulp-terser: "npm:2.1.0"
+    resolve: "npm:1.22.11"
+    sass: "npm:1.91.0"
   languageName: unknown
   linkType: soft
 
@@ -3023,7 +3023,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/babel-plugin@npm:^11.13.5":
+"@emotion/babel-plugin@npm:11.13.5, @emotion/babel-plugin@npm:^11.13.5":
   version: 11.13.5
   resolution: "@emotion/babel-plugin@npm:11.13.5"
   dependencies:
@@ -5031,7 +5031,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@percy/cli@npm:^1.31.1":
+"@percy/cli@npm:1.31.1":
   version: 1.31.1
   resolution: "@percy/cli@npm:1.31.1"
   dependencies:
@@ -5134,7 +5134,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@percy/playwright@npm:^1.0.9":
+"@percy/playwright@npm:1.0.9":
   version: 1.0.9
   resolution: "@percy/playwright@npm:1.0.9"
   peerDependencies:
@@ -5611,7 +5611,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@trivago/prettier-plugin-sort-imports@npm:^5.2.2":
+"@trivago/prettier-plugin-sort-imports@npm:5.2.2":
   version: 5.2.2
   resolution: "@trivago/prettier-plugin-sort-imports@npm:5.2.2"
   dependencies:
@@ -6477,7 +6477,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-react@npm:^4.2.1, @vitejs/plugin-react@npm:^4.7.0":
+"@vitejs/plugin-react@npm:4.7.0, @vitejs/plugin-react@npm:^4.2.1":
   version: 4.7.0
   resolution: "@vitejs/plugin-react@npm:4.7.0"
   dependencies:
@@ -6493,7 +6493,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-vue@npm:^5.2.4":
+"@vitejs/plugin-vue@npm:5.2.4":
   version: 5.2.4
   resolution: "@vitejs/plugin-vue@npm:5.2.4"
   peerDependencies:
@@ -6849,7 +6849,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"angular-eslint@npm:^20.5.0":
+"angular-eslint@npm:20.5.0":
   version: 20.5.0
   resolution: "angular-eslint@npm:20.5.0"
   dependencies:
@@ -8611,22 +8611,22 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "elvia-designsystem@workspace:packages/web"
   dependencies:
-    "@angular-devkit/core": "npm:^20.3.7"
-    "@angular-devkit/schematics": "npm:^20.3.7"
+    "@angular-devkit/core": "npm:20.3.7"
+    "@angular-devkit/schematics": "npm:20.3.7"
     "@angular/animations": "npm:^20.3.9"
-    "@angular/build": "npm:^20.3.7"
+    "@angular/build": "npm:20.3.7"
     "@angular/cdk": "npm:^20.2.10"
-    "@angular/cli": "npm:^20.3.7"
+    "@angular/cli": "npm:20.3.7"
     "@angular/common": "npm:^20.3.9"
     "@angular/compiler": "npm:^20.3.9"
-    "@angular/compiler-cli": "npm:^20.3.7"
+    "@angular/compiler-cli": "npm:20.3.7"
     "@angular/core": "npm:^20.3.9"
     "@angular/forms": "npm:^20.3.9"
-    "@angular/language-service": "npm:^20.3.7"
+    "@angular/language-service": "npm:20.3.7"
     "@angular/platform-browser": "npm:^20.3.9"
     "@angular/platform-browser-dynamic": "npm:^20.3.9"
     "@angular/router": "npm:^20.3.9"
-    "@babel/core": "npm:^7.28.4"
+    "@babel/core": "npm:7.28.4"
     "@elvia/elvis": "workspace:*"
     "@elvia/elvis-accordion": "workspace:*"
     "@elvia/elvis-app-bridge": "workspace:*"
@@ -8667,7 +8667,7 @@ __metadata:
     "@types/opentype.js": "npm:1.3.8"
     "@types/prismjs": "npm:1.26.5"
     "@types/safe-json-stringify": "npm:1.1.5"
-    angular-eslint: "npm:^20.5.0"
+    angular-eslint: "npm:20.5.0"
     dotenv: "npm:^16.6.1"
     eslint: "npm:9.34.0"
     file-saver: "npm:^2.0.5"
@@ -8678,11 +8678,11 @@ __metadata:
     prettier: "npm:^3.6.2"
     prismjs: "npm:^1.30.0"
     rxjs: "npm:^7.8.2"
-    safe-json-stringify: "npm:^1.2.0"
+    safe-json-stringify: "npm:1.2.0"
     sass: "npm:^1.91.0"
-    ts-node: "npm:^10.9.2"
+    ts-node: "npm:10.9.2"
     tslib: "npm:^2.8.1"
-    typescript: "npm:~5.8.2"
+    typescript: "npm:5.8.2"
     typescript-eslint: "npm:8.41.0"
     zone.js: "npm:~0.15.1"
   languageName: unknown
@@ -8941,7 +8941,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-sass-plugin@npm:^3.3.1":
+"esbuild-sass-plugin@npm:3.3.1":
   version: 3.3.1
   resolution: "esbuild-sass-plugin@npm:3.3.1"
   dependencies:
@@ -8955,7 +8955,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:0.25.9, esbuild@npm:^0.25.0, esbuild@npm:^0.25.9, esbuild@npm:~0.25.0":
+"esbuild@npm:0.25.9, esbuild@npm:^0.25.0, esbuild@npm:~0.25.0":
   version: 0.25.9
   resolution: "esbuild@npm:0.25.9"
   dependencies:
@@ -9344,7 +9344,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express@npm:^5.0.1, express@npm:^5.1.0":
+"express@npm:5.1.0, express@npm:^5.0.1":
   version: 5.1.0
   resolution: "express@npm:5.1.0"
   dependencies:
@@ -10036,17 +10036,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"globals@npm:16.4.0":
+  version: 16.4.0
+  resolution: "globals@npm:16.4.0"
+  checksum: 10/1627a9f42fb4c82d7af6a0c8b6cd616e00110908304d5f1ddcdf325998f3aed45a4b29d8a1e47870f328817805263e31e4f1673f00022b9c2b210552767921cf
+  languageName: node
+  linkType: hard
+
 "globals@npm:^14.0.0":
   version: 14.0.0
   resolution: "globals@npm:14.0.0"
   checksum: 10/03939c8af95c6df5014b137cac83aa909090c3a3985caef06ee9a5a669790877af8698ab38007e4c0186873adc14c0b13764acc754b16a754c216cc56aa5f021
-  languageName: node
-  linkType: hard
-
-"globals@npm:^16.4.0":
-  version: 16.4.0
-  resolution: "globals@npm:16.4.0"
-  checksum: 10/1627a9f42fb4c82d7af6a0c8b6cd616e00110908304d5f1ddcdf325998f3aed45a4b29d8a1e47870f328817805263e31e4f1673f00022b9c2b210552767921cf
   languageName: node
   linkType: hard
 
@@ -10104,7 +10104,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-autoprefixer@npm:^9.0.0":
+"gulp-autoprefixer@npm:9.0.0":
   version: 9.0.0
   resolution: "gulp-autoprefixer@npm:9.0.0"
   dependencies:
@@ -10121,7 +10121,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-clean-css@npm:^4.3.0":
+"gulp-clean-css@npm:4.3.0":
   version: 4.3.0
   resolution: "gulp-clean-css@npm:4.3.0"
   dependencies:
@@ -10166,14 +10166,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-rename@npm:^2.1.0":
+"gulp-rename@npm:2.1.0":
   version: 2.1.0
   resolution: "gulp-rename@npm:2.1.0"
   checksum: 10/83be4ad1e8f4f8525681011695f02a9edbd50a37a08b8bdf9c0f01c67f317f8a5e50d1d693d65e3e23fb95669e7e22b4a9bbcd94eed46c3be9ad7e1be532d48b
   languageName: node
   linkType: hard
 
-"gulp-svgmin@npm:^4.1.0":
+"gulp-svgmin@npm:4.1.0":
   version: 4.1.0
   resolution: "gulp-svgmin@npm:4.1.0"
   dependencies:
@@ -10184,7 +10184,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-tap@npm:^2.0.0":
+"gulp-tap@npm:2.0.0":
   version: 2.0.0
   resolution: "gulp-tap@npm:2.0.0"
   dependencies:
@@ -10193,7 +10193,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp-terser@npm:^2.1.0":
+"gulp-terser@npm:2.1.0":
   version: 2.1.0
   resolution: "gulp-terser@npm:2.1.0"
   dependencies:
@@ -10205,7 +10205,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gulp@npm:^5.0.1":
+"gulp@npm:5.0.1":
   version: 5.0.1
   resolution: "gulp@npm:5.0.1"
   dependencies:
@@ -10451,7 +10451,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"identity-obj-proxy@npm:^3.0.0":
+"identity-obj-proxy@npm:3.0.0":
   version: 3.0.0
   resolution: "identity-obj-proxy@npm:3.0.0"
   dependencies:
@@ -11154,7 +11154,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-axe@npm:^10.0.0":
+"jest-axe@npm:10.0.0":
   version: 10.0.0
   resolution: "jest-axe@npm:10.0.0"
   dependencies:
@@ -11303,7 +11303,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-environment-jsdom@npm:^29.7.0":
+"jest-environment-jsdom@npm:29.7.0":
   version: 29.7.0
   resolution: "jest-environment-jsdom@npm:29.7.0"
   dependencies:
@@ -11619,7 +11619,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^29.7.0":
+"jest@npm:29.7.0":
   version: 29.7.0
   resolution: "jest@npm:29.7.0"
   dependencies:
@@ -13470,7 +13470,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.56.1, playwright-core@npm:^1.56.1":
+"playwright-core@npm:1.56.1":
   version: 1.56.1
   resolution: "playwright-core@npm:1.56.1"
   bin:
@@ -13605,7 +13605,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-modules@npm:^6.0.1":
+"postcss-modules@npm:6.0.1":
   version: 6.0.1
   resolution: "postcss-modules@npm:6.0.1"
   dependencies:
@@ -13640,7 +13640,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.0.0, postcss@npm:^8.4.31, postcss@npm:^8.4.35, postcss@npm:^8.4.49, postcss@npm:^8.5.3, postcss@npm:^8.5.6":
+"postcss@npm:8.5.6, postcss@npm:^8.0.0, postcss@npm:^8.4.31, postcss@npm:^8.4.35, postcss@npm:^8.4.49, postcss@npm:^8.5.3, postcss@npm:^8.5.6":
   version: 8.5.6
   resolution: "postcss@npm:8.5.6"
   dependencies:
@@ -13854,6 +13854,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-is@npm:18.3.1, react-is@npm:^18.0.0":
+  version: 18.3.1
+  resolution: "react-is@npm:18.3.1"
+  checksum: 10/d5f60c87d285af24b1e1e7eaeb123ec256c3c8bdea7061ab3932e3e14685708221bf234ec50b21e10dd07f008f1b966a2730a0ce4ff67905b3872ff2042aec22
+  languageName: node
+  linkType: hard
+
 "react-is@npm:^16.13.1, react-is@npm:^16.7.0":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
@@ -13865,13 +13872,6 @@ __metadata:
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 10/73b36281e58eeb27c9cc6031301b6ae19ecdc9f18ae2d518bdb39b0ac564e65c5779405d623f1df9abf378a13858b79442480244bd579968afc1faf9a2ce5e05
-  languageName: node
-  linkType: hard
-
-"react-is@npm:^18.0.0, react-is@npm:^18.3.1":
-  version: 18.3.1
-  resolution: "react-is@npm:18.3.1"
-  checksum: 10/d5f60c87d285af24b1e1e7eaeb123ec256c3c8bdea7061ab3932e3e14685708221bf234ec50b21e10dd07f008f1b966a2730a0ce4ff67905b3872ff2042aec22
   languageName: node
   linkType: hard
 
@@ -13918,11 +13918,11 @@ __metadata:
     "@elvia/elvis-typography": "npm:*"
     "@types/react": "npm:18.3.26"
     "@types/react-dom": "npm:18.3.7"
-    "@vitejs/plugin-react": "npm:^4.7.0"
+    "@vitejs/plugin-react": "npm:4.7.0"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
-    sass: "npm:^1.91.0"
-    typescript: "npm:~5.8.2"
+    sass: "npm:1.91.0"
+    typescript: "npm:5.8.2"
     vite: "npm:6.4.1"
   languageName: unknown
   linkType: soft
@@ -14138,7 +14138,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resize-observer-polyfill@npm:^1.5.1":
+"resize-observer-polyfill@npm:1.5.1":
   version: 1.5.1
   resolution: "resize-observer-polyfill@npm:1.5.1"
   checksum: 10/e10ee50cd6cf558001de5c6fb03fee15debd011c2f694564b71f81742eef03fb30d6c2596d1d5bf946d9991cb692fcef529b7bd2e4057041377ecc9636c753ce
@@ -14214,7 +14214,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@npm:^1.22.11":
+"resolve@npm:1.22.11":
   version: 1.22.11
   resolution: "resolve@npm:1.22.11"
   dependencies:
@@ -14253,7 +14253,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resolve@patch:resolve@npm%3A^1.22.11#optional!builtin<compat/resolve>":
+"resolve@patch:resolve@npm%3A1.22.11#optional!builtin<compat/resolve>":
   version: 1.22.11
   resolution: "resolve@patch:resolve@npm%3A1.22.11#optional!builtin<compat/resolve>::version=1.22.11&hash=c3c19d"
   dependencies:
@@ -14419,19 +14419,19 @@ __metadata:
   dependencies:
     "@eslint/eslintrc": "npm:3.3.1"
     "@eslint/js": "npm:9.38.0"
-    "@trivago/prettier-plugin-sort-imports": "npm:^5.2.2"
+    "@trivago/prettier-plugin-sort-imports": "npm:5.2.2"
     "@typescript-eslint/eslint-plugin": "npm:8.46.2"
     "@typescript-eslint/parser": "npm:8.46.2"
     eslint: "npm:9.34.0"
     eslint-plugin-react: "npm:7.37.5"
-    express: "npm:^5.1.0"
-    globals: "npm:^16.4.0"
-    postcss: "npm:^8.5.6"
+    express: "npm:5.1.0"
+    globals: "npm:16.4.0"
+    postcss: "npm:8.5.6"
     prettier: "npm:^3.6.2"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
-    react-is: "npm:^18.3.1"
-    typescript: "npm:~5.8.2"
+    react-is: "npm:18.3.1"
+    typescript: "npm:5.8.2"
   languageName: unknown
   linkType: soft
 
@@ -14500,7 +14500,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"safe-json-stringify@npm:^1.2.0":
+"safe-json-stringify@npm:1.2.0":
   version: 1.2.0
   resolution: "safe-json-stringify@npm:1.2.0"
   checksum: 10/7121e746faf1ac73f586210b84b71f483b5bc89a3d6271f1628b89217221c8256566a91a3a26eb82def531184addf67dc6c236cb2f7e100bf843086c1b23c1b3
@@ -14665,7 +14665,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass-embedded@npm:^1.91.0":
+"sass-embedded@npm:1.91.0":
   version: 1.91.0
   resolution: "sass-embedded@npm:1.91.0"
   dependencies:
@@ -14931,7 +14931,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sharp@npm:^0.34.4":
+"sharp@npm:0.34.4":
   version: 0.34.4
   resolution: "sharp@npm:0.34.4"
   dependencies:
@@ -15620,6 +15620,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"svgo@npm:4.0.0":
+  version: 4.0.0
+  resolution: "svgo@npm:4.0.0"
+  dependencies:
+    commander: "npm:^11.1.0"
+    css-select: "npm:^5.1.0"
+    css-tree: "npm:^3.0.1"
+    css-what: "npm:^6.1.0"
+    csso: "npm:^5.0.5"
+    picocolors: "npm:^1.1.1"
+    sax: "npm:^1.4.1"
+  bin:
+    svgo: ./bin/svgo.js
+  checksum: 10/1b49fc523284a0c6d8e277a7299dd657a7ec18e4e2bd0b9003f33d47fc962348604b37d4951d91f1bce1e15579eacd89e117b787caec226d76cf8ca97f7972d1
+  languageName: node
+  linkType: hard
+
 "svgo@npm:^2.7.0":
   version: 2.8.0
   resolution: "svgo@npm:2.8.0"
@@ -15634,23 +15651,6 @@ __metadata:
   bin:
     svgo: bin/svgo
   checksum: 10/2b74544da1a9521852fe2784252d6083b336e32528d0e424ee54d1613f17312edc7020c29fa399086560e96cba42ede4a2205328a08edeefa26de84cd769a64a
-  languageName: node
-  linkType: hard
-
-"svgo@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "svgo@npm:4.0.0"
-  dependencies:
-    commander: "npm:^11.1.0"
-    css-select: "npm:^5.1.0"
-    css-tree: "npm:^3.0.1"
-    css-what: "npm:^6.1.0"
-    csso: "npm:^5.0.5"
-    picocolors: "npm:^1.1.1"
-    sax: "npm:^1.4.1"
-  bin:
-    svgo: ./bin/svgo.js
-  checksum: 10/1b49fc523284a0c6d8e277a7299dd657a7ec18e4e2bd0b9003f33d47fc962348604b37d4951d91f1bce1e15579eacd89e117b787caec226d76cf8ca97f7972d1
   languageName: node
   linkType: hard
 
@@ -15811,7 +15811,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tiny-glob@npm:^0.2.9":
+"tiny-glob@npm:0.2.9":
   version: 0.2.9
   resolution: "tiny-glob@npm:0.2.9"
   dependencies:
@@ -15942,7 +15942,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^10.9.2":
+"ts-node@npm:10.9.2":
   version: 10.9.2
   resolution: "ts-node@npm:10.9.2"
   dependencies:
@@ -15998,7 +15998,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsup@npm:^8.4.0, tsup@npm:^8.5.0":
+"tsup@npm:8.5.0, tsup@npm:^8.4.0":
   version: 8.5.0
   resolution: "tsup@npm:8.5.0"
   dependencies:
@@ -16040,7 +16040,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^4.20.5":
+"tsx@npm:4.20.5":
   version: 4.20.5
   resolution: "tsx@npm:4.20.5"
   dependencies:
@@ -16169,7 +16169,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-plugin-css-modules@npm:^5.2.0":
+"typescript-plugin-css-modules@npm:5.2.0":
   version: 5.2.0
   resolution: "typescript-plugin-css-modules@npm:5.2.0"
   dependencies:
@@ -16198,7 +16198,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:~5.8.2":
+"typescript@npm:5.8.2, typescript@npm:~5.8.2":
   version: 5.8.2
   resolution: "typescript@npm:5.8.2"
   bin:
@@ -16208,7 +16208,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A~5.8.2#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A5.8.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A~5.8.2#optional!builtin<compat/typescript>":
   version: 5.8.2
   resolution: "typescript@patch:typescript@npm%3A5.8.2#optional!builtin<compat/typescript>::version=5.8.2&hash=5786d5"
   bin:
@@ -16717,17 +16717,17 @@ __metadata:
     "@elvia/elvis-timepicker": "npm:*"
     "@elvia/elvis-toast": "npm:*"
     "@elvia/elvis-tooltip": "npm:*"
-    "@vitejs/plugin-vue": "npm:^5.2.4"
-    sass: "npm:^1.91.0"
-    typescript: "npm:~5.8.2"
+    "@vitejs/plugin-vue": "npm:5.2.4"
+    sass: "npm:1.91.0"
+    typescript: "npm:5.8.2"
     vite: "npm:6.4.1"
     vue: "npm:^3.5.22"
     vue-router: "npm:^4.5.1"
-    vue-tsc: "npm:^2.2.12"
+    vue-tsc: "npm:2.2.12"
   languageName: unknown
   linkType: soft
 
-"vue-tsc@npm:^2.2.12":
+"vue-tsc@npm:2.2.12":
   version: 2.2.12
   resolution: "vue-tsc@npm:2.2.12"
   dependencies:
