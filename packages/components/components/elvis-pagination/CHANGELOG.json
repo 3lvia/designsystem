@@ -9,7 +9,7 @@
         {
           "type": "bug_fix",
           "changes": [
-            "Fixed an issue where the pagination would not correctly calculate the correct number of pages when given a custom page sizes."
+            "Fixed an issue where the pagination would not correctly calculate the correct number of pages when given a custom page size."
           ]
         }
       ]
