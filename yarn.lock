@@ -506,9 +506,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/compiler-cli@npm:20.3.7":
-  version: 20.3.7
-  resolution: "@angular/compiler-cli@npm:20.3.7"
+"@angular/compiler-cli@npm:20.3.9":
+  version: 20.3.9
+  resolution: "@angular/compiler-cli@npm:20.3.9"
   dependencies:
     "@babel/core": "npm:7.28.3"
     "@jridgewell/sourcemap-codec": "npm:^1.4.14"
@@ -519,7 +519,7 @@ __metadata:
     tslib: "npm:^2.3.0"
     yargs: "npm:^18.0.0"
   peerDependencies:
-    "@angular/compiler": 20.3.7
+    "@angular/compiler": 20.3.9
     typescript: ">=5.8 <6.0"
   peerDependenciesMeta:
     typescript:
@@ -527,7 +527,7 @@ __metadata:
   bin:
     ng-xi18n: bundles/src/bin/ng_xi18n.js
     ngc: bundles/src/bin/ngc.js
-  checksum: 10/90247771146fcbaa9544f0de7ec67680cf41918fe5274cd39a1b2776f860b7e3032c2c553fcf1e860d76b72dd2e8876244315c1a7edb0a399ec44a0814aa641b
+  checksum: 10/a3fbad1d4f4128b3c3d7def822b13460c6ee814af7086fc25251bb3a38b66343a33594d9e73b5acf21769f1c8cf3f005f8489649da7b6f5f4b2f20034f3a20f0
   languageName: node
   linkType: hard
 
@@ -572,10 +572,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/language-service@npm:20.3.7":
-  version: 20.3.7
-  resolution: "@angular/language-service@npm:20.3.7"
-  checksum: 10/afcfacefe3eef13d04c4602b22e4902b6612538bdd89cbf552655a9182c369884e03a691962cee40755eece60236686582b7835d58c832d8e0e2e1cdbd50886a
+"@angular/language-service@npm:20.3.9":
+  version: 20.3.9
+  resolution: "@angular/language-service@npm:20.3.9"
+  checksum: 10/004fbcf34a587a8344cd61c435216240b55b24f35821d3616b2d15bcca8e09952f0452dac8efcdd38cffbfa31a0be973c92c2c21839831f23d067fb556b2c35e
   languageName: node
   linkType: hard
 
@@ -8619,10 +8619,10 @@ __metadata:
     "@angular/cli": "npm:20.3.7"
     "@angular/common": "npm:^20.3.9"
     "@angular/compiler": "npm:^20.3.9"
-    "@angular/compiler-cli": "npm:20.3.7"
+    "@angular/compiler-cli": "npm:20.3.9"
     "@angular/core": "npm:^20.3.9"
     "@angular/forms": "npm:^20.3.9"
-    "@angular/language-service": "npm:20.3.7"
+    "@angular/language-service": "npm:20.3.9"
     "@angular/platform-browser": "npm:^20.3.9"
     "@angular/platform-browser-dynamic": "npm:^20.3.9"
     "@angular/router": "npm:^20.3.9"
