@@ -131,6 +131,71 @@ describe('Elvis Pagination', () => {
     });
   });
 
+  describe('Custom page size', () => {
+    const items = [
+      { label: '13', value: '13' },
+      { label: '25', value: '25' },
+      { label: '50', value: '50' },
+      { label: '100', value: '100' },
+    ];
+
+    it('should calculate correct number of pages based on selected page size', () => {
+      // 1989 / 25 = 80 pages
+      render(<Pagination numberOfElements={1989} dropdownItems={items} dropdownSelectedItemIndex={1} />);
+      expect(screen.getByRole('button', { name: /velg side 80/i })).toBeVisible();
+    });
+
+    it('should emit correct range when navigating with custom page size', async () => {
+      const valueOnChange = jest.fn();
+      render(
+        <Pagination
+          numberOfElements={1989}
+          dropdownItems={items}
+          dropdownSelectedItemIndex={1}
+          valueOnChange={valueOnChange}
+        />,
+      );
+
+      await userEvent.click(screen.getByRole('button', { name: /neste side/i }));
+      await waitFor(() => expect(valueOnChange).toHaveBeenCalledWith({ start: 26, end: 50 }));
+    });
+
+    it('should emit correct range for the last page', async () => {
+      const valueOnChange = jest.fn();
+      render(
+        <Pagination
+          numberOfElements={1989}
+          dropdownItems={items}
+          dropdownSelectedItemIndex={1}
+          valueOnChange={valueOnChange}
+        />,
+      );
+
+      await userEvent.click(screen.getByRole('button', { name: /velg side 80/i }));
+      await waitFor(() => expect(valueOnChange).toHaveBeenCalledWith({ start: 1976, end: 1989 }));
+    });
+
+    it('should recalculate pages when dropdown selection changes', async () => {
+      render(<Pagination numberOfElements={1989} dropdownItems={items} dropdownSelectedItemIndex={1} />);
+
+      // 1989 / 25 = 80 pages
+      expect(screen.getByRole('button', { name: /velg side 80/i })).toBeVisible();
+
+      await userEvent.click(screen.getByRole('combobox'));
+      await userEvent.click(screen.getByRole('option', { name: /13/ }));
+
+      // 1989 / 13 = 153 pages
+      await waitFor(() => expect(screen.getByRole('button', { name: /velg side 153/i })).toBeVisible());
+    });
+
+    it('should handle one element over page size', () => {
+      render(<Pagination dropdownItems={items} numberOfElements={14} />);
+      const navigation = screen.queryByRole('navigation');
+      expect(navigation).toBeInTheDocument();
+      expect(screen.getByRole('button', { name: /velg side 2/i })).toBeVisible();
+    });
+  });
+
   describe('All elements displayed', () => {
     beforeEach(() => {
       render(
@@ -193,6 +258,44 @@ describe('Elvis Pagination', () => {
       const nextButton = screen.getByRole('button', { name: /neste side/i });
       await user.click(nextButton);
       await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledTimes(1));
+    });
+
+    it('valueOnChange: should _not_ emit event when the current page button is clicked', async () => {
+      const user = userEvent.setup();
+      const currentPageButton = screen.getByRole('button', { name: /valgt side/i });
+      await user.click(currentPageButton);
+      await waitFor(() => expect(valueOnChangeEvent).not.toHaveBeenCalled());
+    });
+
+    it('valueOnChange: should emit the correct values', async () => {
+      const user = userEvent.setup();
+      const nextButton = screen.getByRole('button', { name: /neste side/i });
+      await user.click(nextButton);
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledWith({ start: 11, end: 20 }));
+
+      await user.click(nextButton);
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledWith({ start: 21, end: 30 }));
+
+      const page5Button = screen.getByRole('button', { name: /velg side 5/i });
+      await user.click(page5Button);
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledWith({ start: 41, end: 50 }));
+
+      const lastButton = screen.getByRole('button', { name: /velg side 10/i });
+      await user.click(lastButton);
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledWith({ start: 91, end: 100 }));
+    });
+
+    it('valueOnChange: should emit the correct values when changing the page size', async () => {
+      const user = userEvent.setup();
+      const dropdown = screen.getByRole('combobox');
+      await user.click(dropdown);
+      await user.click(screen.getByRole('option', { name: /30/ }));
+
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledWith({ start: 1, end: 30 }));
+
+      const nextButton = screen.getByRole('button', { name: /neste side/i });
+      await user.click(nextButton);
+      await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledWith({ start: 31, end: 60 }));
     });
   });
 

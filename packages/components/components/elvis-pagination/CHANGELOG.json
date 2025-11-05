@@ -3,6 +3,18 @@
   "name": "elvis-pagination",
   "content": [
     {
+      "date": "05.11.25",
+      "version": "3.6.3",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed an issue where the pagination would not correctly calculate the correct number of pages when given a custom page size."
+          ]
+        }
+      ]
+    },
+    {
       "date": "26.09.24",
       "version": "3.6.2",
       "changelog": [
