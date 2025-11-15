@@ -36,8 +36,8 @@
     "@types/node": "22.19.0",
     "gulp": "5.0.1",
     "gulp-svgmin": "4.1.0",
-    "sharp": "0.34.4",
+    "sharp": "0.34.5",
     "ts-node": "10.9.2",
-    "typescript": "5.8.2"
+    "typescript": "5.9.3"
   }
 }
