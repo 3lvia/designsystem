@@ -65,11 +65,11 @@
     "zone.js": "~0.15.1"
   },
   "devDependencies": {
-    "@angular-devkit/core": "20.3.9",
-    "@angular-devkit/schematics": "20.3.9",
-    "@angular/build": "20.3.9",
-    "@angular/cli": "20.3.9",
-    "@angular/compiler-cli": "20.3.10",
+    "@angular-devkit/core": "21.0.0",
+    "@angular-devkit/schematics": "21.0.0",
+    "@angular/build": "^21.0.0",
+    "@angular/cli": "21.0.0",
+    "@angular/compiler-cli": "21.0.0",
     "@angular/language-service": "21.0.0",
     "@babel/core": "7.28.4",
     "@types/file-saver": "2.0.7",
@@ -82,7 +82,7 @@
     "eslint": "9.39.1",
     "safe-json-stringify": "1.2.0",
     "ts-node": "10.9.2",
-    "typescript": "5.8.2",
+    "typescript": "5.9.3",
     "typescript-eslint": "8.46.3"
   }
 }

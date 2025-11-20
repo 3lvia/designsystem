@@ -5,6 +5,7 @@
     "esModuleInterop": true,
     "module": "ES2020",
     "target": "ES2022",
+    "moduleResolution": "bundler",
     "outDir": "./dist/out-tsc",
     "strict": true,
     "allowUnreachableCode": false,
