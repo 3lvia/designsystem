@@ -1,4 +1,4 @@
-import { NgClass, NgStyle } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 
 import { EscapeHTMLPipe } from '../../../pipes/escape-html.pipe';
@@ -12,7 +12,7 @@ import { SearchResult } from 'src/app/shared/searcher';
   selector: 'app-property-table-desktop',
   templateUrl: './property-table-desktop.component.html',
   styleUrls: ['./property-table-desktop.component.scss'],
-  imports: [NgClass, NgStyle, PropertyExamplePopoverComponent, SearchHighlighterPipe, EscapeHTMLPipe],
+  imports: [NgClass, PropertyExamplePopoverComponent, SearchHighlighterPipe, EscapeHTMLPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PropertyTableDesktopComponent extends PropertyTableBaseDirective {

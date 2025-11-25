@@ -1,4 +1,4 @@
-import { KeyValuePipe, NgClass, NgPlural, NgPluralCase, NgStyle, UpperCasePipe } from '@angular/common';
+import { KeyValuePipe, NgClass, NgPlural, NgPluralCase, UpperCasePipe } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -17,7 +17,6 @@ import { ReplacePipe } from 'src/app/shared/pipes/replace.pipe';
   templateUrl: './color-picker-exhibit.component.html',
   styleUrls: ['./color-picker-exhibit.component.scss'],
   imports: [
-    NgStyle,
     NgClass,
     CopyComponent,
     NgPlural,

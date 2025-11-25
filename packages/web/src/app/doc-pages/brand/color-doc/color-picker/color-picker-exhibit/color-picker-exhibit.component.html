@@ -1,9 +1,7 @@
 <div class="color-exhibit color-exhibit--container">
   <div
     class="circle"
-    [ngStyle]="{
-      'background-color': currentColorExistsInCurrentTheme() ? currentColor()?.hex : null,
-    }"
+    [style.background-color]="currentColorExistsInCurrentTheme() ? currentColor()?.hex : null"
     [ngClass]="{
       border: currentColor()?.name ? (currentColor()?.name | needsBorder: theme()) : false,
       nonexistent: !currentColorExistsInCurrentTheme(),

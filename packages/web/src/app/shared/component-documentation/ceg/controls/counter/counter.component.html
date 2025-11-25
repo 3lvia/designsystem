@@ -12,7 +12,7 @@
     </span>
   </button>
 
-  <div class="e-text-sm e-text-center" [ngStyle]="{ 'width.px': maxValueElement.clientWidth }">
+  <div class="e-text-sm e-text-center" [style.width.px]="maxValueElement.clientWidth">
     {{ counter().value }}{{ counter().postfix }}
   </div>
 
