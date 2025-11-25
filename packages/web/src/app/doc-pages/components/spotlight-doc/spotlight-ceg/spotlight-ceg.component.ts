@@ -61,7 +61,7 @@ export class SpotlightCegComponent implements ComponentExample, AfterViewInit {
 
   @HostListener('window:resize')
   @HostListener('window:scroll')
-  private updateSpotlightPosition() {
+  updateSpotlightPosition() {
     const { left, top, width, height } = this.trigger().nativeElement.getBoundingClientRect();
     this.spotlight().nativeElement.setProps({
       position: { horizontal: left + width / 2, vertical: top + height / 2 },
