@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgClass, NgTemplateOutlet } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { IfViewportSizeDirective } from 'src/app/shared/viewport-size/if-viewpor
   selector: 'app-components-doc',
   templateUrl: './components-doc.component.html',
   styleUrls: ['./components-doc.component.scss'],
-  imports: [RouterLink, IfViewportSizeDirective, DocPagePipe, CommonModule, InlineSvgComponent],
+  imports: [RouterLink, IfViewportSizeDirective, DocPagePipe, InlineSvgComponent, NgClass, NgTemplateOutlet],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class ComponentsDocComponent {

@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { LowerCasePipe, NgClass, NgPlural, NgPluralCase, NgTemplateOutlet } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, inject, input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
@@ -18,13 +18,17 @@ import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.
 
 @Component({
   imports: [
-    CommonModule,
     RouterModule,
     FormsModule,
     ComponentDocumentationDatePipe,
     ChangelogIdPipe,
     ChangelogTypePipe,
     SafeHtmlPipe,
+    LowerCasePipe,
+    NgClass,
+    NgPlural,
+    NgPluralCase,
+    NgTemplateOutlet,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   selector: 'app-component-changelog',

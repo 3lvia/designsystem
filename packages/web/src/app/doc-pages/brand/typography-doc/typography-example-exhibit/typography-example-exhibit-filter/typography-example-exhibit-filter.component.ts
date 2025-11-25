@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, inject, input, output } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import '@elvia/elvis-radio-filter';
@@ -13,7 +13,7 @@ type DisplayCategories = 'Title' | 'Body' | 'Body text' | 'Special' | 'Special t
   selector: 'app-typography-example-exhibit-filter',
   templateUrl: './typography-example-exhibit-filter.component.html',
   styleUrls: ['./typography-example-exhibit-filter.component.scss'],
-  imports: [CommonModule],
+  imports: [AsyncPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TypographyExampleExhibitFilterComponent {
