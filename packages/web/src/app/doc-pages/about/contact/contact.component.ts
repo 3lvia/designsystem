@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 
 import { ComponentHeaderComponent } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.component';
@@ -22,7 +21,7 @@ const docPage = getDocPage('contact');
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss'],
-  imports: [ComponentHeaderComponent, ComponentSubsectionComponent, NgClass, SafeHtmlPipe],
+  imports: [ComponentHeaderComponent, ComponentSubsectionComponent, SafeHtmlPipe],
 })
 export class ContactComponent {
   description = docPage.description ?? '';

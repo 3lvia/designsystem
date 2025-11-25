@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, input, output } from '@angular/core';
 
 import { UnknownCegControlManager } from '../cegControlManager';
@@ -8,7 +7,7 @@ import { ControlsComponent } from '../controls/controls.component';
 @Component({
   selector: 'app-controls-popover',
   templateUrl: './controls-popover.component.html',
-  imports: [ControlsComponent, NgClass],
+  imports: [ControlsComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ControlsPopoverComponent {
@@ -16,11 +15,11 @@ export class ControlsPopoverComponent {
   readonly propChange = output<{
     propName: string;
     value: ControlValue;
-}>();
+  }>();
   readonly slotToggle = output<{
     slotName: string;
     isVisible: boolean;
-}>();
+  }>();
 
   popoverIsOpen = false;
 

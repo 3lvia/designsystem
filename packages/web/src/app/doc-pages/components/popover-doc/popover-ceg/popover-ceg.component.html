@@ -2,7 +2,7 @@
   <button
     slot="trigger"
     class="e-btn e-btn--icon e-btn--circled"
-    [ngClass]="{ 'e-btn---selected': isShowing }"
+    [class.e-btn---selected]="isShowing"
     aria-label="Popover trigger"
   >
     <span class="e-btn__icon">

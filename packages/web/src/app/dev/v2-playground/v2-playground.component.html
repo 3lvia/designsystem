@@ -218,7 +218,7 @@
           <button
             slot="trigger"
             class="e-btn e-btn--icon"
-            [ngClass]="{ 'e-btn---selected': isContextMenuShowing }"
+            [class.e-btn---selected]="isContextMenuShowing"
             aria-label="More menu"
             aria-haspopup="menu"
           >

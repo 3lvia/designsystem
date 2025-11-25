@@ -1,9 +1,9 @@
-<div class="list-container" [@listAnimation]="anchors.length" [ngClass]="{ 'e-mt-8': anchors.length }">
+<div class="list-container" [@listAnimation]="anchors.length" [class.e-mt-8]="anchors.length">
   @for (anchor of anchors; track $index) {
     <button
       class="link e-text-sm"
       (click)="goToFragment(anchor.name)"
-      [ngClass]="{ active: anchor.name === activeAnchor }"
+      [class.active]="anchor.name === activeAnchor"
     >
       {{ anchor.name }}
     </button>

@@ -1,4 +1,4 @@
-import { AsyncPipe, Location, NgClass } from '@angular/common';
+import { AsyncPipe, Location } from '@angular/common';
 import { HttpParams } from '@angular/common/http';
 import {
   AfterContentInit,
@@ -43,7 +43,6 @@ interface SlotMap {
   styleUrls: ['./ceg.component.scss', './shared-styles.scss'],
   imports: [
     TypeSwitcherComponent,
-    NgClass,
     ControlsPopoverComponent,
     ControlsComponent,
     DynamicCodeGeneratorComponent,

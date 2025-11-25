@@ -1,4 +1,4 @@
-import { AsyncPipe, NgClass } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, inject, output } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { PreferredTheme, ThemeService } from 'src/app/core/services/theme.servic
   selector: 'app-theme-switch',
   templateUrl: './theme-switch.component.html',
   styleUrls: ['./theme-switch.component.scss'],
-  imports: [NgClass, AsyncPipe],
+  imports: [AsyncPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ThemeSwitchComponent {

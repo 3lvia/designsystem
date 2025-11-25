@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import { HeaderProps } from '@elvia/elvis-header/react';
 
@@ -8,7 +7,6 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-header-ceg',
   templateUrl: './header-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: HeaderCegComponent }],
-  imports: [NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HeaderCegComponent implements ComponentExample {

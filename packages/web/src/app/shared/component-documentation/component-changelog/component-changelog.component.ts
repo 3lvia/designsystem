@@ -1,4 +1,4 @@
-import { LowerCasePipe, NgClass, NgPlural, NgPluralCase, NgTemplateOutlet } from '@angular/common';
+import { LowerCasePipe, NgPlural, NgPluralCase, NgTemplateOutlet } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, inject, input } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
@@ -25,7 +25,6 @@ import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.
     ChangelogTypePipe,
     SafeHtmlPipe,
     LowerCasePipe,
-    NgClass,
     NgPlural,
     NgPluralCase,
     NgTemplateOutlet,

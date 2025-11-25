@@ -1,6 +1,7 @@
 <header
-  [ngClass]="visibleMenuType ? 'e-color-background-overlay-1' : 'e-color-background-3'"
   [cdkTrapFocus]="visibleMenuType !== null"
+  [class.e-color-background-overlay-1]="visibleMenuType"
+  [class.e-color-background-3]="!visibleMenuType"
 >
   <div class="header">
     <a class="e-flex e-align-items-center" [routerLink]="['', 'home']" style="flex-shrink: 0">
@@ -54,7 +55,7 @@
           class="header-button hover-underline"
           slot="trigger"
           (click)="openThemeMenu()"
-          [ngClass]="{ active: themeMenuIsOpen }"
+          [class.active]="themeMenuIsOpen"
         >
           <e-icon [name]="`${currentTheme}Theme`" size="xs" />
           <span class="e-text-md">Theme</span>
@@ -66,7 +67,7 @@
 
       <button
         class="header-button hover-underline"
-        [ngClass]="{ active: visibleMenuType === 'search' }"
+        [class.active]="visibleMenuType === 'search'"
         (click)="visibleMenuType ? closeOverlay() : openOverlay('search')"
         aria-label="Open search"
         id="search-button"

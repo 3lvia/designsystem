@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 import type { DropdownItem } from '@elvia/elvis-dropdown';
 import { openElviaToast } from '@elvia/elvis-toast';
@@ -17,7 +16,6 @@ interface StepStates {
   selector: 'app-v2-playground',
   templateUrl: './v2-playground.component.html',
   styleUrls: ['./v2-playground.component.scss'],
-  imports: [NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class v2PlaygroundComponent {

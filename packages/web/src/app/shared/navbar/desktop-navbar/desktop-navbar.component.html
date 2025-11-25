@@ -1,6 +1,6 @@
 @let locale = currentLocale | async;
 
-<ul class="scroll-container" [ngClass]="{ 'bottom-gradient': listOverflows }" #scrollContainer>
+<ul class="scroll-container" [class.bottom-gradient]="listOverflows" #scrollContainer>
   @for (navbarItem of navbarList; track navbarItem.docUrl) {
     <li>
       <a [routerLink]="navbarItem.absolutePath" routerLinkActive="active" class="navbar-item__link">

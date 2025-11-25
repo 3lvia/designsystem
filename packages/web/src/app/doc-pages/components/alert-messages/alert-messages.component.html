@@ -296,10 +296,7 @@
       Use
       <code>role=status</code>
       when an alert contains advisory information that is not important enough to be an alert.
-      <app-when-to-use
-        [whens]="doesAriaRoleStatusDefault"
-        [whenNots]="dontsAriaRoleStatusDefault"
-      />
+      <app-when-to-use [whens]="doesAriaRoleStatusDefault" [whenNots]="dontsAriaRoleStatusDefault" />
       <app-static-ceg>
         <app-alert-role-status-ceg />
       </app-static-ceg>
@@ -308,10 +305,7 @@
       Use
       <code>role="note"</code>
       when a alerts whose subject matter is supplementary to the primary subject.
-      <app-when-to-use
-        [whens]="doesAriaRoleNoteDefault"
-        [whenNots]="dontsAriaRoleNoteDefault"
-      />
+      <app-when-to-use [whens]="doesAriaRoleNoteDefault" [whenNots]="dontsAriaRoleNoteDefault" />
       <app-static-ceg>
         <app-alert-role-note-ceg />
       </app-static-ceg>

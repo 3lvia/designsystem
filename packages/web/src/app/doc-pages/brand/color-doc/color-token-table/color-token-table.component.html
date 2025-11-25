@@ -6,7 +6,7 @@
       class="e-btn e-btn--icon"
       aria-label="Clear filter"
       (click)="filterInput.value = ''"
-      [ngClass]="{ 'e-invisible': filterInput.value.length === 0 }"
+      [class.e-invisible]="filterInput.value.length === 0"
     >
       <span class="e-btn__icon">
         <e-icon name="close" />

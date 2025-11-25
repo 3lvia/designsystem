@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, input, output } from '@angular/core';
 
 import { Counter } from '../../controlType';
@@ -7,7 +6,6 @@ import { Counter } from '../../controlType';
   selector: 'app-counter',
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.scss'],
-  imports: [NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CounterComponent {

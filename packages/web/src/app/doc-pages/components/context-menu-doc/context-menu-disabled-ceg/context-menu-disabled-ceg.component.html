@@ -4,7 +4,7 @@
     slot="trigger"
     class="e-btn e-btn--icon"
     aria-label="More menu"
-    [ngClass]="{ 'e-btn---selected': isShowing }"
+    [class.e-btn---selected]="isShowing"
   >
     <span class="e-btn__icon" aria-hidden="true">
       <e-icon name="moreMenu"></e-icon>

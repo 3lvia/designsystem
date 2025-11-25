@@ -19,7 +19,7 @@
           class="e-btn e-btn--icon"
           (click)="clearSearch()"
           aria-label="Clear search"
-          [ngClass]="{ 'e-invisible': searchValue.length === 0 }"
+          [class.e-invisible]="searchValue.length === 0"
         >
           <span class="e-btn__icon">
             <e-icon name="close" />
@@ -56,7 +56,7 @@
       </tr>
       <tbody>
         @for (el of filteredChangelog; track el; let isLast = $last; let isFirst = $first) {
-          <tr class="changelog-row" [ngClass]="{ 'changelog-row--skipped': el.skipped }">
+          <tr class="changelog-row" [class.changelog-row--skipped]="el.skipped">
             @if (!el.skipped) {
               <td class="changelog-date">
                 <span class="e-title-sm">{{ el.version }}</span>

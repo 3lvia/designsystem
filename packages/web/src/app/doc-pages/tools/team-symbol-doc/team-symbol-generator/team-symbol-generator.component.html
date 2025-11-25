@@ -3,28 +3,16 @@
     <div
       [innerHTML]="generatedSvg | safeHtml"
       class="image-container"
-      [ngClass]="{
-        'color-chosen': currentStep !== 1 && chosenColor,
-      }"
+      [class.color-chosen]="currentStep !== 1 && chosenColor"
     ></div>
   } @else {
-    <div
-      class="image-container"
-      [ngClass]="{
-        error: errorText,
-      }"
-    >
+    <div class="image-container" [class.error]="errorText">
       <e-icon name="image" size="xxl" class="e-icon--color-disabled-1" />
     </div>
   }
 </ng-template>
 
-<div
-  class="e-w-100"
-  [ngClass]="{
-    'e-none': isFinished,
-  }"
->
+<div class="e-w-100" [class.e-none]="isFinished">
   <elvia-stepper
     [value]="currentStep"
     [steps]="stepStates"
@@ -56,12 +44,7 @@
           </button>
         }
 
-        <div
-          class="file-guideline e-mt-8"
-          [ngClass]="{
-            'e-invisible': generatedSvg,
-          }"
-        >
+        <div class="file-guideline e-mt-8" [class.e-invisible]="generatedSvg">
           @if (errorText) {
             <e-icon name="removeCircle" size="xs" class="e-icon--color-error e-mr-8" />
           }
@@ -83,9 +66,7 @@
                 [style.background-color]="color"
                 (click)="updateBackgroundCircle(color)"
                 (keydown.enter)="updateBackgroundCircle(color)"
-                [ngClass]="{
-                  chosen: chosenColor === color,
-                }"
+                [class.chosen]="chosenColor === color"
               >
                 <input type="radio" />
                 @if (chosenColor === color) {
@@ -99,9 +80,7 @@
 
         <button
           class="e-btn e-btn--tertiary e-mt-24"
-          [ngClass]="{
-            'e-mb-64': generatedColors.length === 0,
-          }"
+          [class.e-mb-64]="generatedColors.length === 0"
           (click)="generateColors()"
         >
           <span class="e-btn__icon">
@@ -126,12 +105,7 @@
   </elvia-stepper>
 </div>
 
-<div
-  class="e-w-100"
-  [ngClass]="{
-    'e-none': !isFinished,
-  }"
->
+<div class="e-w-100" [class.e-none]="!isFinished">
   <div class="top-buttons">
     <button class="e-btn e-btn--tertiary" (click)="isFinished = false">
       <span class="e-btn__icon">

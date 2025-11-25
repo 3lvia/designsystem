@@ -2,16 +2,14 @@
 
 <div
   class="icons e-color-background-1"
-  [ngClass]="{
-    'e-theme-dark': theme() === 'dark',
-    'e-theme-light': theme() === 'light',
-  }"
+  [class.e-theme-dark]="theme() === 'dark'"
+  [class.e-theme-light]="theme() === 'light'"
 >
   @for (icon of visibleIcons(); track icon.title) {
     <div class="icon-container">
       <button
         class="icon-card"
-        [ngClass]="{ selected: selectedIcon()?.title === icon.title }"
+        [class.selected]="selectedIcon()?.title === icon.title"
         (click)="selectedIcon.set(icon)"
       >
         <app-icon-generator [name]="icon.title" size="sm" />
@@ -36,7 +34,7 @@
 
 @if (selectedIcon()) {
   <app-icon-preview-details
-    [ngClass]="{ 'e-theme-dark': theme() === 'dark', 'e-theme-light': theme() === 'light' }"
+    [class]="{ 'e-theme-dark': theme() === 'dark', 'e-theme-light': theme() === 'light' }"
     [(selectedIcon)]="selectedIcon"
     [theme]="theme()"
     [cdkTrapFocus]

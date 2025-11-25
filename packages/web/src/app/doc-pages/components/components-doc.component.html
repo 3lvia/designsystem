@@ -57,7 +57,7 @@
       @if (componentCategory.title) {
         <div class="e-title-caps e-mt-32">{{ componentCategory.title }}</div>
       }
-      <div class="components-container" [ngClass]="{ 'without-title': !componentCategory.title }">
+      <div class="components-container" [class.without-title]="!componentCategory.title">
         @for (component of componentCategory.components; track $index) {
           <ng-container
             *ifViewportSize="['lg', 'xl']"

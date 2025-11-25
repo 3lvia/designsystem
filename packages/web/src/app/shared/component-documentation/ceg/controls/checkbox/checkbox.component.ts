@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { Component, input, output } from '@angular/core';
 
 import { Checkbox } from '../../controlType';
@@ -9,7 +8,6 @@ let CEG_CHECKBOX_ID = 0;
   selector: 'app-checkbox',
   templateUrl: './checkbox.component.html',
   styleUrls: ['./checkbox.component.scss'],
-  imports: [NgClass],
 })
 export class CheckboxComponent {
   readonly checkbox = input.required<Checkbox>();
