@@ -34,7 +34,8 @@
 
 @if (selectedIcon()) {
   <app-icon-preview-details
-    [class]="{ 'e-theme-dark': theme() === 'dark', 'e-theme-light': theme() === 'light' }"
+    [class.e-theme-dark]="theme() === 'dark'"
+    [class.e-theme-light]="theme() === 'light'"
     [(selectedIcon)]="selectedIcon"
     [theme]="theme()"
     [cdkTrapFocus]
