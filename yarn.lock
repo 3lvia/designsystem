@@ -496,15 +496,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/common@npm:^21.0.0":
-  version: 21.0.0
-  resolution: "@angular/common@npm:21.0.0"
+"@angular/common@npm:^21.0.1":
+  version: 21.0.1
+  resolution: "@angular/common@npm:21.0.1"
   dependencies:
     tslib: "npm:^2.3.0"
   peerDependencies:
-    "@angular/core": 21.0.0
+    "@angular/core": 21.0.1
     rxjs: ^6.5.3 || ^7.4.0
-  checksum: 10/a6bf3cce939375b76d99c32b593195a63c0bbfa51396076cabda6df1fa117badb17ecb363430901cacbc4a0e80af4d339e13151bc27596951d16da9314e17528
+  checksum: 10/bacedaba0456d34a6cecb05f5c2926624b46137896fa61b34cc55a323104d09ddf305251201b01c20505d11223149740c668ca14590975d57d0a9078b4d9f669
   languageName: node
   linkType: hard
 
@@ -9022,7 +9022,7 @@ __metadata:
     "@angular/build": "npm:^21.0.0"
     "@angular/cdk": "npm:^21.0.0"
     "@angular/cli": "npm:21.0.0"
-    "@angular/common": "npm:^21.0.0"
+    "@angular/common": "npm:^21.0.1"
     "@angular/compiler": "npm:^21.0.0"
     "@angular/compiler-cli": "npm:21.0.0"
     "@angular/core": "npm:^21.0.0"
@@ -14595,7 +14595,7 @@ __metadata:
     react-dom: "npm:^18.3.1"
     sass: "npm:1.93.3"
     typescript: "npm:5.8.2"
-    vite: "npm:7.2.2"
+    vite: "npm:7.2.3"
   languageName: unknown
   linkType: soft
 
@@ -17357,6 +17357,61 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vite@npm:7.2.3":
+  version: 7.2.3
+  resolution: "vite@npm:7.2.3"
+  dependencies:
+    esbuild: "npm:^0.25.0"
+    fdir: "npm:^6.5.0"
+    fsevents: "npm:~2.3.3"
+    picomatch: "npm:^4.0.3"
+    postcss: "npm:^8.5.6"
+    rollup: "npm:^4.43.0"
+    tinyglobby: "npm:^0.2.15"
+  peerDependencies:
+    "@types/node": ^20.19.0 || >=22.12.0
+    jiti: ">=1.21.0"
+    less: ^4.0.0
+    lightningcss: ^1.21.0
+    sass: ^1.70.0
+    sass-embedded: ^1.70.0
+    stylus: ">=0.54.8"
+    sugarss: ^5.0.0
+    terser: ^5.16.0
+    tsx: ^4.8.1
+    yaml: ^2.4.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    jiti:
+      optional: true
+    less:
+      optional: true
+    lightningcss:
+      optional: true
+    sass:
+      optional: true
+    sass-embedded:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+    tsx:
+      optional: true
+    yaml:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 10/008615a91954d72d05eeeb840339d2e8bbd27461febe9e631335a4c8c5360c85bafbbf770a9835d7f9cb248f5db912ddbdb257637115cc3a7dd5445a155799d0
+  languageName: node
+  linkType: hard
+
 "vite@npm:^6.3.6":
   version: 6.3.6
   resolution: "vite@npm:6.3.6"
@@ -17464,7 +17519,7 @@ __metadata:
     "@vitejs/plugin-vue": "npm:6.0.1"
     sass: "npm:1.93.3"
     typescript: "npm:5.8.2"
-    vite: "npm:7.2.2"
+    vite: "npm:7.2.3"
     vue: "npm:^3.5.24"
     vue-router: "npm:^4.5.1"
     vue-tsc: "npm:3.1.3"
