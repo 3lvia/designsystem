@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { NgTemplateOutlet } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ThemeName } from '@elvia/elvis-colors';
@@ -18,12 +18,12 @@ import { SafeHtmlPipe } from 'src/app/shared/safeHtml.pipe';
 @Component({
   selector: 'app-team-symbol-generator',
   imports: [
-    CommonModule,
     FormsModule,
     LocalThemeSwitchComponent,
     SafeHtmlPipe,
     SvgAbbreviationPopoverComponent,
     WhySvgPopoverComponent,
+    NgTemplateOutlet,
   ],
   templateUrl: './team-symbol-generator.component.html',
   styleUrl: './team-symbol-generator.component.scss',

@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 
 import { ColorTokenSubtableComponent } from './color-token-subtable/color-token-subtable.component';
@@ -27,7 +26,7 @@ import {
   selector: 'app-color-token-table',
   templateUrl: './color-token-table.component.html',
   styleUrls: ['./color-token-table.component.scss'],
-  imports: [NgClass, ColorTokenSubtableComponent],
+  imports: [ColorTokenSubtableComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ColorTokenTableComponent {

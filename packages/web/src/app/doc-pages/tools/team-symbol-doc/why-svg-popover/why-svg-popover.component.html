@@ -32,7 +32,7 @@
     (click)="isOpen = true"
     [attr.aria-expanded]="isOpen"
     [attr.aria-pressed]="isOpen"
-    [ngClass]="{ 'e-btn---selected': isOpen }"
+    [class.e-btn---selected]="isOpen"
     aria-label="Why SVG?"
     class="e-btn e-btn--icon e-btn--circled"
     slot="trigger"

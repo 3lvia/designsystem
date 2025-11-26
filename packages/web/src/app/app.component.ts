@@ -1,4 +1,4 @@
-import { NgClass, ViewportScroller } from '@angular/common';
+import { ViewportScroller } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterOutlet } from '@angular/router';
@@ -71,14 +71,7 @@ type PageLayout = 'notFound' | 'standalonePage' | 'pageWithSidenav';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  imports: [
-    HeaderComponent,
-    NgClass,
-    RouterOutlet,
-    PageWithSidenavComponent,
-    FooterComponent,
-    ShortcutComponent,
-  ],
+  imports: [HeaderComponent, RouterOutlet, PageWithSidenavComponent, FooterComponent, ShortcutComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppComponent {

@@ -11,11 +11,7 @@
   <app-shadow-viewer />
 
   <app-component-section [sectionTitle]="locale === 'en-GB' ? 'Usage' : 'Bruk'">
-    <app-when-to-use
-      [locale]="locale"
-      [whens]="doDontText[locale].do"
-      [whenNots]="doDontText[locale].dont"
-    />
+    <app-when-to-use [locale]="locale" [whens]="doDontText[locale].do" [whenNots]="doDontText[locale].dont" />
   </app-component-section>
 
   <app-component-section [sectionTitle]="locale === 'en-GB' ? 'Style' : 'Stil'">

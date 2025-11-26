@@ -5,7 +5,7 @@
         <button
           (click)="setPreferredTheme(theme)"
           [attr.aria-label]="`set ${theme} theme`"
-          [ngClass]="{ 'e-thumbnail---selected': (preferredTheme | async) === theme }"
+          [class.e-thumbnail---selected]="(preferredTheme | async) === theme"
           class="e-thumbnail"
         >
           <img src="assets/header/theme-switch/theme_switch_{{ theme }}.svg" alt="{{ theme }} theme" />

@@ -1,4 +1,4 @@
-<div class="counter" [ngClass]="{ disabled: disabled() }">
+<div class="counter" [class.disabled]="disabled()">
   <div class="e-text-sm visually-hidden" #maxValueElement>{{ counter().max }}{{ counter().postfix }}</div>
   <button
     class="e-btn e-btn--icon e-btn--circled e-btn--sm"
@@ -12,7 +12,7 @@
     </span>
   </button>
 
-  <div class="e-text-sm e-text-center" [ngStyle]="{ 'width.px': maxValueElement.clientWidth }">
+  <div class="e-text-sm e-text-center" [style.width.px]="maxValueElement.clientWidth">
     {{ counter().value }}{{ counter().postfix }}
   </div>
 

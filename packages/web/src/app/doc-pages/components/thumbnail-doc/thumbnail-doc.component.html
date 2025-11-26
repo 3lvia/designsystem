@@ -27,7 +27,7 @@
         @for (image of images; track image.src) {
           <button
             class="e-thumbnail"
-            [ngClass]="{ 'e-thumbnail---selected': image.src === selectedImage }"
+            [class.e-thumbnail---selected]="image.src === selectedImage"
             (click)="selectedImage = image.src"
           >
             <img [src]="image.src" [alt]="`example ${$index + 1}`" />

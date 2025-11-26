@@ -17,7 +17,7 @@
               [inlineStyle]="{ maxWidth: '460px' }"
             >
               <button
-                [ngClass]="{ 'e-btn---selected': isOpen }"
+                [class.e-btn---selected]="isOpen"
                 aria-label="Les mer om estimert totalkostnad"
                 class="e-btn e-btn--sm e-btn--icon e-btn--circled"
                 slot="trigger"

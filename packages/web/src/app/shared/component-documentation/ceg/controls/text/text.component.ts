@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { Component, input, output } from '@angular/core';
 
 import { Text } from '../../controlType';
@@ -9,7 +8,6 @@ let CEG_INPUT_ID = 0;
   selector: 'app-text',
   templateUrl: './text.component.html',
   styleUrls: ['./text.component.scss'],
-  imports: [NgClass],
 })
 export class TextComponent {
   readonly input = input.required<Text>();

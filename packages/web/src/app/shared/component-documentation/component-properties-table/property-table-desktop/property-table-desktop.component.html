@@ -39,14 +39,14 @@
             </td>
           </tr>
         }
-        @for (prop of group.rows; track prop; let isLast = $last; let i = $index) {
-          <tr class="prop-row" [ngClass]="{ expanded: group.expanded, last: isLast }">
+        @for (prop of group.rows; track prop) {
+          <tr class="prop-row" [class.expanded]="group.expanded" [class.last]="$last">
             <th scope="row" class="table-code-text">
               <div
                 class="height-changer e-flex e-gap-8"
-                [ngStyle]="{
-                  'margin-left.px': calculateMargin(i, group.rows),
-                  'padding-left.px': calculatePadding(i, group.rows),
+                [style]="{
+                  'margin-left.px': calculateMargin($index, group.rows),
+                  'padding-left.px': calculatePadding($index, group.rows),
                 }"
               >
                 @if (prop.item.level === 0) {
@@ -85,7 +85,7 @@
               <div
                 class="height-changer"
                 [innerHTML]="
-                  (isLeafProp(i, group.rows) ? prop.item.default : '')
+                  (isLeafProp($index, group.rows) ? prop.item.default : '')
                     | searchHighlighter: 'default' : prop.matches
                 "
               ></div>

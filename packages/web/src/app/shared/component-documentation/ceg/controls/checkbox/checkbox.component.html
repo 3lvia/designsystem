@@ -1,7 +1,8 @@
 <label
   class="e-checkbox e-checkbox--small"
   [for]="checkboxId"
-  [ngClass]="{ indented: isChild(), 'e-checkbox---disabled': disabled() }"
+  [class.indented]="isChild()"
+  [class.e-checkbox---disabled]="disabled()"
 >
   <input
     type="checkbox"

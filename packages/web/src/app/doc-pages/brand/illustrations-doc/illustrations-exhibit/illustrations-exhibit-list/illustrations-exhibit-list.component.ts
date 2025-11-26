@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { Component, effect, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
@@ -10,7 +9,7 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
 
 @Component({
   selector: 'app-illustrations-exhibit-list',
-  imports: [NgClass, IllustrationsGeneratorComponent, IllustrationsExhibitListDisplayNamePipe],
+  imports: [IllustrationsGeneratorComponent, IllustrationsExhibitListDisplayNamePipe],
   templateUrl: './illustrations-exhibit-list.component.html',
   styleUrl: './illustrations-exhibit-list.component.scss',
 })

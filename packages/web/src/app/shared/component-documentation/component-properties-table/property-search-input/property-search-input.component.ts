@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, output, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -6,7 +5,7 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-property-search-input',
   templateUrl: './property-search-input.component.html',
   styleUrls: ['./property-search-input.component.scss'],
-  imports: [FormsModule, NgClass],
+  imports: [FormsModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PropertySearchInputComponent {

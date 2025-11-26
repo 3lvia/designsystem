@@ -1,13 +1,9 @@
 <div class="color-exhibit color-exhibit--container">
   <div
     class="circle"
-    [ngStyle]="{
-      'background-color': currentColorExistsInCurrentTheme() ? currentColor()?.hex : null,
-    }"
-    [ngClass]="{
-      border: currentColor()?.name ? (currentColor()?.name | needsBorder: theme()) : false,
-      nonexistent: !currentColorExistsInCurrentTheme(),
-    }"
+    [style.background-color]="currentColorExistsInCurrentTheme() ? currentColor()?.hex : null"
+    [class.border]="currentColor()?.name ? (currentColor()?.name | needsBorder: theme()) : false"
+    [class.nonexistent]="!currentColorExistsInCurrentTheme()"
   ></div>
 
   @if (opacityColors().length > 1) {
@@ -17,9 +13,7 @@
           class="color-circle"
           [style.background-color]="opacityColor.hex"
           (click)="chooseColor(opacityColor)"
-          [ngClass]="{
-            chosen: opacityColor.name === currentColor()?.name,
-          }"
+          [class.chosen]="opacityColor.name === currentColor()?.name"
         >
           <input type="radio" />
           @if (opacityColor.name === currentColor()?.name) {

@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
 
 import * as template from './abbreviation-example-ceg.component.html';
@@ -6,7 +5,6 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 
 @Component({
   selector: 'app-abbreviation-ceg',
-  imports: [NgClass],
   templateUrl: './abbreviation-example-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: AbbreviationExampleCegComponent }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

@@ -1,18 +1,14 @@
 @if (colorType === 'default') {
   <div
     class="circle border"
-    [ngClass]="{
-      transparent: hex() === 'transparent',
-    }"
+    [class.transparent]="hex() === 'transparent'"
     [style]="{ backgroundColor: hex() }"
   ></div>
 } @else {
   <div
     class="circle"
-    [ngClass]="{
-      'black-white': colorType.includes('black-white'),
-      signal: colorType.includes('signal'),
-      dark: colorType.includes('dark'),
-    }"
+    [class.black-white]="colorType.includes('black-white')"
+    [class.signal]="colorType.includes('signal')"
+    [class.dark]="colorType.includes('dark')"
   ></div>
 }

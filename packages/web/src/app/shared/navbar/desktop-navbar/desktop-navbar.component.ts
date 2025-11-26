@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { AsyncPipe, NgClass } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import {
   AfterViewInit,
   CUSTOM_ELEMENTS_SCHEMA,
@@ -31,7 +31,7 @@ const animationMotion = '320ms cubic-bezier(0.5, 0, 0.31, 1)';
       transition(':leave', [animate(animationMotion, style({ height: 0 }))]),
     ]),
   ],
-  imports: [NgClass, RouterLinkActive, RouterLink, SubMenuComponent, LocalePickerComponent, AsyncPipe],
+  imports: [RouterLinkActive, RouterLink, SubMenuComponent, LocalePickerComponent, AsyncPipe],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit {

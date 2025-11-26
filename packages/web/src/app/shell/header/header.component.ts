@@ -1,5 +1,4 @@
 import { A11yModule, CdkTrapFocus } from '@angular/cdk/a11y';
-import { CommonModule, NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
@@ -20,14 +19,12 @@ type MenuType = 'search' | 'mobileMenu' | null;
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   imports: [
-    NgClass,
     CdkTrapFocus,
     RouterLink,
     RouterLinkActive,
     ThemeSwitchComponent,
     SearchMenuComponent,
     MobileMenuComponent,
-    CommonModule,
     RouterModule,
     FormsModule,
     A11yModule,

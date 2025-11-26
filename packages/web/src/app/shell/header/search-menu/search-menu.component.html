@@ -19,7 +19,7 @@
             class="e-btn e-btn--icon e-mr-0"
             (click)="clearSearch()"
             aria-label="Empty search field"
-            [ngClass]="{ 'e-invisible': searchString === '' }"
+            [class.e-invisible]="searchString === ''"
           >
             <span class="e-btn__icon">
               <e-icon name="close" />

@@ -10,7 +10,7 @@
     <div class="contact-grid">
       @for (contact of contactList; track contact.slackUrl) {
         <div class="contact-profile-container">
-          <div class="contact-profile" [ngClass]="{ odd: $odd }">
+          <div class="contact-profile" [class.odd]="$odd">
             <div
               (click)="veryImportantFunction(contact.firstName, contact.emoji)"
               [id]="contact.firstName"

@@ -31,7 +31,7 @@
             </caption>
             <thead>
               <tr class="e-title-xs">
-                <th class="e-text-left" [ngClass]="{ 'small-column': hasRoleColumn }">Token</th>
+                <th class="e-text-left" [class.small-column]="hasRoleColumn">Token</th>
                 @if (hasExampleColumn) {
                   <th class="small-column">Example</th>
                 }
@@ -55,7 +55,7 @@
                 @for (color of tablePart.colors; track $index) {
                   <tr>
                     <app-copy [message]="`--e-color-${color.token}`">
-                      <td class="token-font" [ngClass]="{ 'small-column': hasRoleColumn }">
+                      <td class="token-font" [class.small-column]="hasRoleColumn">
                         <p class="e-m-0">{{ color.token }}</p>
                       </td>
                     </app-copy>

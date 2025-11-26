@@ -1,4 +1,3 @@
-import { NgClass } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, Component, ViewEncapsulation, booleanAttribute, input } from '@angular/core';
 
 @Component({
@@ -6,7 +5,6 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component, ViewEncapsulation, booleanAttribute,
   templateUrl: './copy.component.html',
   styleUrls: ['./copy.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  imports: [NgClass],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CopyComponent {
