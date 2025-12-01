@@ -372,7 +372,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/build@npm:^21.0.0":
+"@angular/build@npm:21.0.0":
   version: 21.0.0
   resolution: "@angular/build@npm:21.0.0"
   dependencies:
@@ -8775,7 +8775,7 @@ __metadata:
     "@angular-devkit/core": "npm:21.0.0"
     "@angular-devkit/schematics": "npm:21.0.0"
     "@angular/animations": "npm:^21.0.0"
-    "@angular/build": "npm:^21.0.0"
+    "@angular/build": "npm:21.0.0"
     "@angular/cdk": "npm:^21.0.0"
     "@angular/cli": "npm:21.0.0"
     "@angular/common": "npm:^21.0.0"
