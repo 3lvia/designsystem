@@ -7584,24 +7584,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"body-parser@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "body-parser@npm:2.2.0"
-  dependencies:
-    bytes: "npm:^3.1.2"
-    content-type: "npm:^1.0.5"
-    debug: "npm:^4.4.0"
-    http-errors: "npm:^2.0.0"
-    iconv-lite: "npm:^0.6.3"
-    on-finished: "npm:^2.4.1"
-    qs: "npm:^6.14.0"
-    raw-body: "npm:^3.0.0"
-    type-is: "npm:^2.0.0"
-  checksum: 10/e9d844b036bd15970df00a16f373c7ed28e1ef870974a0a1d4d6ef60d70e01087cc20a0dbb2081c49a88e3c08ce1d87caf1e2898c615dffa193f63e8faa8a84e
-  languageName: node
-  linkType: hard
-
-"body-parser@npm:^2.2.1":
+"body-parser@npm:^2.2.0, body-parser@npm:^2.2.1":
   version: 2.2.1
   resolution: "body-parser@npm:2.2.1"
   dependencies:
@@ -9637,9 +9620,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express@npm:5.2.0":
-  version: 5.2.0
-  resolution: "express@npm:5.2.0"
+"express@npm:5.2.1":
+  version: 5.2.1
+  resolution: "express@npm:5.2.1"
   dependencies:
     accepts: "npm:^2.0.0"
     body-parser: "npm:^2.2.1"
@@ -9669,7 +9652,7 @@ __metadata:
     statuses: "npm:^2.0.1"
     type-is: "npm:^2.0.1"
     vary: "npm:^1.1.2"
-  checksum: 10/2a793e260fd343c67b038c85dd6b4561483cc277a2c826287ddb9e5baa23500802a0b53237e0113d503e0a181ed5f2334d93facc877d44181608280ae4eebf28
+  checksum: 10/4aa545d89702ac83f645c77abda1b57bcabe288f0b380fb5580fac4e323ea0eb533005c8e666b4e19152fb16d4abf11ba87b22aa9a10857a0485cd86b94639bd
   languageName: node
   linkType: hard
 
@@ -14422,7 +14405,7 @@ __metadata:
     react-dom: "npm:^18.3.1"
     sass: "npm:1.93.3"
     typescript: "npm:5.8.2"
-    vite: "npm:7.2.2"
+    vite: "npm:7.2.3"
   languageName: unknown
   linkType: soft
 
@@ -14941,7 +14924,7 @@ __metadata:
     "@typescript-eslint/parser": "npm:8.46.3"
     eslint: "npm:9.39.1"
     eslint-plugin-react: "npm:7.37.5"
-    express: "npm:5.2.0"
+    express: "npm:5.2.1"
     globals: "npm:16.4.0"
     postcss: "npm:8.5.6"
     prettier: "npm:^3.6.2"
@@ -16606,7 +16589,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-is@npm:^2.0.0, type-is@npm:^2.0.1":
+"type-is@npm:^2.0.1":
   version: 2.0.1
   resolution: "type-is@npm:2.0.1"
   dependencies:
@@ -17108,6 +17091,61 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vite@npm:7.2.3":
+  version: 7.2.3
+  resolution: "vite@npm:7.2.3"
+  dependencies:
+    esbuild: "npm:^0.25.0"
+    fdir: "npm:^6.5.0"
+    fsevents: "npm:~2.3.3"
+    picomatch: "npm:^4.0.3"
+    postcss: "npm:^8.5.6"
+    rollup: "npm:^4.43.0"
+    tinyglobby: "npm:^0.2.15"
+  peerDependencies:
+    "@types/node": ^20.19.0 || >=22.12.0
+    jiti: ">=1.21.0"
+    less: ^4.0.0
+    lightningcss: ^1.21.0
+    sass: ^1.70.0
+    sass-embedded: ^1.70.0
+    stylus: ">=0.54.8"
+    sugarss: ^5.0.0
+    terser: ^5.16.0
+    tsx: ^4.8.1
+    yaml: ^2.4.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    jiti:
+      optional: true
+    less:
+      optional: true
+    lightningcss:
+      optional: true
+    sass:
+      optional: true
+    sass-embedded:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+    tsx:
+      optional: true
+    yaml:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: 10/008615a91954d72d05eeeb840339d2e8bbd27461febe9e631335a4c8c5360c85bafbbf770a9835d7f9cb248f5db912ddbdb257637115cc3a7dd5445a155799d0
+  languageName: node
+  linkType: hard
+
 "vite@npm:^6.3.6":
   version: 6.3.6
   resolution: "vite@npm:6.3.6"
@@ -17215,7 +17253,7 @@ __metadata:
     "@vitejs/plugin-vue": "npm:6.0.1"
     sass: "npm:1.93.3"
     typescript: "npm:5.8.2"
-    vite: "npm:7.2.2"
+    vite: "npm:7.2.3"
     vue: "npm:^3.5.24"
     vue-router: "npm:^4.5.1"
     vue-tsc: "npm:3.1.3"
