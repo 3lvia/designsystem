@@ -74,7 +74,7 @@
     "@babel/core": "7.29.0",
     "@types/file-saver": "2.0.7",
     "@types/natural-compare-lite": "1.4.2",
-    "@types/node": "22.19.7",
+    "@types/node": "24.10.9",
     "@types/opentype.js": "1.3.9",
     "@types/prismjs": "1.26.5",
     "@types/safe-json-stringify": "1.1.5",
