@@ -21,11 +21,12 @@
   "rebaseWhen": "conflicted",
   "prConcurrentLimit": 5,
   "rangeStrategy": "bump",
-  "ignoreDeps": ["@emotion/react", "@emotion/styled", "react", "react-dom"],
+  "ignoreDeps": ["@emotion/react", "@emotion/styled", "react", "react-dom", "react-is", "typescript", "sass"],
   "ignorePaths": [
     "**/node_modules/**",
     "packages/components/components/**",
-    "packages/elvis*",
-    "packages/elvis-icons"
-  ]
+    "packages/elvis/**",
+    "packages/elvis-*/**"
+  ],
+  "lockFileMaintenance": { "enabled": true }
 }
