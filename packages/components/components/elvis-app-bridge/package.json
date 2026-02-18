@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-app-bridge",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "license": "MIT",
   "homepage": "https://design.elvia.io/components/app-bridge",
   "repository": {
@@ -17,12 +17,12 @@
     "dist"
   ],
   "dependencies": {
-    "@elvia/elvis-assets-icons": "^3.11.1",
+    "@elvia/elvis-assets-icons": "^3.16.0",
     "@elvia/elvis-colors": "^4.4.2",
     "@elvia/elvis-component-wrapper": "^4.3.0",
     "@elvia/elvis-context-menu": "^1.6.1",
     "@elvia/elvis-toolbox": "^12.1.0",
-    "@elvia/elvis-tooltip": "^1.3.6",
+    "@elvia/elvis-tooltip": "^1.3.7",
     "@elvia/elvis-typography": "^3.1.1",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5"
