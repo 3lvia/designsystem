@@ -1,5 +1,6 @@
 name: Publish to NPM
 permissions:
+  id-token: write # Required for OIDC
   contents: read
 on:
   workflow_dispatch:
@@ -25,7 +26,6 @@ jobs:
           cache: 'yarn'
           node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org'
-          always-auth: true
       - name: Install
         run: yarn install --immutable
       - name: Build
@@ -38,6 +38,4 @@ jobs:
           timeout_minutes: 10
       - name: Publish
         continue-on-error: true
-        run: yarn publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: yarn run publish
