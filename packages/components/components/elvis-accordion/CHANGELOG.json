@@ -3,6 +3,18 @@
   "name": "elvis-accordion",
   "content": [
     {
+      "date": "23.02.26",
+      "version": "3.3.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": [
+            "This version has no code changes, it is only published to trigger a new release on npm."
+          ]
+        }
+      ]
+    },
+    {
       "date": "19.09.24",
       "version": "3.3.0",
       "changelog": [
