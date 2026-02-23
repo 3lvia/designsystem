@@ -1,4 +1,4 @@
-import { getEnvironmentUrl } from './utils';
+import { getEnvironment, transformToEnvironmentUrl } from './utils';
 
 export interface SystemLink {
   url: string;
@@ -77,15 +77,9 @@ export const getLinks = (targetId: string): SystemLink[] => {
     },
   ].sort((a, b) => a.name.localeCompare(b.name));
 
-  const currentEnvironment = getEnvironmentUrl();
-  if (currentEnvironment) {
-    return links.map((link) => {
-      return {
-        ...link,
-        url: link.url.replace('.elvia.io', `.${currentEnvironment}.io`),
-      };
-    });
-  }
-
-  return links;
+  const environment = getEnvironment();
+  return links.map((link) => ({
+    ...link,
+    url: transformToEnvironmentUrl(link.url, environment),
+  }));
 };

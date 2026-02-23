@@ -3,6 +3,22 @@
   "name": "elvis-app-bridge",
   "content": [
     {
+      "date": "23.02.26",
+      "version": "1.4.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "<code>IFS</code> and <code>Salesforce</code> links now go to their test environment when App Bridge is used in a non-production environment."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "10.12.24",
       "version": "1.3.0",
       "changelog": [
