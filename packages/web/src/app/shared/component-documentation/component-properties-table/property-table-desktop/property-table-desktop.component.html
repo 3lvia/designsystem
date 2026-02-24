@@ -44,10 +44,8 @@
             <th scope="row" class="table-code-text">
               <div
                 class="height-changer e-flex e-gap-8"
-                [style]="{
-                  'margin-left.px': calculateMargin($index, group.rows),
-                  'padding-left.px': calculatePadding($index, group.rows),
-                }"
+                [style.margin-left.px]="calculateMargin($index, group.rows)"
+                [style.padding-left.px]="calculatePadding($index, group.rows)"
               >
                 @if (prop.item.level === 0) {
                   <div class="example-width">
