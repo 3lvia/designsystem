@@ -57,10 +57,10 @@ export const appList = [
     rotation: -90,
   },
   {
-    name: 'Kvalitetsportal',
-    iconLetters: 'Kv',
-    url: 'kvalitetsportalen',
-    rotation: -135,
+    name: 'Meldingsportalen',
+    iconLetters: 'Me',
+    url: 'meldingsportalen',
+    rotation: -146.25,
   },
   {
     name: 'Louvre',
