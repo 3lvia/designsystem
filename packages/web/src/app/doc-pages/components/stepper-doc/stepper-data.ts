@@ -24,7 +24,7 @@ export const stepperData: ComponentData<BaseStepperProps & ContentMock> = {
       children: {
         heading: {
           type: 'string',
-          description: 'The heading for the step',
+          description: 'The heading for the step.',
         },
         isCompleted: {
           type: 'boolean',
@@ -76,7 +76,7 @@ export const stepperData: ComponentData<BaseStepperProps & ContentMock> = {
     },
     value: {
       type: 'number',
-      description: 'The index of the current step',
+      description: 'The index of the current step.',
     },
     valueOnChange: {
       specialType: 'event',
