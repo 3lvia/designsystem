@@ -15,24 +15,24 @@ import { SearchResult } from 'src/app/shared/searcher';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PropertyTableDesktopComponent extends PropertyTableBaseDirective {
-  calculateMargin(i: number, propList: SearchResult<ComponentProp>[]) {
-    // @ts-expect-error TS2532 (LEGO-3683)
-    const level = propList[i].item.level;
+  protected calculateMargin(i: number, propList: SearchResult<ComponentProp>[]) {
+    const level = propList[i]?.item.level ?? 0;
     return level === 0 ? 0 : 32 * (level + 1);
   }
 
-  calculatePadding(i: number, propList: SearchResult<ComponentProp>[]) {
-    // @ts-expect-error TS2532 (LEGO-3683)
-    const level = propList[i].item.level;
+  protected calculatePadding(i: number, propList: SearchResult<ComponentProp>[]) {
+    const level = propList[i]?.item.level ?? 0;
     return level === 0 ? 8 : 0;
   }
 
-  isLeafProp(i: number, propList: SearchResult<ComponentProp>[]) {
+  protected isLeafProp(i: number, propList: SearchResult<ComponentProp>[]) {
     if (i === propList.length - 1) {
       return true;
     }
-    // @ts-expect-error TS2532 (LEGO-3683)
-    if (propList[i].item.level < propList[i + 1].item.level) {
+    const currentProp = propList[i];
+    const nextProp = propList[i + 1];
+
+    if (nextProp && currentProp && currentProp.item.level < nextProp.item.level) {
       return false;
     }
     return true;
