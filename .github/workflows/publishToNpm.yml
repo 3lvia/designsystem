@@ -1,3 +1,8 @@
+# WARNING: Do not rename this file.
+# The filename (publishToNpm.yml) is used as a Trusted Publisher for OIDC authentication
+# on npmjs.com for all @elvia packages. Renaming it will break automated publishing.
+# To rename: Update npmjs.com settings for each @elvia package under Settings > Trusted Publisher.
+
 name: Publish to NPM
 permissions:
   id-token: write # Required for OIDC
