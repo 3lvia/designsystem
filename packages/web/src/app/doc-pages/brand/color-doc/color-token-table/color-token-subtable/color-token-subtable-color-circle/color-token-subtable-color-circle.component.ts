@@ -8,7 +8,7 @@ type ColorType = 'default' | 'black-white' | 'dark-black-white' | 'signal' | 'da
   styleUrls: ['./color-token-subtable-color-circle.component.scss'],
 })
 export class ColorTokenSubtableColorCircleComponent implements OnInit {
-  readonly hex = input<string>();
+  readonly hex = input.required<string>();
 
   colorType: ColorType = 'default';
 
