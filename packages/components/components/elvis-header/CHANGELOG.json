@@ -3,6 +3,20 @@
   "name": "elvis-header",
   "content": [
     {
+      "date": "24.02.26",
+      "version": "1.15.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Added Meldingsportalen (Me) to the app drawer."]
+        },
+        {
+          "type": "patch",
+          "changes": ["Removed Kvalitetsportal (Kv) from the app drawer."]
+        }
+      ]
+    },
+    {
       "date": "15.10.24",
       "version": "1.14.0",
       "changelog": [
