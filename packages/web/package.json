@@ -65,10 +65,10 @@
     "zone.js": "~0.16.1"
   },
   "devDependencies": {
-    "@angular-devkit/core": "21.1.4",
-    "@angular-devkit/schematics": "21.1.4",
-    "@angular/build": "21.1.4",
-    "@angular/cli": "21.1.4",
+    "@angular-devkit/core": "21.2.0",
+    "@angular-devkit/schematics": "21.2.0",
+    "@angular/build": "21.2.0",
+    "@angular/cli": "21.2.0",
     "@angular/compiler-cli": "21.1.5",
     "@angular/language-service": "21.1.5",
     "@babel/core": "7.29.0",
