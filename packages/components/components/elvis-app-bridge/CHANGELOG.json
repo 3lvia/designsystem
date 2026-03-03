@@ -3,6 +3,16 @@
   "name": "elvis-app-bridge",
   "content": [
     {
+      "date": "03.03.26",
+      "version": "1.4.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Republish the package as the previous publish did not include updated dist files."]
+        }
+      ]
+    },
+    {
       "date": "23.02.26",
       "version": "1.4.0",
       "changelog": [
