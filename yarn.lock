@@ -324,7 +324,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/animations@npm:^21.2.0":
+"@angular/animations@npm:^21.2.1":
   version: 21.2.1
   resolution: "@angular/animations@npm:21.2.1"
   dependencies:
@@ -459,7 +459,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/common@npm:^21.2.0":
+"@angular/common@npm:^21.2.1":
   version: 21.2.1
   resolution: "@angular/common@npm:21.2.1"
   dependencies:
@@ -471,9 +471,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/compiler-cli@npm:21.2.0":
-  version: 21.2.0
-  resolution: "@angular/compiler-cli@npm:21.2.0"
+"@angular/compiler-cli@npm:21.2.1":
+  version: 21.2.1
+  resolution: "@angular/compiler-cli@npm:21.2.1"
   dependencies:
     "@babel/core": "npm:7.29.0"
     "@jridgewell/sourcemap-codec": "npm:^1.4.14"
@@ -484,7 +484,7 @@ __metadata:
     tslib: "npm:^2.3.0"
     yargs: "npm:^18.0.0"
   peerDependencies:
-    "@angular/compiler": 21.2.0
+    "@angular/compiler": 21.2.1
     typescript: ">=5.9 <6.1"
   peerDependenciesMeta:
     typescript:
@@ -492,11 +492,11 @@ __metadata:
   bin:
     ng-xi18n: bundles/src/bin/ng_xi18n.js
     ngc: bundles/src/bin/ngc.js
-  checksum: 10/fd05ac10907af997e2980348e1ea659cb5d6c5858535040c6175131c6899bb22017c8b28d0d673b3023eb0a3cfecc2d071a8a39dd5bc886041db435e01fd27d3
+  checksum: 10/bd75d70da0d051a8efdc2b5ea89029551d195ebdebc1b49785d41c10133b8f6c4bf1951e645f1e4edfeeacc3ce88dad60f827ff496f1294d985fb5e372a0058d
   languageName: node
   linkType: hard
 
-"@angular/compiler@npm:^21.2.0":
+"@angular/compiler@npm:^21.2.1":
   version: 21.2.1
   resolution: "@angular/compiler@npm:21.2.1"
   dependencies:
@@ -505,7 +505,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/core@npm:^21.2.0":
+"@angular/core@npm:^21.2.1":
   version: 21.2.1
   resolution: "@angular/core@npm:21.2.1"
   dependencies:
@@ -523,7 +523,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/forms@npm:^21.2.0":
+"@angular/forms@npm:^21.2.1":
   version: 21.2.1
   resolution: "@angular/forms@npm:21.2.1"
   dependencies:
@@ -538,14 +538,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/language-service@npm:21.2.0":
-  version: 21.2.0
-  resolution: "@angular/language-service@npm:21.2.0"
-  checksum: 10/872a98bfe8344609e455f36a4c085699103229667daaa19f6f9017d653451c14c8d1bb54a0a10f259865532ccd37e6a7e5b5166992c1e934a7f24a20e4cfddb3
+"@angular/language-service@npm:21.2.1":
+  version: 21.2.1
+  resolution: "@angular/language-service@npm:21.2.1"
+  checksum: 10/fbf303a3ccf2face2a7cc14c1acf52d1f16e5a84cfc2ef65f8807ea22216f093d60f05d851feeedbac185d0a85da8744255d148ab453c5078c66603d663627e9
   languageName: node
   linkType: hard
 
-"@angular/platform-browser-dynamic@npm:^21.2.0":
+"@angular/platform-browser-dynamic@npm:^21.2.1":
   version: 21.2.1
   resolution: "@angular/platform-browser-dynamic@npm:21.2.1"
   dependencies:
@@ -559,7 +559,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/platform-browser@npm:^21.2.0":
+"@angular/platform-browser@npm:^21.2.1":
   version: 21.2.1
   resolution: "@angular/platform-browser@npm:21.2.1"
   dependencies:
@@ -575,7 +575,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/router@npm:^21.2.0":
+"@angular/router@npm:^21.2.1":
   version: 21.2.1
   resolution: "@angular/router@npm:21.2.1"
   dependencies:
@@ -9047,19 +9047,19 @@ __metadata:
   dependencies:
     "@angular-devkit/core": "npm:21.2.1"
     "@angular-devkit/schematics": "npm:21.2.1"
-    "@angular/animations": "npm:^21.2.0"
+    "@angular/animations": "npm:^21.2.1"
     "@angular/build": "npm:21.2.1"
     "@angular/cdk": "npm:^21.2.1"
     "@angular/cli": "npm:21.2.1"
-    "@angular/common": "npm:^21.2.0"
-    "@angular/compiler": "npm:^21.2.0"
-    "@angular/compiler-cli": "npm:21.2.0"
-    "@angular/core": "npm:^21.2.0"
-    "@angular/forms": "npm:^21.2.0"
-    "@angular/language-service": "npm:21.2.0"
-    "@angular/platform-browser": "npm:^21.2.0"
-    "@angular/platform-browser-dynamic": "npm:^21.2.0"
-    "@angular/router": "npm:^21.2.0"
+    "@angular/common": "npm:^21.2.1"
+    "@angular/compiler": "npm:^21.2.1"
+    "@angular/compiler-cli": "npm:21.2.1"
+    "@angular/core": "npm:^21.2.1"
+    "@angular/forms": "npm:^21.2.1"
+    "@angular/language-service": "npm:21.2.1"
+    "@angular/platform-browser": "npm:^21.2.1"
+    "@angular/platform-browser-dynamic": "npm:^21.2.1"
+    "@angular/router": "npm:^21.2.1"
     "@babel/core": "npm:7.29.0"
     "@elvia/elvis": "workspace:*"
     "@elvia/elvis-accordion": "workspace:*"
