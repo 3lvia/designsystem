@@ -16,7 +16,7 @@
     "@babel/preset-react": "7.28.5",
     "@babel/preset-typescript": "7.28.5",
     "@emotion/babel-plugin": "11.13.5",
-    "@percy/cli": "1.31.8",
+    "@percy/cli": "1.31.9",
     "@percy/playwright": "1.0.10",
     "@playwright/experimental-ct-react": "1.58.2",
     "@playwright/test": "1.58.2",
