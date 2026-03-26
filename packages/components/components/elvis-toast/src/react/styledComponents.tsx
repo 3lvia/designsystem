@@ -32,7 +32,7 @@ export const fadeOut = keyframes`
 
 export const ToastPosition = styled.div`
   position: fixed;
-  z-index: 99999;
+  z-index: 100000;
   inset: auto 16px 16px;
 
   @media ${device.gtMobile} {

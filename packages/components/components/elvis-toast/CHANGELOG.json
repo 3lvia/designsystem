@@ -3,6 +3,18 @@
   "name": "elvis-toast",
   "content": [
     {
+      "date": "26.03.26",
+      "version": "1.4.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Increased the <code>z-index</code> of Toast to 100.000 to ensure it appears above the Modal backdrop."
+          ]
+        }
+      ]
+    },
+    {
       "date": "19.09.24",
       "version": "1.4.0",
       "changelog": [
