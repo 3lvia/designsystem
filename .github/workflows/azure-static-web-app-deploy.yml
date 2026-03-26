@@ -28,7 +28,7 @@ jobs:
           submodules: true
           lfs: false
       - name: Fetch secrets from Vault
-        uses: 3lvia/core-github-actions-templates/vault@trunk
+        uses: 3lvia/core-github-actions-templates/vault@cc1b0db028f5909e4f49ab8855240f00a7c5f109
         with:
           environment: prod
           system: kunde
@@ -58,7 +58,7 @@ jobs:
     name: Close Pull Request Job
     steps:
       - name: Fetch secrets from Vault
-        uses: 3lvia/core-github-actions-templates/vault@trunk
+        uses: 3lvia/core-github-actions-templates/vault@cc1b0db028f5909e4f49ab8855240f00a7c5f109
         with:
           environment: prod
           system: kunde
