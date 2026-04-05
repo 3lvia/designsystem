@@ -416,9 +416,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/cdk@npm:^21.2.3":
-  version: 21.2.4
-  resolution: "@angular/cdk@npm:21.2.4"
+"@angular/cdk@npm:^21.2.5":
+  version: 21.2.5
+  resolution: "@angular/cdk@npm:21.2.5"
   dependencies:
     parse5: "npm:^8.0.0"
     tslib: "npm:^2.3.0"
@@ -427,7 +427,7 @@ __metadata:
     "@angular/core": ^21.0.0 || ^22.0.0
     "@angular/platform-browser": ^21.0.0 || ^22.0.0
     rxjs: ^6.5.3 || ^7.4.0
-  checksum: 10/48bb436e7377b1d6a132ac9bf0bfbf0a7d538e42edeca32c93209de99c4cdfbe0ce704410996b9e1ee89467c8da82f52377e4e7704e34e5df19873ad81349f30
+  checksum: 10/a5e673d12f2759d3fd5dc6de0c7bfc60b665a19ff18a80b4764a7ea501251b9ec6e70776eec02994a9f7bc9f148247b0bdbc8f9a8c105d3b3c710c9c1aa1772c
   languageName: node
   linkType: hard
 
@@ -2303,8 +2303,8 @@ __metadata:
     "@babel/preset-react": "npm:7.28.5"
     "@babel/preset-typescript": "npm:7.28.5"
     "@emotion/babel-plugin": "npm:11.13.5"
-    "@percy/cli": "npm:1.31.10"
-    "@percy/playwright": "npm:1.0.10"
+    "@percy/cli": "npm:1.31.11"
+    "@percy/playwright": "npm:1.1.0"
     "@playwright/experimental-ct-react": "npm:1.58.2"
     "@playwright/test": "npm:1.58.2"
     "@testing-library/dom": "npm:10.4.1"
@@ -2314,7 +2314,7 @@ __metadata:
     "@types/identity-obj-proxy": "npm:3.0.2"
     "@types/jest": "npm:29.5.14"
     "@types/jest-axe": "npm:3.5.9"
-    esbuild: "npm:0.27.4"
+    esbuild: "npm:0.27.5"
     esbuild-sass-plugin: "npm:3.7.0"
     identity-obj-proxy: "npm:3.0.0"
     jest: "npm:29.7.0"
@@ -3157,6 +3157,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/aix-ppc64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/aix-ppc64@npm:0.27.5"
+  conditions: os=aix & cpu=ppc64
+  languageName: node
+  linkType: hard
+
 "@esbuild/android-arm64@npm:0.25.12":
   version: 0.25.12
   resolution: "@esbuild/android-arm64@npm:0.25.12"
@@ -3181,6 +3188,13 @@ __metadata:
 "@esbuild/android-arm64@npm:0.27.4":
   version: 0.27.4
   resolution: "@esbuild/android-arm64@npm:0.27.4"
+  conditions: os=android & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@esbuild/android-arm64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/android-arm64@npm:0.27.5"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
@@ -3213,6 +3227,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/android-arm@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/android-arm@npm:0.27.5"
+  conditions: os=android & cpu=arm
+  languageName: node
+  linkType: hard
+
 "@esbuild/android-x64@npm:0.25.12":
   version: 0.25.12
   resolution: "@esbuild/android-x64@npm:0.25.12"
@@ -3237,6 +3258,13 @@ __metadata:
 "@esbuild/android-x64@npm:0.27.4":
   version: 0.27.4
   resolution: "@esbuild/android-x64@npm:0.27.4"
+  conditions: os=android & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@esbuild/android-x64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/android-x64@npm:0.27.5"
   conditions: os=android & cpu=x64
   languageName: node
   linkType: hard
@@ -3269,6 +3297,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/darwin-arm64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/darwin-arm64@npm:0.27.5"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@esbuild/darwin-x64@npm:0.25.12":
   version: 0.25.12
   resolution: "@esbuild/darwin-x64@npm:0.25.12"
@@ -3293,6 +3328,13 @@ __metadata:
 "@esbuild/darwin-x64@npm:0.27.4":
   version: 0.27.4
   resolution: "@esbuild/darwin-x64@npm:0.27.4"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@esbuild/darwin-x64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/darwin-x64@npm:0.27.5"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
@@ -3325,6 +3367,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/freebsd-arm64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/freebsd-arm64@npm:0.27.5"
+  conditions: os=freebsd & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@esbuild/freebsd-x64@npm:0.25.12":
   version: 0.25.12
   resolution: "@esbuild/freebsd-x64@npm:0.25.12"
@@ -3349,6 +3398,13 @@ __metadata:
 "@esbuild/freebsd-x64@npm:0.27.4":
   version: 0.27.4
   resolution: "@esbuild/freebsd-x64@npm:0.27.4"
+  conditions: os=freebsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@esbuild/freebsd-x64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/freebsd-x64@npm:0.27.5"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
@@ -3381,6 +3437,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/linux-arm64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/linux-arm64@npm:0.27.5"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@esbuild/linux-arm@npm:0.25.12":
   version: 0.25.12
   resolution: "@esbuild/linux-arm@npm:0.25.12"
@@ -3405,6 +3468,13 @@ __metadata:
 "@esbuild/linux-arm@npm:0.27.4":
   version: 0.27.4
   resolution: "@esbuild/linux-arm@npm:0.27.4"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
+"@esbuild/linux-arm@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/linux-arm@npm:0.27.5"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
@@ -3437,6 +3507,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/linux-ia32@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/linux-ia32@npm:0.27.5"
+  conditions: os=linux & cpu=ia32
+  languageName: node
+  linkType: hard
+
 "@esbuild/linux-loong64@npm:0.25.12":
   version: 0.25.12
   resolution: "@esbuild/linux-loong64@npm:0.25.12"
@@ -3461,6 +3538,13 @@ __metadata:
 "@esbuild/linux-loong64@npm:0.27.4":
   version: 0.27.4
   resolution: "@esbuild/linux-loong64@npm:0.27.4"
+  conditions: os=linux & cpu=loong64
+  languageName: node
+  linkType: hard
+
+"@esbuild/linux-loong64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/linux-loong64@npm:0.27.5"
   conditions: os=linux & cpu=loong64
   languageName: node
   linkType: hard
@@ -3493,6 +3577,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/linux-mips64el@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/linux-mips64el@npm:0.27.5"
+  conditions: os=linux & cpu=mips64el
+  languageName: node
+  linkType: hard
+
 "@esbuild/linux-ppc64@npm:0.25.12":
   version: 0.25.12
   resolution: "@esbuild/linux-ppc64@npm:0.25.12"
@@ -3517,6 +3608,13 @@ __metadata:
 "@esbuild/linux-ppc64@npm:0.27.4":
   version: 0.27.4
   resolution: "@esbuild/linux-ppc64@npm:0.27.4"
+  conditions: os=linux & cpu=ppc64
+  languageName: node
+  linkType: hard
+
+"@esbuild/linux-ppc64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/linux-ppc64@npm:0.27.5"
   conditions: os=linux & cpu=ppc64
   languageName: node
   linkType: hard
@@ -3549,6 +3647,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/linux-riscv64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/linux-riscv64@npm:0.27.5"
+  conditions: os=linux & cpu=riscv64
+  languageName: node
+  linkType: hard
+
 "@esbuild/linux-s390x@npm:0.25.12":
   version: 0.25.12
   resolution: "@esbuild/linux-s390x@npm:0.25.12"
@@ -3573,6 +3678,13 @@ __metadata:
 "@esbuild/linux-s390x@npm:0.27.4":
   version: 0.27.4
   resolution: "@esbuild/linux-s390x@npm:0.27.4"
+  conditions: os=linux & cpu=s390x
+  languageName: node
+  linkType: hard
+
+"@esbuild/linux-s390x@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/linux-s390x@npm:0.27.5"
   conditions: os=linux & cpu=s390x
   languageName: node
   linkType: hard
@@ -3605,6 +3717,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/linux-x64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/linux-x64@npm:0.27.5"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@esbuild/netbsd-arm64@npm:0.25.12":
   version: 0.25.12
   resolution: "@esbuild/netbsd-arm64@npm:0.25.12"
@@ -3629,6 +3748,13 @@ __metadata:
 "@esbuild/netbsd-arm64@npm:0.27.4":
   version: 0.27.4
   resolution: "@esbuild/netbsd-arm64@npm:0.27.4"
+  conditions: os=netbsd & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@esbuild/netbsd-arm64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/netbsd-arm64@npm:0.27.5"
   conditions: os=netbsd & cpu=arm64
   languageName: node
   linkType: hard
@@ -3661,6 +3787,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/netbsd-x64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/netbsd-x64@npm:0.27.5"
+  conditions: os=netbsd & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@esbuild/openbsd-arm64@npm:0.25.12":
   version: 0.25.12
   resolution: "@esbuild/openbsd-arm64@npm:0.25.12"
@@ -3685,6 +3818,13 @@ __metadata:
 "@esbuild/openbsd-arm64@npm:0.27.4":
   version: 0.27.4
   resolution: "@esbuild/openbsd-arm64@npm:0.27.4"
+  conditions: os=openbsd & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@esbuild/openbsd-arm64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/openbsd-arm64@npm:0.27.5"
   conditions: os=openbsd & cpu=arm64
   languageName: node
   linkType: hard
@@ -3717,6 +3857,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/openbsd-x64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/openbsd-x64@npm:0.27.5"
+  conditions: os=openbsd & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@esbuild/openharmony-arm64@npm:0.25.12":
   version: 0.25.12
   resolution: "@esbuild/openharmony-arm64@npm:0.25.12"
@@ -3741,6 +3888,13 @@ __metadata:
 "@esbuild/openharmony-arm64@npm:0.27.4":
   version: 0.27.4
   resolution: "@esbuild/openharmony-arm64@npm:0.27.4"
+  conditions: os=openharmony & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@esbuild/openharmony-arm64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/openharmony-arm64@npm:0.27.5"
   conditions: os=openharmony & cpu=arm64
   languageName: node
   linkType: hard
@@ -3773,6 +3927,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/sunos-x64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/sunos-x64@npm:0.27.5"
+  conditions: os=sunos & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@esbuild/win32-arm64@npm:0.25.12":
   version: 0.25.12
   resolution: "@esbuild/win32-arm64@npm:0.25.12"
@@ -3797,6 +3958,13 @@ __metadata:
 "@esbuild/win32-arm64@npm:0.27.4":
   version: 0.27.4
   resolution: "@esbuild/win32-arm64@npm:0.27.4"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@esbuild/win32-arm64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/win32-arm64@npm:0.27.5"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
@@ -3829,6 +3997,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/win32-ia32@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/win32-ia32@npm:0.27.5"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
 "@esbuild/win32-x64@npm:0.25.12":
   version: 0.25.12
   resolution: "@esbuild/win32-x64@npm:0.25.12"
@@ -3853,6 +4028,13 @@ __metadata:
 "@esbuild/win32-x64@npm:0.27.4":
   version: 0.27.4
   resolution: "@esbuild/win32-x64@npm:0.27.4"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@esbuild/win32-x64@npm:0.27.5":
+  version: 0.27.5
+  resolution: "@esbuild/win32-x64@npm:0.27.5"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -5532,153 +5714,153 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@percy/cli-app@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/cli-app@npm:1.31.10"
+"@percy/cli-app@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/cli-app@npm:1.31.11"
   dependencies:
-    "@percy/cli-command": "npm:1.31.10"
-    "@percy/cli-exec": "npm:1.31.10"
-  checksum: 10/023c33fbc3b5416e4ef1f05bdaaed97a419bd34f5c5a0f4e6e9afde55a0f8d2701e52164da329fee616166e14193f3fbad540dfa1e37029cedcdbbf833182e41
+    "@percy/cli-command": "npm:1.31.11"
+    "@percy/cli-exec": "npm:1.31.11"
+  checksum: 10/fad93a695f004d798ffceba39afbe5a35f9f30611395d61a28900576f762c2c9c72367bee45ab70f621a1b281441de2c5110c85637ef87e8a3962d0f876156d6
   languageName: node
   linkType: hard
 
-"@percy/cli-build@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/cli-build@npm:1.31.10"
+"@percy/cli-build@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/cli-build@npm:1.31.11"
   dependencies:
-    "@percy/cli-command": "npm:1.31.10"
-  checksum: 10/8130648a36b68c7724e54e64b9f0ace5fe1027813c1cf937a38084695401e6696351b85fdcb8fea33995f9e7884c853bc9d0284bce8fd597846f7c10f321da55
+    "@percy/cli-command": "npm:1.31.11"
+  checksum: 10/e877b29192153c970b2f20c59e39daf012b3e92b0a3559e3ddc5215ff197f2b36955c374295bc6c2474a99501193c73e85ad0ab951067d2856c2283c651eff5a
   languageName: node
   linkType: hard
 
-"@percy/cli-command@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/cli-command@npm:1.31.10"
+"@percy/cli-command@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/cli-command@npm:1.31.11"
   dependencies:
-    "@percy/config": "npm:1.31.10"
-    "@percy/core": "npm:1.31.10"
-    "@percy/logger": "npm:1.31.10"
+    "@percy/config": "npm:1.31.11"
+    "@percy/core": "npm:1.31.11"
+    "@percy/logger": "npm:1.31.11"
   bin:
     percy-cli-readme: bin/readme.js
-  checksum: 10/0bd8f35b73098c99d1453eab302d46a536da4b919d9dfcd4ab92b7e6e4441eb319b76552741ed58d62cb720d39669f5d7f334fc6fcf1bec6884a0ef36533fb4f
+  checksum: 10/53edb8f2ecf1257e45510526dfc1e7aa599b43c6aae5e29ce3cbb3d44c7c8c2606678c3e5ee51da43b1d54c55f19be292c6ab486f56a88ca7f5e137aeac99d13
   languageName: node
   linkType: hard
 
-"@percy/cli-config@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/cli-config@npm:1.31.10"
+"@percy/cli-config@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/cli-config@npm:1.31.11"
   dependencies:
-    "@percy/cli-command": "npm:1.31.10"
-  checksum: 10/f770309ade4d45e89ee9c8821274cf38e782ab76c64b3054c4b396a2775a1d64d8f454d8d2ac7be8e794a56759ac807dd06bbd141fa8c60e259d0b8b2c40da31
+    "@percy/cli-command": "npm:1.31.11"
+  checksum: 10/c8423e3caa57b4b2bf4dbf2109eb4a2229fe0470f2cb0988501a88fc347088e043f3cd90bf0880a5cca84362e8a61563f5920e0ba760738997aefac5861b4f90
   languageName: node
   linkType: hard
 
-"@percy/cli-doctor@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/cli-doctor@npm:1.31.10"
+"@percy/cli-doctor@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/cli-doctor@npm:1.31.11"
   dependencies:
-    "@percy/cli-command": "npm:1.31.10"
-    "@percy/client": "npm:1.31.10"
-    "@percy/config": "npm:1.31.10"
-    "@percy/core": "npm:1.31.10"
-    "@percy/env": "npm:1.31.10"
-    "@percy/logger": "npm:1.31.10"
-    "@percy/monitoring": "npm:1.31.10"
+    "@percy/cli-command": "npm:1.31.11"
+    "@percy/client": "npm:1.31.11"
+    "@percy/config": "npm:1.31.11"
+    "@percy/core": "npm:1.31.11"
+    "@percy/env": "npm:1.31.11"
+    "@percy/logger": "npm:1.31.11"
+    "@percy/monitoring": "npm:1.31.11"
     minimatch: "npm:^9.0.0"
     ws: "npm:^8.17.1"
-  checksum: 10/25e25b18751bdfb0bc4ec8bb1c863c24543b22b13985f02a5ed83a9e6bdbc15da2b35b726166e9699d9a2dbcfaba5943d04a7011015c3161cd331f1d614e9c63
+  checksum: 10/675133eb1e8cfc061d5b926f2835e434ef829a8be335974504d176dd8eed1940165058ee7bcceb8197ada9f2cfd0d5b6dfcb47be3bfb9f53426a44bbf34782ef
   languageName: node
   linkType: hard
 
-"@percy/cli-exec@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/cli-exec@npm:1.31.10"
+"@percy/cli-exec@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/cli-exec@npm:1.31.11"
   dependencies:
-    "@percy/cli-command": "npm:1.31.10"
-    "@percy/logger": "npm:1.31.10"
+    "@percy/cli-command": "npm:1.31.11"
+    "@percy/logger": "npm:1.31.11"
     cross-spawn: "npm:^7.0.3"
     which: "npm:^2.0.2"
-  checksum: 10/0ffdc00b7aba9ffa720456514c0db6b81cd6a0802f74994a15de1eb207ad0313e9f6f2cc97f8857517398302d66d9c1b2acb9a2377c681ad927f6278959fca03
+  checksum: 10/6fe955312c214af944a4a5d5e5b10ca9d96d3ffc2156b8254a19abe8ff55cdc2dcc72d0a5a7925efcb96b4d79592a70bd6448ee0c3115062c35b87ccf2df5e03
   languageName: node
   linkType: hard
 
-"@percy/cli-snapshot@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/cli-snapshot@npm:1.31.10"
+"@percy/cli-snapshot@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/cli-snapshot@npm:1.31.11"
   dependencies:
-    "@percy/cli-command": "npm:1.31.10"
+    "@percy/cli-command": "npm:1.31.11"
     yaml: "npm:^2.0.0"
-  checksum: 10/184840babcd6daa78531df62d4729e6bb470c0ea270024203abf42e7ad3aa9d8872b0e42431e966af5b1de6ce208e8a8795b43f89a6462a33ce3dc7fc7963a9b
+  checksum: 10/035b7900d4d2f52e7eb77054f8d737b8c00b63d2d2db8435b7e85e0196aea69d888545f93453779a7aee28e87a2b32bff27c48a747828b61a33b1174cdf3d3f7
   languageName: node
   linkType: hard
 
-"@percy/cli-upload@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/cli-upload@npm:1.31.10"
+"@percy/cli-upload@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/cli-upload@npm:1.31.11"
   dependencies:
-    "@percy/cli-command": "npm:1.31.10"
+    "@percy/cli-command": "npm:1.31.11"
     fast-glob: "npm:^3.2.11"
     image-size: "npm:^1.0.0"
-  checksum: 10/1341491a3ae00abef6f9094c9b1137bc17b45c9035aaa4446914d23238adf643f01bf62a74dfc613bfe26c657901165b052170186025a1d9c5390e07f07c90f7
+  checksum: 10/335c39521d4a69ed8b59ebb5ff1ff62bee3a246c23fa37600b18611d714c52d7a48e842462565904afdb81bdb521c1980b6c8a8b78c6cf2e8c91f5df785b6a08
   languageName: node
   linkType: hard
 
-"@percy/cli@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/cli@npm:1.31.10"
+"@percy/cli@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/cli@npm:1.31.11"
   dependencies:
-    "@percy/cli-app": "npm:1.31.10"
-    "@percy/cli-build": "npm:1.31.10"
-    "@percy/cli-command": "npm:1.31.10"
-    "@percy/cli-config": "npm:1.31.10"
-    "@percy/cli-doctor": "npm:1.31.10"
-    "@percy/cli-exec": "npm:1.31.10"
-    "@percy/cli-snapshot": "npm:1.31.10"
-    "@percy/cli-upload": "npm:1.31.10"
-    "@percy/client": "npm:1.31.10"
-    "@percy/logger": "npm:1.31.10"
+    "@percy/cli-app": "npm:1.31.11"
+    "@percy/cli-build": "npm:1.31.11"
+    "@percy/cli-command": "npm:1.31.11"
+    "@percy/cli-config": "npm:1.31.11"
+    "@percy/cli-doctor": "npm:1.31.11"
+    "@percy/cli-exec": "npm:1.31.11"
+    "@percy/cli-snapshot": "npm:1.31.11"
+    "@percy/cli-upload": "npm:1.31.11"
+    "@percy/client": "npm:1.31.11"
+    "@percy/logger": "npm:1.31.11"
   bin:
     percy: bin/run.cjs
-  checksum: 10/bc79cd2eedafc37a37fdf579ce16588d83d20324e1c6643f03ade7ee20809618d2124bb1862d324da76184a9997ab046470dfeefb4b9f5b76b3cd287c2a9d8d9
+  checksum: 10/502b47bb1aed381accca88f853593f92afed635537d4ccbfb4b40d35c79859ee52f1a7f04cddc869de5b5d449e713215efc1e7d349f720179bdad30f49214350
   languageName: node
   linkType: hard
 
-"@percy/client@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/client@npm:1.31.10"
+"@percy/client@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/client@npm:1.31.11"
   dependencies:
-    "@percy/config": "npm:1.31.10"
-    "@percy/env": "npm:1.31.10"
-    "@percy/logger": "npm:1.31.10"
+    "@percy/config": "npm:1.31.11"
+    "@percy/env": "npm:1.31.11"
+    "@percy/logger": "npm:1.31.11"
     pac-proxy-agent: "npm:^7.0.2"
     pako: "npm:^2.1.0"
-  checksum: 10/0ce5cc6411e738b748f565c7beda3699b60c8713e1f27c09095192dd47ae9312290ddb4cd3725770886505ea59ff3931cad9296a0d947c0ce37d77d9e3c27d98
+  checksum: 10/c65d2e41f5454215cbc10dfa96004adb7d904d2c2b8d8e136fad83f7f34b4deecce0c19f04f62ae7520dc2604c1ebf047004773b4a2828a1f27069820487f4ed
   languageName: node
   linkType: hard
 
-"@percy/config@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/config@npm:1.31.10"
+"@percy/config@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/config@npm:1.31.11"
   dependencies:
-    "@percy/logger": "npm:1.31.10"
+    "@percy/logger": "npm:1.31.11"
     ajv: "npm:^8.6.2"
     cosmiconfig: "npm:^8.0.0"
     yaml: "npm:^2.0.0"
-  checksum: 10/3a002a7748ee17ddb528f0e361c34c4d4cb105f30f622885f97397c1e2ed77d074d47b0243227619fcbdbeb09f20a781e6f1d37851a4f2e77656959708a6969d
+  checksum: 10/32332e80fabc8c877e3c6feb716c020505d7f858aede13a06d60a2fe11c302191197926f7474d96bd1330befb2a9f6eea230e0ee5a5347446a32ddf33cc3c33f
   languageName: node
   linkType: hard
 
-"@percy/core@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/core@npm:1.31.10"
+"@percy/core@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/core@npm:1.31.11"
   dependencies:
-    "@percy/cli-doctor": "npm:1.31.10"
-    "@percy/client": "npm:1.31.10"
-    "@percy/config": "npm:1.31.10"
-    "@percy/dom": "npm:1.31.10"
-    "@percy/logger": "npm:1.31.10"
-    "@percy/monitoring": "npm:1.31.10"
-    "@percy/webdriver-utils": "npm:1.31.10"
+    "@percy/cli-doctor": "npm:1.31.11"
+    "@percy/client": "npm:1.31.11"
+    "@percy/config": "npm:1.31.11"
+    "@percy/dom": "npm:1.31.11"
+    "@percy/logger": "npm:1.31.11"
+    "@percy/monitoring": "npm:1.31.11"
+    "@percy/webdriver-utils": "npm:1.31.11"
     content-disposition: "npm:^0.5.4"
     cross-spawn: "npm:^7.0.3"
     extract-zip: "npm:^2.0.1"
@@ -5693,70 +5875,70 @@ __metadata:
   dependenciesMeta:
     "@percy/cli-doctor":
       optional: true
-  checksum: 10/3161226d1e06c5cef3fc398a853ec6d9974ce9032ab764572959ff35d97787d17ffa4d7b2850caf4b2ed29939819b444a7895042153819844d22c11e7970d6c0
+  checksum: 10/cffedf761a60b3deea0223a9e63b6ebbc5d1e6162095ce75109ed446f0842361447b54ca6a04550e899737417f591865702e27fef589b000ab60789123b57a06
   languageName: node
   linkType: hard
 
-"@percy/dom@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/dom@npm:1.31.10"
-  checksum: 10/13a2c3ecab872e9d781bea962d56cc22253b71fc252515de4cb5a0cb6e2be0ecea13493cbd62772afc317273ddf59934ddaf5653508828088e69f7f7e74d6957
+"@percy/dom@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/dom@npm:1.31.11"
+  checksum: 10/c3feec08106781a0d176f6bda29ce228e76fc40bc61af924eccbb99707eb7ce08db5423bb9010d5bbb76f8909217daaf13ee7974132fab734593a9712ae03120
   languageName: node
   linkType: hard
 
-"@percy/env@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/env@npm:1.31.10"
+"@percy/env@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/env@npm:1.31.11"
   dependencies:
-    "@percy/logger": "npm:1.31.10"
-  checksum: 10/e0d84c31fc1c13b2e99de4dc1c73193889473c624721f00b022b56e76a9578eba51d67c4953b17eefad97ea57df5dd3ce41e7eeb2de52f25798120a8715e4c3d
+    "@percy/logger": "npm:1.31.11"
+  checksum: 10/24e61a53b67550e73eb09266bc12a1a4ca291695e4b30e0429db0fbd0902d93c6295acd06dd9de96c77f800ecdf6e41a8bb4257791e17c2759a7955d0c55c673
   languageName: node
   linkType: hard
 
-"@percy/logger@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/logger@npm:1.31.10"
-  checksum: 10/e4368b589de15c41277975627cdd1a2819224dbea7c0adc83fa7fbba8b76066db1164d9ce5d406e68bebc568437f8b538b61d3dc337a028b62a4eb708f56968b
+"@percy/logger@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/logger@npm:1.31.11"
+  checksum: 10/616a8fe06b4cb9cb04ea4dcfb3288532614d24c804a0182593e38e1c136da9777a2783ebc7b88a67ee369a3af79d2db49cfba9280f22cfebc78908d37e8d3876
   languageName: node
   linkType: hard
 
-"@percy/monitoring@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/monitoring@npm:1.31.10"
+"@percy/monitoring@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/monitoring@npm:1.31.11"
   dependencies:
-    "@percy/config": "npm:1.31.10"
-    "@percy/logger": "npm:1.31.10"
-    "@percy/sdk-utils": "npm:1.31.10"
+    "@percy/config": "npm:1.31.11"
+    "@percy/logger": "npm:1.31.11"
+    "@percy/sdk-utils": "npm:1.31.11"
     systeminformation: "npm:^5.25.11"
-  checksum: 10/f87a500f57751b1a0c9521d5e1df47d1aa7e06e916c1a87951a4d9a188416a69fc5f448a4e1ceba86fc197b6b810c38ed568f9f41a5e838816e4a9b5659908c4
+  checksum: 10/4091cfc7fb0cdd9baad38dd71a53d5c07be20d3bd1c949b12dc4e126c5e5a7d9c932db16a0339b4db1118d4866f65c3d9b9646d4364bf60b13854dd3a0d156a1
   languageName: node
   linkType: hard
 
-"@percy/playwright@npm:1.0.10":
-  version: 1.0.10
-  resolution: "@percy/playwright@npm:1.0.10"
+"@percy/playwright@npm:1.1.0":
+  version: 1.1.0
+  resolution: "@percy/playwright@npm:1.1.0"
   peerDependencies:
     playwright-core: ">=1"
-  checksum: 10/8a67a49a84c968b629be3330a0c926205e2c2195f71dcebeee44adf1543c60da04f44a936dd8e6051323c55f5e16eaae56072ff7fa31afe21e198a559805f4da
+  checksum: 10/05cb41889621e343132b3f6ba11b4b14df5b250b44c558f8c5c48b47c6882bc60ca92d82f73e4b89dd1357f43773b9baa74f30fd019a4c96928942c89f92169c
   languageName: node
   linkType: hard
 
-"@percy/sdk-utils@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/sdk-utils@npm:1.31.10"
+"@percy/sdk-utils@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/sdk-utils@npm:1.31.11"
   dependencies:
     pac-proxy-agent: "npm:^7.0.2"
-  checksum: 10/4e1b2c632f56fdc4e5661df203b8d9fa17828affe7f7e2b716fa1ed82749edec4bba84b460568299de0fa8cd45d2e22d1ed6d69549bab1c3488f24a101be2d59
+  checksum: 10/da157e2dadbf9d52e069f2b20d38a2e9f6e0a52c99871eacc8f81dc8c6141120dca08507890cd8f7cd50526530bedfd17e70af525a67ccf52ea5857b02ada6c4
   languageName: node
   linkType: hard
 
-"@percy/webdriver-utils@npm:1.31.10":
-  version: 1.31.10
-  resolution: "@percy/webdriver-utils@npm:1.31.10"
+"@percy/webdriver-utils@npm:1.31.11":
+  version: 1.31.11
+  resolution: "@percy/webdriver-utils@npm:1.31.11"
   dependencies:
-    "@percy/config": "npm:1.31.10"
-    "@percy/sdk-utils": "npm:1.31.10"
-  checksum: 10/9380728bfe7d70b39ea32e6a60a4f371efe5ad1a01dc913fe73894d08e0e3803bb96abd986cc1aa9959faafd63bbc8b378cade204da1babe640f27e0dcaebf62
+    "@percy/config": "npm:1.31.11"
+    "@percy/sdk-utils": "npm:1.31.11"
+  checksum: 10/f084a41ac256b4ed1117f49b4583a65a83df548fbcb8ab6e550e95a6bc559d1ff45fe0fedccc35d01e72ca6a70bfcfdadde1d8a267ad42d24d8da5c6370daa38
   languageName: node
   linkType: hard
 
@@ -9316,7 +9498,7 @@ __metadata:
     "@angular-devkit/schematics": "npm:21.2.3"
     "@angular/animations": "npm:^21.2.5"
     "@angular/build": "npm:21.2.3"
-    "@angular/cdk": "npm:^21.2.3"
+    "@angular/cdk": "npm:^21.2.5"
     "@angular/cli": "npm:21.2.3"
     "@angular/common": "npm:^21.2.5"
     "@angular/compiler": "npm:^21.2.5"
@@ -9828,36 +10010,36 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:0.27.4, esbuild@npm:^0.27.0, esbuild@npm:~0.27.0":
-  version: 0.27.4
-  resolution: "esbuild@npm:0.27.4"
+"esbuild@npm:0.27.5":
+  version: 0.27.5
+  resolution: "esbuild@npm:0.27.5"
   dependencies:
-    "@esbuild/aix-ppc64": "npm:0.27.4"
-    "@esbuild/android-arm": "npm:0.27.4"
-    "@esbuild/android-arm64": "npm:0.27.4"
-    "@esbuild/android-x64": "npm:0.27.4"
-    "@esbuild/darwin-arm64": "npm:0.27.4"
-    "@esbuild/darwin-x64": "npm:0.27.4"
-    "@esbuild/freebsd-arm64": "npm:0.27.4"
-    "@esbuild/freebsd-x64": "npm:0.27.4"
-    "@esbuild/linux-arm": "npm:0.27.4"
-    "@esbuild/linux-arm64": "npm:0.27.4"
-    "@esbuild/linux-ia32": "npm:0.27.4"
-    "@esbuild/linux-loong64": "npm:0.27.4"
-    "@esbuild/linux-mips64el": "npm:0.27.4"
-    "@esbuild/linux-ppc64": "npm:0.27.4"
-    "@esbuild/linux-riscv64": "npm:0.27.4"
-    "@esbuild/linux-s390x": "npm:0.27.4"
-    "@esbuild/linux-x64": "npm:0.27.4"
-    "@esbuild/netbsd-arm64": "npm:0.27.4"
-    "@esbuild/netbsd-x64": "npm:0.27.4"
-    "@esbuild/openbsd-arm64": "npm:0.27.4"
-    "@esbuild/openbsd-x64": "npm:0.27.4"
-    "@esbuild/openharmony-arm64": "npm:0.27.4"
-    "@esbuild/sunos-x64": "npm:0.27.4"
-    "@esbuild/win32-arm64": "npm:0.27.4"
-    "@esbuild/win32-ia32": "npm:0.27.4"
-    "@esbuild/win32-x64": "npm:0.27.4"
+    "@esbuild/aix-ppc64": "npm:0.27.5"
+    "@esbuild/android-arm": "npm:0.27.5"
+    "@esbuild/android-arm64": "npm:0.27.5"
+    "@esbuild/android-x64": "npm:0.27.5"
+    "@esbuild/darwin-arm64": "npm:0.27.5"
+    "@esbuild/darwin-x64": "npm:0.27.5"
+    "@esbuild/freebsd-arm64": "npm:0.27.5"
+    "@esbuild/freebsd-x64": "npm:0.27.5"
+    "@esbuild/linux-arm": "npm:0.27.5"
+    "@esbuild/linux-arm64": "npm:0.27.5"
+    "@esbuild/linux-ia32": "npm:0.27.5"
+    "@esbuild/linux-loong64": "npm:0.27.5"
+    "@esbuild/linux-mips64el": "npm:0.27.5"
+    "@esbuild/linux-ppc64": "npm:0.27.5"
+    "@esbuild/linux-riscv64": "npm:0.27.5"
+    "@esbuild/linux-s390x": "npm:0.27.5"
+    "@esbuild/linux-x64": "npm:0.27.5"
+    "@esbuild/netbsd-arm64": "npm:0.27.5"
+    "@esbuild/netbsd-x64": "npm:0.27.5"
+    "@esbuild/openbsd-arm64": "npm:0.27.5"
+    "@esbuild/openbsd-x64": "npm:0.27.5"
+    "@esbuild/openharmony-arm64": "npm:0.27.5"
+    "@esbuild/sunos-x64": "npm:0.27.5"
+    "@esbuild/win32-arm64": "npm:0.27.5"
+    "@esbuild/win32-ia32": "npm:0.27.5"
+    "@esbuild/win32-x64": "npm:0.27.5"
   dependenciesMeta:
     "@esbuild/aix-ppc64":
       optional: true
@@ -9913,7 +10095,7 @@ __metadata:
       optional: true
   bin:
     esbuild: bin/esbuild
-  checksum: 10/32b46ec22ef78bae6cc141145022a4c0209852c07151f037fbefccc2033ca54e7f33705f8fca198eb7026f400142f64c2dbc9f0d0ce9c0a638ebc472a04abc4a
+  checksum: 10/bf31870a720c9a1eb84d6312a49a6fee821d8359fddb9271bde19e5dfa2e2e1523a309ad1e2799bf572cc2ace73b464fb8255d1766ac1a54c83068cb09ef5844
   languageName: node
   linkType: hard
 
@@ -10003,6 +10185,95 @@ __metadata:
   bin:
     esbuild: bin/esbuild
   checksum: 10/bc9c03d64e96a0632a926662c9d29decafb13a40e5c91790f632f02939bc568edc9abe0ee5d8055085a2819a00139eb12e223cfb8126dbf89bbc569f125d91fd
+  languageName: node
+  linkType: hard
+
+"esbuild@npm:^0.27.0, esbuild@npm:~0.27.0":
+  version: 0.27.4
+  resolution: "esbuild@npm:0.27.4"
+  dependencies:
+    "@esbuild/aix-ppc64": "npm:0.27.4"
+    "@esbuild/android-arm": "npm:0.27.4"
+    "@esbuild/android-arm64": "npm:0.27.4"
+    "@esbuild/android-x64": "npm:0.27.4"
+    "@esbuild/darwin-arm64": "npm:0.27.4"
+    "@esbuild/darwin-x64": "npm:0.27.4"
+    "@esbuild/freebsd-arm64": "npm:0.27.4"
+    "@esbuild/freebsd-x64": "npm:0.27.4"
+    "@esbuild/linux-arm": "npm:0.27.4"
+    "@esbuild/linux-arm64": "npm:0.27.4"
+    "@esbuild/linux-ia32": "npm:0.27.4"
+    "@esbuild/linux-loong64": "npm:0.27.4"
+    "@esbuild/linux-mips64el": "npm:0.27.4"
+    "@esbuild/linux-ppc64": "npm:0.27.4"
+    "@esbuild/linux-riscv64": "npm:0.27.4"
+    "@esbuild/linux-s390x": "npm:0.27.4"
+    "@esbuild/linux-x64": "npm:0.27.4"
+    "@esbuild/netbsd-arm64": "npm:0.27.4"
+    "@esbuild/netbsd-x64": "npm:0.27.4"
+    "@esbuild/openbsd-arm64": "npm:0.27.4"
+    "@esbuild/openbsd-x64": "npm:0.27.4"
+    "@esbuild/openharmony-arm64": "npm:0.27.4"
+    "@esbuild/sunos-x64": "npm:0.27.4"
+    "@esbuild/win32-arm64": "npm:0.27.4"
+    "@esbuild/win32-ia32": "npm:0.27.4"
+    "@esbuild/win32-x64": "npm:0.27.4"
+  dependenciesMeta:
+    "@esbuild/aix-ppc64":
+      optional: true
+    "@esbuild/android-arm":
+      optional: true
+    "@esbuild/android-arm64":
+      optional: true
+    "@esbuild/android-x64":
+      optional: true
+    "@esbuild/darwin-arm64":
+      optional: true
+    "@esbuild/darwin-x64":
+      optional: true
+    "@esbuild/freebsd-arm64":
+      optional: true
+    "@esbuild/freebsd-x64":
+      optional: true
+    "@esbuild/linux-arm":
+      optional: true
+    "@esbuild/linux-arm64":
+      optional: true
+    "@esbuild/linux-ia32":
+      optional: true
+    "@esbuild/linux-loong64":
+      optional: true
+    "@esbuild/linux-mips64el":
+      optional: true
+    "@esbuild/linux-ppc64":
+      optional: true
+    "@esbuild/linux-riscv64":
+      optional: true
+    "@esbuild/linux-s390x":
+      optional: true
+    "@esbuild/linux-x64":
+      optional: true
+    "@esbuild/netbsd-arm64":
+      optional: true
+    "@esbuild/netbsd-x64":
+      optional: true
+    "@esbuild/openbsd-arm64":
+      optional: true
+    "@esbuild/openbsd-x64":
+      optional: true
+    "@esbuild/openharmony-arm64":
+      optional: true
+    "@esbuild/sunos-x64":
+      optional: true
+    "@esbuild/win32-arm64":
+      optional: true
+    "@esbuild/win32-ia32":
+      optional: true
+    "@esbuild/win32-x64":
+      optional: true
+  bin:
+    esbuild: bin/esbuild
+  checksum: 10/32b46ec22ef78bae6cc141145022a4c0209852c07151f037fbefccc2033ca54e7f33705f8fca198eb7026f400142f64c2dbc9f0d0ce9c0a638ebc472a04abc4a
   languageName: node
   linkType: hard
 
