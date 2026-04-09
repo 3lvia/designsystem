@@ -9497,7 +9497,7 @@ __metadata:
     dotenv: "npm:^16.6.1"
     eslint: "npm:9.39.4"
     file-saver: "npm:^2.0.5"
-    fuse.js: "npm:^7.2.0"
+    fuse.js: "npm:^7.3.0"
     jszip: "npm:^3.10.1"
     natural-compare-lite: "npm:^1.4.0"
     opentype.js: "npm:^1.3.4"
@@ -11020,7 +11020,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fuse.js@npm:^7.2.0":
+"fuse.js@npm:^7.3.0":
   version: 7.3.0
   resolution: "fuse.js@npm:7.3.0"
   checksum: 10/b2cdc39e46acb9524fe900356af74c987ecb1dbc67412df651a5291fa072d212e6d74457f0b5d1c39baf79539481f62b613ac792afd8995dd1fc3d20b5354914
