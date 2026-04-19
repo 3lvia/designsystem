@@ -460,9 +460,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@angular/cdk@npm:^21.2.5":
-  version: 21.2.5
-  resolution: "@angular/cdk@npm:21.2.5"
+"@angular/cdk@npm:^21.2.7":
+  version: 21.2.7
+  resolution: "@angular/cdk@npm:21.2.7"
   dependencies:
     parse5: "npm:^8.0.0"
     tslib: "npm:^2.3.0"
@@ -471,7 +471,7 @@ __metadata:
     "@angular/core": ^21.0.0 || ^22.0.0
     "@angular/platform-browser": ^21.0.0 || ^22.0.0
     rxjs: ^6.5.3 || ^7.4.0
-  checksum: 10/a5e673d12f2759d3fd5dc6de0c7bfc60b665a19ff18a80b4764a7ea501251b9ec6e70776eec02994a9f7bc9f148247b0bdbc8f9a8c105d3b3c710c9c1aa1772c
+  checksum: 10/00ba1af43269cfc9dc9c487dc3c590866338026febb26bfff944ffda6726fedd374fa2737dc9ae24e01174d0f715dcc51ae4af8703b3fbff64f7b53df0992446
   languageName: node
   linkType: hard
 
@@ -2365,7 +2365,7 @@ __metadata:
     jest-axe: "npm:10.0.0"
     jest-environment-jsdom: "npm:29.7.0"
     playwright-core: "npm:1.58.2"
-    postcss: "npm:8.5.8"
+    postcss: "npm:8.5.10"
     postcss-modules: "npm:6.0.1"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
@@ -6175,10 +6175,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rolldown/pluginutils@npm:1.0.0-rc.2":
-  version: 1.0.0-rc.2
-  resolution: "@rolldown/pluginutils@npm:1.0.0-rc.2"
-  checksum: 10/8dba3626ca26f49ed83d4db4a9eaacfcc6715cc8544f2969419489c90a2bb000025976049e0f6c5c2880817bff753fb04bec8fb57df9423f07958ce8da97035e
+"@rolldown/pluginutils@npm:1.0.0-rc.13":
+  version: 1.0.0-rc.13
+  resolution: "@rolldown/pluginutils@npm:1.0.0-rc.13"
+  checksum: 10/ffc6cdfac897c3fb7c5544560d2aaf2bd55acfb4f082295844a899bdccdd0c7baa11e27fe2b806427bd636d43aa2b22b9ec6b837bab9f416d1e29c4dd4c52516
   languageName: node
   linkType: hard
 
@@ -7269,15 +7269,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-vue@npm:6.0.5":
-  version: 6.0.5
-  resolution: "@vitejs/plugin-vue@npm:6.0.5"
+"@vitejs/plugin-vue@npm:6.0.6":
+  version: 6.0.6
+  resolution: "@vitejs/plugin-vue@npm:6.0.6"
   dependencies:
-    "@rolldown/pluginutils": "npm:1.0.0-rc.2"
+    "@rolldown/pluginutils": "npm:1.0.0-rc.13"
   peerDependencies:
     vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
     vue: ^3.2.25
-  checksum: 10/7c7816ecdaaf010e7913b6b39273263c747ce6834bfbb21530f438e9785f2df8a572527fee1bd538e605ee3b06df54d6e8db9a2bb549ad6292688a249775fef6
+  checksum: 10/f1eac02fd877fc3fce9d8c17f835c9fbc0573156805cddb936630fcfcffc5b94ad32cb3f1c48e3833e3940cd309a6d4fb0a71196b3b9ad6623ce4e7330769564
   languageName: node
   linkType: hard
 
@@ -9441,7 +9441,7 @@ __metadata:
     "@angular-devkit/schematics": "npm:21.2.3"
     "@angular/animations": "npm:^21.2.5"
     "@angular/build": "npm:21.2.3"
-    "@angular/cdk": "npm:^21.2.5"
+    "@angular/cdk": "npm:^21.2.7"
     "@angular/cli": "npm:21.2.3"
     "@angular/common": "npm:^21.2.5"
     "@angular/compiler": "npm:^21.2.5"
@@ -11249,10 +11249,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:17.4.0":
-  version: 17.4.0
-  resolution: "globals@npm:17.4.0"
-  checksum: 10/ffad244617e94efcb3da72b7beefc941167c21316148ce378f322db7af72db06468f370e23224b3c7b17b5173a7c75b134e5e7b0949f2828519054a76892508d
+"globals@npm:17.5.0":
+  version: 17.5.0
+  resolution: "globals@npm:17.5.0"
+  checksum: 10/c405a95e1ecf14a1a17caaecd4dadbad38166b3c1b514e07924604ee224e922c043fc93ae21164d124dae5536e5a812566355469e34a689601db7d3d424dc8e7
   languageName: node
   linkType: hard
 
@@ -14914,7 +14914,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.5.8, postcss@npm:^8.0.0, postcss@npm:^8.4.31, postcss@npm:^8.4.35, postcss@npm:^8.4.49, postcss@npm:^8.5.3, postcss@npm:^8.5.6, postcss@npm:^8.5.8":
+"postcss@npm:8.5.10":
+  version: 8.5.10
+  resolution: "postcss@npm:8.5.10"
+  dependencies:
+    nanoid: "npm:^3.3.11"
+    picocolors: "npm:^1.1.1"
+    source-map-js: "npm:^1.2.1"
+  checksum: 10/7eac6169e535b63c8412e94d4f6047fc23efa3e9dde804b541940043c831b25f1cd867d83cd2c4371ad2450c8abcb42c208aa25668c1f0f3650d7f72faf711a8
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.0.0, postcss@npm:^8.4.31, postcss@npm:^8.4.35, postcss@npm:^8.4.49, postcss@npm:^8.5.3, postcss@npm:^8.5.6, postcss@npm:^8.5.8":
   version: 8.5.8
   resolution: "postcss@npm:8.5.8"
   dependencies:
@@ -15754,8 +15765,8 @@ __metadata:
     eslint: "npm:9.39.4"
     eslint-plugin-react: "npm:7.37.5"
     express: "npm:5.2.1"
-    globals: "npm:17.4.0"
-    postcss: "npm:8.5.8"
+    globals: "npm:17.5.0"
+    postcss: "npm:8.5.10"
     prettier: "npm:^3.8.1"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
@@ -18164,7 +18175,7 @@ __metadata:
     "@elvia/elvis-timepicker": "npm:*"
     "@elvia/elvis-toast": "npm:*"
     "@elvia/elvis-tooltip": "npm:*"
-    "@vitejs/plugin-vue": "npm:6.0.5"
+    "@vitejs/plugin-vue": "npm:6.0.6"
     sass: "npm:1.93.3"
     typescript: "npm:5.8.2"
     vite: "npm:7.3.2"
