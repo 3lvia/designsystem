@@ -2385,7 +2385,7 @@ __metadata:
     jest-axe: "npm:10.0.0"
     jest-environment-jsdom: "npm:29.7.0"
     playwright-core: "npm:1.58.2"
-    postcss: "npm:8.5.10"
+    postcss: "npm:8.5.13"
     postcss-modules: "npm:6.0.1"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
@@ -11283,10 +11283,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:17.5.0":
-  version: 17.5.0
-  resolution: "globals@npm:17.5.0"
-  checksum: 10/c405a95e1ecf14a1a17caaecd4dadbad38166b3c1b514e07924604ee224e922c043fc93ae21164d124dae5536e5a812566355469e34a689601db7d3d424dc8e7
+"globals@npm:17.6.0":
+  version: 17.6.0
+  resolution: "globals@npm:17.6.0"
+  checksum: 10/2bf0febf31c942edee6f4eca7e939a9c885f8ecfb767048b1c4dd2a32008d0ab136e6076665d76b44b29c2571bbbc1681371caab05fd8ee0067c7618e841b89d
   languageName: node
   linkType: hard
 
@@ -14952,14 +14952,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.5.10":
-  version: 8.5.10
-  resolution: "postcss@npm:8.5.10"
+"postcss@npm:8.5.13":
+  version: 8.5.13
+  resolution: "postcss@npm:8.5.13"
   dependencies:
     nanoid: "npm:^3.3.11"
     picocolors: "npm:^1.1.1"
     source-map-js: "npm:^1.2.1"
-  checksum: 10/7eac6169e535b63c8412e94d4f6047fc23efa3e9dde804b541940043c831b25f1cd867d83cd2c4371ad2450c8abcb42c208aa25668c1f0f3650d7f72faf711a8
+  checksum: 10/4763873c0a39a6f71fc552d0046fedb80dca889ed0b85e36217285f754a3bd003a906f6088feb266b1f53b0ad20483a475dce4cc1c756f05e27940c51e40ebd8
   languageName: node
   linkType: hard
 
@@ -15867,8 +15867,8 @@ __metadata:
     eslint: "npm:9.39.4"
     eslint-plugin-react: "npm:7.37.5"
     express: "npm:5.2.1"
-    globals: "npm:17.5.0"
-    postcss: "npm:8.5.10"
+    globals: "npm:17.6.0"
+    postcss: "npm:8.5.13"
     prettier: "npm:^3.8.3"
     react: "npm:^18.3.1"
     react-dom: "npm:^18.3.1"
