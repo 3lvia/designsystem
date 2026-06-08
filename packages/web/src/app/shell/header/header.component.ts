@@ -1,5 +1,5 @@
 import { A11yModule, CdkTrapFocus } from '@angular/cdk/a11y';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
@@ -29,6 +29,7 @@ type MenuType = 'search' | 'mobileMenu' | null;
     FormsModule,
     A11yModule,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HeaderComponent {

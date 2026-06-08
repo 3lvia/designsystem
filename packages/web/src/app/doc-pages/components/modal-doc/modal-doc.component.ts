@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
@@ -15,6 +15,7 @@ import { modalData } from 'src/app/doc-pages/components/modal-doc/modal-data';
 @Component({
   selector: 'app-modal-doc',
   templateUrl: './modal-doc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

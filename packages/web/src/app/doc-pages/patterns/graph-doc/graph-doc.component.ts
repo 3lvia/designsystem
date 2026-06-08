@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { ComponentHeaderComponent } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.component';
@@ -19,6 +19,7 @@ const docPage: any = getDocPage('graph');
     WhenToUseComponent,
     RouterLink,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './graph-doc.component.html',
 })
 export class GraphDocComponent {

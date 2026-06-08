@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { StaticCegComponent } from '../../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
@@ -17,6 +17,7 @@ import { SearchSizeSmallCegComponent } from './search-size-small-ceg/search-size
 @Component({
   selector: 'app-search-doc',
   templateUrl: './search-doc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

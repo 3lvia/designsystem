@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { ComponentHeaderComponent } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.component';
@@ -10,6 +10,7 @@ const docPage = getDocPage('onboarding');
 @Component({
   selector: 'app-onboarding-doc',
   imports: [ComponentHeaderComponent, ComponentSectionComponent, ComponentSubsectionComponent, RouterLink],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './onboarding-doc.component.html',
 })
 export class OnboardingDocComponent {

@@ -1,4 +1,12 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, inject, input, signal } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  input,
+  signal,
+} from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CopyComponent } from '../../../copy/copy.component';
@@ -8,6 +16,7 @@ import { CopyComponent } from '../../../copy/copy.component';
   templateUrl: './component-section.component.html',
   styleUrls: ['./component-section.component.scss'],
   imports: [CopyComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentSectionComponent {

@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 import { BaseBadgeProps } from '@elvia/elvis-badge/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -7,6 +7,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-badge-ceg',
   templateUrl: './badge-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: BadgeCegComponent }],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class BadgeCegComponent implements ComponentExample {

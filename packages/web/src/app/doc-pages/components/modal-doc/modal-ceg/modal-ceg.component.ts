@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 import { BaseModalProps } from '@elvia/elvis-modal/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -7,6 +7,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-modal-ceg',
   templateUrl: './modal-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: ModalCegComponent }],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ModalCegComponent implements ComponentExample {

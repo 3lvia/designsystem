@@ -1,4 +1,4 @@
-import { Component, booleanAttribute, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, booleanAttribute, input } from '@angular/core';
 
 import { SubMenuComponent } from '../../../navbar/sub-menu/sub-menu.component';
 import { IfViewportSizeDirective } from '../../../viewport-size/if-viewport-size.directive';
@@ -9,6 +9,7 @@ import ComponentData from 'src/app/doc-pages/components/component-data.interface
   selector: 'app-component-header',
   templateUrl: './component-header.component.html',
   styleUrls: ['./component-header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ComponentHeaderQuickInstallComponent, IfViewportSizeDirective, SubMenuComponent],
 })
 export class ComponentHeaderComponent {

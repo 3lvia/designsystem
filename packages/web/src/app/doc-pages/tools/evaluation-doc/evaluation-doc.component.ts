@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import { ComponentSectionComponent } from '../../../shared/component-documentation/component-structure/component-section/component-section.component';
 import { ThemeService } from 'src/app/core/services/theme.service';
@@ -11,6 +11,7 @@ const docPage = getDocPage('evaluation');
   selector: 'app-evaluation-doc',
   imports: [ComponentHeaderComponent, ComponentSectionComponent, AsyncPipe],
   templateUrl: './evaluation-doc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class EvaluationDocComponent {

@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 
 /**
  * @example
@@ -17,6 +17,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
   selector: 'app-do-dont-text',
   templateUrl: './do-dont-text.component.html',
   styleUrls: ['./do-dont-text.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DoDontTextComponent {}

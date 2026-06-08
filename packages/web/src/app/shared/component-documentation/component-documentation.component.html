@@ -74,7 +74,7 @@
   <!--CHANGELOG-->
   <app-component-section sectionTitle="Changelog">
     @defer {
-      @let changelog = componentData()?.changelog;
+      @let changelog = $safeNavigationMigration(componentData()?.changelog);
       @if (!isElvis() && changelog?.length) {
         <app-component-changelog [changelog]="changelog" />
       }

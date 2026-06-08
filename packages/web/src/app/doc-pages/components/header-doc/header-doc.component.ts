@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
@@ -20,6 +20,7 @@ import { headerData } from './header-data';
     ComponentSubsectionComponent,
     RouterLink,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HeaderDocComponent {

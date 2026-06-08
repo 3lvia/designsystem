@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
 import { getPackageName } from '../../../component-installation/getPackageName';
 import ComponentData from 'src/app/doc-pages/components/component-data.interface';
@@ -9,6 +9,7 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
   templateUrl: './component-header-quick-install.component.html',
   styleUrls: ['./component-header-quick-install.component.scss'],
   imports: [CopyComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentHeaderQuickInstallComponent {

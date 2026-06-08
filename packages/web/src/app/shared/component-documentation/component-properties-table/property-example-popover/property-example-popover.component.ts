@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, input, signal } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
 
 import { CodeViewerComponent } from '../../ceg/code-generator/code-viewer/code-viewer.component';
 
@@ -7,6 +7,7 @@ import { CodeViewerComponent } from '../../ceg/code-generator/code-viewer/code-v
   templateUrl: './property-example-popover.component.html',
   styleUrls: ['./property-example-popover.component.scss'],
   imports: [CodeViewerComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PropertyExamplePopoverComponent {

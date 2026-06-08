@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-app-bridge-placement',
   templateUrl: './app-bridge-placement.component.svg',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: `
     :host {
       display: block;

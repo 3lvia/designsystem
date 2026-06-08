@@ -1,4 +1,11 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, output, viewChild } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  output,
+  viewChild,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -6,6 +13,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './property-search-input.component.html',
   styleUrls: ['./property-search-input.component.scss'],
   imports: [FormsModule],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PropertySearchInputComponent {

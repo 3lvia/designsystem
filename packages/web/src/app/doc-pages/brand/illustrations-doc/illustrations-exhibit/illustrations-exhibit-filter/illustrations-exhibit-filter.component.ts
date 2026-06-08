@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Option } from '@elvia/elvis-radio-filter/react';
 
@@ -14,6 +14,7 @@ import { IfViewportSizeDirective } from 'src/app/shared/viewport-size/if-viewpor
   imports: [IfViewportSizeDirective, LocalThemeSwitchComponent],
   templateUrl: './illustrations-exhibit-filter.component.html',
   styleUrl: './illustrations-exhibit-filter.component.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IllustrationsExhibitFilterComponent {

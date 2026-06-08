@@ -1,10 +1,11 @@
-import { Component, OnInit, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, input } from '@angular/core';
 
 type ColorType = 'default' | 'black-white' | 'dark-black-white' | 'signal' | 'dark-signal';
 
 @Component({
   selector: 'app-color-token-subtable-color-circle',
   templateUrl: './color-token-subtable-color-circle.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./color-token-subtable-color-circle.component.scss'],
 })
 export class ColorTokenSubtableColorCircleComponent implements OnInit {

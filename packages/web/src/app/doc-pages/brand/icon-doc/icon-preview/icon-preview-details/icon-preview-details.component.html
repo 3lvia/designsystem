@@ -1,4 +1,4 @@
-<app-icon-generator [name]="selectedIcon()?.title" />
+<app-icon-generator [name]="$safeNavigationMigration(selectedIcon()?.title)" />
 
 <div class="info e-color-text-1">
   @let iconText =

@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 import { BaseAccordionProps } from '@elvia/elvis-accordion/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -8,6 +8,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   templateUrl: './accordion-ceg.component.html',
   styleUrls: ['./accordion-ceg.component.scss'],
   providers: [{ provide: ComponentExample, useExisting: AccordionCegComponent }],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AccordionCegComponent implements ComponentExample {

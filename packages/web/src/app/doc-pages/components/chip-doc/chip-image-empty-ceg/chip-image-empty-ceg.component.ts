@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import * as template from './chip-image-empty-ceg.component.html';
@@ -9,6 +9,7 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-chip-empty-image-ceg',
   templateUrl: './chip-image-empty-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: ChipImageEmptyCegComponent }],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ChipImageEmptyCegComponent implements StaticComponentExample {

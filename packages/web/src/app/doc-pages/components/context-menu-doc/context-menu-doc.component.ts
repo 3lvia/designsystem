@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
 import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
@@ -18,6 +18,7 @@ import { ContextMenuSelectableCegComponent } from './context-menu-selectable-ceg
   selector: 'app-context-menu-doc',
   templateUrl: './context-menu-doc.component.html',
   styleUrls: ['./context-menu-doc.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

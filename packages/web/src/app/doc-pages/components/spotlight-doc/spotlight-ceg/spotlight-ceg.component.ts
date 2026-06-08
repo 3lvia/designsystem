@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   HostListener,
@@ -15,6 +16,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-spotlight-ceg',
   templateUrl: './spotlight-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: SpotlightCegComponent }],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SpotlightCegComponent implements ComponentExample, AfterViewInit {

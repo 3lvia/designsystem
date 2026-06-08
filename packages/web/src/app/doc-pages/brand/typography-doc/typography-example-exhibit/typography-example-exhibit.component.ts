@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { Category, Modifier, specialTypographies, textTypographies, titleTypographies } from './typographies';
 import { TypographyExampleExhibitFilterComponent } from './typography-example-exhibit-filter/typography-example-exhibit-filter.component';
@@ -7,6 +7,7 @@ import { TypographyExampleExhibitListComponent } from './typography-example-exhi
 @Component({
   imports: [TypographyExampleExhibitFilterComponent, TypographyExampleExhibitListComponent],
   selector: 'app-typography-example-exhibit',
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './typography-example-exhibit.component.html',
 })
 export class TypographyExampleExhibitComponent {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ToastConfig, openElviaToast } from '@elvia/elvis-toast';
 import { pairwise } from 'rxjs';
@@ -12,6 +12,7 @@ import {
 @Component({
   selector: 'app-toast-ceg',
   templateUrl: './toast-ceg.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [
     { provide: ComponentExample, useExisting: ToastCegComponent },
     { provide: TypescriptComponentExample, useExisting: ToastCegComponent },

@@ -1,5 +1,5 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, NO_ERRORS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { Category, allComponents, sortedComponentsInfo } from './components-info';
@@ -12,6 +12,7 @@ import { IfViewportSizeDirective } from 'src/app/shared/viewport-size/if-viewpor
   templateUrl: './components-doc.component.html',
   styleUrls: ['./components-doc.component.scss'],
   imports: [RouterLink, IfViewportSizeDirective, DocPagePipe, InlineSvgComponent, NgTemplateOutlet],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class ComponentsDocComponent {

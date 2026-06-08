@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { StaticCegComponent } from '../../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
@@ -16,6 +16,7 @@ import { CheckboxStatesCegComponent } from './checkbox-states-ceg/checkbox-state
 @Component({
   selector: 'app-checkbox-doc',
   templateUrl: './checkbox-doc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

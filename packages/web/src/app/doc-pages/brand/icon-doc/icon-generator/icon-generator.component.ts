@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
 import { kebabCaseToCamelCase } from '../icon-preview/utils';
 
@@ -6,6 +6,7 @@ import { kebabCaseToCamelCase } from '../icon-preview/utils';
   selector: 'app-icon-generator',
   template: `<e-icon [name]="transformedName()" [size]="size()" />`,
   styles: [':host { line-height: 0; }'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IconGeneratorComponent {

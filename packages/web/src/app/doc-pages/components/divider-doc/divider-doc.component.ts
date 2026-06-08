@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
@@ -11,6 +11,7 @@ import { dividerData } from './divider-data';
 @Component({
   selector: 'app-divider-doc',
   templateUrl: './divider-doc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

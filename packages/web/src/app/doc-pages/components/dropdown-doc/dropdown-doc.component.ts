@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
@@ -36,6 +36,7 @@ import { DropdownTreeCegComponent } from './dropdown-tree-ceg/dropdown-tree-ceg.
     DropdownEmptyCegComponent,
     WhenToUseComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DropdownDocComponent {

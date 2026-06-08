@@ -1,4 +1,11 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, inject, input } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject,
+  input,
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { CopyComponent } from '../../copy/copy.component';
@@ -14,6 +21,7 @@ import ComponentData from 'src/app/doc-pages/components/component-data.interface
   templateUrl: './component-installation.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   animations: [heightAnimation],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [CopyComponent, TabToSegmentedControlItemPipe],
 })
 export class ComponentInstallationComponent {

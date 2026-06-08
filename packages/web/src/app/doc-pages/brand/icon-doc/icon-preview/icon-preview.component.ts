@@ -1,5 +1,5 @@
 import { CdkTrapFocus } from '@angular/cdk/a11y';
-import { Component, computed, model, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, model, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import { filter, fromEvent } from 'rxjs';
@@ -24,6 +24,7 @@ const allIcons = getIconList();
   ],
   templateUrl: './icon-preview.component.html',
   styleUrl: './icon-preview.component.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   animations: [entranceAnimation],
 })
 export class IconPreviewComponent {

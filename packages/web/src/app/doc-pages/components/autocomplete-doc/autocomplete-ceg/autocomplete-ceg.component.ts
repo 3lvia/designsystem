@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 import { BaseAutocompleteProps } from '@elvia/elvis-autocomplete/react';
 
 import { data } from './autocomplete-items-data';
@@ -8,6 +8,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-autocomplete-ceg',
   templateUrl: './autocomplete-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: AutocompleteCegComponent }],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AutocompleteCegComponent implements ComponentExample {

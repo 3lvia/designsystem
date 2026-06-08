@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 import { BaseAppBridgeProps } from '@elvia/elvis-app-bridge/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -7,6 +7,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-app-bridge-ceg',
   templateUrl: './app-bridge-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: AppBridgeCegComponent }],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppBridgeCegComponent implements ComponentExample {

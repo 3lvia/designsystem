@@ -1,5 +1,5 @@
 import { AsyncPipe, NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ThemeName } from '@elvia/elvis-colors';
 
@@ -19,6 +19,7 @@ interface Shadow {
   templateUrl: './shadow-viewer.component.html',
   styleUrls: ['./shadow-viewer.component.scss'],
   imports: [NgClass, CopyComponent, AsyncPipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ShadowViewerComponent {

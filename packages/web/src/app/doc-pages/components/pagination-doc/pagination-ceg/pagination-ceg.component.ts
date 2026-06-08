@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 import { BasePaginationProps } from '@elvia/elvis-pagination/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -7,6 +7,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-pagination-ceg',
   templateUrl: './pagination-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: PaginationCegComponent }],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PaginationCegComponent implements ComponentExample {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import * as template from './tag-signal-colored-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -6,6 +6,7 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 @Component({
   selector: 'app-tag-signal-colored-ceg',
   templateUrl: './tag-signal-colored-ceg.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [{ provide: StaticComponentExample, useExisting: TagSignalColoredCegComponent }],
 })
 export class TagSignalColoredCegComponent implements StaticComponentExample {

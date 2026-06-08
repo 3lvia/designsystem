@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { ComponentHeaderComponent } from '../../../shared/component-documentation/component-structure/component-header/component-header.component';
@@ -12,6 +12,7 @@ const docPage = getDocPage('utility-classes');
   selector: 'app-utilities-doc',
   templateUrl: './utilities-doc.component.html',
   styleUrls: ['./utilities-doc.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ComponentHeaderComponent, ComponentSubsectionComponent, RouterLink, CopyComponent],
 })
 export class UtilitiesDocComponent {

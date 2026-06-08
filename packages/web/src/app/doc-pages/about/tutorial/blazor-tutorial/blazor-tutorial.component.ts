@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { CodeViewerComponent } from 'src/app/shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
@@ -7,6 +7,7 @@ import { CodeViewerComponent } from 'src/app/shared/component-documentation/ceg/
   selector: 'app-blazor-tutorial',
   templateUrl: './blazor-tutorial.component.html',
   imports: [CodeViewerComponent, RouterLink],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class BlazorTutorialComponent {

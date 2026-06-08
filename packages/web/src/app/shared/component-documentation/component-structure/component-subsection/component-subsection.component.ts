@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 import { CopyComponent } from '../../../copy/copy.component';
 
@@ -6,6 +6,7 @@ import { CopyComponent } from '../../../copy/copy.component';
   selector: 'app-component-subsection',
   templateUrl: './component-subsection.component.html',
   styleUrls: ['./component-subsection.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [CopyComponent],
 })
 export class ComponentSubsectionComponent {

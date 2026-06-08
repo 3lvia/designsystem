@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { LocalizationService } from 'src/app/core/services/localization.service';
@@ -12,6 +12,7 @@ const docPage = getDocPage('images');
   selector: 'app-image-doc',
   imports: [ComponentHeaderComponent, ComponentSectionComponent, SafeHtmlPipe],
   templateUrl: './image-doc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ImageDocComponent {

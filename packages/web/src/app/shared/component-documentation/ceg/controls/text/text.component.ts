@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 
 import { Text } from '../../controlType';
 
@@ -7,6 +7,7 @@ let CEG_INPUT_ID = 0;
 @Component({
   selector: 'app-text',
   templateUrl: './text.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./text.component.scss'],
 })
 export class TextComponent {

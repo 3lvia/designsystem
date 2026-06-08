@@ -1,10 +1,11 @@
-import { Component, ElementRef, effect, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, effect, inject, input } from '@angular/core';
 
 import { IllustrationColor } from '../../illustrations-data';
 import { IllustrationName } from '../illustrations-exhibit-data';
 
 @Component({
   selector: 'app-illustrations-generator',
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: '',
 })
 export class IllustrationsGeneratorComponent {

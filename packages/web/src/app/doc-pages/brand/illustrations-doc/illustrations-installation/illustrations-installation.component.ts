@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { heightAnimation } from 'src/app/shared/component-documentation/component-installation/animations';
@@ -12,6 +12,7 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
   imports: [CopyComponent, TabToSegmentedControlItemPipe],
   templateUrl: './illustrations-installation.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  changeDetection: ChangeDetectionStrategy.Eager,
   animations: [heightAnimation],
 })
 export class IllustrationsInstallationComponent {

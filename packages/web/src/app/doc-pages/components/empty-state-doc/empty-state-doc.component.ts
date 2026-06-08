@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { EmptyStateCegComponent } from './empty-state-ceg/empty-state-ceg.component';
@@ -25,6 +25,7 @@ import { WhenToUseComponent } from 'src/app/shared/when-to-use/when-to-use.compo
     EmptyStateTypeLargeCegComponent,
     EmptyStateTypeStartAlignedCegComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './empty-state-doc.component.html',
 })
 export class EmptyStateDocComponent {

@@ -1,5 +1,5 @@
 import { KeyValuePipe, NgPlural, NgPluralCase, UpperCasePipe } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { CopyComponent } from '../../../../../shared/copy/copy.component';
@@ -27,6 +27,7 @@ import { ReplacePipe } from 'src/app/shared/pipes/replace.pipe';
     ReplacePipe,
     NeedsBorderPipe,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ColorPickerExhibitComponent {

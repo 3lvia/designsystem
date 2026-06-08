@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 import { ModalProps } from '@elvia/elvis-modal/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -8,6 +8,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   styleUrls: ['./modal-multiple-pages-ceg.component.scss'],
   templateUrl: './modal-multiple-pages-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: ModalMultiplePagesCegComponent }],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ModalMultiplePagesCegComponent implements ComponentExample {

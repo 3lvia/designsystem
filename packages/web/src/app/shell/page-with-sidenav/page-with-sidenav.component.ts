@@ -1,5 +1,12 @@
 import { TitleCasePipe } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, inject, input, signal } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+  signal,
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 
@@ -21,6 +28,7 @@ import { IfViewportSizeDirective } from '../../shared/viewport-size/if-viewport-
     MobileNavbarComponent,
     TitleCasePipe,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PageWithSidenavComponent {

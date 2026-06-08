@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { ComponentHeaderComponent } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.component';
 import { ComponentSectionComponent } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.component';
@@ -10,6 +10,7 @@ const docPage = getDocPage('user-feedback');
   selector: 'app-user-feedback-doc',
   imports: [ComponentHeaderComponent, ComponentSectionComponent, DesignsystemSlackLinkComponent],
   templateUrl: './user-feedback-doc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class UserFeedbackDocComponent {

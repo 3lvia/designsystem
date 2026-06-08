@@ -1,4 +1,11 @@
-import { AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, inject } from '@angular/core';
+import {
+  AfterViewInit,
+  CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  inject,
+} from '@angular/core';
 
 import * as template from './input-validation-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -7,6 +14,7 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-input-validation-ceg',
   templateUrl: './input-validation-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: InputValidationCegComponent }],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class InputValidationCegComponent implements StaticComponentExample, AfterViewInit {

@@ -8,15 +8,15 @@
     "lint": "ng lint"
   },
   "dependencies": {
-    "@angular/animations": "^21.2.5",
-    "@angular/cdk": "^21.2.9",
-    "@angular/common": "^21.2.5",
-    "@angular/compiler": "^21.2.5",
-    "@angular/core": "^21.2.5",
-    "@angular/forms": "^21.2.5",
-    "@angular/platform-browser": "^21.2.5",
-    "@angular/platform-browser-dynamic": "^21.2.5",
-    "@angular/router": "^21.2.5",
+    "@angular/animations": "22.0.0",
+    "@angular/cdk": "22.0.0",
+    "@angular/common": "22.0.0",
+    "@angular/compiler": "22.0.0",
+    "@angular/core": "22.0.0",
+    "@angular/forms": "22.0.0",
+    "@angular/platform-browser": "22.0.0",
+    "@angular/platform-browser-dynamic": "22.0.0",
+    "@angular/router": "22.0.0",
     "@elvia/elvis": "workspace:*",
     "@elvia/elvis-accordion": "workspace:*",
     "@elvia/elvis-app-bridge": "workspace:*",
@@ -65,12 +65,12 @@
     "zone.js": "~0.16.1"
   },
   "devDependencies": {
-    "@angular-devkit/core": "21.2.3",
-    "@angular-devkit/schematics": "21.2.3",
-    "@angular/build": "21.2.3",
-    "@angular/cli": "21.2.3",
-    "@angular/compiler-cli": "21.2.5",
-    "@angular/language-service": "21.2.5",
+    "@angular-devkit/core": "22.0.0",
+    "@angular-devkit/schematics": "22.0.0",
+    "@angular/build": "22.0.0",
+    "@angular/cli": "22.0.0",
+    "@angular/compiler-cli": "22.0.0",
+    "@angular/language-service": "22.0.0",
     "@babel/core": "7.29.0",
     "@types/file-saver": "2.0.7",
     "@types/natural-compare-lite": "1.4.2",
@@ -82,7 +82,7 @@
     "eslint": "9.39.4",
     "safe-json-stringify": "1.2.0",
     "ts-node": "10.9.2",
-    "typescript": "5.9.3",
+    "typescript": "6.0.3",
     "typescript-eslint": "8.59.3"
   }
 }

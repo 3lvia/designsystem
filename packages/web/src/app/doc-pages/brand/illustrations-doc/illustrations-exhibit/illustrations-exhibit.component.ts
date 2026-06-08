@@ -1,5 +1,5 @@
 import { CdkTrapFocus } from '@angular/cdk/a11y';
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { filter, fromEvent } from 'rxjs';
 
@@ -19,6 +19,7 @@ import { IllustrationsExhibitService } from './illustrations-exhibit.service';
   ],
   templateUrl: './illustrations-exhibit.component.html',
   styleUrl: './illustrations-exhibit.component.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   animations: [entranceAnimation],
 })
 export class IllustrationsExhibitComponent {

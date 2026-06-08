@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ThemeName } from '@elvia/elvis-colors';
 
 import { ColorPickerService } from '../color-picker.service';
@@ -9,6 +9,7 @@ import { LocalThemeSwitchComponent } from 'src/app/shared/local-theme-switch/loc
   templateUrl: './color-picker-header.component.html',
   styleUrls: ['./color-picker-header.component.scss'],
   imports: [LocalThemeSwitchComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ColorPickerHeaderComponent {

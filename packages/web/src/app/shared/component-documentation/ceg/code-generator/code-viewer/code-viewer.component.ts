@@ -1,5 +1,13 @@
 import { AsyncPipe } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, booleanAttribute, inject, input, output } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
+  Component,
+  booleanAttribute,
+  inject,
+  input,
+  output,
+} from '@angular/core';
 
 import { IfViewportSizeDirective } from '../../../../viewport-size/if-viewport-size.directive';
 import { TabToSegmentedControlItemPipe } from '../../../tabToSegmentedControlItem.pipe';
@@ -21,6 +29,7 @@ import { BreakpointService } from 'src/app/core/services/breakpoint.service';
     HighlighterPipe,
   ],
   providers: [FormatCodePipe, HighlighterPipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CodeViewerComponent {

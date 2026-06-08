@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import * as template from './table-sticky-column-header-desktop-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -6,6 +6,7 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 @Component({
   selector: 'app-table-sticky-column-header-desktop-ceg',
   templateUrl: './table-sticky-column-header-desktop-ceg.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [{ provide: StaticComponentExample, useExisting: TableStickyColumnHeaderDesktopCegComponent }],
 })
 export class TableStickyColumnHeaderDesktopCegComponent implements StaticComponentExample {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { GroupAccordionExampleCegComponent } from './group-accordion-example-ceg/group-accordion-example-ceg.component';
@@ -25,6 +25,7 @@ const docPage = getDocPage('groups');
     RouterLink,
     StaticCegComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './groups-doc.component.html',
 })
 export class GroupsDocComponent {

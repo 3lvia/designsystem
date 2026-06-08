@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import { ColorListBaseDirective } from './color-list-base.directive';
 import { ColorPickerColorListComponent } from './color-picker-color-list/color-picker-color-list.component';
@@ -18,6 +18,7 @@ import { ColorPickerService } from './color-picker.service';
     ColorListBaseDirective,
     ColorPickerColorListComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ColorPickerComponent {

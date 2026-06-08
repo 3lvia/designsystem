@@ -1,6 +1,6 @@
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 import { Location } from '@angular/common';
-import { ChangeDetectorRef, Component, NgZone, inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, NgZone, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { first, fromEvent, switchMap } from 'rxjs';
@@ -16,6 +16,7 @@ export interface Anchor {
   selector: 'app-sub-menu',
   templateUrl: './sub-menu.component.html',
   styleUrls: ['./sub-menu.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   animations: [
     trigger('listAnimation', [
       transition('* => *', [

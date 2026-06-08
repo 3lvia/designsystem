@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, computed, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 
 import { ColorPickerService } from '../color-picker.service';
 import { darkColors } from '../colors-dark';
@@ -12,6 +12,7 @@ import { NeedsBorderPipe } from '../needs-border.pipe';
   selector: 'app-color-picker-color-list',
   templateUrl: './color-picker-color-list.component.html',
   styleUrls: ['./color-picker-color-list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [NgClass, NeedsBorderPipe],
 })
 export class ColorPickerColorListComponent {

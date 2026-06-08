@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 
@@ -10,6 +10,7 @@ import { InlineSvgComponent } from 'src/app/shared/inline-svg/inline-svg.compone
   selector: 'app-brand-doc',
   imports: [RouterLink, InlineSvgComponent],
   templateUrl: './brand-doc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class BrandDocComponent {

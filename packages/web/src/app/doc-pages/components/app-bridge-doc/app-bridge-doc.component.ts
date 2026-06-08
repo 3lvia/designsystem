@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
 import { WhenToUseComponent } from '../../../shared/when-to-use/when-to-use.component';
@@ -20,6 +20,7 @@ import { ComponentSectionComponent } from 'src/app/shared/component-documentatio
     WhenToUseComponent,
     AppBridgePlacementComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './app-bridge-doc.component.html',
 })
 export class AppBridgeDocComponent {

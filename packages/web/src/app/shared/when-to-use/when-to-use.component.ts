@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 import { Locale } from 'src/app/core/services/localization.service';
 
@@ -6,6 +6,7 @@ import { Locale } from 'src/app/core/services/localization.service';
   selector: 'app-when-to-use',
   templateUrl: './when-to-use.component.html',
   styleUrls: ['./when-to-use.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class WhenToUseComponent {

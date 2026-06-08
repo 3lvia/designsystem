@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
 import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
@@ -13,6 +13,7 @@ import { ButtonBadgeCegComponent } from './button-badge-ceg/button-badge-ceg.com
   selector: 'app-badge-doc',
   templateUrl: './badge-doc.component.html',
   styleUrl: './badge-doc.component.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

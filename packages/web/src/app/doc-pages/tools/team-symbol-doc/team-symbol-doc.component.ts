@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { TeamSymbolGeneratorComponent } from './team-symbol-generator/team-symbol-generator.component';
 import { ComponentHeaderComponent } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.component';
@@ -9,6 +9,7 @@ const docPage = getDocPage('team-symbol');
 @Component({
   selector: 'app-team-symbol-doc',
   templateUrl: './team-symbol-doc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [ComponentHeaderComponent, ComponentSectionComponent, TeamSymbolGeneratorComponent],
 })
 export class TeamSymbolDocComponent {

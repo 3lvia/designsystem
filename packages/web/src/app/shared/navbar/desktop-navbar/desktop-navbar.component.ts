@@ -3,6 +3,7 @@ import { AsyncPipe } from '@angular/common';
 import {
   AfterViewInit,
   CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
   Component,
   DestroyRef,
   ElementRef,
@@ -32,6 +33,7 @@ const animationMotion = '320ms cubic-bezier(0.5, 0, 0.31, 1)';
     ]),
   ],
   imports: [RouterLinkActive, RouterLink, SubMenuComponent, LocalePickerComponent, AsyncPipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class DesktopNavbarComponent extends NavbarBase implements AfterViewInit {

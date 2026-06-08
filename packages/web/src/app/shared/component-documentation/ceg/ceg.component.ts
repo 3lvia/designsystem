@@ -3,6 +3,7 @@ import { HttpParams } from '@angular/common/http';
 import {
   AfterContentInit,
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   DestroyRef,
   ElementRef,
@@ -41,6 +42,7 @@ interface SlotMap {
   selector: 'app-ceg',
   templateUrl: './ceg.component.html',
   styleUrls: ['./ceg.component.scss', './shared-styles.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     TypeSwitcherComponent,
     ControlsPopoverComponent,

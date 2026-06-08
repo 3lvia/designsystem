@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, model } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, model } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { Theme } from 'src/app/core/services/theme.service';
@@ -12,6 +12,7 @@ export type FilterValue = 'all' | 'outline' | 'filled' | 'colored';
   imports: [FormsModule, LocalThemeSwitchComponent, IfViewportSizeDirective],
   templateUrl: './icon-preview-filter.component.html',
   styleUrl: './icon-preview-filter.component.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IconPreviewFilterComponent {

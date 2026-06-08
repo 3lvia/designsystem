@@ -2,7 +2,9 @@
   <div
     class="circle"
     [style.background-color]="currentColorExistsInCurrentTheme() ? currentColor()?.hex : null"
-    [class.border]="currentColor()?.name ? (currentColor()?.name | needsBorder: theme()) : false"
+    [class.border]="
+      currentColor()?.name ? ($safeNavigationMigration(currentColor()?.name) | needsBorder: theme()) : false
+    "
     [class.nonexistent]="!currentColorExistsInCurrentTheme()"
   ></div>
 
@@ -50,7 +52,7 @@
       <!-- CONTRAST -->
       <p class="e-title-caps contrast--heading">contrast</p>
       <div class="contrast--container e-text-small">
-        @for (contrast of currentColor()?.contrast | keyvalue; track $index) {
+        @for (contrast of $safeNavigationMigration(currentColor()?.contrast) | keyvalue; track $index) {
           <div class="contrast">
             @if (contrast.value) {
               <e-icon name="checkCircleColor" size="xs" />

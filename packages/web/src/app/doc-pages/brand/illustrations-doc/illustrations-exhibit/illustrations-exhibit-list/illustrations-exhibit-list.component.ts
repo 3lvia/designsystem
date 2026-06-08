@@ -1,4 +1,4 @@
-import { Component, effect, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { IllustrationName, illustrationsExhibitData } from '../illustrations-exhibit-data';
@@ -11,6 +11,7 @@ import { LocalizationService } from 'src/app/core/services/localization.service'
   selector: 'app-illustrations-exhibit-list',
   imports: [IllustrationsGeneratorComponent, IllustrationsExhibitListDisplayNamePipe],
   templateUrl: './illustrations-exhibit-list.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './illustrations-exhibit-list.component.scss',
 })
 export class IllustrationsExhibitListComponent {

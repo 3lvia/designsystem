@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
@@ -7,6 +7,7 @@ import { Locale, LocalizationService } from 'src/app/core/services/localization.
   selector: 'app-locale-picker',
   templateUrl: './locale-picker.component.html',
   styleUrls: ['./locale-picker.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LocalePickerComponent {

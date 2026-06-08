@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { CodeViewerComponent } from 'src/app/shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
@@ -6,6 +6,7 @@ import { CodeViewerComponent } from 'src/app/shared/component-documentation/ceg/
 @Component({
   selector: 'app-angular-tutorial',
   templateUrl: './angular-tutorial.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [CodeViewerComponent, RouterLink],
 })
 export class AngularTutorialComponent {

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { ThemeService } from 'src/app/core/services/theme.service';
@@ -18,6 +18,7 @@ const docPage = getDocPage('comments');
     ComponentSubsubsectionComponent,
     RouterLink,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './comments-doc.component.html',
 })
 export class CommentsDocComponent {

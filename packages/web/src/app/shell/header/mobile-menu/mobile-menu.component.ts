@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, output } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { ThemeSwitchComponent } from '../theme-switch/theme-switch.component';
@@ -9,6 +9,7 @@ import { mainMenuItems } from 'src/app/shared/doc-pages';
   templateUrl: './mobile-menu.component.html',
   styleUrls: ['./mobile-menu.component.scss'],
   imports: [RouterLink, ThemeSwitchComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class MobileMenuComponent {
