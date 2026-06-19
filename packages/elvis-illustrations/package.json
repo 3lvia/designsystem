@@ -29,7 +29,7 @@
     }
   },
   "devDependencies": {
-    "esbuild": "0.25.9",
+    "esbuild": "0.28.1",
     "picocolors": "1.1.1",
     "svgo": "4.0.1",
     "tsx": "4.20.5"
