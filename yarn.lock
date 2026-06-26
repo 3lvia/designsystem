@@ -674,6 +674,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/core@npm:7.29.6":
+  version: 7.29.6
+  resolution: "@babel/core@npm:7.29.6"
+  dependencies:
+    "@babel/code-frame": "npm:^7.29.0"
+    "@babel/generator": "npm:^7.29.6"
+    "@babel/helper-compilation-targets": "npm:^7.28.6"
+    "@babel/helper-module-transforms": "npm:^7.28.6"
+    "@babel/helpers": "npm:^7.29.2"
+    "@babel/parser": "npm:^7.29.3"
+    "@babel/template": "npm:^7.28.6"
+    "@babel/traverse": "npm:^7.29.0"
+    "@babel/types": "npm:^7.29.0"
+    "@jridgewell/remapping": "npm:^2.3.5"
+    convert-source-map: "npm:^2.0.0"
+    debug: "npm:^4.1.0"
+    gensync: "npm:^1.0.0-beta.2"
+    json5: "npm:^2.2.3"
+    semver: "npm:^6.3.1"
+  checksum: 10/b81c3f35c1ab0b75634f4cf2bcfb1c28ed5a973cf926c5e864fd63b600024768392768f2b21befc68381f5182c0767342e247830046e8b160c01612314a3593d
+  languageName: node
+  linkType: hard
+
 "@babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.23.9, @babel/core@npm:^7.28.0, @babel/core@npm:^7.29.0":
   version: 7.29.7
   resolution: "@babel/core@npm:7.29.7"
@@ -697,7 +720,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/generator@npm:^7.28.0, @babel/generator@npm:^7.29.0, @babel/generator@npm:^7.29.7, @babel/generator@npm:^7.7.2":
+"@babel/generator@npm:^7.28.0, @babel/generator@npm:^7.29.0, @babel/generator@npm:^7.29.6, @babel/generator@npm:^7.29.7, @babel/generator@npm:^7.7.2":
   version: 7.29.7
   resolution: "@babel/generator@npm:7.29.7"
   dependencies:
@@ -947,7 +970,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helpers@npm:^7.28.6, @babel/helpers@npm:^7.29.7":
+"@babel/helpers@npm:^7.28.6, @babel/helpers@npm:^7.29.2, @babel/helpers@npm:^7.29.7":
   version: 7.29.7
   resolution: "@babel/helpers@npm:7.29.7"
   dependencies:
@@ -957,7 +980,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.20.7, @babel/parser@npm:^7.23.9, @babel/parser@npm:^7.28.0, @babel/parser@npm:^7.28.5, @babel/parser@npm:^7.29.0, @babel/parser@npm:^7.29.2, @babel/parser@npm:^7.29.7":
+"@babel/parser@npm:^7.1.0, @babel/parser@npm:^7.14.7, @babel/parser@npm:^7.20.7, @babel/parser@npm:^7.23.9, @babel/parser@npm:^7.28.0, @babel/parser@npm:^7.28.5, @babel/parser@npm:^7.29.0, @babel/parser@npm:^7.29.2, @babel/parser@npm:^7.29.3, @babel/parser@npm:^7.29.7":
   version: 7.29.7
   resolution: "@babel/parser@npm:7.29.7"
   dependencies:
@@ -2436,7 +2459,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@elvia/elvis-components@workspace:packages/components"
   dependencies:
-    "@babel/core": "npm:7.29.0"
+    "@babel/core": "npm:7.29.6"
     "@babel/preset-env": "npm:7.29.3"
     "@babel/preset-react": "npm:7.28.5"
     "@babel/preset-typescript": "npm:7.28.5"
@@ -9669,7 +9692,7 @@ __metadata:
     "@angular/platform-browser": "npm:^21.2.5"
     "@angular/platform-browser-dynamic": "npm:^21.2.5"
     "@angular/router": "npm:^21.2.5"
-    "@babel/core": "npm:7.29.0"
+    "@babel/core": "npm:7.29.6"
     "@elvia/elvis": "workspace:*"
     "@elvia/elvis-accordion": "workspace:*"
     "@elvia/elvis-app-bridge": "workspace:*"
