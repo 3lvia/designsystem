@@ -34,7 +34,7 @@ jobs:
           cache: 'yarn'
           node-version-file: '.nvmrc'
       - name: Install
-        run: yarn install --immutable
+        run: YARN_ENABLE_SCRIPTS=false yarn install --immutable
       - name: Build
         run: yarn build
       - name: Fetch secrets from Vault
