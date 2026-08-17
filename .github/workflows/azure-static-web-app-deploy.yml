@@ -23,10 +23,20 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
           submodules: true
           lfs: false
+      - name: Get Yarn Cache
+        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
+        with:
+          cache: 'yarn'
+          node-version-file: '.nvmrc'
+      - name: Install
+        run: yarn install --immutable
+      - name: Build
+        run: yarn build:web:prod
       - name: Fetch secrets from Vault
         uses: 3lvia/core-github-actions-templates/vault@cc1b0db028f5909e4f49ab8855240f00a7c5f109
         with:
@@ -34,13 +44,11 @@ jobs:
           system: kunde
           secrets: |
             kunde/kv/data/static_web_app/designsystem api_key | AZURE_STATIC_WEB_APPS_API_TOKEN ;
-
-      - name: Build And Deploy
+      - name: Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9 # v1
         with:
-          azure_static_web_apps_api_token:
-            ${{ env.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          azure_static_web_apps_api_token: ${{ env.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: 'upload'
           ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
@@ -48,7 +56,8 @@ jobs:
           app_location: '/' # App source code path
           api_location: '' # Api source code path - optional
           output_location: 'packages/web/dist/elvia-designsystem/browser' # Built app content directory - optional
-          skip_api_build: true # Set the value to true to skip building the API functions.
+          skip_app_build: true
+          skip_api_build: true
           ###### End of Repository/Build Configurations ######
 
   # Cleans up the staging environment (preview link) after the pull request is closed
@@ -69,6 +78,5 @@ jobs:
         id: closepullrequest
         uses: Azure/static-web-apps-deploy@1a947af9992250f3bc2e68ad0754c0b0c11566c9 # v1
         with:
-          azure_static_web_apps_api_token:
-            ${{ env.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          azure_static_web_apps_api_token: ${{ env.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           action: 'close'
