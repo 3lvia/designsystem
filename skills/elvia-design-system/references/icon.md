@@ -48,12 +48,12 @@ addIcons({
 });
 ```
 
-Each icon registered once app-wide, not per-component/feature — keep all registrations as one flat object
-literal in the bootstrap file. `addIcons` merges by key, so re-registering the same name just overwrites it
+Each icon must be registered once app-wide, not per-component/feature. Keep all registrations as one flat
+object literal in the bootstrap file. `addIcons` merges by key, so re-registering the same name overwrites it
 silently (no error, no runtime guard needed); before adding a new entry, search the file for the key to avoid
-a redundant duplicate line.
+a duplicate line.
 
-Referencing an unregistered icon `name` throws at render time (`Icon "X" not found...`) — if an icon isn't
+Referencing an unregistered icon `name` throws at render time (`Icon "X" not found...`). If an icon isn't
 showing, first check it's been registered, then check it hasn't been renamed/deprecated in a newer
 `@elvia/elvis-assets-icons` version. After adding a new icon, verify it renders with no console error.
 

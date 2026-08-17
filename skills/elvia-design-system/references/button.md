@@ -19,7 +19,7 @@
 
 https://design.elvia.io/components/button
 
-Button is a CSS-based component, consisting og only CSS classes.
+Button is a CSS-based component, consisting of only CSS classes.
 
 ## Installation
 
@@ -86,7 +86,7 @@ mutually exclusive.
   tertiary button, they help signal it's clickable.
 - **Danger** (`e-btn--danger`): destructive actions. Confirm with a dialog before the action fires.
 - **Icon** (`e-btn--icon`): simple actions grouped together (close, edit, delete in a table row). Requires
-  `aria-label`; add a <elvia-tooltip> if the icon alone isn't obvious.
+  `aria-label`; add a `<elvia-tooltip>` if the icon alone isn't obvious.
 
 ### Size
 
@@ -94,7 +94,7 @@ mutually exclusive.
 - **Medium** `e-btn` (default).
 - **Large** `e-btn--lg`
 
-Size combine with type (e.g. `e-btn--primary e-btn--sm`).
+Size combines with type (e.g. `e-btn--primary e-btn--sm`).
 
 - Match size to priority/attention, and to whatever is in that UI region (don't put a large button next to
   small form controls).
@@ -110,7 +110,7 @@ Use `e-w-100` to make a button fill its container width.
 
 ### Label
 
-- The label should be an verb. Three words max. If a longer explanation is needed, put it in surrounding copy.
+- The label should be a verb. Three words max. If a longer explanation is needed, put it in surrounding copy.
 
 ### Icons on buttons
 
@@ -128,9 +128,8 @@ Use `e-w-100` to make a button fill its container width.
 - Do not add `aria-hidden="true"` to `<e-icon>`; its inner SVG already has it.
 - A tooltip supplements the accessible name; it does not replace `aria-label`.
 
-Links styled as buttons (`e-btn` on an `<a>`) don't support a disabled state. The `e-btn` disabled styles
-won't apply to `disabled` anchor. If an action needs to be conditionally disabled, use a real `<button>`, not
-a styled link.
+Links with `e-btn` styling do not support a disabled state. The `e-btn` disabled styles do not apply to `<a>`
+elements with a `disabled` attribute. If an action can be disabled, use a `<button>` instead of a link.
 
 ## Classes
 
