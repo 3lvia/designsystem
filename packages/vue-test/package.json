@@ -36,13 +36,13 @@
     "@elvia/elvis-toast": "*",
     "@elvia/elvis-tooltip": "*",
     "vue": "^3.5.30",
-    "vue-router": "^5.0.6"
+    "vue-router": "^5.2.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "6.0.6",
+    "@vitejs/plugin-vue": "6.0.8",
     "sass": "1.93.3",
     "typescript": "5.8.2",
     "vite": "7.3.2",
-    "vue-tsc": "3.2.7"
+    "vue-tsc": "3.3.9"
   }
 }
