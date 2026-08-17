@@ -11,13 +11,13 @@
     "test-ct": "playwright test -c playwright-ct.config.ts"
   },
   "devDependencies": {
-    "@babel/core": "7.29.6",
-    "@babel/preset-env": "7.29.3",
-    "@babel/preset-react": "7.28.5",
-    "@babel/preset-typescript": "7.28.5",
+    "@babel/core": "7.29.7",
+    "@babel/preset-env": "7.29.7",
+    "@babel/preset-react": "7.29.7",
+    "@babel/preset-typescript": "7.29.7",
     "@emotion/babel-plugin": "11.13.5",
-    "@percy/cli": "1.31.13",
-    "@percy/playwright": "1.1.0",
+    "@percy/cli": "1.32.6",
+    "@percy/playwright": "1.1.2",
     "@playwright/experimental-ct-react": "1.58.2",
     "@playwright/test": "1.58.2",
     "@testing-library/dom": "10.4.1",
@@ -41,9 +41,9 @@
     "react-is": "18.3.1",
     "resize-observer-polyfill": "1.5.1",
     "sass": "1.91.0",
-    "sass-embedded": "1.99.0",
+    "sass-embedded": "1.102.0",
     "tiny-glob": "0.2.9",
-    "tsx": "4.21.0",
+    "tsx": "4.23.12",
     "typescript": "5.8.2",
     "typescript-plugin-css-modules": "5.2.0"
   }
