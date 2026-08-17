@@ -36,7 +36,7 @@ jobs:
       - name: Install
         run: yarn install --immutable
       - name: Build
-        run: yarn build:web:prod
+        run: yarn build
       - name: Fetch secrets from Vault
         uses: 3lvia/core-github-actions-templates/vault@cc1b0db028f5909e4f49ab8855240f00a7c5f109
         with:
