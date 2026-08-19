@@ -94,7 +94,7 @@ activeApps = ['convey', 'drops', 'elflow', 'jordfeil'];
 **Output:**
 
 ```html
-<elvia-app-bridge [targetId]="meteringPointId()" [activeApps]="['convey', 'jordfeil']" />
+<elvia-app-bridge [targetId]="meteringPointId" [activeApps]="['convey', 'jordfeil']" />
 ```
 
 **Input:** "Add a link from the meteringpoint overview to its detail page"
