@@ -15,7 +15,7 @@
 
 https://design.elvia.io/brand/icon
 
-`<e-icon>` is a custom element (web component).
+`<e-icon>` is a web component.
 
 ## Packages
 
