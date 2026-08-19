@@ -10,7 +10,7 @@ description: >
 license: GPL-3.0-only
 metadata:
   author: Elvia
-  version: '0.1.0-alpha.1'
+  version: '0.1.0-alpha.2'
 ---
 
 # Elvia Design System (Elvis)
