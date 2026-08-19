@@ -99,6 +99,8 @@ Size combines with type (e.g. `e-btn--primary e-btn--sm`).
 - Match size to priority/attention, and to whatever is in that UI region (don't put a large button next to
   small form controls).
 
+Do NOT resize buttons with other classes or custom CSS. Use only the button size modifiers.
+
 Use `e-w-100` to make a button fill its container width.
 
 ## Guidelines
@@ -111,6 +113,7 @@ Use `e-w-100` to make a button fill its container width.
 ### Label
 
 - The label should be a verb. Three words max. If a longer explanation is needed, put it in surrounding copy.
+- Always wrap a button label in an element with the `e-btn__title` class.
 
 ### Icons on buttons
 
