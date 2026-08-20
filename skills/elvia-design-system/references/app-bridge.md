@@ -18,7 +18,7 @@
 
 https://design.elvia.io/components/app-bridge
 
-`<elvia-app-bridge>` is a web element.
+`<elvia-app-bridge>` is a web component.
 
 ## Installation
 
