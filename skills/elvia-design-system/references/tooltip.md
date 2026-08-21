@@ -81,7 +81,7 @@ Example:
 
 ### showDelay
 
-It must be a number (ms). Only applies to hover. Keyboard focus always shows the tooltip instantly.
+A number (ms). Only applies to hover. Keyboard focus always shows the tooltip instantly.
 
 Example:
 
@@ -91,7 +91,7 @@ Example:
 
 ### isDisabled
 
-Must be a boolean.
+A boolean.
 
 Example:
 
@@ -101,8 +101,8 @@ Example:
 
 ### display
 
-It must be a CSS `display` value (string) for the trigger wrapper. Defaults to `"inline-block"`. Only change
-it if the default breaks your layout (e.g. the trigger needs to be `block` or `flex`).
+It must be a CSS `display` value for the trigger wrapper. Defaults to `"inline-block"`. Only change it if the
+default breaks your layout (e.g. the trigger needs to be `block` or `flex`).
 
 Example:
 
