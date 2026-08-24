@@ -1,3 +1,23 @@
+- [Modal (`<elvia-modal>`)](#modal----elvia-modal---)
+  - [Reference](#reference)
+  - [Installation](#installation)
+  - [Use](#use)
+  - [Attributes](#attributes)
+    - [heading](#heading)
+    - [content](#content)
+    - [primaryButton / secondaryButton](#primarybutton---secondarybutton)
+    - [isShowing](#isshowing)
+    - [onClose](#onclose)
+    - [disableClose](#disableclose)
+    - [hasCloseButton](#hasclosebutton)
+    - [illustration](#illustration)
+    - [maxWidth](#maxwidth)
+  - [Guidelines](#guidelines)
+    - [When to use](#when-to-use)
+    - [When not to use](#when-not-to-use)
+  - [Accessibility](#accessibility)
+  - [Examples](#examples)
+
 # Modal (`<elvia-modal>`)
 
 ## Reference
