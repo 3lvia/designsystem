@@ -9,7 +9,7 @@ description: >
 license: GPL-3.0-only
 metadata:
   author: Elvia
-  version: '0.1.0-alpha.3'
+  version: '0.1.0-alpha.4'
 ---
 
 # Elvia Design System (Elvis)
@@ -27,11 +27,12 @@ If no reference file exists for the requested component, fall back to general El
 https://design.elvia.io and note that no reference was available.
 
 - **App Bridge** `<elvia-app-bridge>` web component, `@elvia/elvis-app-bridge` package, metering-point target,
-  active apps, internal use only, routing, environments, accessibility. See
-  [app-bridge.md](references/app-bridge.md).
+  active apps, internal use only, routing, environments. See [app-bridge.md](references/app-bridge.md).
 - **Icons** `<e-icon>` web component, `@elvia/elvis-icons`/`elvis-assets-icons`, sizing, coloring, accessible
   icon buttons. See [icon.md](references/icon.md).
-- **Buttons** `e-btn` class, `@elvia/elvis` CSS library, types, sizing, ordering, labeling, accessibility. See
+- **Buttons** `e-btn` class, `@elvia/elvis` CSS library, types, sizing, ordering, labeling. See
   [button.md](references/button.md).
+- **Modal** `<elvia-modal>` web component, `@elvia/elvis-modal` package, heading, content, buttons,
+  illustration. See [modal.md](references/modal.md).
 - **Tooltips** `<elvia-tooltip>` web component, `@elvia/elvis-tooltip` package, trigger and content slots,
-  positioning, accessibility. See [tooltip.md](references/tooltip.md).
+  positioning. See [tooltip.md](references/tooltip.md).
