@@ -37,7 +37,7 @@ Use a modal when the user must make a short, consequential decision before conti
 and blocks interaction with the page behind it.
 
 `heading`, `content`, `illustration`, `primaryButton`, and `secondaryButton` use slots. Closing the modal does
-not reset its state (eg. a form state inside the modal).
+not reset its state (e.g. a form state inside the modal).
 
 ```html
 <elvia-modal heading="Datagodkjenning" isShowing>
