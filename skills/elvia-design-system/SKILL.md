@@ -9,7 +9,7 @@ description: >
 license: GPL-3.0-only
 metadata:
   author: Elvia
-  version: '0.1.0-alpha.4'
+  version: '0.1.0-alpha.5'
 ---
 
 # Elvia Design System (Elvis)
@@ -36,3 +36,5 @@ https://design.elvia.io and note that no reference was available.
   illustration. See [modal.md](references/modal.md).
 - **Tooltips** `<elvia-tooltip>` web component, `@elvia/elvis-tooltip` package, trigger and content slots,
   positioning. See [tooltip.md](references/tooltip.md).
+- **Toast** `<elvia-toast>` web component, `@elvia/elvis-toast` package, title, body, status, customIcon, See
+  [toast.md](references/toast.md).
