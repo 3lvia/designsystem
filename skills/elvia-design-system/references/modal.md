@@ -5,7 +5,7 @@
   - [Attributes](#attributes)
     - [heading](#heading)
     - [content](#content)
-    - [primaryButton / secondaryButton](#primarybutton-secondarybutton)
+    - [primaryButton / secondaryButton](#primarybutton--secondarybutton)
     - [isShowing](#isshowing)
     - [onClose](#onclose)
     - [disableClose](#disableclose)
