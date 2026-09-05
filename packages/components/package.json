@@ -16,7 +16,7 @@
     "@babel/preset-react": "7.29.7",
     "@babel/preset-typescript": "7.29.7",
     "@emotion/babel-plugin": "11.13.5",
-    "@percy/cli": "1.32.6",
+    "@percy/cli": "1.32.7",
     "@percy/playwright": "1.1.2",
     "@playwright/experimental-ct-react": "1.58.2",
     "@playwright/test": "1.58.2",
@@ -41,9 +41,9 @@
     "react-is": "18.3.1",
     "resize-observer-polyfill": "1.5.1",
     "sass": "1.91.0",
-    "sass-embedded": "1.102.0",
+    "sass-embedded": "1.103.1",
     "tiny-glob": "0.2.9",
-    "tsx": "4.23.12",
+    "tsx": "4.23.13",
     "typescript": "5.8.2",
     "typescript-plugin-css-modules": "5.2.0"
   }
