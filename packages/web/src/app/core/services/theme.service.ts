@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ThemeName as Theme } from '@elvia/elvis-colors';
 import { BehaviorSubject, Observable, distinctUntilChanged, map } from 'rxjs';
@@ -9,9 +9,7 @@ export type PreferredTheme = Theme | 'system';
 
 const THEME_STORAGE_KEY = 'elviaHeaderPreferredTheme';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class ThemeService {
   private preferredThemeSubject = new BehaviorSubject<PreferredTheme>('light');
 

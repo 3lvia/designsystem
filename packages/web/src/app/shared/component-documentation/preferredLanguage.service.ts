@@ -1,13 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 import { BehaviorSubject, map } from 'rxjs';
 
 import { LanguageType } from './types';
 
 const LANGUAGE_STORAGE_KEY = 'preferredCegLanguage';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class PreferredLanguageService {
   private preferredLanguageSource = new BehaviorSubject<LanguageType>(this.getPreferredLanguage());
 

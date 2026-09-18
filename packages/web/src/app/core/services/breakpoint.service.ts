@@ -1,5 +1,5 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { Injectable, inject } from '@angular/core';
+import { Service, inject } from '@angular/core';
 import { Observable, distinctUntilChanged, map } from 'rxjs';
 
 export type ScreenSize = keyof typeof config;
@@ -12,9 +12,7 @@ const config = {
   xl: '(min-width: 1440px)',
 };
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class BreakpointService {
   private observer = inject(BreakpointObserver);
 
