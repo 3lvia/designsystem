@@ -33,7 +33,6 @@ module.exports = tseslint.config(
         },
       ],
       '@angular-eslint/no-async-lifecycle-method': 'error',
-      '@angular-eslint/no-conflicting-lifecycle': 'error',
       '@angular-eslint/no-duplicates-in-metadata-arrays': 'error',
       '@angular-eslint/no-empty-lifecycle-method': 'error',
       '@angular-eslint/no-lifecycle-call': 'error',
@@ -42,6 +41,7 @@ module.exports = tseslint.config(
       '@angular-eslint/no-outputs-metadata-property': 'error',
       '@angular-eslint/no-pipe-impure': 'error',
       '@angular-eslint/prefer-output-readonly': 'warn',
+      '@angular-eslint/prefer-on-push-component-change-detection': 'warn',
       '@angular-eslint/prefer-signals': [
         'warn',
         {

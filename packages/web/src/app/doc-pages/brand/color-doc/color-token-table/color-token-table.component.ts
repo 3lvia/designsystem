@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { ColorTokenSubtableComponent } from './color-token-subtable/color-token-subtable.component';
 import {
@@ -27,6 +27,7 @@ import {
   templateUrl: './color-token-table.component.html',
   styleUrls: ['./color-token-table.component.scss'],
   imports: [ColorTokenSubtableComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ColorTokenTableComponent {

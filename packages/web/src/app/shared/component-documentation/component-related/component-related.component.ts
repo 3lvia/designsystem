@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { DocPagePipe } from '../../../doc-pages/components/docPage.pipe';
@@ -10,6 +10,7 @@ import { DocPageName } from '../../shared.enum';
   templateUrl: './component-related.component.html',
   styleUrls: ['./component-related.component.scss'],
   imports: [RouterLink, DocPagePipe, InlineSvgComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentRelatedComponent {

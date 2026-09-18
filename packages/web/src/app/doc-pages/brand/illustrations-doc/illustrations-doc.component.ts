@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { illustrationsData } from './illustrations-data';
@@ -17,6 +17,7 @@ const illustrationDocPage = getDocPage('illustration');
 @Component({
   selector: 'app-illustrations-doc',
   templateUrl: './illustrations-doc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ComponentSectionComponent,
     ComponentSubsectionComponent,

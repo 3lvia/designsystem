@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { EscapeHTMLPipe } from '../../../pipes/escape-html.pipe';
 import { SearchHighlighterPipe } from '../../../search-highlighter.pipe';
@@ -12,6 +12,7 @@ import { SearchResult } from 'src/app/shared/searcher';
   templateUrl: './property-table-desktop.component.html',
   styleUrls: ['./property-table-desktop.component.scss'],
   imports: [PropertyExamplePopoverComponent, SearchHighlighterPipe, EscapeHTMLPipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PropertyTableDesktopComponent extends PropertyTableBaseDirective {

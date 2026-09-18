@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { ComponentSubsectionComponent } from '../../../shared/component-documentation/component-structure/component-subsection/component-subsection.component';
@@ -11,6 +11,7 @@ const docPage = getDocPage('filters');
 @Component({
   selector: 'app-filters-doc',
   imports: [ComponentHeaderComponent, ComponentSectionComponent, RouterLink, ComponentSubsectionComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './filters-doc.component.html',
 })
 export class FiltersDocComponent {

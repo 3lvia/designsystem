@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { createChangelogs } from './changelogs';
@@ -10,6 +10,7 @@ import { FrontPageChangelogNamePipe } from './front-page-changelog-name-pipe';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   selector: 'app-front-page-changelog',
   templateUrl: './front-page-changelog.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./front-page-changelog.component.scss'],
 })
 export class FrontPageChangelogComponent {

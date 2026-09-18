@@ -1,4 +1,4 @@
-import { Component, OnInit, booleanAttribute, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, booleanAttribute, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import data from '@elvia/elvis/.internal/classlist.json';
 
@@ -32,6 +32,7 @@ import { getDocPage } from 'src/app/shared/doc-pages';
 @Component({
   selector: 'app-component-documentation',
   templateUrl: './component-documentation.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ComponentHeaderComponent,
     ComponentSectionComponent,

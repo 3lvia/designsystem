@@ -1,5 +1,5 @@
 import { ViewportScroller } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterOutlet } from '@angular/router';
 import '@elvia/elvis-accordion';
@@ -72,6 +72,7 @@ type PageLayout = 'notFound' | 'standalonePage' | 'pageWithSidenav';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   imports: [HeaderComponent, RouterOutlet, PageWithSidenavComponent, FooterComponent, ShortcutComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppComponent {

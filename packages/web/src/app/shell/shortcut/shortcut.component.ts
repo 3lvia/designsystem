@@ -1,4 +1,10 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, HostListener, inject } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
+  Component,
+  HostListener,
+  inject,
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { Observable, filter, fromEvent, map, tap } from 'rxjs';
@@ -11,6 +17,7 @@ import { ShortcutModalContentComponent } from './shortcut-modal-content/shortcut
   templateUrl: './shortcut.component.html',
   styleUrls: ['./shortcut.component.scss'],
   imports: [ShortcutModalContentComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ShortcutComponent {

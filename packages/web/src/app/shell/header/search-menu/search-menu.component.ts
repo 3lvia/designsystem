@@ -2,6 +2,7 @@ import { CdkTrapFocus } from '@angular/cdk/a11y';
 import { AsyncPipe } from '@angular/common';
 import {
   CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   HostListener,
@@ -28,6 +29,7 @@ import { SearchResult, Searcher } from 'src/app/shared/searcher';
   templateUrl: './search-menu.component.html',
   styleUrls: ['./search-menu.component.scss'],
   imports: [CdkTrapFocus, FormsModule, RouterLink, AsyncPipe, SearchHighlighterPipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class SearchMenuComponent implements OnInit {

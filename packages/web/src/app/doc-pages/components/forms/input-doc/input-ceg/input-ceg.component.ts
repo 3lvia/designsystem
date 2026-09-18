@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import * as template from './input-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -7,6 +7,7 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-input-ceg',
   templateUrl: './input-ceg.component.html',
   styleUrls: ['./input-ceg.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [{ provide: StaticComponentExample, useExisting: InputCegComponent }],
 })
 export class InputCegComponent implements StaticComponentExample {

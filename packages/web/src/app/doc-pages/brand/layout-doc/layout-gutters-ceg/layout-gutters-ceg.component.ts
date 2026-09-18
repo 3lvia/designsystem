@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import * as template from './layout-gutters-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -7,6 +7,7 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-layout-gutters-ceg',
   templateUrl: './layout-gutters-ceg.component.html',
   styleUrls: ['./../layout-doc.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [{ provide: StaticComponentExample, useExisting: LayoutGuttersCegComponent }],
 })
 export class LayoutGuttersCegComponent implements StaticComponentExample {

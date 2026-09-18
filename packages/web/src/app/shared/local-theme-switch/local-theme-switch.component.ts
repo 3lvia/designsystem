@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, model } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, model } from '@angular/core';
 
 import { Theme } from 'src/app/core/services/theme.service';
 
@@ -6,6 +6,7 @@ import { Theme } from 'src/app/core/services/theme.service';
   selector: 'app-local-theme-switch',
   imports: [],
   templateUrl: './local-theme-switch.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class LocalThemeSwitchComponent {

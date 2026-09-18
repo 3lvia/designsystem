@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, input } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, OnInit, input } from '@angular/core';
 import data from '@elvia/elvis/.internal/classlist.json';
 import deprecated from '@elvia/elvis/.internal/deprecated-classes.json';
 
@@ -9,6 +9,7 @@ import { CopyComponent } from '../../copy/copy.component';
   templateUrl: './component-properties.component.html',
   styleUrls: ['./component-properties.component.scss'],
   imports: [CopyComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentPropertiesComponent implements OnInit {

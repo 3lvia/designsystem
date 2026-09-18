@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, inject, output } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject, output } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { PreferredTheme, ThemeService } from 'src/app/core/services/theme.service';
@@ -9,6 +9,7 @@ import { PreferredTheme, ThemeService } from 'src/app/core/services/theme.servic
   templateUrl: './theme-switch.component.html',
   styleUrls: ['./theme-switch.component.scss'],
   imports: [AsyncPipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ThemeSwitchComponent {

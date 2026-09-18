@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 import { RadioFilterProps } from '@elvia/elvis-radio-filter/react';
 
 import * as template from './radio-filter-icon-ceg.component.html';
@@ -8,6 +8,7 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-radio-filter-icon-ceg',
   templateUrl: './radio-filter-icon-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: RadioFilterIconCegComponent }],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class RadioFilterIconCegComponent implements StaticComponentExample {

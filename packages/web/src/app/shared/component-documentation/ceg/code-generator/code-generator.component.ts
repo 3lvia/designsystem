@@ -1,5 +1,6 @@
 import {
   CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
   Component,
   Input,
   OnInit,
@@ -18,6 +19,7 @@ import { CodeViewerComponent } from './code-viewer/code-viewer.component';
   selector: 'app-code-generator',
   templateUrl: './code-generator.component.html',
   imports: [CodeViewerComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CodeGeneratorComponent implements OnInit {

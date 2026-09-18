@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { LocalizationService } from 'src/app/core/services/localization.service';
@@ -11,6 +11,7 @@ const docPage = getDocPage('examples');
 @Component({
   selector: 'app-examples-doc',
   imports: [ComponentHeaderComponent, ComponentSectionComponent, SafeHtmlPipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './examples-doc.component.html',
 })
 export class ExamplesDocComponent {

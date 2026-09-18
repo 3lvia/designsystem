@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
@@ -12,6 +12,7 @@ import { paginationData } from './pagination-data';
   selector: 'app-pagination-doc',
   templateUrl: './pagination-doc.component.html',
   styleUrls: ['./pagination-doc.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

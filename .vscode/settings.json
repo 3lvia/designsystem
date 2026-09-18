@@ -1,6 +1,5 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "cSpell.words": ["designsystem"],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "cSpell.words": ["designsystem"]
 }
