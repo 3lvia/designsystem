@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { DesignsystemSlackLinkComponent } from 'src/app/shared/designsystem-slack-link/designsystem-slack-link.component';
 
@@ -13,6 +13,7 @@ interface IconLink {
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
   imports: [DesignsystemSlackLinkComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class FooterComponent {

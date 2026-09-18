@@ -1,5 +1,5 @@
 import { NgTemplateOutlet } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, NO_ERRORS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ThemeName } from '@elvia/elvis-colors';
 import { StepStates } from '@elvia/elvis-stepper';
@@ -27,6 +27,7 @@ import { SafeHtmlPipe } from 'src/app/shared/safeHtml.pipe';
   ],
   templateUrl: './team-symbol-generator.component.html',
   styleUrl: './team-symbol-generator.component.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class TeamSymbolGeneratorComponent {

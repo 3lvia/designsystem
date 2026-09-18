@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { InlineSvgComponent } from '../../shared/inline-svg/inline-svg.component';
@@ -8,6 +8,7 @@ import { getDocPagesByType } from 'src/app/shared/doc-pages';
   selector: 'app-about-doc',
   imports: [RouterLink, InlineSvgComponent],
   templateUrl: './about-doc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AboutDocComponent {

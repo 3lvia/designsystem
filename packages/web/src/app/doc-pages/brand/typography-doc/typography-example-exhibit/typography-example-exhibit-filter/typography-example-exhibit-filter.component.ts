@@ -1,5 +1,12 @@
 import { AsyncPipe } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, inject, input, output } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+  output,
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import '@elvia/elvis-radio-filter';
 import '@elvia/elvis-segmented-control';
@@ -14,6 +21,7 @@ type DisplayCategories = 'Title' | 'Body' | 'Body text' | 'Special' | 'Special t
   templateUrl: './typography-example-exhibit-filter.component.html',
   styleUrls: ['./typography-example-exhibit-filter.component.scss'],
   imports: [AsyncPipe],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TypographyExampleExhibitFilterComponent {

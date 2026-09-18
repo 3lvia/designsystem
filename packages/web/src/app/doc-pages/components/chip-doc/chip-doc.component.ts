@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
 import { StaticCegComponent } from '../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
@@ -26,6 +26,7 @@ import { ChipImageEmptyCegComponent } from './chip-image-empty-ceg/chip-image-em
     ChipImageEmptyCegComponent,
     WhenToUseComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ChipDocComponent {

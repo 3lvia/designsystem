@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 import { BasePopoverProps } from '@elvia/elvis-popover/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -7,6 +7,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-popover-ceg',
   templateUrl: './popover-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: PopoverCegComponent }],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class PopoverCegComponent implements ComponentExample {

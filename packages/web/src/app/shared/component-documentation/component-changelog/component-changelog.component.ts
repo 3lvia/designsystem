@@ -1,5 +1,13 @@
 import { LowerCasePipe, NgPlural, NgPluralCase, NgTemplateOutlet } from '@angular/common';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, Input, OnInit, inject, input } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+  OnInit,
+  inject,
+  input,
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
@@ -32,6 +40,7 @@ import { ComponentChangelog } from 'src/app/doc-pages/components/component-data.
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   selector: 'app-component-changelog',
   templateUrl: './component-changelog.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./component-changelog.component.scss'],
 })
 export class ComponentChangelogComponent implements OnInit {

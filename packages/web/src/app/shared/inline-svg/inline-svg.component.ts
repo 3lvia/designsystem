@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, effect, inject, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, effect, inject, input, signal } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-inline-svg',
   template: `<span [innerHtml]="svgIcon()"></span>`,
+  changeDetection: ChangeDetectionStrategy.Eager,
   styles: `
     :host {
       display: contents;

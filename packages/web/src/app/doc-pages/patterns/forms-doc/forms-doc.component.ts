@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { ThemeService } from 'src/app/core/services/theme.service';
@@ -11,6 +11,7 @@ const docPage = getDocPage('forms');
 @Component({
   selector: 'app-forms-doc',
   imports: [ComponentHeaderComponent, ComponentSectionComponent, ComponentSubsectionComponent, RouterLink],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './forms-doc.component.html',
 })
 export class FormsDocComponent {

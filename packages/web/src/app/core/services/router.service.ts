@@ -1,11 +1,9 @@
-import { Injectable, inject } from '@angular/core';
+import { Service, inject } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { filter, map, pairwise, startWith } from 'rxjs/operators';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class RouterService {
   private router = inject(Router);
 

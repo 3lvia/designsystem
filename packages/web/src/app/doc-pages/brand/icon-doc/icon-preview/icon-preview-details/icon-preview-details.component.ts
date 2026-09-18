@@ -1,4 +1,13 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, computed, inject, input, model } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  computed,
+  inject,
+  input,
+  model,
+} from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { createPngBlobFromElement, createSvgBlobFromElement } from '../../../imageDownloadUtils';
@@ -13,6 +22,7 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
   imports: [CopyComponent, IconGeneratorComponent],
   templateUrl: './icon-preview-details.component.html',
   styleUrl: './icon-preview-details.component.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IconPreviewDetailsComponent {

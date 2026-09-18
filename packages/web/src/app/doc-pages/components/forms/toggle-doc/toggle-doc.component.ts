@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { StaticCegComponent } from '../../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
 import { ComponentDocumentationComponent } from '../../../../shared/component-documentation/component-documentation.component';
@@ -14,6 +14,7 @@ import { ToggleStatesCegComponent } from './toggle-states-ceg/toggle-states-ceg.
 @Component({
   selector: 'app-toggle-doc',
   templateUrl: './toggle-doc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

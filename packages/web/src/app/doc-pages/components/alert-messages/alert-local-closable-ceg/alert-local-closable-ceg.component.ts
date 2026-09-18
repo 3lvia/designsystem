@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 
 import * as template from './alert-local-closable-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -7,6 +7,7 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
   selector: 'app-alert-local-closable-ceg',
   templateUrl: './alert-local-closable-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: AlertLocalClosableCegComponent }],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AlertLocalClosableCegComponent implements StaticComponentExample {

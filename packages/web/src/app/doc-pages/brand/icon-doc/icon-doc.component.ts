@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { RouterLink } from '@angular/router';
 import changelogJson from '@elvia/elvis-icons/CHANGELOG.json';
@@ -39,6 +39,7 @@ const docPage = getDocPage('icon');
     IconInstallationComponent,
     SafeHtmlPipe,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class IconDocComponent {

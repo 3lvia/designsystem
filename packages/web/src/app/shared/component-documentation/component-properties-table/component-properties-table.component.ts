@@ -1,4 +1,11 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, OnInit, booleanAttribute, input } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  booleanAttribute,
+  input,
+} from '@angular/core';
 
 import { SearchResult, Searcher } from '../../searcher';
 import { PropertySearchInputComponent } from './property-search-input/property-search-input.component';
@@ -12,6 +19,7 @@ import ComponentData, { NestedProp } from 'src/app/doc-pages/components/componen
   templateUrl: './component-properties-table.component.html',
   styleUrls: ['./component-properties-table.component.scss'],
   imports: [PropertySearchInputComponent, PropertyTableDesktopComponent, PropertyTableMobileComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ComponentPropertiesTableComponent implements OnInit {

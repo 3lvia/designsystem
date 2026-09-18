@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
@@ -11,6 +11,7 @@ import { spotlightData } from './spotlight-data';
 @Component({
   selector: 'app-spotlight-doc',
   templateUrl: './spotlight-doc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

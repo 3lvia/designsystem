@@ -1,13 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 import { IllustrationColor } from '../illustrations-data';
 import { IllustrationName } from './illustrations-exhibit-data';
 import { Theme } from 'src/app/core/services/theme.service';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class IllustrationsExhibitService {
   private _searchValue = new BehaviorSubject<string>('');
   private _colorValue = new BehaviorSubject<IllustrationColor>('grey');

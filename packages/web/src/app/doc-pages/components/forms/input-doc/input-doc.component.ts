@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { StaticCegComponent } from '../../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
@@ -26,6 +26,7 @@ import { InputValidationCegComponent } from './input-validation-ceg/input-valida
   selector: 'app-input-doc',
   templateUrl: './input-doc.component.html',
   styleUrls: ['./input-doc.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

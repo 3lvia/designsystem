@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 import { BaseCarouselProps } from '@elvia/elvis-carousel/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -8,6 +8,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   templateUrl: './carousel-ceg.component.html',
   styleUrls: ['./carousel-ceg.component.scss'],
   providers: [{ provide: ComponentExample, useExisting: CarouselCegComponent }],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CarouselCegComponent implements ComponentExample<BaseCarouselProps> {

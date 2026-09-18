@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
@@ -14,6 +14,7 @@ const docPage = getDocPage('shadow');
 @Component({
   selector: 'app-shadow-doc',
   templateUrl: './shadow-doc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ComponentHeaderComponent,
     ShadowViewerComponent,

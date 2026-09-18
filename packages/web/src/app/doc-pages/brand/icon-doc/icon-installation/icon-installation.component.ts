@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, computed, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 import { CodeViewerComponent } from '../../../../shared/component-documentation/ceg/code-generator/code-viewer/code-viewer.component';
@@ -14,6 +14,7 @@ import { CopyComponent } from 'src/app/shared/copy/copy.component';
   imports: [CopyComponent, TabToSegmentedControlItemPipe, CodeViewerComponent],
   templateUrl: './icon-installation.component.html',
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  changeDetection: ChangeDetectionStrategy.Eager,
   animations: [heightAnimation],
 })
 export class IconInstallationComponent {

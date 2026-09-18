@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
 import { ComponentDocumentationComponent } from '../../../shared/component-documentation/component-documentation.component';
@@ -11,6 +11,7 @@ import { stepperData } from './stepper-data';
 @Component({
   selector: 'app-stepper-doc',
   templateUrl: './stepper-doc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,
@@ -26,7 +27,7 @@ export class StepperDocComponent {
   protected readonly does = [
     'Use a stepper in a process that’s split up in clear steps, where the user could benefit from a overview and/or navigation between the steps',
   ];
-  protected readonly  donts = [
+  protected readonly donts = [
     'If the process consists of less than three steps',
     'If the process consists of more than ten steps (in this case, consider the possibility of using less steps by changing the flow)',
     'If it is not a step-by-step process, for example a list',

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import * as template from './table-input-mobile-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -6,6 +6,7 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 @Component({
   selector: 'app-table-input-mobile-ceg',
   templateUrl: './table-input-mobile-ceg.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [{ provide: StaticComponentExample, useExisting: TableInputMobileCegComponent }],
 })
 export class TableInputMobileCegComponent implements StaticComponentExample {

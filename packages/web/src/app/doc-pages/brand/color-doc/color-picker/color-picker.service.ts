@@ -1,12 +1,10 @@
-import { Injectable, signal } from '@angular/core';
+import { Service, signal } from '@angular/core';
 import { DarkThemeColorName, LightThemeColorName, ThemeName } from '@elvia/elvis-colors';
 
 import { ColorElement } from './colors-types';
 import { getColorElement } from './colors-util';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class ColorPickerService {
   private themeSignal = signal<ThemeName>('light');
   private currentColorSignal = signal<ColorElement | undefined>(getColorElement('white'));

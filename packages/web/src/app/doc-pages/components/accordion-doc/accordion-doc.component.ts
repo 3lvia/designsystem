@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import { CegComponent } from '../../../shared/component-documentation/ceg/ceg.component';
@@ -14,6 +14,7 @@ import { AccordionGroupCegComponent } from './accordion-group-ceg/accordion-grou
 @Component({
   selector: 'app-accordion-doc',
   templateUrl: './accordion-doc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ComponentDocumentationComponent,
     CegComponent,

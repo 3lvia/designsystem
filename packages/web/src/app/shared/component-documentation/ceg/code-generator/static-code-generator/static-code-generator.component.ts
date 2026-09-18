@@ -1,4 +1,4 @@
-import { Component, OnInit, booleanAttribute, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, booleanAttribute, input } from '@angular/core';
 
 import { CodeGeneratorComponent } from '../code-generator.component';
 
@@ -6,6 +6,7 @@ import { CodeGeneratorComponent } from '../code-generator.component';
   selector: 'app-static-code-generator',
   templateUrl: './static-code-generator.component.html',
   styleUrls: ['./static-code-generator.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [CodeGeneratorComponent],
 })
 export class StaticCodeGeneratorComponent implements OnInit {

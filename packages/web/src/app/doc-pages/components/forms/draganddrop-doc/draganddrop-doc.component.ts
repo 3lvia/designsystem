@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import { StaticCegComponent } from '../../../../shared/component-documentation/ceg/static-ceg/static-ceg.component';
 import { ComponentDocumentationComponent } from '../../../../shared/component-documentation/component-documentation.component';
@@ -10,6 +10,7 @@ import { DraganddropDragoverCegComponent } from './draganddrop-dragover-ceg/drag
 @Component({
   selector: 'app-draganddrop-doc',
   templateUrl: './draganddrop-doc.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [
     ComponentDocumentationComponent,
     StaticCegComponent,

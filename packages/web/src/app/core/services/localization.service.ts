@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import { Service, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { distinctUntilChanged } from 'rxjs/operators';
@@ -8,9 +8,7 @@ import { RouterService } from './router.service';
 export type Locale = 'en-GB' | 'nb-NO';
 
 const LOCALIZATION_STORAGE_KEY = 'preferredDesignElviaIoLocale';
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class LocalizationService {
   private routerService = inject(RouterService);
 

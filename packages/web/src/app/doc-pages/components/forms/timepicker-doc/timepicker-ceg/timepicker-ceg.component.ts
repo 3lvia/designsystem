@@ -1,4 +1,10 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, ElementRef, viewChild } from '@angular/core';
+import {
+  CUSTOM_ELEMENTS_SCHEMA,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  viewChild,
+} from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 import { TimepickerProps } from '@elvia/elvis-timepicker/react';
@@ -9,6 +15,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   selector: 'app-timepicker-ceg',
   templateUrl: './timepicker-ceg.component.html',
   providers: [{ provide: ComponentExample, useExisting: TimepickerCegComponent }],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TimepickerCegComponent implements ComponentExample {

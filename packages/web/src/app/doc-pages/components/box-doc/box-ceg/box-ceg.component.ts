@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 import { BaseBoxProps } from '@elvia/elvis-box/react';
 
 import { CegControlManager, ComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -8,6 +8,7 @@ import { CegControlManager, ComponentExample } from 'src/app/shared/component-do
   templateUrl: './box-ceg.component.html',
   styleUrls: ['./box-ceg.component.scss'],
   providers: [{ provide: ComponentExample, useExisting: BoxCegComponent }],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class BoxCegComponent implements ComponentExample {

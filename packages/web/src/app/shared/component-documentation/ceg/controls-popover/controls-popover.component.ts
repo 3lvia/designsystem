@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component, input, output } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 
 import { UnknownCegControlManager } from '../cegControlManager';
 import { ControlValue } from '../controlType';
@@ -8,6 +8,7 @@ import { ControlsComponent } from '../controls/controls.component';
   selector: 'app-controls-popover',
   templateUrl: './controls-popover.component.html',
   imports: [ControlsComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ControlsPopoverComponent {

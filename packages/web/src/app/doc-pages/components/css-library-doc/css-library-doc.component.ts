@@ -1,4 +1,4 @@
-import { CUSTOM_ELEMENTS_SCHEMA, Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component } from '@angular/core';
 import changelogJson from '@elvia/elvis/CHANGELOG.json';
 
 import { ComponentChangelogComponent } from '../../../shared/component-documentation/component-changelog/component-changelog.component';
@@ -22,6 +22,7 @@ const docPage = getDocPage('css-library');
     CopyComponent,
     ComponentChangelogComponent,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class CSSLibraryDocComponent {

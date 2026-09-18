@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { CUSTOM_ELEMENTS_SCHEMA, Component, inject } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { AutocompleteItem } from '@elvia/elvis-autocomplete/react';
 import { Observable, Subject, debounceTime, from, switchMap } from 'rxjs';
@@ -17,6 +17,7 @@ const DEMO_API_URL = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s='
   selector: 'app-autocomplete-filter-ceg',
   templateUrl: './autocomplete-filter-ceg.component.html',
   providers: [{ provide: StaticComponentExample, useExisting: AutocompleteFilterCegComponent }],
+  changeDetection: ChangeDetectionStrategy.Eager,
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AutocompleteFilterCegComponent implements StaticComponentExample {

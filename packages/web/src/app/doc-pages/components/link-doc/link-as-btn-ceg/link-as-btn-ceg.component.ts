@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 import * as template from './link-as-btn-ceg.component.html';
 import { StaticComponentExample } from 'src/app/shared/component-documentation/ceg';
@@ -6,6 +6,7 @@ import { StaticComponentExample } from 'src/app/shared/component-documentation/c
 @Component({
   selector: 'app-link-as-btn-ceg',
   templateUrl: './link-as-btn-ceg.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   providers: [{ provide: StaticComponentExample, useExisting: LinkAsBtnCegComponent }],
 })
 export class LinkAsBtnCegComponent implements StaticComponentExample {

@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 
 import { RadioGroup } from '../../controlType';
 
@@ -6,6 +6,7 @@ let CEG_RADIO_GROUP_ID = 0;
 
 @Component({
   selector: 'app-radio-group',
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './radio-group.component.html',
 })
 export class RadioGroupComponent {
