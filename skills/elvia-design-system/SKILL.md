@@ -22,20 +22,24 @@ Load only the reference file(s) for the area being worked in, not the whole set.
 
 - **Installation** `@elvia/elvis` package, global CSS registration and optional reset, and Elvis web-component
   installation and registration. See [installation.md](references/installation.md).
+- **Web components** shared attribute and property behavior, case-insensitive attribute names, arrays and
+  objects, and event shape and naming. See [web-components.md](references/web-components.md).
 
 If no reference file exists for the requested component, fall back to general Elvia design principles from
 https://design.elvia.io and note that no reference was available.
 
 - **App Bridge** `<elvia-app-bridge>` web component, `@elvia/elvis-app-bridge` package, metering-point target,
   active apps, internal use only, routing, environments. See [app-bridge.md](references/app-bridge.md).
-- **Icons** `<e-icon>` web component, `@elvia/elvis-icons`/`elvis-assets-icons`, sizing, coloring, accessible
-  icon buttons. See [icon.md](references/icon.md).
 - **Buttons** `e-btn` class, `@elvia/elvis` CSS library, types, sizing, ordering, labeling. See
   [button.md](references/button.md).
+- **Icons** `<e-icon>` web component, `@elvia/elvis-icons`/`elvis-assets-icons`, sizing, coloring, accessible
+  icon buttons. See [icon.md](references/icon.md).
 - **Modal** `<elvia-modal>` web component, `@elvia/elvis-modal` package, heading, content, buttons,
   illustration. See [modal.md](references/modal.md).
-- **Tooltips** `<elvia-tooltip>` web component, `@elvia/elvis-tooltip` package, trigger and content slots,
-  positioning. See [tooltip.md](references/tooltip.md).
 - **Progress linear** `<elvia-progress-linear>` web component, `@elvia/elvis-progress-linear` package,
   determinate and indeterminate progress, error state, sizing, and accessibility. See
   [progress-linear.md](references/progress-linear.md).
+- **Tabs** `<elvia-tabs>` web component, `@elvia/elvis-tabs` package, items, selection, manual/automatic
+  activation, overflow scrolling. See [tabs.md](references/tabs.md).
+- **Tooltips** `<elvia-tooltip>` web component, `@elvia/elvis-tooltip` package, trigger and content slots,
+  positioning. See [tooltip.md](references/tooltip.md).
