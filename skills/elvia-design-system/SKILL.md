@@ -34,6 +34,8 @@ https://design.elvia.io and note that no reference was available.
   icon buttons. See [icon.md](references/icon.md).
 - **Buttons** `e-btn` class, `@elvia/elvis` CSS library, types, sizing, ordering, labeling. See
   [button.md](references/button.md).
+- **Checkboxes** `e-checkbox` class, `@elvia/elvis` CSS library, sizing, states, grouping, and accessibility.
+  See [checkbox.md](references/checkbox.md).
 - **Modal** `<elvia-modal>` web component, `@elvia/elvis-modal` package, heading, content, buttons,
   illustration. See [modal.md](references/modal.md).
 - **Tooltips** `<elvia-tooltip>` web component, `@elvia/elvis-tooltip` package, trigger and content slots,
