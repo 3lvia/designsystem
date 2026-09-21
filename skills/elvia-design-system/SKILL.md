@@ -36,3 +36,6 @@ https://design.elvia.io and note that no reference was available.
   illustration. See [modal.md](references/modal.md).
 - **Tooltips** `<elvia-tooltip>` web component, `@elvia/elvis-tooltip` package, trigger and content slots,
   positioning. See [tooltip.md](references/tooltip.md).
+- **Progress linear** `<elvia-progress-linear>` web component, `@elvia/elvis-progress-linear` package,
+  determinate and indeterminate progress, error state, sizing, and accessibility. See
+  [progress-linear.md](references/progress-linear.md).
