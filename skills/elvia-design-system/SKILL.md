@@ -22,6 +22,8 @@ Load only the reference file(s) for the area being worked in, not the whole set.
 
 - **Installation** `@elvia/elvis` package, global CSS registration and optional reset, and Elvis web-component
   installation and registration. See [installation.md](references/installation.md).
+- **Web components** shared attribute and property behavior, case-insensitive attribute names, arrays and
+  objects, and event shape and naming. See [web-components.md](references/web-components.md).
 
 If no reference file exists for the requested component, fall back to general Elvia design principles from
 https://design.elvia.io and note that no reference was available.
@@ -36,3 +38,5 @@ https://design.elvia.io and note that no reference was available.
   illustration. See [modal.md](references/modal.md).
 - **Tooltips** `<elvia-tooltip>` web component, `@elvia/elvis-tooltip` package, trigger and content slots,
   positioning. See [tooltip.md](references/tooltip.md).
+- **Tabs** `<elvia-tabs>` web component, `@elvia/elvis-tabs` package, items, selection, manual/automatic
+  activation, overflow scrolling. See [tabs.md](references/tabs.md).
