@@ -7,12 +7,12 @@ $typography: TypographyMap.$typography;
 @function getValue($name, $value) {
   $typography-map: null;
 
-  @if map-has-key($typography, $name) {
-    $typography-map: map-get($typography, $name);
+  @if map.has-key($typography, $name) {
+    $typography-map: map.get($typography, $name);
   } @else {
     @each $label, $map in $typography {
-      @if map-has-key($typography, alt-labels) {
-        @if contains(map-get($map, alt-labels), $name) {
+      @if map.has-key($typography, alt-labels) {
+        @if contains(map.get($map, alt-labels), $name) {
           $typography-map: $map;
         }
       }
@@ -24,7 +24,7 @@ $typography: TypographyMap.$typography;
     @return null;
   }
 
-  @return map-get($typography-map, $value);
+  @return map.get($typography-map, $value);
 }
 
 @mixin typography($name) {
