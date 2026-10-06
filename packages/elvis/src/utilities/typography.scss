@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:string';
 @use './breakpoints.scss';
 @use '@elvia/elvis-typography/dist/typographyMap.scss' as TypographyMap;
 @use './mixins.scss';
@@ -10,7 +11,7 @@ body {
 }
 
 @each $label, $map in TypographyMap.$typography {
-  @if (not str-index($label, 'text-option') and not str-index($label, 'text-label')) {
+  @if (not string.index($label, 'text-option') and not string.index($label, 'text-label')) {
     $family: map.get($map, family);
     $size: map.get($map, size);
     $size-m: map.get($map, size-m);
@@ -48,7 +49,7 @@ body {
           line-height: $height-m;
         }
       }
-      @if (str-index($label, 'text-')) {
+      @if (string.index($label, 'text-')) {
         .e-#{$label} {
           b,
           strong {
