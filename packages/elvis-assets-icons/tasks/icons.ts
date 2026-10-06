@@ -2,10 +2,11 @@ import { getThemeColor } from '@elvia/elvis-colors';
 import { mkdir, readFile, readdir, rm, writeFile } from 'fs/promises';
 import { dest, series, src } from 'gulp';
 import { basename } from 'path';
-import * as sharp from 'sharp';
 
 import type { IconLabels } from './iconsScss';
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const sharp = require('sharp') as typeof import('sharp').default;
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const svgmin = require('gulp-svgmin');
 // eslint-disable-next-line @typescript-eslint/no-require-imports
