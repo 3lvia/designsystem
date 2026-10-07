@@ -28,5 +28,12 @@
     "packages/elvis/**",
     "packages/elvis-*/**"
   ],
+  "packageRules": [
+    {
+      "description": "Playwright's experimental component-test packages have been removed and are no longer published. Stay on Playwright 1.62 until migrating: https://playwright.dev/docs/test-components#migration-from-the-experimental-packages. Keep runner, core, and adapter versions aligned; mixed versions break component discovery with ESM-only Toolbox.",
+      "matchPackageNames": ["@playwright/experimental-ct-react", "@playwright/test", "playwright-core"],
+      "enabled": false
+    }
+  ],
   "lockFileMaintenance": { "enabled": true }
 }
