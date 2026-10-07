@@ -1,5 +1,5 @@
+import type { LanguageCode } from '@elvia/elvis-toolbox';
 import { FormFieldInput } from '@elvia/elvis-toolbox';
-import { LanguageCode } from '@elvia/elvis-toolbox/src';
 import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
 
 import { padDigit } from './padDigit';
