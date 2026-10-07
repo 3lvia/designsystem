@@ -1,5 +1,5 @@
-import { ComponentAttribute, ComponentConfig, DeprecatedDetails } from './componentConfig.types';
-import { isSsr } from './isSsr';
+import { ComponentAttribute, ComponentConfig, DeprecatedDetails } from './componentConfig.types.js';
+import { isSsr } from './isSsr.js';
 
 interface PropInfo {
   propName: string;

@@ -9,7 +9,9 @@ const buildToolbox = async (config: {
   outDir: string;
   watch: boolean;
 }): Promise<esbuild.BuildResult | void> => {
-  const toolboxSrcPaths = await tinyGlob('components/elvis-toolbox/src/**/*.ts*');
+  const toolboxSrcPaths = (await tinyGlob('components/elvis-toolbox/src/**/*.ts*')).filter(
+    (sourcePath) => !sourcePath.includes('.test.') && !sourcePath.includes('.spec.'),
+  );
   const paths = toolboxSrcPaths.map((path) => toInOutTuple(path));
 
   const baseConfig: esbuild.BuildOptions = {

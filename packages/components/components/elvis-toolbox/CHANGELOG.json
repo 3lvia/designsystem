@@ -3,6 +3,23 @@
   "name": "elvis-toolbox",
   "content": [
     {
+      "date": "06.10.26",
+      "version": "12.2.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": ["Documented Node.js <code>18</code> as the minimum version."]
+        },
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed ESM imports in Node.js by adding <code>.js</code> to internal imports.",
+            "Fixed test files being included in the package."
+          ]
+        }
+      ]
+    },
+    {
       "date": "11.09.24",
       "version": "12.1.0",
       "changelog": [

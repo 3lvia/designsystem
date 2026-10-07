@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { isSsr } from '../isSsr';
+import { isSsr } from '../isSsr.js';
 
 type BreakPoint = 'gt-mobile' | 'gt-tablet';
 
