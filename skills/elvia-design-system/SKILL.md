@@ -43,5 +43,7 @@ https://design.elvia.io and note that no reference was available.
   [progress-linear.md](references/progress-linear.md).
 - **Tabs** `<elvia-tabs>` web component, `@elvia/elvis-tabs` package, items, selection, manual/automatic
   activation, overflow scrolling. See [tabs.md](references/tabs.md).
+- **Tags** `e-tag` CSS class, `@elvia/elvis` CSS library, categorization, status colors. See
+  [tag.md](references/tag.md).
 - **Tooltips** `<elvia-tooltip>` web component, `@elvia/elvis-tooltip` package, trigger and content slots,
   positioning. See [tooltip.md](references/tooltip.md).
