@@ -67,7 +67,7 @@ color modifier at a time. For an inverted background, add `e-tag--inverted` as a
 
 ## Accessibility
 
-- Use an static element, such as `<span>` or `<div>`.
+- Use a static element, such as `<span>` or `<div>`.
 - Keep the text meaningful without its color. Do not rely on color alone to communicate.
 - If the item needs an action, use a native link or button with its normal accessible name and interaction
   behavior. Tags are not interactive elements themselves.
@@ -110,7 +110,7 @@ Base: `e-tag`
 
 ## Examples
 
-**Input:** Add a status label to an task.
+**Input:** Add a status label to a task.
 
 **Output:**
 
