@@ -9,6 +9,10 @@
         {
           "type": "bug_fix",
           "changes": ["Spotlight rectangles now keep the default border radius when dimensions are provided."]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
         }
       ]
     },
