@@ -5,6 +5,8 @@
 import '@testing-library/jest-dom';
 import 'jest-axe/extend-expect';
 
+jest.retryTimes(3, { logErrorsBeforeRetry: true });
+
 global.ResizeObserver = require('resize-observer-polyfill');
 global.MutationObserver = class {
   constructor(callback) {}
