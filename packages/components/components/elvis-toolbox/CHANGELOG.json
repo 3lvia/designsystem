@@ -3,6 +3,22 @@
   "name": "elvis-toolbox",
   "content": [
     {
+      "date": "12.10.26",
+      "version": "12.2.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed optional form-field labels to display <code>(optional)</code> in English and <code>(valgfri)</code> in Norwegian."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "09.10.26",
       "version": "12.2.0",
       "changelog": [
