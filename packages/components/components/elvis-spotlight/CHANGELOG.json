@@ -3,6 +3,16 @@
   "name": "elvis-spotlight",
   "content": [
     {
+      "date": "09.10.26",
+      "version": "1.6.6",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Spotlight rectangles now keep the default border radius when dimensions are provided."]
+        }
+      ]
+    },
+    {
       "date": "30.05.24",
       "version": "1.6.5",
       "changelog": [
