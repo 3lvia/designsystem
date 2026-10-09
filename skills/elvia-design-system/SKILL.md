@@ -30,12 +30,11 @@ https://design.elvia.io and note that no reference was available.
 
 - **App Bridge** `<elvia-app-bridge>` web component, `@elvia/elvis-app-bridge` package, metering-point target,
   active apps, internal use only, routing, environments. See [app-bridge.md](references/app-bridge.md).
-- **Buttons** `e-btn` class, `@elvia/elvis` CSS library, types, sizing, ordering, labeling. See
-  [button.md](references/button.md).
+- **Buttons** `e-btn` class, types, sizing, ordering, labeling. See [button.md](references/button.md).
 - **Icons** `<e-icon>` web component, `@elvia/elvis-icons`/`elvis-assets-icons`, sizing, coloring, accessible
   icon buttons. See [icon.md](references/icon.md).
-- **Checkboxes** `e-checkbox` class, `@elvia/elvis` CSS library, sizing, states, grouping, and accessibility.
-  See [checkbox.md](references/checkbox.md).
+- **Checkboxes** `e-checkbox` class, sizing, states, grouping, and accessibility. See
+  [checkbox.md](references/checkbox.md).
 - **Modal** `<elvia-modal>` web component, `@elvia/elvis-modal` package, heading, content, buttons,
   illustration. See [modal.md](references/modal.md).
 - **Progress linear** `<elvia-progress-linear>` web component, `@elvia/elvis-progress-linear` package,
@@ -43,5 +42,6 @@ https://design.elvia.io and note that no reference was available.
   [progress-linear.md](references/progress-linear.md).
 - **Tabs** `<elvia-tabs>` web component, `@elvia/elvis-tabs` package, items, selection, manual/automatic
   activation, overflow scrolling. See [tabs.md](references/tabs.md).
+- **Tags** `e-tag` CSS class, categorization, status colors. See [tag.md](references/tag.md).
 - **Tooltips** `<elvia-tooltip>` web component, `@elvia/elvis-tooltip` package, trigger and content slots,
   positioning. See [tooltip.md](references/tooltip.md).
