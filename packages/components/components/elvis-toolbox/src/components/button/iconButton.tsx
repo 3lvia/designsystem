@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import React, { forwardRef } from 'react';
 
-import { ButtonProps, Size } from './button';
+import { ButtonProps, Size } from './button.js';
 
 const getSize = (size: Size) => {
   switch (size) {
