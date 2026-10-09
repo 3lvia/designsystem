@@ -1,49 +1,46 @@
-export { isSsr } from './isSsr';
-export { outlineListener } from './outlineListener';
-export { warnDeprecatedProps } from './warnDeprecatedProps';
-export type { ComponentConfig, ComponentAttribute, DeprecatedDetails } from './componentConfig.types';
-
-export { device } from './breakpoints';
-export { TransparentBackdrop } from './components/backdrop/transparentBackdrop';
-export { PrimaryButton, SecondaryButton, TertiaryButton } from './components/button/button';
-export { VisuallyHidden } from './components/visually-hidden/visuallyHidden';
-export { IconButton } from './components/button/iconButton';
+export { device } from './breakpoints.js';
+export type { ComponentAttribute, ComponentConfig, DeprecatedDetails } from './componentConfig.types.js';
+export { TransparentBackdrop } from './components/backdrop/transparentBackdrop.js';
+export { PrimaryButton, SecondaryButton, TertiaryButton } from './components/button/button.js';
+export { IconButton } from './components/button/iconButton.js';
+export { FormFieldError, FormFieldErrorContainer } from './components/form-field/errorStyles.js';
 export {
-  type FormFieldSizes,
-  FormFieldInput,
   FormFieldContainer,
-  type FormFieldContainerProps,
+  FormFieldInput,
   FormFieldInputContainer,
   FormFieldInputSuffixText,
   FormFieldLabel,
+  type FormFieldContainerProps,
+  type FormFieldSizes,
   type LabelProps,
-} from './components/form-field/formFieldStyles';
-export { FormFieldError, FormFieldErrorContainer } from './components/form-field/errorStyles';
-export { Overlay } from './components/overlay/overlay';
-export { TooltipPopup, type TooltipPosition, type TooltipPopupProps } from './components/tooltip/tooltip';
-export { IconWrapper } from './components/iconWrapper/iconWrapper';
-export type { IconWrapperProps } from './components/iconWrapper/iconWrapper.types';
-
-export { useBreakpoint } from './hooks/useBreakpoint';
+} from './components/form-field/formFieldStyles.js';
+export { IconWrapper } from './components/iconWrapper/iconWrapper.js';
+export type { IconWrapperProps } from './components/iconWrapper/iconWrapper.types.js';
+export { Overlay } from './components/overlay/overlay.js';
+export { TooltipPopup, type TooltipPopupProps, type TooltipPosition } from './components/tooltip/tooltip.js';
+export { VisuallyHidden } from './components/visually-hidden/visuallyHidden.js';
+export { useBreakpoint } from './hooks/useBreakpoint.js';
 export {
   useConnectedOverlay,
-  type OverlayVerticalPosition,
   type OverlayHorizontalPosition,
-} from './hooks/useConnectedOverlay';
-export { useFocusTrap } from './hooks/useFocusTrap';
-export { useInputModeDetection } from './hooks/useInputModeDetection';
-export { useIsOverflowing } from './hooks/useIsOverflowing';
-export { useWebComponentState } from './hooks/useWebComponentState';
-export { useSlot } from './hooks/useSlot';
-export { useRovingFocus } from './hooks/useRovingFocus';
-export { useCurrentTheme } from './hooks/useCurrentTheme';
-export { useUpdateEffect } from './hooks/useUpdateEffect';
-export { useLanguage, type LanguageCode } from './hooks/useLanguage';
-
-export type { BaseProps } from './prop-blocks/baseProps';
-export type { ErrorOptions, HasError } from './prop-blocks/hasError';
-export type { HasValue } from './prop-blocks/hasValue';
-export type { HasTransitionDuration } from './prop-blocks/hasTransitionDuration';
+  type OverlayVerticalPosition,
+} from './hooks/useConnectedOverlay.js';
+export { useCurrentTheme } from './hooks/useCurrentTheme.js';
+export { useFocusTrap } from './hooks/useFocusTrap.js';
+export { useInputModeDetection } from './hooks/useInputModeDetection.js';
+export { useIsOverflowing } from './hooks/useIsOverflowing.js';
+export { useLanguage, type LanguageCode } from './hooks/useLanguage.js';
+export { useRovingFocus } from './hooks/useRovingFocus.js';
+export { useSlot } from './hooks/useSlot.js';
+export { useUpdateEffect } from './hooks/useUpdateEffect.js';
+export { useWebComponentState } from './hooks/useWebComponentState.js';
+export { isSsr } from './isSsr.js';
+export { outlineListener } from './outlineListener.js';
+export type { BaseProps } from './prop-blocks/baseProps.js';
+export type { ErrorOptions, HasError } from './prop-blocks/hasError.js';
+export type { HasTransitionDuration } from './prop-blocks/hasTransitionDuration.js';
+export type { HasValue } from './prop-blocks/hasValue.js';
+export { warnDeprecatedProps } from './warnDeprecatedProps.js';
 
 /** Dev exports below */
-export { useEffectDebugger } from './dev/useEffectDebugger';
+export { useEffectDebugger } from './dev/useEffectDebugger.js';

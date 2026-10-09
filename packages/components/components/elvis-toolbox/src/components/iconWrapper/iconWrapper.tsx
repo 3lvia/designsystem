@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 
-import { IconWrapperType } from './iconWrapper.types';
+import { IconWrapperType } from './iconWrapper.types.js';
 
 /**
  * Use this wrapper to render icons from `@elvia/elvis-assets-icons` as React components.
