@@ -3,6 +3,22 @@
   "name": "elvis-autocomplete",
   "content": [
     {
+      "date": "12.10.26",
+      "version": "3.2.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed the optional label to follow the global <code>lang</code> attribute, showing <code>(valgfri)</code> in Norwegian and <code>(optional)</code> in English."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "19.09.24",
       "version": "3.2.0",
       "changelog": [
