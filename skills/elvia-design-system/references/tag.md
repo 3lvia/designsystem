@@ -47,7 +47,7 @@ Prefer the most semantic alias when possible, eg. `e-tag--positive` instead of `
 color modifier at a time. For an inverted background, add `e-tag--inverted` as a separate theme modifier:
 
 ```html
-<span class="e-tag e-tag--inverted e-tag--neutral">Akrivert</span>
+<span class="e-tag e-tag--inverted e-tag--neutral">Arkivert</span>
 ```
 
 ## Guidelines
@@ -63,7 +63,7 @@ color modifier at a time. For an inverted background, add `e-tag--inverted` as a
 
 - Keep the label short and descriptive, with a maximum of two words.
 - Any color can be used for categorization. When showing status, use success, caution, and danger for errors.
-- Do not show numeric values in a tag.
+- Do not use tags for standalone numeric values such as IDs or amounts.
 
 ## Accessibility
 
@@ -128,8 +128,8 @@ Base: `e-tag`
 ```html
 <div>
   <span>Forbruk</span>
-  <span class="e-tag e-tag--data-1">2026</span>
-  <span class="e-tag e-tag--data-2">2025</span>
-  <span class="e-tag e-tag--data-3">2024</span>
+  <span class="e-tag e-tag--data-1">Bolig</span>
+  <span class="e-tag e-tag--data-2">Fritid</span>
+  <span class="e-tag e-tag--data-3">Næring</span>
 </div>
 ```
