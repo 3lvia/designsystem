@@ -168,9 +168,6 @@ export const FormFieldLabel = styled.div<LabelProps>`
     css`
       &::after {
         font-weight: 400;
-      }
-
-      &:lang(nb, no)::after {
         content: ' (valgfri)';
       }
 
