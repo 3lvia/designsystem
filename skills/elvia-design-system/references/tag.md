@@ -50,6 +50,20 @@ color modifier at a time. For an inverted background, add `e-tag--inverted` as a
 <span class="e-tag e-tag--inverted e-tag--neutral">Arkivert</span>
 ```
 
+Semantic status modifiers and their color aliases:
+
+| Modifier(s)                                   | Underlying color token                   | Intended meaning                                                 |
+| --------------------------------------------- | ---------------------------------------- | ---------------------------------------------------------------- |
+| `e-tag--positive`, `e-tag--success`           | `--e-color-signal-positive`              | Successful or completed status                                   |
+| `e-tag--caution`, `e-tag--yellow`             | `--e-color-signal-caution`               | A status that needs attention                                    |
+| `e-tag--warning`, `e-tag--orange`             | `--e-color-signal-warning`               | A warning status                                                 |
+| `e-tag--error`, `e-tag--danger`, `e-tag--red` | `--e-color-signal-danger`                | An error or negative status                                      |
+| `e-tag--neutral`                              | `--e-tag-color-neutral` (theme-adaptive) | Neither positive nor negative, such as in progress or registered |
+
+The numbered data modifiers (`e-tag--data-1` through `e-tag--data-6`) are palette identifiers for
+categorization only, never for status. Their numbers identify colors; they do not imply meaning, priority, or
+order. Use them to distinguish categories, not to communicate a status.
+
 ## Guidelines
 
 ### When to use
@@ -58,11 +72,16 @@ color modifier at a time. For an inverted background, add `e-tag--inverted` as a
 - Pair a tag with the item it describes; do not use tags alone.
 - For an interactive action, use a link or button instead of styling it as a tag.
 - Prefer `e-tag` over custom tags or classes.
+- Use `e-tag--neutral` for neutral statuses, such as in progress or registered.
+- Use `e-tag--data-1` through `e-tag--data-6` for categorization only, never for status.
 
 ### Text and color
 
 - Keep the label short and descriptive, with a maximum of two words.
-- Any color can be used for categorization. When showing status, use success, caution, and danger for errors.
+- For status labels, use `positive`/`success` for successful states, `caution` or `warning` when attention is
+  needed, `danger`/`error` for errors or negative states, and `neutral` when the state is neither good nor
+  bad.
+- Use data colors for categorization only; do not use them to communicate status.
 - Do not use tags for standalone numeric values such as IDs or amounts.
 
 ## Accessibility
