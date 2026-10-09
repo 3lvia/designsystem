@@ -16,14 +16,15 @@ export interface PaginationLabel {
 }
 
 export interface BasePaginationProps extends BaseProps, HasValue<VisibleElements> {
-  numberOfElements?: number;
-  lastNumberLimit?: number;
   alignment?: 'left' | 'right';
+  ariaLabel?: string;
   dropdownItems?: DropdownItem[];
   dropdownMenuPosition?: 'top' | 'bottom' | 'auto';
   dropdownSelectedItemIndex?: number;
   dropdownSelectedItemIndexOnChange?: (value: number) => void;
   labelOptions?: PaginationLabel;
+  lastNumberLimit?: number;
+  numberOfElements?: number;
 }
 
 export interface PaginationProps extends BasePaginationProps, ComponentPropsWithoutRef<'div'> {}
