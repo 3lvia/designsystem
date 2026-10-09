@@ -1,8 +1,14 @@
 import React, { FC } from 'react';
 
-import { SpotlightProps } from './elvia-spotlight.types';
+import { SpotlightProps, SpotlightRectangleProps } from './elvia-spotlight.types';
 import { SpotlightArea, SpotlightCircle, SpotlightMask, SpotlightRect } from './styledComponents';
 import { useLockBodyScroll } from './useLockBodyScroll';
+
+const DEFAULT_RECTANGLE_PROPS = {
+  width: 200,
+  height: 200,
+  borderRadius: 8,
+} as const satisfies SpotlightRectangleProps;
 
 export const Spotlight: FC<SpotlightProps> = ({
   position,
@@ -10,12 +16,13 @@ export const Spotlight: FC<SpotlightProps> = ({
   radius = 200,
   hasLockBodyScroll = true,
   transitionDuration = '350ms',
-  rectangleProps = { width: 200, height: 200, borderRadius: 8 },
+  rectangleProps = DEFAULT_RECTANGLE_PROPS,
   className,
   inlineStyle,
   ...rest
 }) => {
   const hasPosition = position && position.horizontal !== undefined && position.vertical !== undefined;
+  const rectangle = { ...DEFAULT_RECTANGLE_PROPS, ...rectangleProps };
   useLockBodyScroll(hasLockBodyScroll);
 
   return hasPosition ? (
@@ -35,12 +42,12 @@ export const Spotlight: FC<SpotlightProps> = ({
             ) : (
               <SpotlightRect
                 transitionDuration={transitionDuration}
-                width={rectangleProps.width}
-                height={rectangleProps.height}
+                width={rectangle.width}
+                height={rectangle.height}
                 x={position.horizontal}
                 y={position.vertical}
-                rx={rectangleProps.borderRadius}
-                ry={rectangleProps.borderRadius}
+                rx={rectangle.borderRadius}
+                ry={rectangle.borderRadius}
                 fill="black"
               />
             )}
