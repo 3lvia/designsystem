@@ -167,8 +167,12 @@ export const FormFieldLabel = styled.div<LabelProps>`
     hasOptionalText &&
     css`
       &::after {
-        content: ' (valgfri)';
         font-weight: 400;
+        content: ' (valgfri)';
+      }
+
+      &:lang(en)::after {
+        content: ' (optional)';
       }
     `}
 `;
