@@ -3,6 +3,22 @@
   "name": "elvis-pagination",
   "content": [
     {
+      "date": "12.10.26",
+      "version": "3.7.0",
+      "changelog": [
+        {
+          "type": "new_feature",
+          "changes": [
+            "Added an <code>ariaLabel</code> prop to set a unique accessible name for the pagination navigation landmark."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "05.11.25",
       "version": "3.6.3",
       "changelog": [

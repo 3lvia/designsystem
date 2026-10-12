@@ -300,6 +300,20 @@ describe('Elvis Pagination', () => {
   });
 
   describe('the accessibility', () => {
+    it('should give each pagination navigation a distinct accessible name', async () => {
+      render(
+        <div data-testid="pagination-wrapper">
+          <Pagination numberOfElements={100} ariaLabel="A" />
+          <Pagination numberOfElements={100} ariaLabel="B" />
+        </div>,
+      );
+
+      const paginations = screen.getByTestId('pagination-wrapper');
+      const results = await axe(paginations);
+
+      expect(results).toHaveNoViolations();
+    });
+
     it('should have no axe violations', async () => {
       render(
         <div data-testid="pagination-wrapper">

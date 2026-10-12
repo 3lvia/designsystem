@@ -20,10 +20,14 @@ Follow this checklist and check off each step as it is completed:
 
 ## 1. Install the CSS package
 
-Install the CSS component library as an external dependency:
+Install the CSS component library as an external dependency via the package manager in the current project:
 
 ```sh
 npm install @elvia/elvis
+```
+
+```sh
+yarn add @elvia/elvis
 ```
 
 ## 2. Register the required CSS
@@ -47,10 +51,14 @@ Be aware that importing the reset in an existing application may break styles th
 ## 4. Install a web component
 
 If you need an Elvis web component, choose it from the [component catalog](https://design.elvia.io/components)
-and install its package as an external dependency:
+and install its package as an external dependency via the package manager in the current project:
 
 ```sh
 npm install @elvia/elvis-<component>
+```
+
+```sh
+yarn add @elvia/elvis-<component>
 ```
 
 ## 5. Register the web component
