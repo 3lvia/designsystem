@@ -22,6 +22,10 @@
       content: ' (valgfri)';
       font-weight: 400;
     }
+
+    :lang(en) &.e-form-field__label--optional::after {
+      content: ' (optional)';
+    }
   }
 
   &__error {
