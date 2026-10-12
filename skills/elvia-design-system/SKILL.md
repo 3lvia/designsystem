@@ -35,6 +35,8 @@ https://design.elvia.io and note that no reference was available.
   icon buttons. See [icon.md](references/icon.md).
 - **Checkboxes** `e-checkbox` class, sizing, states, grouping, and accessibility. See
   [checkbox.md](references/checkbox.md).
+- **Header** `<elvia-header>` web component, `@elvia/elvis-header` package, user and app details, sidenav
+  slots, events, and theme utility. See [header.md](references/header.md).
 - **Modal** `<elvia-modal>` web component, `@elvia/elvis-modal` package, heading, content, buttons,
   illustration. See [modal.md](references/modal.md).
 - **Progress linear** `<elvia-progress-linear>` web component, `@elvia/elvis-progress-linear` package,
