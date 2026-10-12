@@ -43,6 +43,11 @@ export const paginationData: ComponentData<BasePaginationProps> = {
       description: 'Alignment of the paginator.',
       default: '"left"',
     },
+    ariaLabel: {
+      type: 'string',
+      description:
+        'Accessible name for the pagination navigation landmark. Use a unique name when multiple paginators are present on the same page.',
+    },
     dropdownItems: {
       type: 'object[]',
       description:

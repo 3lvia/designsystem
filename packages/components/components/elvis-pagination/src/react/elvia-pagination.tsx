@@ -23,16 +23,17 @@ import {
 } from './styledComponents';
 
 export const Pagination: FC<PaginationProps> = function ({
-  // Value represents the current visible elements in the pagination
-  value = defaultPaginationValue,
-  numberOfElements = 0,
-  lastNumberLimit,
   alignment = 'left',
-  dropdownMenuPosition = 'bottom',
+  ariaLabel: paginationAriaLabel,
   dropdownItems = defaultPaginationDropdownItems,
+  dropdownMenuPosition = 'bottom',
   dropdownSelectedItemIndex = 0,
   dropdownSelectedItemIndexOnChange,
   labelOptions,
+  lastNumberLimit,
+  numberOfElements = 0,
+  // Value represents the current visible elements in the pagination
+  value = defaultPaginationValue,
   valueOnChange,
   className,
   inlineStyle,
@@ -188,7 +189,7 @@ export const Pagination: FC<PaginationProps> = function ({
         </PaginatorInfoAmount>
       </PaginatorInfoContainer>
       {showPaginationNumbers() && (
-        <PaginatorSelectorArea ref={listContainerRef}>
+        <PaginatorSelectorArea ref={listContainerRef} aria-label={paginationAriaLabel}>
           <PaginatorSelectorArrowBtn
             aria-hidden={!previousEnabled}
             aria-label={lang === 'no' ? 'Forrige side' : 'Previous page'}
