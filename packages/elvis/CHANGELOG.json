@@ -3,6 +3,19 @@
   "name": "elvis",
   "content": [
     {
+      "version": "21.5.1",
+      "date": "October 12, 2026",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "The optional field label now follows the document language, showing <code>(optional)</code> in English and <code>(valgfri)</code> in Norwegian."
+          ],
+          "components": [{ "displayName": "Text Field", "url": "https://design.elvia.io/components/input" }]
+        }
+      ]
+    },
+    {
       "version": "21.5.0",
       "date": "October 8, 2025",
       "changelog": [

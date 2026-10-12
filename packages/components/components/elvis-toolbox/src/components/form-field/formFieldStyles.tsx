@@ -170,6 +170,11 @@ export const FormFieldLabel = styled.div<LabelProps>`
         content: ' (valgfri)';
         font-weight: 400;
       }
+
+      &:lang(en)::after {
+        content: ' (optional)';
+        font-weight: 400;
+      }
     `}
 `;
 
