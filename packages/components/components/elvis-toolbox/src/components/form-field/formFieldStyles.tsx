@@ -173,6 +173,7 @@ export const FormFieldLabel = styled.div<LabelProps>`
 
       &:lang(en)::after {
         content: ' (optional)';
+        font-weight: 400;
       }
     `}
 `;
