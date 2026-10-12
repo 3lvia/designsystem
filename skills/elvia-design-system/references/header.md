@@ -19,7 +19,7 @@
 
 https://design.elvia.io/components/header
 
-`<elvia-header>` is a web component. It works in any framework, or without one.
+`<elvia-header>` is a web component.
 
 ## Installation
 
