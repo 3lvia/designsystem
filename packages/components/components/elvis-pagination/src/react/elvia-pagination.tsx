@@ -189,10 +189,7 @@ export const Pagination: FC<PaginationProps> = function ({
         </PaginatorInfoAmount>
       </PaginatorInfoContainer>
       {showPaginationNumbers() && (
-        <PaginatorSelectorArea
-          ref={listContainerRef}
-          {...(paginationAriaLabel !== undefined ? { 'aria-label': paginationAriaLabel } : {})}
-        >
+        <PaginatorSelectorArea ref={listContainerRef} aria-label={paginationAriaLabel}>
           <PaginatorSelectorArrowBtn
             aria-hidden={!previousEnabled}
             aria-label={lang === 'no' ? 'Forrige side' : 'Previous page'}
