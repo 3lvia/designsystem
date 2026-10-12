@@ -25,6 +25,7 @@
 
     &.e-form-field__label--optional:lang(en)::after {
       content: ' (optional)';
+      font-weight: 400;
     }
   }
 
