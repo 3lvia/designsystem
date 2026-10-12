@@ -35,7 +35,7 @@ details and owns its page routing and sidenav markup.
 
 - `username` is required. It is the signed-in user's username.
 - `email` is required. It is the signed-in user's email address.
-- `pageTitle` is required. Provide it as the attribute (plain text) or through the `pageTitle` slot.Do not
+- `pageTitle` is required. Provide it as the attribute (plain text) or through the `pageTitle` slot. Do not
   provide both.
 - `appTitle` is optional. It sets the app name.
 - `hideThemeSwitch` is optional. See [hideThemeSwitch](#hidethemeswitch).
@@ -53,7 +53,7 @@ Use slots for content that is more than text:
 
 The app owns its sidenav DOM because routing and active-item state are framework-specific. Use these classes:
 
-- `e-sidenav__container` on the `<nav>` element
+- `e-sidenav__container` on a container element such as `<div>`
 - `e-sidenav__item` on each link
 - `e-sidenav__item-text` on the visible link text
 - `e-sidenav__icon-container` around the item icons
@@ -116,6 +116,7 @@ The app supplies the sidenav links, so they must be real, accessible links.
 
 - The header renders the app content inside a `main` element, you do not need to add another `main` element
   inside your app content.
+- The header renders the sidenav content inside a `nav` element, you do not need to add another `nav` element.
 - Every link has a real destination (`href`, or the router's equivalent that renders one) so it is focusable
   and announced as a link.
 - Put `aria-current="page"` on the active link and remove it from all others when the route changes. Prefer
@@ -131,8 +132,7 @@ The app supplies the sidenav links, so they must be real, accessible links.
 ```html
 <elvia-header username="Ola" email="ola@nordmann.no" appTitle="Min app">
   <span slot="pageTitle">Dashbord</span>
-
-  <nav slot="navItems" class="e-sidenav__container" aria-label="Hovednavigasjon">
+  <div slot="navItems" class="e-sidenav__container" aria-label="Hovednavigasjon">
     <a href="/dashbord" class="e-sidenav__item e-sidenav__item--active" aria-current="page">
       <div class="e-sidenav__icon-container">
         <e-icon name="dashboard" size="sm"></e-icon>
@@ -147,8 +147,7 @@ The app supplies the sidenav links, so they must be real, accessible links.
       </div>
       <div class="e-sidenav__item-text">Søk</div>
     </a>
-  </nav>
-
+  </div>
   <div slot="appContent">
     <!-- app page content or router outlet -->
   </div>
