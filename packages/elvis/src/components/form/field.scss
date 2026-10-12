@@ -23,7 +23,7 @@
       font-weight: 400;
     }
 
-    :lang(en) &.e-form-field__label--optional::after {
+    &.e-form-field__label--optional:lang(en)::after {
       content: ' (optional)';
     }
   }
