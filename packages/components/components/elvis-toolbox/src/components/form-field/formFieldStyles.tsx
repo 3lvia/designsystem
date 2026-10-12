@@ -167,8 +167,8 @@ export const FormFieldLabel = styled.div<LabelProps>`
     hasOptionalText &&
     css`
       &::after {
-        font-weight: 400;
         content: ' (valgfri)';
+        font-weight: 400;
       }
 
       &:lang(en)::after {
