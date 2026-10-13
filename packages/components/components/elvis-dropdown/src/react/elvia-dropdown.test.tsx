@@ -362,7 +362,7 @@ describe('Elvis Dropdown', () => {
       await user.type(dropdown, '3');
 
       expect(screen.getByText('Option 3')).toBeVisible();
-      expect(screen.getByText('Option 1')).not.toBeVisible();
+      expect(screen.queryByText('Option 1')).not.toBeInTheDocument();
     });
 
     it('shows the no-options message when filtering has no matches', async () => {
