@@ -78,8 +78,8 @@ installed.
 
 **Interactive text**
 
-Use the interactive text classes for text that requires user interaction, however, do not add them to Elvia
-components, the components them self set the correct typography. Only use it for custom implementations.
+Use the interactive text classes for text that requires user interaction. However, do not add them to Elvia
+components; the components themselves set the correct typography. Only use these classes for custom implementations.
 
 - `e-text-interactive-lg`
 - `e-text-interactive-md`
