@@ -353,6 +353,10 @@ describe('Elvis Dropdown', () => {
       mockMatchMedia({ isGtMobile: false });
     });
 
+    afterEach(() => {
+      mockMatchMedia({ isGtMobile: true });
+    });
+
     it('shows matching options while searching', async () => {
       render(<Dropdown items={items} isSearchable />);
 
