@@ -9,7 +9,7 @@ description: >
 license: GPL-3.0-only
 metadata:
   author: Elvia
-  version: '0.1.0-alpha.8'
+  version: '0.1.0-alpha.9'
 ---
 
 # Elvia Design System (Elvis)
@@ -49,5 +49,7 @@ https://design.elvia.io and note that no reference was available.
 - **Tabs** `<elvia-tabs>` web component, `@elvia/elvis-tabs` package, items, selection, manual/automatic
   activation, overflow scrolling. See [tabs.md](references/tabs.md).
 - **Tags** `e-tag` CSS class, categorization, status colors. See [tag.md](references/tag.md).
+- **Typography** text hierarchy and available typography classes. See
+  [typography.md](references/typography.md).
 - **Tooltips** `<elvia-tooltip>` web component, `@elvia/elvis-tooltip` package, trigger and content slots,
   positioning. See [tooltip.md](references/tooltip.md).
