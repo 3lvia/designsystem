@@ -9,7 +9,7 @@ description: >
 license: GPL-3.0-only
 metadata:
   author: Elvia
-  version: '0.1.0-alpha.7'
+  version: '0.1.0-alpha.8'
 ---
 
 # Elvia Design System (Elvis)
@@ -30,6 +30,8 @@ https://design.elvia.io and note that no reference was available.
 
 - **App Bridge** `<elvia-app-bridge>` web component, `@elvia/elvis-app-bridge` package, metering-point target,
   active apps, internal use only, routing, environments. See [app-bridge.md](references/app-bridge.md).
+- **Accordion** `<elvia-accordion>` web component, normal disclosure, overflow preview, single toggle, labels,
+  events, and accessibility. See [accordion.md](references/accordion.md).
 - **Buttons** `e-btn` class, types, sizing, ordering, labeling. See [button.md](references/button.md).
 - **Icons** `<e-icon>` web component, `@elvia/elvis-icons`/`elvis-assets-icons`, sizing, coloring, accessible
   icon buttons. See [icon.md](references/icon.md).
