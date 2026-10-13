@@ -348,6 +348,54 @@ describe('Elvis Dropdown', () => {
     });
   });
 
+  describe('on mobile', () => {
+    beforeEach(() => {
+      mockMatchMedia({ isGtMobile: false });
+    });
+
+    it('shows matching options while searching', async () => {
+      render(<Dropdown items={items} isSearchable />);
+
+      const user = userEvent.setup();
+      const dropdown = screen.getByRole('combobox');
+      await user.click(dropdown);
+      await user.type(dropdown, '3');
+
+      expect(screen.getByText('Option 3')).toBeVisible();
+      expect(screen.getByText('Option 1')).not.toBeVisible();
+    });
+
+    it('shows the no-options message when filtering has no matches', async () => {
+      render(<Dropdown items={items} isSearchable />);
+
+      const user = userEvent.setup();
+      const dropdown = screen.getByRole('combobox');
+      await user.click(dropdown);
+      await user.type(dropdown, 'nothing-matches-this');
+
+      expect(screen.getByText('Ingen tilgjengelige valg')).toBeVisible();
+    });
+
+    it('returns to the parent menu when the back button is clicked', async () => {
+      render(<Dropdown items={treeItems} />);
+
+      const user = userEvent.setup();
+      await user.click(screen.getByRole('combobox'));
+      await user.click(screen.getByText('Option 2'));
+
+      await waitFor(() => {
+        expect(screen.getByText('Subitem')).toBeVisible();
+      });
+
+      expect(screen.getByText('Tilbake')).toBeVisible();
+      await user.click(screen.getByText('Tilbake'));
+
+      await waitFor(() => {
+        expect(screen.getByText('Option 1')).toBeVisible();
+      });
+    });
+  });
+
   describe('events', () => {
     const valueOnChangeEvent = jest.fn();
     const onItemHoverEvent = jest.fn();
