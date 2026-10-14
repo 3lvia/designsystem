@@ -75,7 +75,7 @@ Use concise, meaningful labels that describe the destination. Do not use labels 
 
 ### Links with button style
 
-Use `e-btn` on an link only when a navigational link needs button styling; use this sparingly because it can
+Use `e-btn` on a link only when a navigational link needs button styling; use this sparingly because it can
 blur the difference between navigation and actions. Keep the link's `href` or framework routing behavior.
 
 ```html
