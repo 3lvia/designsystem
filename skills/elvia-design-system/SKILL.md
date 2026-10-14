@@ -9,7 +9,7 @@ description: >
 license: GPL-3.0-only
 metadata:
   author: Elvia
-  version: '0.1.0-alpha.10'
+  version: '0.1.0-alpha.11'
 ---
 
 # Elvia Design System (Elvis)
@@ -35,6 +35,8 @@ https://design.elvia.io and note that no reference was available.
 - **Buttons** `e-btn` class, types, sizing, ordering, labeling. See [button.md](references/button.md).
 - **Lists** `e-list` class, bullet, numbered, and icon markers, emphasis, and list semantics. See
   [list.md](references/list.md).
+- **Links** `e-link` CSS class, navigation variants, sizing, labeling, and accessibility. See
+  [link.md](references/link.md).
 - **Icons** `<e-icon>` web component, `@elvia/elvis-icons`/`elvis-assets-icons`, sizing, coloring, accessible
   icon buttons. See [icon.md](references/icon.md).
 - **Illustrations** `@elvia/elvis-illustrations` web components, per-illustration imports, and colors. See
