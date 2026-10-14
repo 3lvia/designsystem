@@ -48,6 +48,25 @@ describe('Elvis DatepickerRange', () => {
       expect(errors).toHaveLength(1);
       expect(errors[0]).toHaveTextContent(/tidligste dato er 21.10.2022/i);
     });
+
+    it('should set the default end date to the end of the day', async () => {
+      const user = userEvent.setup();
+      const valueOnChange = jest.fn();
+
+      render(<DatepickerRange valueOnChange={valueOnChange} />);
+
+      await user.click(screen.getAllByRole('button', { name: /åpne datovelger/i })[1]);
+
+      await waitFor(() => expect(valueOnChange).toHaveBeenCalled());
+      const endDate = valueOnChange.mock.lastCall![0].end;
+
+      expect([
+        endDate.getHours(),
+        endDate.getMinutes(),
+        endDate.getSeconds(),
+        endDate.getMilliseconds(),
+      ]).toEqual([23, 59, 59, 999]);
+    });
   });
 
   describe('with time picker', () => {
