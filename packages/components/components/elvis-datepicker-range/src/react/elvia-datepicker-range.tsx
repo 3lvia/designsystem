@@ -109,7 +109,7 @@ export const DatepickerRange: FC<DatepickerRangeProps> = ({
           maxDate.getMilliseconds(),
         );
       } else {
-        dateCopy.setHours(23, 59, 59, 59);
+        dateCopy.setHours(23, 59, 59, 999);
       }
     }
 
