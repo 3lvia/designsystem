@@ -51,7 +51,7 @@ icons.
 ## Guidelines
 
 - Wrap each icon marker in `e-list__icon`; keep meaningful text in every item.
-- Use icon lists when you need to list up definitions or explain items.
+- Use icon lists when you need to list definitions or explain items.
 - `e-list--strong` sets font weight to 600. Font size is inherited from surrounding content.
 
 ## Classes
