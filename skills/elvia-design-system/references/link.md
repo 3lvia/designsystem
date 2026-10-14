@@ -22,7 +22,7 @@ available icons.
 <p class="e-text-md">Read the <a class="e-link e-link--inline" href="/terms">terms and conditions</a>.</p>
 
 <a class="e-link e-link--new-tab" href="https://example.com" target="_blank" rel="noopener">
-  <span class="e-link__title">Visit the external service</span>
+  <span class="e-link__title">Visit the external service <span class="e-sr-only">(opens in a new tab)</span></span>
   <span class="e-link__icon">
     <e-icon name="newTabBold"></e-icon>
   </span>
