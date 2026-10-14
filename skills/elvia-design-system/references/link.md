@@ -62,7 +62,7 @@ available icons.
 
 ## Guidelines
 
-- For in-app navigation, use the framework's routing mechanism and use `e-link` styling to its rendered link.
+- For in-app navigation, use the framework's routing mechanism and apply `e-link` styling to its rendered link.
 - Links have no disabled state; omit an unavailable link or explain its status in text.
 - Use `e-link--action` for prominent navigation and `e-link--back` for previous/parent navigation.
 - Pair `e-link--new-tab` with `target="_blank"` and `rel="noopener"` for external links opened in a new tab.
