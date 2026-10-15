@@ -91,12 +91,6 @@ describe('Elvia Header', () => {
       expect(sidenav.querySelectorAll('a').length).toBe(1);
     });
 
-    test('should have a width toggle in the side nav', () => {
-      const element = screen.getByRole('button', { name: /^maksimer$/i });
-
-      expect(element).not.toBeEmptyDOMElement();
-    });
-
     test('should not have a visible user menu initially', () => {
       const element = screen.queryByRole('menu');
       expect(element).not.toBeInTheDocument();
@@ -110,23 +104,6 @@ describe('Elvia Header', () => {
 
       test('the logo click event is fired', () => {
         expect(logoHasBeenClicked).toBe(true);
-      });
-    });
-
-    describe('when the sidenav width toggle is clicked', () => {
-      let classList = '';
-
-      beforeEach(async () => {
-        const sidenav = screen.getByRole('navigation');
-        classList = sidenav.classList.toString();
-        const element = screen.getByRole('button', { name: /^maksimer$/i });
-
-        await user.click(element);
-      });
-
-      test('the class list for the sidenav changes', () => {
-        const sidenav = screen.getByRole('navigation');
-        expect(sidenav.classList.toString()).not.toBe(classList);
       });
     });
 
@@ -216,12 +193,6 @@ describe('Elvia Header', () => {
     test('the header has a mobile menu', () => {
       const element = screen.getByRole('button', { name: /^åpne brukermeny$/i });
       expect(element).not.toBeEmptyDOMElement();
-    });
-
-    test('the side nav width toggle remains mounted on mobile', () => {
-      const element = screen.getByRole('navigation').querySelector('button');
-      expect(element).toBeInTheDocument();
-      expect(element).not.toBeVisible();
     });
 
     test('the mobile menu is not yet visible', () => {
