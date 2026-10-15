@@ -41,6 +41,10 @@ export const SideNavContainer = styled.nav<SideNavContainerProps>`
   ${publicStyles()}
 `;
 
+export const NavItemsContainer = styled.div`
+  display: contents;
+`;
+
 interface ButtonContainerProps {
   isGtMobile: boolean;
 }

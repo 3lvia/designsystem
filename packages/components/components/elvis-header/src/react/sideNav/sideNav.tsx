@@ -4,7 +4,7 @@ import { IconWrapper } from '@elvia/elvis-toolbox';
 import React from 'react';
 
 import { Labels } from '../elviaHeader.types';
-import { IconContainer, SideNavContainer, ToggleWidthButton } from './sideNavStyles';
+import { IconContainer, NavItemsContainer, SideNavContainer, ToggleWidthButton } from './sideNavStyles';
 
 interface SideNavProps {
   labels: Labels;
@@ -13,11 +13,11 @@ interface SideNavProps {
   children: React.ReactNode;
 }
 
-export const SideNav = React.forwardRef<HTMLElement, SideNavProps>(
+export const SideNav = React.forwardRef<HTMLDivElement, SideNavProps>(
   ({ labels, children, isExpanded, onSideNavToggle }, ref) => {
     return (
-      <SideNavContainer isExpanded={isExpanded} ref={ref}>
-        {children}
+      <SideNavContainer isExpanded={isExpanded}>
+        <NavItemsContainer ref={ref}>{children}</NavItemsContainer>
         <ToggleWidthButton onClick={() => onSideNavToggle()}>
           <IconContainer>
             <IconWrapper icon={isExpanded ? closeMenu : openMenu} size="sm" />
