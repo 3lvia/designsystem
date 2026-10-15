@@ -9,7 +9,6 @@
   - [Guidelines](#guidelines)
     - [When to use](#when-to-use)
     - [When not to use](#when-not-to-use)
-  - [Accessibility](#accessibility)
   - [Examples](#examples)
 
 # Box (`<elvia-box>`)
