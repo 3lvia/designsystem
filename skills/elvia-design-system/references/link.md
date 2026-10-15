@@ -1,93 +1,117 @@
+- [Link (`e-link`)](#link-e-link)
+  - [Reference](#reference)
+  - [Installation](#installation)
+  - [Use](#use)
+  - [Guidelines](#guidelines)
+    - [When to use](#when-to-use)
+    - [When not to use](#when-not-to-use)
+    - [Types](#types)
+    - [Size](#size)
+    - [Label](#label)
+    - [Links with button style](#links-with-button-style)
+  - [Accessibility](#accessibility)
+  - [Examples](#examples)
+  - [Classes](#classes)
+
 # Link (`e-link`)
 
 ## Reference
 
 https://design.elvia.io/components/link
 
-Link is a CSS-based component, consisting of only CSS classes.
+Link is a CSS-based component. It uses CSS classes only.
 
 ## Installation
 
-This CSS-based component requires the `@elvia/elvis` package. If it is not already installed, follow the
-[Elvis installation reference](./installation.md) before using the link classes.
+Install `@elvia/elvis` to use this CSS-based component. Follow the
+[Elvis installation reference](./installation.md) for setup.
 
-Links with icons also use the `<e-icon>` web component. See the [icon reference](./icon.md) for setup and
-available icons.
+Links with icons use the `<e-icon>` web component. Read the [icon reference](./icon.md) for setup and icon
+names.
 
 ## Use
 
 ```html
-<a class="e-link" href="/outages">View outages</a>
-
-<p class="e-text-md">Read the <a class="e-link e-link--inline" href="/terms">terms and conditions</a>.</p>
-
-<a class="e-link e-link--new-tab" href="https://example.com" target="_blank" rel="noopener">
-  <span class="e-link__title">Visit the external service <span class="e-sr-only">(opens in a new tab)</span></span>
-  <span class="e-link__icon">
-    <e-icon name="newTabBold"></e-icon>
-  </span>
-</a>
-
-<a class="e-link e-link--action" href="/applications">
-  <span class="e-link__title">View applications</span>
-  <span class="e-link__icon">
-    <e-icon name="arrowRightCircleColor"></e-icon>
-    <e-icon name="arrowRightCircleFilledColor"></e-icon>
-  </span>
-</a>
-
-<a class="e-link e-link--back" href="/overview">
-  <span class="e-link__icon">
-    <e-icon name="arrowLeftCircleColor"></e-icon>
-    <e-icon name="arrowLeftCircleFilledColor"></e-icon>
-  </span>
-  <span class="e-link__title">Back to overview</span>
-</a>
+<a class="e-link" href="/outages">Se vårt strømbruddskart</a>
 ```
 
-## Types
+## Guidelines
+
+### When to use
+
+- Use the application's routing mechanism for in-app navigation.
+- Apply `e-link` to the rendered link.
+
+### When not to use
+
+- The component has no disabled modifier. Explain unavailable destinations in text.
+- Use a button when the user changes application state.
+
+### Types
 
 - **Standard** (`e-link`): standalone navigation.
 - **Inline** (`e-link--inline`): inherits the surrounding font size.
-- **New tab** (`e-link--new-tab`): for external destinations opened with `target="_blank"` and
+- **New tab** (`e-link--new-tab`): apply to external links that open in a new tab. Set `target="_blank"`. Set
   `rel="noopener"`.
 - **Action** (`e-link--action`): prominent navigation with a trailing arrow icon.
 - **Back** (`e-link--back`): navigation to a previous or parent page with a leading arrow icon.
+- Use `e-link__title` and `e-link__icon` in action and back links. Include both color and filled icons to show
+  hover and active states.
 
-## Size
+### Size
 
 - Small `e-link--sm`.
 - Medium `e-link--md` (default).
 - Large `e-link--lg`.
 
-## Guidelines
-
-- For in-app navigation, use the framework's routing mechanism and apply `e-link` styling to its rendered link.
-- Links have no disabled state; omit an unavailable link or explain its status in text.
-- Use `e-link--action` for prominent navigation and `e-link--back` for previous/parent navigation.
-- Pair `e-link--new-tab` with `target="_blank"` and `rel="noopener"` for external links opened in a new tab.
-- Action/back links use `e-link__title` and `e-link__icon`; include both color and filled icons for the
-  hover/active swap.
-
 ### Label
 
-Use concise, meaningful labels that describe the destination. Do not use labels such as “click here.”
+Use concise labels that describe the destination. Do not use labels such as “click here.”
 
 ### Links with button style
 
-Use `e-btn` on a link only when a navigational link needs button styling; use this sparingly because it can
-blur the difference between navigation and actions. Keep the link's `href` or framework routing behavior.
+Use `e-btn` on a link only when navigation needs button styling.
 
 ```html
 <a class="e-btn" href="/application-details">
-  <span class="e-btn__title">View application details</span>
+  <span class="e-btn__title">Se systemdetaljer</span>
 </a>
 ```
 
 ## Accessibility
 
-- The new-tab icon does not communicate the changed browsing context by itself; also identify that behavior in
-  the link text or nearby text.
+- An icon alone does not tell users that a link opens a new tab. State this in the link text or nearby text.
+
+## Examples
+
+**Input:** Open the outage map in a new tab.
+
+**Output:**
+
+```html
+<a class="e-link e-link--new-tab" href="https://strombruddskart.elvia.no/" target="_blank" rel="noopener">
+  <span class="e-link__title"
+    >Se vårt strømbruddskart <span class="e-sr-only">(åpnes i en ny fane)</span></span
+  >
+  <span class="e-link__icon">
+    <e-icon name="newTabBold"></e-icon>
+  </span>
+</a>
+```
+
+**Input:** Add an action link with an arrow icon.
+
+**Output:**
+
+```html
+<a class="e-link e-link--action" href="/systems">
+  <span class="e-link__title">Se systemer</span>
+  <span class="e-link__icon">
+    <e-icon name="arrowRightCircleColor"></e-icon>
+    <e-icon name="arrowRightCircleFilledColor"></e-icon>
+  </span>
+</a>
+```
 
 ## Classes
 
@@ -114,18 +138,3 @@ Base: `e-link`
 
 - `e-link---focus`
 - `e-link---hover`
-
-## Examples
-
-**Input:** Link to the outage map in a new tab
-
-**Output:**
-
-```html
-<a class="e-link e-link--new-tab" href="https://strombruddskart.elvia.no/" target="_blank" rel="noopener">
-  <span class="e-link__title">View outage map <span class="e-sr-only">(opens in a new tab)</span></span>
-  <span class="e-link__icon">
-    <e-icon name="newTabBold"></e-icon>
-  </span>
-</a>
-```
