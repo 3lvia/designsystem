@@ -33,6 +33,8 @@ https://design.elvia.io and note that no reference was available.
 - **Accordion** `<elvia-accordion>` web component, normal disclosure, overflow preview, single toggle, labels,
   events, and accessibility. See [accordion.md](references/accordion.md).
 - **Buttons** `e-btn` class, types, sizing, ordering, labeling. See [button.md](references/button.md).
+- **Box** `<elvia-box>` element, `@elvia/elvis-box` package, content and heading slots, colored border. See
+  [box.md](references/box.md).
 - **Lists** `e-list` class, bullet, numbered, and icon markers, emphasis, and list semantics. See
   [list.md](references/list.md).
 - **Links** `e-link` CSS class, navigation variants, sizing, labeling, and accessibility. See
