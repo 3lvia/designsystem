@@ -218,6 +218,12 @@ describe('Elvia Header', () => {
       expect(element).not.toBeEmptyDOMElement();
     });
 
+    test('the side nav width toggle remains mounted on mobile', () => {
+      const element = screen.getByRole('navigation').querySelector('button');
+      expect(element).toBeInTheDocument();
+      expect(element).not.toBeVisible();
+    });
+
     test('the mobile menu is not yet visible', () => {
       const element = screen.queryByRole('menu');
       expect(element).not.toBeInTheDocument();

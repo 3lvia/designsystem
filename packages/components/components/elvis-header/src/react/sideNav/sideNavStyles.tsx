@@ -1,4 +1,5 @@
 import { getThemeColor } from '@elvia/elvis-colors';
+import { device } from '@elvia/elvis-toolbox';
 import { getTypographyCss } from '@elvia/elvis-typography';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
@@ -7,7 +8,6 @@ import { headerZIndex, sidebarAnimation, sidebarMaxWidth, toolbarHeight } from '
 import { publicStyles } from './publicStyles';
 
 interface SideNavContainerProps {
-  isGtMobile: boolean;
   isExpanded: boolean;
 }
 
@@ -21,45 +21,24 @@ export const SideNavContainer = styled.nav<SideNavContainerProps>`
   will-change: max-width;
   transition: max-width ${sidebarAnimation};
   width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: ${toolbarHeight};
+  padding: 8px 16px;
+  border-top: 2px solid ${getThemeColor('border-5')};
 
-  ${(props) => {
-    if (props.isGtMobile) {
-      return css`
-        left: 0;
-        top: ${toolbarHeight};
-        bottom: 0;
-        padding: 16px 8px;
-        border-right: 1px solid ${getThemeColor('border-5')};
-      `;
-    }
+  @media ${device.gtMobile} {
+    right: auto;
+    top: ${toolbarHeight};
+    height: auto;
+    padding: 16px 8px;
+    border-top: 0;
+    border-right: 1px solid ${getThemeColor('border-5')};
+    max-width: ${({ isExpanded }) => (isExpanded ? sidebarMaxWidth : toolbarHeight)};
+  }
 
-    return css`
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: ${toolbarHeight};
-      padding: 8px 16px;
-      border-top: 2px solid ${getThemeColor('border-5')};
-    `;
-  }}
-
-  ${(props) => {
-    if (props.isExpanded && props.isGtMobile) {
-      return css`
-        max-width: ${sidebarMaxWidth};
-      `;
-    } else if (props.isGtMobile) {
-      return css`
-        max-width: ${toolbarHeight};
-      `;
-    }
-
-    return css``;
-  }}
-
-  ${(props) => {
-    return publicStyles(props.isGtMobile);
-  }}
+  ${publicStyles()}
 `;
 
 interface ButtonContainerProps {
@@ -125,4 +104,9 @@ export const ToggleWidthButton = styled(NavButton)`
   color: ${getThemeColor('text-1')};
   margin-top: auto;
   gap: 32px;
+  display: none;
+
+  @media ${device.gtMobile} {
+    display: flex;
+  }
 `;
