@@ -43,6 +43,8 @@ https://design.elvia.io and note that no reference was available.
   [illustrations.md](references/illustrations.md).
 - **Checkboxes** `e-checkbox` class, sizing, states, grouping, and accessibility. See
   [checkbox.md](references/checkbox.md).
+- **Toggle** `e-toggle` CSS class, on/off settings, sizing, state classes, and accessibility. See
+  [toggle.md](references/toggle.md).
 - **Header** `<elvia-header>` web component, `@elvia/elvis-header` package, user and app details, sidenav
   slots, events, and theme utility. See [header.md](references/header.md).
 - **Modal** `<elvia-modal>` web component, `@elvia/elvis-modal` package, heading, content, buttons,
