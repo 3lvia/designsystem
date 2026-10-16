@@ -45,6 +45,8 @@ https://design.elvia.io and note that no reference was available.
   [illustrations.md](references/illustrations.md).
 - **Checkboxes** `e-checkbox` class, sizing, states, grouping, and accessibility. See
   [checkbox.md](references/checkbox.md).
+- **Toggle** `e-toggle` CSS class, on/off settings, sizing, state classes, and accessibility. See
+  [toggle.md](references/toggle.md).
 - **Header** `<elvia-header>` web component, `@elvia/elvis-header` package, user and app details, sidenav
   slots, events, and theme utility. See [header.md](references/header.md).
 - **Modal** `<elvia-modal>` web component, `@elvia/elvis-modal` package, heading, content, buttons,
@@ -52,6 +54,8 @@ https://design.elvia.io and note that no reference was available.
 - **Progress linear** `<elvia-progress-linear>` web component, `@elvia/elvis-progress-linear` package,
   determinate and indeterminate progress, error state, sizing, and accessibility. See
   [progress-linear.md](references/progress-linear.md).
+- **Popover** `<elvia-popover>` web component, `@elvia/elvis-popover` package, text and slotted content,
+  placement, dismissal, and accessibility. See [popover.md](references/popover.md).
 - **Tabs** `<elvia-tabs>` web component, `@elvia/elvis-tabs` package, items, selection, manual/automatic
   activation, overflow scrolling. See [tabs.md](references/tabs.md).
 - **Tags** `e-tag` CSS class, categorization, status colors. See [tag.md](references/tag.md).
