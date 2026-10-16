@@ -69,6 +69,8 @@ be selected.
 Use `e-checkbox--indeterminate` on a parent when a nested group is partially selected. Apply it from
 application logic as child selections change; it is visual styling, not the native input state.
 
+Wrap the group in `e-form-field`. Wrap its child checkboxes in `e-form-field__nested`.
+
 ```html
 <div class="e-form-field">
   <label class="e-checkbox e-checkbox--indeterminate">
