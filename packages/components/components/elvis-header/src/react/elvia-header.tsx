@@ -42,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   const { ref: pageContainerRef } = useSlot('appContent', webcomponent);
   const { ref: pageTitleRef } = useSlot<HTMLHeadingElement>('pageTitle', webcomponent);
-  const { ref: sidenavRef } = useSlot('navItems', webcomponent);
+  const { ref: navItemsRef } = useSlot<HTMLDivElement>('navItems', webcomponent);
 
   const hasNavItems = !!webcomponent?.getSlot('navItems') || !!navItems;
   const hasAppContent = !!webcomponent?.getSlot('appContent') || !!appContent;
@@ -153,7 +153,7 @@ export const Header: React.FC<HeaderProps> = ({
       {hasNavItems && (
         <SideNav
           labels={labels}
-          ref={sidenavRef}
+          ref={navItemsRef}
           onSideNavToggle={() => setSidenavIsExpanded(!sidenavIsExpanded)}
           isExpanded={sidenavIsExpanded}
         >
