@@ -33,7 +33,9 @@ for layout. Do not use the removed `e-search` classes.
 - Use on-submit search when the user must choose when the search starts.
 - Use medium size by default. Use small size in dense internal interfaces. Keep the size consistent on the
   page.
-- Add `e-form-field--full-width` to the field wrapper when search must fill the available width.
+- Add `e-form-field--full-width` to the field wrapper when instant search must fill the available width.
+- For on-submit search that must fill the available width, add `e-inlined-field--full-width` to the outer
+  `e-inlined-field`.
 - Remove `e-invisible` from the clear button when the input has a valid value.
 
 ## Accessibility
@@ -50,7 +52,7 @@ for layout. Do not use the removed `e-search` classes.
   <div class="e-input">
     <e-icon name="searchColor"></e-icon>
     <input aria-label="Søk" type="search" placeholder="Søk" />
-    <button class="e-btn e-btn--icon e-invisible" aria-label="Tøm søkefelt">
+    <button type="button" class="e-btn e-btn--icon e-invisible" aria-label="Tøm søkefelt">
       <span class="e-btn__icon">
         <e-icon name="close"></e-icon>
       </span>

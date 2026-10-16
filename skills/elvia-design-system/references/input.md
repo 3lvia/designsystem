@@ -48,8 +48,7 @@ Use `e-form-field` for the label and related feedback. See [Form Field](./form-f
 ### When not to use
 
 - Do not use a read-only input as a standalone value. Use regular text instead.
-- Do not use `readonly` when the value must not be selected or read by assistive technology. Use `disabled`
-  instead.
+- Do not use `readonly` when the value must not be selected or read by assistive technology.
 
 ## Accessibility
 

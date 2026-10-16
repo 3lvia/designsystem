@@ -76,7 +76,7 @@ Use `e-input` for the control styles. See [Input](./input.md).
 <div class="e-form-field">
   <label class="e-form-field__label" for="password">Passord</label>
   <div class="e-input e-input---invalid">
-    <input id="password" aria-invalid="true" aria-errormessage="password-error" required />
+    <input type="password" id="password" aria-invalid="true" aria-errormessage="password-error" required />
   </div>
   <span class="e-form-field__error e-form-field__error--visible" id="password-error">
     Skriv inn et gyldig passord
