@@ -1,11 +1,11 @@
 ---
 name: elvia-design-system
 description: >
-  Reference for UI components in Elvia's design system ("Elvis"). Covers component-specific guidelines for
-  sizing, coloring, types, ordering, labeling, accessibility attributes, CSS setup, and web-component
-  registration. Use when building, reviewing, or fixing UI in an Elvia frontend, even if the request doesn't
-  name Elvia or the CSS classes explicitly (e.g. "add a save button", "make this icon bigger", "add a
-  tooltip").
+  Reference for UI components and patterns in Elvia's design system ("Elvis"). Covers component- and
+  pattern-specific guidelines for sizing, coloring, types, ordering, labeling, accessibility attributes, CSS
+  setup, and web-component registration. Use when building, reviewing, or fixing UI in an Elvia frontend, even
+  if the request doesn't name Elvia or the CSS classes explicitly (e.g. "add a save button", "make this icon
+  bigger", "add a tooltip").
 license: GPL-3.0-only
 metadata:
   author: Elvia
@@ -25,8 +25,8 @@ Load only the reference file(s) for the area being worked in, not the whole set.
 - **Web components** shared attribute and property behavior, case-insensitive attribute names, arrays and
   objects, and event shape and naming. See [web-components.md](references/web-components.md).
 
-If no reference file exists for the requested component, fall back to general Elvia design principles from
-https://design.elvia.io and note that no reference was available.
+If no reference file exists for the requested component or pattern, fall back to general Elvia design
+principles from https://design.elvia.io and note that no reference was available.
 
 - **App Bridge** `<elvia-app-bridge>` web component, `@elvia/elvis-app-bridge` package, metering-point target,
   active apps, internal use only, routing, environments. See [app-bridge.md](references/app-bridge.md).
@@ -45,6 +45,9 @@ https://design.elvia.io and note that no reference was available.
   [illustrations.md](references/illustrations.md).
 - **Checkboxes** `e-checkbox` class, sizing, states, grouping, and accessibility. See
   [checkbox.md](references/checkbox.md).
+- **Form fields** `e-form-field` class, labels, feedback, and inline field layout. See
+  [form-field.md](references/form-field.md).
+- **Inputs** `e-input` class, sizing, states, suffixes, and validation. See [input.md](references/input.md).
 - **Toggle** `e-toggle` CSS class, on/off settings, sizing, state classes, and accessibility. See
   [toggle.md](references/toggle.md).
 - **Radio buttons** `e-radio` CSS class, sizing, grouping, selection, and accessibility. See
@@ -58,6 +61,8 @@ https://design.elvia.io and note that no reference was available.
   [progress-linear.md](references/progress-linear.md).
 - **Popover** `<elvia-popover>` web component, `@elvia/elvis-popover` package, text and slotted content,
   placement, dismissal, and accessibility. See [popover.md](references/popover.md).
+- **Search pattern** instant and on-submit variants, clear button behavior, sizing, and accessibility. See
+  [search-pattern.md](references/search-pattern.md).
 - **Tabs** `<elvia-tabs>` web component, `@elvia/elvis-tabs` package, items, selection, manual/automatic
   activation, overflow scrolling. See [tabs.md](references/tabs.md).
 - **Tags** `e-tag` CSS class, categorization, status colors. See [tag.md](references/tag.md).
