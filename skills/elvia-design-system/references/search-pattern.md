@@ -35,7 +35,7 @@ for layout. Do not use the removed `e-search` classes.
   page.
 - Add `e-form-field--full-width` to the field wrapper when instant search must fill the available width.
 - For on-submit search that must fill the available width, add `e-inlined-field--full-width` to the outer
-  `e-inlined-field`.
+  `e-inlined-field` and remove `e-form-field--width-auto` from the inner `e-form-field`.
 - Remove `e-invisible` from the clear button when the input has a valid value.
 
 ## Accessibility
