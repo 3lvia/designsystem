@@ -102,8 +102,8 @@ openElviaToast({
 ## Accessibility
 
 - The component sets `role="status"` on each toast.
-- The close-button label follows the global HTML language: `no` selects Norwegian; other values select
-  English.
+- The close-button label follows the global HTML language: `en`, `en-GB`, and `en-US` select English;
+  all other values (including an unset `lang`) select Norwegian.
 
 ## Examples
 
