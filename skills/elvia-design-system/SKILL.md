@@ -32,6 +32,8 @@ principles from https://design.elvia.io and note that no reference was available
   active apps, internal use only, routing, environments. See [app-bridge.md](references/app-bridge.md).
 - **Accordion** `<elvia-accordion>` web component, normal disclosure, overflow preview, single toggle, labels,
   events, and accessibility. See [accordion.md](references/accordion.md).
+- **Alert** `e-alert` CSS class, local and global alerts, status icons, actions, accessibility, and Toast
+  selection. See [alert.md](references/alert.md).
 - **Badge** `<elvia-badge>` web component, `@elvia/elvis-badge` package, content slot, count, color,
   visibility, and accessibility. See [badge.md](references/badge.md).
 - **Buttons** `e-btn` class, types, sizing, ordering, labeling. See [button.md](references/button.md).
@@ -72,6 +74,8 @@ principles from https://design.elvia.io and note that no reference was available
 - **Tabs** `<elvia-tabs>` web component, `@elvia/elvis-tabs` package, items, selection, manual/automatic
   activation, overflow scrolling. See [tabs.md](references/tabs.md).
 - **Tags** `e-tag` CSS class, categorization, status colors. See [tag.md](references/tag.md).
+- **Toast** `<elvia-toast>` web component, `@elvia/elvis-toast` package, single application root element,
+  function options, status, dismissal, custom icons, and accessibility. See [toast.md](references/toast.md).
 - **Typography** text hierarchy and available typography classes. See
   [typography.md](references/typography.md).
 - **Tooltips** `<elvia-tooltip>` web component, `@elvia/elvis-tooltip` package, trigger and content slots,
