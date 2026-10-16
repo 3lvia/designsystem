@@ -72,6 +72,8 @@ principles from https://design.elvia.io and note that no reference was available
 - **Tabs** `<elvia-tabs>` web component, `@elvia/elvis-tabs` package, items, selection, manual/automatic
   activation, overflow scrolling. See [tabs.md](references/tabs.md).
 - **Tags** `e-tag` CSS class, categorization, status colors. See [tag.md](references/tag.md).
+- **Toast** `<elvia-toast>` web component, `@elvia/elvis-toast` package, single application root element,
+  function options, status, dismissal, custom icons, and accessibility. See [toast.md](references/toast.md).
 - **Typography** text hierarchy and available typography classes. See
   [typography.md](references/typography.md).
 - **Tooltips** `<elvia-tooltip>` web component, `@elvia/elvis-tooltip` package, trigger and content slots,
