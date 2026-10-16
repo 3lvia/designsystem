@@ -3,6 +3,7 @@
   - [Installation](#installation)
   - [Use](#use)
   - [Attributes](#attributes)
+    - [heading](#heading)
     - [content](#content)
     - [horizontalPosition](#horizontalposition)
     - [verticalPosition](#verticalposition)
@@ -33,12 +34,12 @@ This web component requires the `@elvia/elvis-popover` package. If it is not alr
 
 - The trigger MUST be a child with `slot="trigger"`. Set `content` for plain text. Use `slot="content"` for
   other content.
-- For icon triggers, include both the normal and filled icons in the DOM.
+- For circled icon triggers, include both the normal and filled icons in the DOM.
 - Popover toggles on trigger click, closes on outside click or Escape, positions itself, and adjusts to
   available space.
 
 ```html
-<elvia-popover content="Se forbruket per time.">
+<elvia-popover heading="Forbruk per time" content="Se forbruket per time.">
   <button slot="trigger" class="e-btn"><span class="e-btn__title">Vis forbruk</span></button>
 </elvia-popover>
 ```
@@ -47,6 +48,15 @@ Listen for `onOpen` and `onClose` with `addEventListener`. See [Web Components](
 behavior.
 
 ## Attributes
+
+### heading
+
+Sets the popover's visible heading and the dialog's accessible name through `aria-labelledby`. Provide a
+descriptive heading so screen reader users can identify the dialog.
+
+```html
+<elvia-popover heading="Forbruk per time" content="Se forbruket per time.">...</elvia-popover>
+```
 
 ### content
 
@@ -123,6 +133,8 @@ Defaults to `false`. Set it to `true` to show the popover.
 
 ## Accessibility
 
+- Set `heading` to give the dialog an accessible name. Neither `content` nor the trigger's label names the
+  dialog.
 - Use a native `<button>` as the trigger so Space and Enter work.
 - Space or Enter opens or closes the popover. Escape closes it.
 - The popover traps focus while open and returns focus when it closes.
@@ -137,8 +149,8 @@ Defaults to `false`. Set it to `true` to show the popover.
 **Output:**
 
 ```html
-<elvia-popover content="Se forbruket per time.">
-  <button slot="trigger" class="e-btn e-btn--icon" aria-label="Vis forbruk">
+<elvia-popover heading="Forbruk per time" content="Se forbruket per time.">
+  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled" aria-label="Vis forbruk">
     <span class="e-btn__icon">
       <e-icon name="informationCircle"></e-icon>
       <e-icon name="informationCircleFilledColor"></e-icon>
@@ -159,7 +171,7 @@ popover.addEventListener('onClose', () => trigger.classList.remove('e-btn---sele
 **Output:**
 
 ```html
-<elvia-popover>
+<elvia-popover heading="Endre varsling">
   <button slot="trigger" class="e-btn">
     <span class="e-btn__title">Endre varsling</span>
   </button>
