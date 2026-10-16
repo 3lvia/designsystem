@@ -45,6 +45,8 @@ principles from https://design.elvia.io and note that no reference was available
   [illustrations.md](references/illustrations.md).
 - **Checkboxes** `e-checkbox` class, sizing, states, grouping, and accessibility. See
   [checkbox.md](references/checkbox.md).
+- **Content Loader** `e-content-loader` CSS class, box, circle, and text variants, sizing, accessibility. See
+  [content-loader.md](references/content-loader.md).
 - **Form fields** `e-form-field` class, labels, feedback, and inline field layout. See
   [form-field.md](references/form-field.md).
 - **Inputs** `e-input` class, sizing, states, suffixes, and validation. See [input.md](references/input.md).
