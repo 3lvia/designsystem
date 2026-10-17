@@ -215,7 +215,7 @@ heading order.
 ```html
 <a href="/forbruk">
   <elvia-card heading="Forbruk">
-    <span slot="icon" aria-hidden="true">12</span>
+    <span slot="icon">12</span>
   </elvia-card>
 </a>
 ```
