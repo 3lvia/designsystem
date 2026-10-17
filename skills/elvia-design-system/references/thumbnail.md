@@ -52,10 +52,14 @@ Use a button with an image inside it:
 
 **Input:** Mark the selected image in a collection.
 
+Set `aria-current="true"` on the current thumbnail. When the displayed image changes, move both
+`aria-current="true"` and `e-thumbnail---selected` to the new current thumbnail, removing them from the
+previous one.
+
 **Output:**
 
 ```html
-<button class="e-thumbnail e-thumbnail---selected" aria-label="Vis bilde 3 i større format">
+<button class="e-thumbnail e-thumbnail---selected" aria-current="true" aria-label="Vis bilde 3 i større format">
   <img src="assets/thumbnail/image-3.jpg" alt="Vis bilde 3 i større format" />
 </button>
 ```
