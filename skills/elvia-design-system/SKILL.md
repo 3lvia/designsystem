@@ -34,6 +34,9 @@ principles from https://design.elvia.io and note that no reference was available
   events, and accessibility. See [accordion.md](references/accordion.md).
 - **Alert** `e-alert` CSS class, local and global alerts, status icons, actions, accessibility, and Toast
   selection. See [alert.md](references/alert.md).
+- **Autocomplete** `<elvia-autocomplete>` web component, `@elvia/elvis-autocomplete` package, free text,
+  suggestions, filters, selection events, validation, and accessibility. See
+  [autocomplete.md](references/autocomplete.md).
 - **Badge** `<elvia-badge>` web component, `@elvia/elvis-badge` package, content slot, count, color,
   visibility, and accessibility. See [badge.md](references/badge.md).
 - **Buttons** `e-btn` class, types, sizing, ordering, labeling. See [button.md](references/button.md).
