@@ -3,6 +3,21 @@
   "name": "elvis",
   "content": [
     {
+      "version": "21.5.2",
+      "date": "October 19, 2026",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "The file upload input is now keyboard-accessible, with a visible focus outline on its label."
+          ],
+          "components": [
+            { "displayName": "File Upload", "url": "https://design.elvia.io/components/file-upload" }
+          ]
+        }
+      ]
+    },
+    {
       "version": "21.5.1",
       "date": "October 12, 2026",
       "changelog": [
