@@ -194,7 +194,7 @@ dropdown.labelTransformation = (value) =>
 
 - For fewer than five options, consider [Radio Filter](./radio-filter.md) or
   [Radio Button](./radio-button.md).
-- For more than 15 options with one selection, consider Autocomplete.
+- For more than 15 options with one selection, consider [Autocomplete](./autocomplete.md).
 
 ## Accessibility
 
