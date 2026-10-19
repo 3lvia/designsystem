@@ -48,7 +48,7 @@ the [Installation reference](./installation.md).
       <e-icon name="moreMenu"> </e-icon>
     </span>
   </button>
-  <div slot="content">
+  <div slot="content" class="ewc-context-menu__list-group">
     <button role="menuitem">Rediger</button>
     <button role="menuitem">Slett</button>
   </div>
@@ -164,21 +164,19 @@ menu.anchorPosition = { top: 100, left: 200 };
       <e-icon name="moreMenu"></e-icon>
     </span>
   </button>
-  <div slot="content">
-    <div class="ewc-context-menu__list-group">
-      <button role="menuitem">
-        <e-icon name="edit" size="xs"></e-icon>
-        <span>Rediger</span>
-      </button>
-      <button role="menuitem">
-        <e-icon name="bin" size="xs"></e-icon>
-        <span>Slett</span>
-      </button>
-      <a role="menuitem" href="#">
-        <e-icon name="download" size="xs"></e-icon>
-        <span>Last ned</span>
-      </a>
-    </div>
+  <div slot="content" class="ewc-context-menu__list-group">
+    <button role="menuitem">
+      <e-icon name="edit" size="xs"></e-icon>
+      <span>Rediger</span>
+    </button>
+    <button role="menuitem">
+      <e-icon name="bin" size="xs"></e-icon>
+      <span>Slett</span>
+    </button>
+    <a role="menuitem" href="#">
+      <e-icon name="download" size="xs"></e-icon>
+      <span>Last ned</span>
+    </a>
   </div>
 </elvia-context-menu>
 ```
