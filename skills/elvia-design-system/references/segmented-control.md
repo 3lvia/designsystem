@@ -36,7 +36,7 @@ This web component requires the `@elvia/elvis-segmented-control` package. If it 
 ></elvia-segmented-control>
 ```
 
-The component reports the selected index. Listen for `valueOnChange` and show the matching view.
+It emits the selected index. Listen for `valueOnChange` and show the matching view.
 
 For updates to `value` or `items` after initialization, follow the shared
 [attribute and property guidance](./web-components.md#attributes-and-properties).
@@ -64,21 +64,21 @@ Set to `text` or `icon`. Defaults to `text`.
 ### size
 
 Set to `small`, `medium`, or `large`. Defaults to `medium`. The component sets `<e-icon>` to 16px for small
-and medium sizes, and 24px for large. Set icon sizes manually when you use other icon markup. See
-[Icons](./icon.md).
+and medium sizes, and 24px for large.
 
 ### valueOnChange
 
-Fires when the user selects an item. The event value is the selected item index. See
+Emits when the user selects an item. The event value is the selected item index. See
 [Events](./web-components.md#events).
 
 ## Guidelines
 
 ### When to use
 
-- Consider a segmented control to switch between closely related subviews.
-- Use it to switch between a small set of views with short labels.
+- Use segmented control to switch between closely related subviews.
+- Use segmented control to switch between a small set of views with short labels.
 - As much as possible, use text with a similar size in each segment.
+- Use nouns or noun phrases for segment labels.
 
 ### When not to use
 
@@ -89,7 +89,6 @@ Fires when the user selects an item. The event value is the selected item index.
 - Text items use their `label` as the radio label.
 - Every icon item MUST set `ariaLabel`.
 - Users can move between items with the Left/Right or Up/Down Arrow keys.
-- Use nouns or noun phrases for segment labels.
 
 ## Examples
 
@@ -120,6 +119,8 @@ control.addEventListener('valueOnChange', (event) => {
   });
 });
 ```
+
+Use your frameworks control flow to show and hide the corresponding views.
 
 **Input:** Use icon options to switch between image and list views.
 
