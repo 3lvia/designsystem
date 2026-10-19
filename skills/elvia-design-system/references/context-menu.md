@@ -218,21 +218,19 @@ menu.anchorPosition = { top: 100, left: 200 };
       <e-icon name="moreMenu"></e-icon>
     </span>
   </button>
-  <div slot="content">
-    <div class="ewc-context-menu__list-group">
-      <button role="menuitem">
-        <e-icon name="accessControl" size="xs"></e-icon>
-        <span>Be om tilgang</span>
-      </button>
-      <button role="menuitem" disabled>
-        <e-icon name="users" size="xs" class="e-icon--color-disabled-1"></e-icon>
-        <span>Legg til bruker</span>
-      </button>
-      <a role="menuitem" href="#">
-        <e-icon name="edit" size="xs"></e-icon>
-        <span>Endre passord</span>
-      </a>
-    </div>
+  <div slot="content" class="ewc-context-menu__list-group">
+    <button role="menuitem">
+      <e-icon name="accessControl" size="xs"></e-icon>
+      <span>Be om tilgang</span>
+    </button>
+    <button role="menuitem" disabled>
+      <e-icon name="users" size="xs" class="e-icon--color-disabled-1"></e-icon>
+      <span>Legg til bruker</span>
+    </button>
+    <a role="menuitem" href="#">
+      <e-icon name="edit" size="xs"></e-icon>
+      <span>Endre passord</span>
+    </a>
   </div>
 </elvia-context-menu>
 ```
