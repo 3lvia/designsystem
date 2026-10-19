@@ -41,6 +41,8 @@ principles from https://design.elvia.io and note that no reference was available
   [box.md](references/box.md).
 - **Breadcrumb** `<elvia-breadcrumb>` web component, `@elvia/elvis-breadcrumb` package, hierarchy, routing,
   mobile behavior, and accessibility. See [breadcrumb.md](references/breadcrumb.md).
+- **Card** `<elvia-card>` web component, `@elvia/elvis-card` package, simple and detail types, sizing,
+  content, and accessibility. See [card.md](references/card.md).
 - **Lists** `e-list` class, bullet, numbered, and icon markers, emphasis, and list semantics. See
   [list.md](references/list.md).
 - **Links** `e-link` CSS class, navigation variants, sizing, labeling, and accessibility. See
