@@ -81,6 +81,8 @@ principles from https://design.elvia.io and note that no reference was available
   slots, events, and theme utility. See [header.md](references/header.md).
 - **Modal** `<elvia-modal>` web component, `@elvia/elvis-modal` package, heading, content, buttons,
   illustration. See [modal.md](references/modal.md).
+- **Pagination** `<elvia-pagination>` web component, `@elvia/elvis-pagination` package, page ranges, page-size
+  options, labels, and accessibility. See [pagination.md](references/pagination.md).
 - **Progress linear** `<elvia-progress-linear>` web component, `@elvia/elvis-progress-linear` package,
   determinate and indeterminate progress, error state, sizing, and accessibility. See
   [progress-linear.md](references/progress-linear.md).
