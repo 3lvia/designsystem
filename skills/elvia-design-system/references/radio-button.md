@@ -53,7 +53,7 @@ option as checked. Include `e-radio__mark` and `e-radio__label` in each option.
 ### When not to use
 
 - Use checkboxes when users can select multiple options.
-- Use a dropdown when the list has more than five options.
+- Use a [Dropdown](./dropdown.md) when the list has more than five options.
 
 ## Accessibility
 

@@ -63,6 +63,9 @@ principles from https://design.elvia.io and note that no reference was available
   orientation, typography, and accessibility. See [divider.md](references/divider.md).
 - **Drag and Drop** `e-dragdrop` CSS class, dimensions, dragover state. See
   [drag-and-drop.md](references/drag-and-drop.md).
+- **Dropdown** `<elvia-dropdown>` web component, `@elvia/elvis-dropdown` package, nested items, search,
+  multiple selections, status, validation, load-more behavior, and accessibility. See
+  [dropdown.md](references/dropdown.md).
 - **File Upload** `e-fileupload` CSS class, file input layout. See
   [file-upload.md](references/file-upload.md).
 - **Form fields** `e-form-field` class, labels, feedback, and inline field layout. See
