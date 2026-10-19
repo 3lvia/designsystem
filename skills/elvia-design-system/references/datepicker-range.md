@@ -98,7 +98,13 @@ until the user selects a date.
 
 ### hasAutoOpenEndDatepicker
 
-The default is `false`. Set to `true` to open the end picker when the start picker closes.
+The default is `false`. Set to `true` to open the next picker when a picker closes.
+
+The next picker opens only if the user changed the start value, or if the start or end value was empty. If the
+user closes the start picker without a change, the end picker does not open.
+
+The sequence is start date, end date. With `hasTimepickers`, the sequence is start date, start time, end date,
+end time. The sequence stops after the last picker.
 
 ```html
 <elvia-datepicker-range hasAutoOpenEndDatepicker></elvia-datepicker-range>
@@ -117,6 +123,9 @@ range.maxDate = new Date(2026, 9, 31);
 
 Set an object with `start` and `end` functions. Each function accepts a `Date`. Return `true` to disable the
 date.
+
+This function does not validate typed dates. It does not prevent automatic selection when a picker opens.
+Validate these dates in the application.
 
 ```js
 const isWeekend = (day) => day.getDay() === 0 || day.getDay() === 6;
@@ -139,8 +148,8 @@ range.errorOptions = { end: { text: 'Velg en senere dato' } };
 
 ### When to use
 
-- Use Datepicker range to select a start date and an end date.
-- Use `isVertical` when the horizontal layout does not fit.
+- Use Datepicker range when the end date must not be before the start date. The component moves the other
+  date to match when the user selects an invalid order.
 
 ### When not to use
 
@@ -169,12 +178,4 @@ period.addEventListener('valueOnChangeISOString', (event) => {
   const { start, end } = event.detail.value;
   console.log(start, end);
 });
-```
-
-**Input:** Select a period with times on a narrow screen.
-
-**Output:**
-
-```html
-<elvia-datepicker-range isVertical hasTimepickers></elvia-datepicker-range>
 ```
