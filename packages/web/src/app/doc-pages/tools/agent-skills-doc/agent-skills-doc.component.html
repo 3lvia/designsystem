@@ -1,0 +1,60 @@
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">{{ title }}</ng-container>
+  <ng-container ngProjectAs="headerDescription">{{ description }}</ng-container>
+</app-component-header>
+
+<div class="page-body">
+  <app-component-section sectionTitle="Elvia Design System skill">
+    <p>
+      An agent skill is a set of instructions written in markdown for an AI coding agent. The
+      <code>elvia-design-system</code> skill helps your agent use the Elvia Design System (Elvis).
+    </p>
+    <div class="e-alert e-alert--info" role="note">
+      <span class="e-alert__icon">
+        <e-icon name="userTesting" class="e-icon--color-grey" />
+      </span>
+      <h2 class="e-alert__title">Preview</h2>
+      <p class="e-alert__text">
+        The skill is in preview. Send your feedback to the
+        <a
+          class="e-link e-link--inline e-link--new-tab"
+          target="_blank"
+          rel="noopener"
+          href="https://elvia-group.slack.com/archives/C01C1DU9X1Q"
+        >
+          <span class="e-link__title">#designsystemet</span>
+          <span class="e-link__icon">
+            <e-icon name="newTabBold" />
+          </span>
+        </a>
+        Slack Channel.
+      </p>
+    </div>
+  </app-component-section>
+
+  <app-component-section sectionTitle="Install">
+    <p>
+      Use one of these two tools to install the skill. Follow the instructions in the terminal. Select your AI
+      coding agent.
+    </p>
+
+    <h3 class="e-title-sm e-mt-32">GitHub CLI</h3>
+    <app-code-viewer [tabs]="['Bash']" fileName="Terminal" [activeCode]="githubInstall" hideTabs />
+
+    <h3 class="e-title-sm e-mt-32">Skills CLI</h3>
+    <app-code-viewer [tabs]="['Bash']" fileName="Terminal" [activeCode]="skillsInstall" hideTabs />
+  </app-component-section>
+
+  <app-component-section sectionTitle="Update">
+    <p>
+      To get the latest instructions, run the update command. Use the same tool that you used to install the
+      skill.
+    </p>
+
+    <h3 class="e-title-sm e-mt-32">GitHub CLI</h3>
+    <app-code-viewer [tabs]="['Bash']" fileName="Terminal" [activeCode]="githubUpdate" hideTabs />
+
+    <h3 class="e-title-sm e-mt-32">Skills CLI</h3>
+    <app-code-viewer [tabs]="['Bash']" fileName="Terminal" [activeCode]="skillsUpdate" hideTabs />
+  </app-component-section>
+</div>

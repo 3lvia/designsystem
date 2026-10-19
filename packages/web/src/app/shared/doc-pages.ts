@@ -948,6 +948,15 @@ const docPagesTools: DocPage[] = [
     imageUrl: `assets/doc-page-icons/tools/accessibility.svg`,
   },
   {
+    title: 'Agent Skills',
+    description: 'Help your AI coding agent use Elvis.',
+    docUrl: Pages.AgentSkills,
+    absolutePath: '/tools/' + Pages.AgentSkills,
+    type: 'Tools',
+    //TODO: update icon to bot
+    imageUrl: 'assets/doc-page-icons/tools/utility_classes.svg',
+  },
+  {
     title: 'Design Process',
     description:
       'In Elvia, we strive towards working after the Double diamond design process and its four stages: discover, define, develop and deliver. We do this to make sure that we deliver solutions well suited for our end users.',
