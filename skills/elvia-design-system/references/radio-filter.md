@@ -6,7 +6,6 @@
     - [items](#items)
     - [name](#name)
     - [value](#value)
-    - [ariaLabel](#arialabel)
     - [groupAriaLabel](#grouparialabel)
   - [Guidelines](#guidelines)
     - [When to use](#when-to-use)
@@ -78,15 +77,6 @@ Set the initial value to an item value. The component manages later selections a
 filter.value = 'all';
 ```
 
-### ariaLabel
-
-This value overrides the accessible name of every option. Leave it unset when each option needs a distinct
-name. The component then uses each visible label and a localized suffix.
-
-```js
-filter.ariaLabel = 'Meldingsfilter';
-```
-
 ### groupAriaLabel
 
 Set an accessible name for the radio group. The default is `Filtreringsknapper` in Norwegian and
@@ -105,13 +95,13 @@ filter.groupAriaLabel = 'Meldingsfilter';
 
 ### When not to use
 
-- Do not use Radio Filter to switch between different content. Use [Tabs](./tabs.md) or Segmented Control.
+- Do not use Radio Filter to switch between different content. Use [Tabs](./tabs.md) or
+  [Segmented Control](./segmented-control.md).
 
 ## Accessibility
 
 - The component exposes its options as a radio group.
 - Use `groupAriaLabel` to set a group name when the localized default is not suitable.
-- Use `ariaLabel` when an option's visible label does not provide a sufficient accessible name. s.
 
 ## Examples
 
