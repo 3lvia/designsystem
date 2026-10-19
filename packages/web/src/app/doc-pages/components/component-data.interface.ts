@@ -38,7 +38,7 @@ interface PropBase {
 /**
  * Represents props that are "primitive", which means that they have no child props.
  */
-export interface ChildlessProp extends PropBase {
+interface ChildlessProp extends PropBase {
   specialType?: 'event' | 'function';
   type: 'string' | 'number' | 'boolean' | 'number[]' | 'string[]' | 'Date' | (string & {});
   description: string;

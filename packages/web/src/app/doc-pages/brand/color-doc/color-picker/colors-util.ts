@@ -36,7 +36,7 @@ const getContrastRatio = (color1: RGB, color2: RGB) => {
   return (Math.max(luminance1, luminance2) + 0.05) / (Math.min(luminance1, luminance2) + 0.05);
 };
 
-export const getContrastValue = (color1: ColorName, color2: ColorName, theme?: ThemeName) => {
+const getContrastValue = (color1: ColorName, color2: ColorName, theme?: ThemeName) => {
   const colorRgb1 = hexToRgb(getBaseColor(color1, theme));
   const colorRgb2 = hexToRgb(getBaseColor(color2, theme));
   const contrast = getContrastRatio(colorRgb1, colorRgb2);
@@ -50,7 +50,7 @@ export const getContrastValue = (color1: ColorName, color2: ColorName, theme?: T
   return '';
 };
 
-export const convertContrastValueToNumber = (contrast: ContrastType) => {
+const convertContrastValueToNumber = (contrast: ContrastType) => {
   switch (contrast) {
     case '': {
       return 0;

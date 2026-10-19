@@ -76,7 +76,7 @@ export type StaticProps<T> = {
   readonly [K in keyof T]?: T[K];
 };
 
-export type DisabledBy<T = Record<string, any>> = Readonly<
+type DisabledBy<T = Record<string, any>> = Readonly<
   Partial<{
     [K in keyof T]: Array<keyof T>;
   }>

@@ -3,10 +3,9 @@ import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import naturalCompare from 'natural-compare-lite';
 
 export type Icon = { pretty: string; title: string; terms: string[] };
-export type IconArray = Icon[];
 
 export const getIconList = () => {
-  const allIcons: IconArray = [];
+  const allIcons: Icon[] = [];
 
   for (const icon of icons) {
     if (icon.name.indexOf('figma') > -1) {

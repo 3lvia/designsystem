@@ -63,7 +63,7 @@ const hslToRgb = (h: number, s: number, l: number) => {
   return { r, g, b };
 };
 
-export const getTextElementWidth = (textElementString: string): number => {
+const getTextElementWidth = (textElementString: string): number => {
   // Create a temporary SVG element
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 
@@ -85,7 +85,7 @@ export const getTextElementWidth = (textElementString: string): number => {
   }
 };
 
-export const findLastTwoViewBoxValues = (svgString: string): number[] | null => {
+const findLastTwoViewBoxValues = (svgString: string): number[] | null => {
   const regex = /<svg[^>]*\sviewBox="([^"]*)"/;
   const match = regex.exec(svgString);
   if (match) {
@@ -98,7 +98,7 @@ export const findLastTwoViewBoxValues = (svgString: string): number[] | null => 
   return null;
 };
 
-export const findHeightAndWidth = (svgString: string): number[] | null => {
+const findHeightAndWidth = (svgString: string): number[] | null => {
   const regex = /width="([^"]+)"[\s\S]*?height="([^"]+)"/;
   const match = regex.exec(svgString);
   if (match) {
