@@ -1,11 +1,11 @@
 export type Category = 'title' | 'body-text' | 'special-text';
 export type Modifier = 'regular' | 'strong' | 'light' | 'italic' | 'mono';
 
-export type FontFamily = 'Red Hat Display' | 'Red Hat Text' | 'Red Hat Mono';
-export type FontWeight = 900 | 700 | 500 | 400 | 300;
-export type FontStyle = 'black' | 'bold' | 'medium' | 'regular' | 'light' | 'italic';
+type FontFamily = 'Red Hat Display' | 'Red Hat Text' | 'Red Hat Mono';
+type FontWeight = 900 | 700 | 500 | 400 | 300;
+type FontStyle = 'black' | 'bold' | 'medium' | 'regular' | 'light' | 'italic';
 
-export type Typography = Readonly<{
+type Typography = Readonly<{
   title: string;
   description: string;
   class: `e-${'text' | 'title'}-${string}`;

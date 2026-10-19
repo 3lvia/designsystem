@@ -19,7 +19,6 @@ export enum Pages {
   Carousel = 'carousel',
   Checkbox = 'checkbox',
   Chip = 'chip',
-  ComponentsStart = 'components',
   ContentLoader = 'content-loader',
   ContextMenu = 'context-menu',
   Datepicker = 'datepicker',

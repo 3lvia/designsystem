@@ -1,4 +1,4 @@
-export type KeyCombination = [string, string];
+type KeyCombination = [string, string];
 
 interface ShortcutWithUrl {
   type: 'route';

@@ -4,7 +4,7 @@ export interface UtilityGroup {
   fragment?: string;
   classes: UtilityClass[];
 }
-export interface UtilityClass {
+interface UtilityClass {
   className: `e-${string}`;
   description: `${string}.`;
   styling: string;
