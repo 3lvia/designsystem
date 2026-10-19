@@ -203,8 +203,8 @@ Set `type` to `detail` to show a corner icon. Use the `cornerIcon` slot for an i
 
 ## Accessibility
 
-Wrap a navigational card in an `<a>` element. Do not skip heading levels; set `headingLevel` to match the page
-heading order.
+- Wrap a navigational card in an `<a>` element. Use your framework's routing mechanism if applicable.
+- Do not skip heading levels et `headingLevel` to match the page heading order.
 
 ## Examples
 
