@@ -13,7 +13,6 @@ export interface BaseRadioFilterProps extends BaseProps {
   name: string;
   items: Option[];
   value: string;
-  ariaLabel?: string;
   groupAriaLabel?: string;
   valueOnChange?: (value: string) => void;
 }
@@ -21,7 +20,6 @@ export interface BaseRadioFilterProps extends BaseProps {
 export interface RadioFilterProps extends BaseRadioFilterProps, ComponentPropsWithoutRef<'div'> {}
 
 export const RadioFilter: FC<RadioFilterProps> = ({
-  ariaLabel,
   name,
   items,
   value,
@@ -54,7 +52,6 @@ export const RadioFilter: FC<RadioFilterProps> = ({
             selectedValue={selectedValue}
             setSelectedValue={setSelectedValue}
             name={name}
-            ariaLabel={ariaLabel}
           />
         ))}
     </RadioFilterGroup>

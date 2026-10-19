@@ -87,11 +87,26 @@ describe('Elvis RadioFilter', () => {
   });
 
   describe('the accessibility', () => {
+    it('should give each filter button a distinct accessible name from its label', () => {
+      render(<RadioFilter items={items} name="radio-filter" value="read" />);
+      items.forEach(({ label }) => {
+        expect(screen.getByRole('radio', { name: label })).toBeInTheDocument();
+      });
+      expect(screen.getByRole('radio', { name: 'Read' })).toBeChecked();
+      expect(screen.getByRole('radio', { name: 'All' })).not.toBeChecked();
+    });
+
     it('should have no axe violations', async () => {
       render(
         <div data-testid="radio-filers">
-          <RadioFilter items={items} name="radio-filter" value="" />
-          <RadioFilter items={items} value="unread" name="radio-filter" />
+          <RadioFilter items={items} name="radio-filter-1" value="" />
+          <RadioFilter items={items} value="unread" name="radio-filter-2" />
+          <RadioFilter
+            items={items}
+            value="unread"
+            groupAriaLabel="Custom group label"
+            name="radio-filter-3"
+          />
         </div>,
       );
 
