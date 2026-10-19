@@ -47,7 +47,8 @@ See [Web components](./web-components.md) for attributes, properties, and events
 Set an object with `start` and `end` as `Date` or `null`.
 
 The `valueOnChange` event returns `{ start, end }` as `Date`, `null` for an empty field, or `Invalid Date`.
-The `valueOnChangeISOString` event returns `{ start, end }` as `YYYY-MM-DD` without time, or `null`.
+The `valueOnChangeISOString` event returns `{ start, end }`, each containing a `YYYY-MM-DD` string without time,
+`null` for an empty field, or the string `'Invalid Date'` for invalid input.
 
 ```js
 const range = document.querySelector('elvia-datepicker-range');
@@ -84,13 +85,14 @@ The default is `false`. Set to `true` to show a time picker for each date. Set `
 the minute step. The default is `15`.
 
 ```html
-<elvia-datepicker-range hasTimepickers timepickerInterval="30"></elvia-datepicker-range>
+<elvia-datepicker-range hasTimepickers timepickerInterval="10"></elvia-datepicker-range>
 ```
 
 ### hasSelectDateOnOpen
 
-The default is `true`. An empty picker selects the current date when it opens. Set to `false` to keep it empty
-until the user selects a date.
+The default is `true`. An empty start picker selects `minDate` when set; otherwise it selects today or an
+earlier selected end date. An empty end picker selects `maxDate` when set; otherwise it selects today or a
+later selected start date. Set to `false` to keep empty pickers empty until the user selects a date.
 
 ```html
 <elvia-datepicker-range hasSelectDateOnOpen="false"></elvia-datepicker-range>
@@ -158,7 +160,7 @@ range.errorOptions = { end: { text: 'Velg en senere dato' } };
 **Output:**
 
 ```html
-<elvia-datepicker-range id="period" isRequired hasSelectDateOnOpen="false"></elvia-datepicker-range>
+<elvia-datepicker-range id="period" isRequired="true" hasSelectDateOnOpen="false"></elvia-datepicker-range>
 ```
 
 ```js
