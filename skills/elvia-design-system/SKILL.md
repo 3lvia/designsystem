@@ -41,6 +41,8 @@ principles from https://design.elvia.io and note that no reference was available
   [box.md](references/box.md).
 - **Breadcrumb** `<elvia-breadcrumb>` web component, `@elvia/elvis-breadcrumb` package, hierarchy, routing,
   mobile behavior, and accessibility. See [breadcrumb.md](references/breadcrumb.md).
+- **Card** `<elvia-card>` web component, `@elvia/elvis-card` package, simple and detail types, sizing,
+  content, and accessibility. See [card.md](references/card.md).
 - **Lists** `e-list` class, bullet, numbered, and icon markers, emphasis, and list semantics. See
   [list.md](references/list.md).
 - **Links** `e-link` CSS class, navigation variants, sizing, labeling, and accessibility. See
@@ -76,6 +78,8 @@ principles from https://design.elvia.io and note that no reference was available
 - **Tabs** `<elvia-tabs>` web component, `@elvia/elvis-tabs` package, items, selection, manual/automatic
   activation, overflow scrolling. See [tabs.md](references/tabs.md).
 - **Tags** `e-tag` CSS class, categorization, status colors. See [tag.md](references/tag.md).
+- **Thumbnail** `e-thumbnail` CSS class, image selection states, and accessibility. See
+  [thumbnail.md](references/thumbnail.md).
 - **Toast** `<elvia-toast>` web component, `@elvia/elvis-toast` package, single application root element,
   function options, status, dismissal, custom icons, and accessibility. See [toast.md](references/toast.md).
 - **Typography** text hierarchy and available typography classes. See
