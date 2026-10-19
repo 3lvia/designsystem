@@ -82,7 +82,7 @@ Emits when the user selects an item. The event value is the selected item index.
 
 ### When not to use
 
-- Do not use it for more than three options or long labels. Use a dropdown instead.
+- Do not use it for more than three options or long labels. Use a [Dropdown](./dropdown.md) instead.
 
 ## Accessibility
 
