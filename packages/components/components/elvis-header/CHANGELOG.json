@@ -3,6 +3,22 @@
   "name": "elvis-header",
   "content": [
     {
+      "date": "19.10.26",
+      "version": "1.15.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": [
+            "Fixed a bug that prevented the component from rendering when switching from desktop to mobile viewport widths."
+          ]
+        },
+        {
+          "type": "patch",
+          "changes": ["Updated internal dependencies."]
+        }
+      ]
+    },
+    {
       "date": "24.02.26",
       "version": "1.15.0",
       "changelog": [
