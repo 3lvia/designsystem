@@ -1,6 +1,7 @@
+@use '../../utilities/helpers';
 @use '../../utilities/icons';
 @use '../../utilities/mixins';
-@use '../../utilities/helpers';
+@use '../../utilities/outline';
 
 .e-fileupload {
   display: flex;
@@ -25,7 +26,11 @@
 
   &__input {
     input[type='file'] {
-      display: none;
+      @include helpers.sr-only();
+
+      &:focus-visible + label {
+        @include outline.e-outline();
+      }
     }
 
     label {
