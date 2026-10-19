@@ -75,6 +75,9 @@ principles from https://design.elvia.io and note that no reference was available
   placement, dismissal, and accessibility. See [popover.md](references/popover.md).
 - **Search pattern** instant and on-submit variants, clear button behavior, sizing, and accessibility. See
   [search-pattern.md](references/search-pattern.md).
+- **Segmented Control** `<elvia-segmented-control>` web component, `@elvia/elvis-segmented-control` package,
+  text and icon items, selection, sizing, keyboard navigation, and accessibility. See
+  [segmented-control.md](references/segmented-control.md).
 - **Tabs** `<elvia-tabs>` web component, `@elvia/elvis-tabs` package, items, selection, manual/automatic
   activation, overflow scrolling. See [tabs.md](references/tabs.md).
 - **Tags** `e-tag` CSS class, categorization, status colors. See [tag.md](references/tag.md).
