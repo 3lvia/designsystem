@@ -1,8 +1,7 @@
-import { useLanguage } from '@elvia/elvis-toolbox';
 import DOMPurify from 'dompurify';
-import React, { FC, useEffect, useRef, useState } from 'react';
+import React, { FC } from 'react';
 
-import { RadioFilterInput, RadioFilterLabel, RadioFilterTitle } from './styledComponents';
+import { RadioFilterContent, RadioFilterInput, RadioFilterLabel } from './styledComponents';
 
 interface RadioFilterItemProps {
   label: string;
@@ -10,7 +9,6 @@ interface RadioFilterItemProps {
   selectedValue: string;
   setSelectedValue: (value: string) => void;
   name: string;
-  ariaLabel?: string;
 }
 
 export const RadioFilterItem: FC<RadioFilterItemProps> = ({
@@ -19,19 +17,7 @@ export const RadioFilterItem: FC<RadioFilterItemProps> = ({
   selectedValue,
   setSelectedValue,
   name,
-  ariaLabel,
 }) => {
-  const lang = useLanguage();
-  // Use the innerText of an item to create an aria-label that doesn't include any HTML tags (e.g. icons)
-  const titleRef = useRef<HTMLSpanElement>(null);
-  const [defaultAriaLabel, setDefaultAriaLabel] = useState('');
-  useEffect(() => {
-    if (titleRef.current?.innerText) {
-      const localizedLabel = lang === 'no' ? ' filtrering valgt' : ' filter selected';
-      setDefaultAriaLabel(titleRef.current?.innerText + localizedLabel);
-    }
-  }, [titleRef, titleRef.current]);
-
   return (
     <RadioFilterLabel
       key={optionsValue}
@@ -41,13 +27,10 @@ export const RadioFilterItem: FC<RadioFilterItemProps> = ({
       <RadioFilterInput
         type="radio"
         name={name}
-        aria-label={ariaLabel ?? defaultAriaLabel}
-        aria-checked={optionsValue === selectedValue}
         checked={optionsValue === selectedValue}
         onChange={() => setSelectedValue(optionsValue)}
       />
-      <RadioFilterTitle
-        ref={titleRef}
+      <RadioFilterContent
         dangerouslySetInnerHTML={{
           __html: DOMPurify.sanitize(label, {
             CUSTOM_ELEMENT_HANDLING: {
