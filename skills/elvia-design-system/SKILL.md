@@ -55,6 +55,8 @@ principles from https://design.elvia.io and note that no reference was available
   [checkbox.md](references/checkbox.md).
 - **Content Loader** `e-content-loader` CSS class, box, circle, and text variants, sizing, accessibility. See
   [content-loader.md](references/content-loader.md).
+- **Context Menu** `<elvia-context-menu>` web component, `@elvia/elvis-context-menu` package, trigger and
+  content slots, positions, selection, and accessibility. See [context-menu.md](references/context-menu.md).
 - **Divider** `<elvia-divider>` web component, `@elvia/elvis-divider` package, divider types, heading slot,
   orientation, typography, and accessibility. See [divider.md](references/divider.md).
 - **Form fields** `e-form-field` class, labels, feedback, and inline field layout. See
