@@ -65,6 +65,9 @@ principles from https://design.elvia.io and note that no reference was available
 - **Datepicker** `<elvia-datepicker>` web component, `@elvia/elvis-datepicker` package, date values, limits,
   disabled dates, automatic selection, time reset, validation, and accessibility. See
   [datepicker.md](references/datepicker.md).
+- **Datepicker range** `<elvia-datepicker-range>` web component, `@elvia/elvis-datepicker-range` package,
+  start and end values, time pickers, vertical layout, limits, disabled dates, validation, and accessibility.
+  See [datepicker-range.md](references/datepicker-range.md).
 - **Divider** `<elvia-divider>` web component, `@elvia/elvis-divider` package, divider types, heading slot,
   orientation, typography, and accessibility. See [divider.md](references/divider.md).
 - **Drag and Drop** `e-dragdrop` CSS class, dimensions, dragover state. See
