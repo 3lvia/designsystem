@@ -35,17 +35,12 @@ const radioFilterData: ComponentData<BaseRadioFilterProps> = {
         'The HTML attribute "name" is used for radio button group input elements in the Radio Filter component. Each name must be unique for each Radio Filter on the page and is not visible to the user.',
       example: /* ts */ `name = "messageFilter"`,
     },
-    ariaLabel: {
-      isRequired: false,
-      type: 'string',
-      description: 'Aria-label for each filter button.',
-      default: '{value} filtrering valgt',
-    },
     groupAriaLabel: {
       isRequired: false,
       type: 'string',
       description: 'Aria label for the whole radio filter group.',
       default: '"Filtreringsknapper"',
+      example: /* ts */ `groupAriaLabel = "Meldingsfilter"`,
     },
     valueOnChange: {
       specialType: 'event',

@@ -496,7 +496,6 @@ function App() {
               <h3>Radio filter</h3>
               <RadioFilter
                 items={radioFilterOptions}
-                ariaLabel={`${selectedRadioFilter} filtrering valgt`}
                 valueOnChange={(selected) => {
                   setSelectedRadioFilter(selected);
                 }}

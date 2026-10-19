@@ -52,7 +52,7 @@ export const RadioFilterInput = styled.input`
   border-radius: 32px;
 `;
 
-export const RadioFilterTitle = styled.span`
+export const RadioFilterContent = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;

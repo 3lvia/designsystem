@@ -216,7 +216,6 @@
         ]"
         :value="'read'"
         :name="'readRadioFilters'"
-        :ariaLabel="'{value} filtrering valgt'"
       ></elvia-radio-filter>
     </div>
 
