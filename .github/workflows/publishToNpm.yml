@@ -21,7 +21,8 @@ concurrency:
   cancel-in-progress: true
 jobs:
   publishToNpm:
-    runs-on: elvia-runner
+    # Self-hosted runners (elvia-runner) are not currently supported for "Trusted publishing" for npm packages. (Source: https://docs.npmjs.com/trusted-publishers#supported-cicd-providers)
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
