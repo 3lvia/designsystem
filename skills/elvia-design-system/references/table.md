@@ -150,7 +150,7 @@ behavior in application logic; CSS classes do not provide it.
             <span class="e-checkbox__mark"></span>
           </label>
         </td>
-        <th scope="row" class="e-text-mono">203413</th>
+        <td class="e-text-mono">203413</td>
         <td>Veien 3, 1230 Oslo</td>
       </tr>
       <tr class="e-table__checkbox">
@@ -160,7 +160,7 @@ behavior in application logic; CSS classes do not provide it.
             <span class="e-checkbox__mark"></span>
           </label>
         </td>
-        <th scope="row" class="e-text-mono">203414</th>
+        <td class="e-text-mono">203414</td>
         <td>Veien 3, 1230 Oslo</td>
       </tr>
     </tbody>
