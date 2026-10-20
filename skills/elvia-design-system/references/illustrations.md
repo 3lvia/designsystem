@@ -52,6 +52,8 @@ The `color` attribute accepts `grey` (default), `purple`, `green`, `blue`, or `o
 <elvia-illustrations-no-connection></elvia-illustrations-no-connection>
 ```
 
+For layout and usage guidance, see [Empty State](./empty-state.md).
+
 **Input:** Show the meter-reading illustration in blue.
 
 **Output:**
