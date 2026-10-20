@@ -46,8 +46,8 @@ See [Web components](./web-components.md) for attributes, properties, and events
 Set a `Date` for the selected time. Set `null` to clear the selection.
 
 The `valueOnChange` event returns a `Date` or `null`. The component validates typed input when the input loses
-focus. Invalid typed input does not emit a new value. Use `errorOnChange` to check validation errors, not only
-`valueOnChange`.
+focus. Malformed times do not emit a new value, but times outside `minTime` or `maxTime` still emit a `Date` and
+produce a validation error. Use `errorOnChange` to check validation errors, not only `valueOnChange`.
 
 ```js
 const timepicker = document.querySelector('elvia-timepicker');
