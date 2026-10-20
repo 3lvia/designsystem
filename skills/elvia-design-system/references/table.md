@@ -185,8 +185,7 @@ behavior in application logic; CSS classes do not provide it.
   </thead>
   <tbody>
     <tr>
-      <th scope="col">Januar 2026</th>
-      <th scope="col"></th>
+      <th scope="rowgroup" colspan="2">Januar 2026</th>
     </tr>
     <tr>
       <th scope="row">Status</th>
