@@ -1,5 +1,3 @@
-[TOC]
-
 - [Table (`e-table`)](#table-e-table)
   - [Reference](#reference)
   - [Installation](#installation)
