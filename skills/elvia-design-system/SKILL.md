@@ -99,6 +99,8 @@ principles from https://design.elvia.io and note that no reference was available
   placement, dismissal, and accessibility. See [popover.md](references/popover.md).
 - **Search pattern** instant and on-submit variants, clear button behavior, sizing, and accessibility. See
   [search-pattern.md](references/search-pattern.md).
+- **Stepper** `<elvia-stepper>` web component, `@elvia/elvis-stepper` package, step content, progression,
+  state, events, and accessibility. See [stepper.md](references/stepper.md).
 - **Segmented Control** `<elvia-segmented-control>` web component, `@elvia/elvis-segmented-control` package,
   text and icon items, selection, sizing, keyboard navigation, and accessibility. See
   [segmented-control.md](references/segmented-control.md).
