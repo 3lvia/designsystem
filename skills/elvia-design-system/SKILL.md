@@ -66,8 +66,8 @@ principles from https://design.elvia.io and note that no reference was available
   disabled dates, automatic selection, time reset, validation, and accessibility. See
   [datepicker.md](references/datepicker.md).
 - **Datepicker range** `<elvia-datepicker-range>` web component, `@elvia/elvis-datepicker-range` package,
-  start and end values, time pickers, vertical layout, limits, disabled dates, validation, and accessibility.
-  See [datepicker-range.md](references/datepicker-range.md).
+  start and end values, [time pickers](references/timepicker.md), vertical layout, limits, disabled dates,
+  validation, and accessibility. See [datepicker-range.md](references/datepicker-range.md).
 - **Divider** `<elvia-divider>` web component, `@elvia/elvis-divider` package, divider types, heading slot,
   orientation, typography, and accessibility. See [divider.md](references/divider.md).
 - **Drag and Drop** `e-dragdrop` CSS class, dimensions, dragover state. See
@@ -109,6 +109,9 @@ principles from https://design.elvia.io and note that no reference was available
 - **Tags** `e-tag` CSS class, categorization, status colors. See [tag.md](references/tag.md).
 - **Thumbnail** `e-thumbnail` CSS class, image selection states, and accessibility. See
   [thumbnail.md](references/thumbnail.md).
+- **Timepicker** `<elvia-timepicker>` web component, `@elvia/elvis-timepicker` package, time values, minute
+  intervals, seconds, limits, automatic selection, validation, and accessibility. See
+  [timepicker.md](references/timepicker.md).
 - **Toast** `<elvia-toast>` web component, `@elvia/elvis-toast` package, single application root element,
   function options, status, dismissal, custom icons, and accessibility. See [toast.md](references/toast.md).
 - **Typography** text hierarchy and available typography classes. See
