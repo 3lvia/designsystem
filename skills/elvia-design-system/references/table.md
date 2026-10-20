@@ -118,6 +118,12 @@ column headers.
 
 **Output:**
 
+`e-checkbox--indeterminate` only styles the mark. In application logic, set the header input's
+`indeterminate` property to `true` when some but not all rows are selected, and to `false` otherwise.
+Keep this property, the `e-checkbox--indeterminate` class, the inputs' native `checked` states, and the
+selected-row classes synchronized as selection changes. Implement the header checkbox's select-all/clear-all
+behavior in application logic; CSS classes do not provide it.
+
 ```html
 <div class="e-table-container">
   <table class="e-table">
