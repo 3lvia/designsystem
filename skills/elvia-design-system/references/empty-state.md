@@ -13,7 +13,7 @@
 
 ## Reference
 
-https://design.elvia.io/components/empty_state
+https://design.elvia.io/components/empty-state
 
 Empty State is a CSS-based component, consisting of only CSS classes.
 
