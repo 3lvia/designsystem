@@ -34,10 +34,24 @@ Add one `item-N` slot for each item. Number slots from 1 without gaps. Add `head
 
 ```html
 <elvia-carousel>
-  <h3 slot="heading-1">Er strømbruddet kun hos deg?</h3>
-  <div slot="item-1">Sjekk om naboene også mangler strøm.</div>
-  <h3 slot="heading-2">Har flere mistet strømmen?</h3>
-  <div slot="item-2">Meld fra om strømbruddet.</div>
+  <div slot="heading-1">
+    <h3 class="e-title-sm">Er strømbruddet kun hos deg?</h3>
+  </div>
+  <div slot="item-1">
+    <img alt="" src="/assets/carousel/el1.jpeg" />
+  </div>
+  <div slot="heading-2">
+    <h3 class="e-title-sm">Har flere mistet strømmen?</h3>
+  </div>
+  <div slot="item-2">
+    <img alt="" src="/assets/carousel/el2.jpeg" />
+  </div>
+  <div slot="heading-3">
+    <h3 class="e-title-sm">Vær forberedt på strømbrudd</h3>
+  </div>
+  <div slot="item-3">
+    <img alt="" src="/assets/carousel/el3.jpeg" />
+  </div>
 </elvia-carousel>
 ```
 
@@ -135,12 +149,24 @@ The default is `true`. Set this to `false` to disable transitions between items.
 
 ```html
 <elvia-carousel>
-  <h3 slot="heading-1">Er strømbruddet kun hos deg?</h3>
-  <img slot="item-1" alt="" src="/assets/carousel/el1.jpeg" />
-  <h3 slot="heading-2">Har flere mistet strømmen?</h3>
-  <img slot="item-2" alt="" src="/assets/carousel/el2.jpeg" />
-  <h3 slot="heading-3">Vær forberedt på strømbrudd</h3>
-  <img slot="item-3" alt="" src="/assets/carousel/el3.jpeg" />
+  <div slot="heading-1">
+    <h3 class="e-title-sm">Er strømbruddet kun hos deg?</h3>
+  </div>
+  <div slot="item-1">
+    <img alt="" src="/assets/carousel/el1.jpeg" />
+  </div>
+  <div slot="heading-2">
+    <h3 class="e-title-sm">Har flere mistet strømmen?</h3>
+  </div>
+  <div slot="item-2">
+    <img alt="" src="/assets/carousel/el2.jpeg" />
+  </div>
+  <div slot="heading-3">
+    <h3 class="e-title-sm">Vær forberedt på strømbrudd</h3>
+  </div>
+  <div slot="item-3">
+    <img alt="" src="/assets/carousel/el3.jpeg" />
+  </div>
 </elvia-carousel>
 ```
 
