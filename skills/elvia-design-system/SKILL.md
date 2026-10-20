@@ -112,6 +112,8 @@ principles from https://design.elvia.io and note that no reference was available
   input fields, hints, error options, and accessibility. See [slider.md](references/slider.md).
 - **Tabs** `<elvia-tabs>` web component, `@elvia/elvis-tabs` package, items, selection, manual/automatic
   activation, overflow scrolling. See [tabs.md](references/tabs.md).
+- **Table** `e-table` and `e-table-mobile` CSS classes, density, responsive layouts, selection, validation,
+  sticky headers, and accessibility. See [table.md](references/table.md).
 - **Tags** `e-tag` CSS class, categorization, status colors. See [tag.md](references/tag.md).
 - **Thumbnail** `e-thumbnail` CSS class, image selection states, and accessibility. See
   [thumbnail.md](references/thumbnail.md).
