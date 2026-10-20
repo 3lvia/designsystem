@@ -953,8 +953,7 @@ const docPagesTools: DocPage[] = [
     docUrl: Pages.AgentSkills,
     absolutePath: '/tools/' + Pages.AgentSkills,
     type: 'Tools',
-    //TODO: update icon to bot
-    imageUrl: 'assets/doc-page-icons/tools/utility_classes.svg',
+    imageUrl: 'assets/doc-page-icons/tools/agent_skills.svg',
   },
   {
     title: 'Design Process',
