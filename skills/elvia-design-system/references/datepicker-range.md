@@ -47,8 +47,8 @@ See [Web components](./web-components.md) for attributes, properties, and events
 Set an object with `start` and `end` as `Date` or `null`.
 
 The `valueOnChange` event returns `{ start, end }` as `Date`, `null` for an empty field, or `Invalid Date`.
-The `valueOnChangeISOString` event returns `{ start, end }`, each containing a `YYYY-MM-DD` string without time,
-`null` for an empty field, or the string `'Invalid Date'` for invalid input.
+The `valueOnChangeISOString` event returns `{ start, end }`, each containing a `YYYY-MM-DD` string without
+time, `null` for an empty field, or the string `'Invalid Date'` for invalid input.
 
 ```js
 const range = document.querySelector('elvia-datepicker-range');
@@ -81,8 +81,8 @@ The default is `false`. Set to `true` to stack the two pickers. Use it for narro
 
 ### hasTimepickers
 
-The default is `false`. Set to `true` to show a time picker for each date. Set `timepickerInterval` to change
-the minute step. The default is `15`.
+The default is `false`. Set to `true` to show a [Timepicker](./timepicker.md) for each date. Set
+`timepickerInterval` to change the minute step. The default is `15`.
 
 ```html
 <elvia-datepicker-range hasTimepickers timepickerInterval="10"></elvia-datepicker-range>
@@ -150,8 +150,8 @@ range.errorOptions = { end: { text: 'Velg en senere dato' } };
 
 ### When to use
 
-- Use Datepicker range when the end date must not be before the start date. The component moves the other
-  date to match when the user selects an invalid order.
+- Use Datepicker range when the end date must not be before the start date. The component moves the other date
+  to match when the user selects an invalid order.
 
 ### When not to use
 
