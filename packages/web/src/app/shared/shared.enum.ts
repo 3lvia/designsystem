@@ -88,6 +88,7 @@ export enum Pages {
 
   // Tool pages
   Accessibility = 'accessibility',
+  AgentSkills = 'agent-skills',
   DesignProcess = 'design-process',
   Evaluation = 'evaluation',
   Icebreakers = 'icebreakers',

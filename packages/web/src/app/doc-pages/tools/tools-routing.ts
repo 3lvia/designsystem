@@ -15,6 +15,12 @@ export const routes: Routes = [
     title: 'Accessibility',
   },
   {
+    path: Pages.AgentSkills,
+    loadComponent: () =>
+      import('./agent-skills-doc/agent-skills-doc.component').then((m) => m.AgentSkillsDocComponent),
+    title: 'Agent Skills',
+  },
+  {
     path: Pages.DesignProcess,
     loadComponent: () =>
       import('./design-process-doc/design-process-doc.component').then((m) => m.DesignProcessDocComponent),
