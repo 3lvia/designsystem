@@ -156,6 +156,7 @@ datepicker.errorOptions = { text: 'Velg en virkedag' };
 
 ### When not to use
 
+- Use [Datepicker range](./datepicker-range.md) to select a start date and an end date.
 - Use Timepicker for tasks that require selecting a time.
 - Do not use Datepicker for birthdates.
 
