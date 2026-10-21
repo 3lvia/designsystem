@@ -87,12 +87,15 @@ Base: `e-alert`
 
 ### When to use
 
-- Use a local alert for medium-urgency feedback about page content or a user action on the current page.
-- Use a global alert for high-urgency system messages for all users across all application pages.
+- Use a local alert for a medium-urgency problem related to page content or a user action. Place it near the
+  affected content.
+- Use a global alert for a high-urgency system or product message that applies across the application.
+- Use an alert when a failure prevents task completion or the user must correct a problem.
 
 ### When not to use
 
-- Use [Toast](./toast.md) for confirmations and notifications, not error messages.
+- Use a [Toast](./toast.md) for a completed action confirmation or a minor contextual update, tip, or
+  suggestion.
 
 ## Accessibility
 

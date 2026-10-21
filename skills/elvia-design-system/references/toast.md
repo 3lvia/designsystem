@@ -93,17 +93,20 @@ openElviaToast({
 
 ### When to use
 
-- Use Toast for confirmations after user actions or notification messages.
+- Use a toast to confirm a completed user action, including an unsuccessful outcome that does not block task
+  completion.
+- Use a toast for a minor contextual update, tip, or suggestion.
 
 ### When not to use
 
-- Use [Alert](./alert.md) for error messages.
+- Use an [Alert](./alert.md) when a failure prevents task completion or the user must correct a problem.
+- Use a global alert for a high-urgency system or product message that applies across the application.
 
 ## Accessibility
 
 - The component sets `role="status"` on each toast.
-- The close-button label follows the global HTML language: `en`, `en-GB`, and `en-US` select English;
-  all other values (including an unset `lang`) select Norwegian.
+- The close-button label follows the global HTML language: `en`, `en-GB`, and `en-US` select English; all
+  other values (including an unset `lang`) select Norwegian.
 
 ## Examples
 
