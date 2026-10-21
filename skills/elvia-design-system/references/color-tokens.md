@@ -141,7 +141,7 @@ Use base tokens only when no purpose token fits. Keep this exception within the 
 ```html
 <section class="custom-summary">
   <h2>Forbruk</h2>
-  <p class="custom-summary-note">Oppdatert i dag</p>
+  <p class="custom-summary__note">Oppdatert i dag</p>
 </section>
 ```
 
