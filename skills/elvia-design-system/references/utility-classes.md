@@ -12,8 +12,6 @@
     - [Borders](#borders)
     - [Display](#display)
     - [Flex](#flex)
-    - [Focus](#focus)
-    - [Shadows](#shadows)
     - [Sizing](#sizing)
     - [Spacing](#spacing)
     - [Text](#text)
