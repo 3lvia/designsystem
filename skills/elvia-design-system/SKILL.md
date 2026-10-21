@@ -2,10 +2,10 @@
 name: elvia-design-system
 description: >
   Reference for UI components and patterns in Elvia's design system ("Elvis"). Covers component- and
-  pattern-specific guidelines for sizing, coloring, types, ordering, labeling, accessibility attributes, CSS
-  setup, and web-component registration. Use when building, reviewing, or fixing UI in an Elvia frontend, even
-  if the request doesn't name Elvia or the CSS classes explicitly (e.g. "add a save button", "make this icon
-  bigger", "add a tooltip").
+  pattern-specific guidelines for sizing, color tokens for custom UI, types, ordering, labeling, accessibility
+  attributes, CSS setup, and web-component registration. Use when building, reviewing, or fixing UI in an
+  Elvia frontend, even if the request doesn't name Elvia or the CSS classes explicitly (e.g. "add a save
+  button", "make this icon bigger", "add a tooltip").
 license: GPL-3.0-only
 metadata:
   author: Elvia
@@ -24,6 +24,9 @@ Load only the reference file(s) for the area being worked in, not the whole set.
   installation and registration. See [installation.md](references/installation.md).
 - **Web components** shared attribute and property behavior, case-insensitive attribute names, arrays and
   objects, and event shape and naming. See [web-components.md](references/web-components.md).
+- **Color tokens** `--e-color-*` CSS custom properties, `@elvia/elvis` package, custom UI, purpose token
+  selection, contrast pairs, themes, states, and palette limits. See
+  [color-tokens.md](references/color-tokens.md).
 
 If no reference file exists for the requested component or pattern, fall back to general Elvia design
 principles from https://design.elvia.io and note that no reference was available.
