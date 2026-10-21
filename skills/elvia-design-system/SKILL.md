@@ -18,7 +18,8 @@ Reference: https://design.elvia.io
 
 ## Areas
 
-Load only the reference file(s) for the area being worked in, not the whole set.
+Load the reference file for each area the task touches (for example, a button inside a modal needs both
+button.md and modal.md). Do not load reference files for areas the task does not touch.
 
 - **Installation** `@elvia/elvis` package, global CSS registration and optional reset, and Elvis web-component
   installation and registration. See [installation.md](references/installation.md).
@@ -28,15 +29,16 @@ Load only the reference file(s) for the area being worked in, not the whole set.
   selection, contrast pairs, themes, states, and palette limits. See
   [color-tokens.md](references/color-tokens.md).
 
-If no reference file exists for the requested component or pattern, fall back to general Elvia design
-principles from https://design.elvia.io and note that no reference was available.
+If no reference file exists for the requested component or pattern, state that no reference was available.
+Then apply only the general principles you can verify from the instructions above. If you cannot access
+https://design.elvia.io, say so, and do not invent guidelines.
 
 - **App Bridge** `<elvia-app-bridge>` web component, `@elvia/elvis-app-bridge` package, metering-point target,
   active apps, internal use only, routing, environments. See [app-bridge.md](references/app-bridge.md).
 - **Accordion** `<elvia-accordion>` web component, normal disclosure, overflow preview, single toggle, labels,
   events, and accessibility. See [accordion.md](references/accordion.md).
-- **Alert** `e-alert` CSS class, local and global alerts, status icons, actions, accessibility, and Toast
-  selection. See [alert.md](references/alert.md).
+- **Alert** `e-alert` CSS class, local and global alerts, status icons, actions, accessibility, and when to
+  use an alert instead of a toast. See [alert.md](references/alert.md) and [toast.md](references/toast.md).
 - **Autocomplete** `<elvia-autocomplete>` web component, `@elvia/elvis-autocomplete` package, free text,
   suggestions, filters, selection events, validation, and accessibility. See
   [autocomplete.md](references/autocomplete.md).
@@ -128,7 +130,10 @@ principles from https://design.elvia.io and note that no reference was available
   intervals, seconds, limits, automatic selection, validation, and accessibility. See
   [timepicker.md](references/timepicker.md).
 - **Toast** `<elvia-toast>` web component, `@elvia/elvis-toast` package, single application root element,
-  function options, status, dismissal, custom icons, and accessibility. See [toast.md](references/toast.md).
+  function options, status, dismissal, custom icons, and accessibility. See [toast.md](references/toast.md)
+  and [alert.md](references/alert.md).
+- **Utility Classes** `@elvia/elvis` CSS utilities, responsive visibility, spacing, sizing, text, flex, and
+  accessibility. See [utility-classes.md](references/utility-classes.md).
 - **Typography** text hierarchy and available typography classes. See
   [typography.md](references/typography.md).
 - **Tooltips** `<elvia-tooltip>` web component, `@elvia/elvis-tooltip` package, trigger and content slots,
