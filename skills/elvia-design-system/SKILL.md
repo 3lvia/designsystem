@@ -9,7 +9,7 @@ description: >
 license: GPL-3.0-only
 metadata:
   author: Elvia
-  version: '0.1.0-alpha.12'
+  version: '1.0.0'
 ---
 
 # Elvia Design System (Elvis)
@@ -121,8 +121,9 @@ https://design.elvia.io, say so, and do not invent guidelines.
   input fields, hints, error options, and accessibility. See [slider.md](references/slider.md).
 - **Tabs** `<elvia-tabs>` web component, `@elvia/elvis-tabs` package, items, selection, manual/automatic
   activation, overflow scrolling. See [tabs.md](references/tabs.md).
-- **Table** `e-table` and `e-table-mobile` CSS classes, density, responsive layouts, selection, validation,
-  sticky headers, and accessibility. See [table.md](references/table.md).
+- **Table** `e-table` and `e-table-mobile` CSS classes, `@elvia/elvis`, default and compact tables, numeric
+  columns, row actions, selection, responsive layouts, row expansion limits, validation, sticky headers, and
+  accessibility. See [table.md](references/table.md).
 - **Tags** `e-tag` CSS class, categorization, status colors. See [tag.md](references/tag.md).
 - **Thumbnail** `e-thumbnail` CSS class, image selection states, and accessibility. See
   [thumbnail.md](references/thumbnail.md).
