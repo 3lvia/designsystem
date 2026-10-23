@@ -102,7 +102,7 @@ describe('Elvis Pagination', () => {
     it('should have hidden right arrow after clicking last paginator number', async () => {
       const user = userEvent.setup();
 
-      const lastPageButton = screen.getByRole('button', { name: /velg side 10/i });
+      const lastPageButton = screen.getByRole('button', { name: 'Side 10' });
       await user.click(lastPageButton);
       const nextButton = screen.queryByRole('button', { name: /neste side/i });
       expect(nextButton).not.toBeInTheDocument();
@@ -126,7 +126,7 @@ describe('Elvis Pagination', () => {
       await user.click(dropdown);
       await user.click(screen.getByRole('option', { name: /20/ }));
 
-      const buttons = screen.queryAllByRole('button', { name: /(velg side \d+|valgt side)/i }); //5 "page dots"
+      const buttons = screen.queryAllByRole('button', { name: /^Side / }); //5 "page dots"
       expect(buttons.length).toBe(5);
     });
   });
@@ -142,7 +142,7 @@ describe('Elvis Pagination', () => {
     it('should calculate correct number of pages based on selected page size', () => {
       // 1989 / 25 = 80 pages
       render(<Pagination numberOfElements={1989} dropdownItems={items} dropdownSelectedItemIndex={1} />);
-      expect(screen.getByRole('button', { name: /velg side 80/i })).toBeVisible();
+      expect(screen.getByRole('button', { name: 'Side 80' })).toBeVisible();
     });
 
     it('should emit correct range when navigating with custom page size', async () => {
@@ -171,7 +171,7 @@ describe('Elvis Pagination', () => {
         />,
       );
 
-      await userEvent.click(screen.getByRole('button', { name: /velg side 80/i }));
+      await userEvent.click(screen.getByRole('button', { name: 'Side 80' }));
       await waitFor(() => expect(valueOnChange).toHaveBeenCalledWith({ start: 1976, end: 1989 }));
     });
 
@@ -179,20 +179,20 @@ describe('Elvis Pagination', () => {
       render(<Pagination numberOfElements={1989} dropdownItems={items} dropdownSelectedItemIndex={1} />);
 
       // 1989 / 25 = 80 pages
-      expect(screen.getByRole('button', { name: /velg side 80/i })).toBeVisible();
+      expect(screen.getByRole('button', { name: 'Side 80' })).toBeVisible();
 
       await userEvent.click(screen.getByRole('combobox'));
       await userEvent.click(screen.getByRole('option', { name: /13/ }));
 
       // 1989 / 13 = 153 pages
-      await waitFor(() => expect(screen.getByRole('button', { name: /velg side 153/i })).toBeVisible());
+      await waitFor(() => expect(screen.getByRole('button', { name: 'Side 153' })).toBeVisible());
     });
 
     it('should handle one element over page size', () => {
       render(<Pagination dropdownItems={items} numberOfElements={14} />);
       const navigation = screen.queryByRole('navigation');
       expect(navigation).toBeInTheDocument();
-      expect(screen.getByRole('button', { name: /velg side 2/i })).toBeVisible();
+      expect(screen.getByRole('button', { name: 'Side 2' })).toBeVisible();
     });
   });
 
@@ -262,7 +262,7 @@ describe('Elvis Pagination', () => {
 
     it('valueOnChange: should _not_ emit event when the current page button is clicked', async () => {
       const user = userEvent.setup();
-      const currentPageButton = screen.getByRole('button', { name: /valgt side/i });
+      const currentPageButton = screen.getByRole('button', { current: true });
       await user.click(currentPageButton);
       await waitFor(() => expect(valueOnChangeEvent).not.toHaveBeenCalled());
     });
@@ -276,11 +276,11 @@ describe('Elvis Pagination', () => {
       await user.click(nextButton);
       await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledWith({ start: 21, end: 30 }));
 
-      const page5Button = screen.getByRole('button', { name: /velg side 5/i });
+      const page5Button = screen.getByRole('button', { name: 'Side 5' });
       await user.click(page5Button);
       await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledWith({ start: 41, end: 50 }));
 
-      const lastButton = screen.getByRole('button', { name: /velg side 10/i });
+      const lastButton = screen.getByRole('button', { name: 'Side 10' });
       await user.click(lastButton);
       await waitFor(() => expect(valueOnChangeEvent).toHaveBeenCalledWith({ start: 91, end: 100 }));
     });
@@ -300,6 +300,34 @@ describe('Elvis Pagination', () => {
   });
 
   describe('the accessibility', () => {
+    it('should include the visible page number in every page button accessible name', () => {
+      render(<Pagination numberOfElements={1989} />);
+
+      const pageButtons = screen.getAllByRole('button', { name: /^Side / });
+
+      for (const button of pageButtons) {
+        expect(button).toHaveAccessibleName(`Side ${button.textContent}`);
+      }
+    });
+
+    it('should mark the first page as current initially', () => {
+      render(<Pagination numberOfElements={1989} />);
+
+      const currentButton = screen.getByRole('button', { current: true });
+
+      expect(currentButton).toHaveAccessibleName('Side 1');
+    });
+
+    it('should mark the clicked page as current', async () => {
+      const user = userEvent.setup();
+      render(<Pagination numberOfElements={1989} />);
+
+      await user.click(screen.getByRole('button', { name: 'Side 2' }));
+
+      const currentButton = screen.getByRole('button', { current: true });
+      expect(currentButton).toHaveAccessibleName('Side 2');
+    });
+
     it('should give each pagination navigation a distinct accessible name', async () => {
       render(
         <div data-testid="pagination-wrapper">

@@ -21,6 +21,6 @@ test('should look correct', async ({ mount, page }) => {
     </div>,
   );
 
-  await components.getByLabel(/velg side 5000/i).click(); //click last page button to test layout
+  await components.getByLabel(/^Side 5\s000$/).click(); //click last page button to test layout
   await percySnapshot(page, 'Paginator');
 });

@@ -3,6 +3,16 @@
   "name": "elvis-pagination",
   "content": [
     {
+      "date": "23.10.26",
+      "version": "3.7.1",
+      "changelog": [
+        {
+          "type": "bug_fix",
+          "changes": ["Fixed page button accessible names to include the visible page number."]
+        }
+      ]
+    },
+    {
       "date": "12.10.26",
       "version": "3.7.0",
       "changelog": [
