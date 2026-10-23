@@ -15,12 +15,13 @@ export const PageElement: FC<PageElementProps> = ({
   setSelectedPageNumber,
 }) => {
   const lang = useLanguage();
-  const getAriaLabel = (pageNumber: number): string => {
+  const formattedPageNumber = pageNumber.toLocaleString('nb-NO');
+  const getAriaLabel = () => {
     if (lang === 'no') {
-      return pageNumber === selectedPageNumber ? 'Valgt side' : 'Velg side ' + pageNumber;
-    } else {
-      return pageNumber === selectedPageNumber ? 'Selected page' : 'Select page ' + pageNumber;
+      return `Side ${formattedPageNumber}`;
     }
+
+    return `Page ${formattedPageNumber}`;
   };
 
   return (
@@ -29,9 +30,9 @@ export const PageElement: FC<PageElementProps> = ({
       onClick={() => setSelectedPageNumber(pageNumber)}
       selected={pageNumber === selectedPageNumber}
       aria-current={pageNumber === selectedPageNumber}
-      aria-label={getAriaLabel(pageNumber)}
+      aria-label={getAriaLabel()}
     >
-      {pageNumber.toLocaleString('nb-NO')}
+      {formattedPageNumber}
     </PaginatorPage>
   );
 };
