@@ -2354,13 +2354,10 @@ __metadata:
   dependencies:
     "@emotion/cache": "npm:^11.11.4"
     "@emotion/react": "npm:^11.11.4"
-    "@types/lodash.isequal": "npm:^4.5.5"
-    "@types/lodash.throttle": "npm:^4.1.7"
     "@types/react": "npm:^18.2.28"
     "@types/react-dom": "npm:^18.2.13"
+    es-toolkit: "npm:^1.53.0"
     json5: "npm:^2.2.3"
-    lodash.isequal: "npm:^4.5.0"
-    lodash.throttle: "npm:^4.1.1"
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
   languageName: unknown
@@ -6835,31 +6832,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash.isequal@npm:^4.5.5":
-  version: 4.5.8
-  resolution: "@types/lodash.isequal@npm:4.5.8"
-  dependencies:
-    "@types/lodash": "npm:*"
-  checksum: 10/f3180c2d2925514fff1908a1303c11468c9f39b47fd7b053416aad3f1447f8e4a9894dd0460187ac9ac19387e25aec8dd8214d13a50a0967e0dc9cca8e4c5353
-  languageName: node
-  linkType: hard
-
-"@types/lodash.throttle@npm:^4.1.7":
-  version: 4.1.9
-  resolution: "@types/lodash.throttle@npm:4.1.9"
-  dependencies:
-    "@types/lodash": "npm:*"
-  checksum: 10/6d330072387f062d408747f0dbe62869820ee3f3fbec43965f703ce9c9083e4ff9082faa4fe92aea000d6367b7645955e9c8db6a4e04e6bd769697fdd19c12b1
-  languageName: node
-  linkType: hard
-
-"@types/lodash@npm:*":
-  version: 4.17.27
-  resolution: "@types/lodash@npm:4.17.27"
-  checksum: 10/ae02ef86268664e5a024fd1a7d907b676fe7cd9b58b52bdddc7c42c7ffb3d05e869f6bd13e3e6cbb4001cac1d072f5e2a6e5deed2ef7dc62d7853fc735a077be
-  languageName: node
-  linkType: hard
-
 "@types/natural-compare-lite@npm:1.4.2":
   version: 1.4.2
   resolution: "@types/natural-compare-lite@npm:1.4.2"
@@ -9964,6 +9936,20 @@ __metadata:
     is-date-object: "npm:^1.1.0"
     is-symbol: "npm:^1.1.1"
   checksum: 10/7a68d778c06de7de960682c57f4103259ca3cb6dc720b8908a027b04bf1216ae4c1688a8999443f871f03efaf8ec7c24b28f33892e2a553c2a4e3bc6bd0e276a
+  languageName: node
+  linkType: hard
+
+"es-toolkit@npm:^1.53.0":
+  version: 1.53.0
+  resolution: "es-toolkit@npm:1.53.0"
+  dependenciesMeta:
+    "@trivago/prettier-plugin-sort-imports@4.3.0":
+      unplugged: true
+    prettier-plugin-sort-re-exports@0.0.1:
+      unplugged: true
+    vitepress-plugin-sandpack@1.1.4:
+      unplugged: true
+  checksum: 10/c3889f372cd39aec4acc9f5df31bc920c1e506e195d2764e87d9c1240908bd0bf84c44b42b6c7ec59ec3f739acddb5ffaeb6bf7d6527338b655fb31f5a52010f
   languageName: node
   linkType: hard
 
@@ -13582,13 +13568,6 @@ __metadata:
   version: 4.7.0
   resolution: "lodash.sortby@npm:4.7.0"
   checksum: 10/38df19ae28608af2c50ac342fc1f414508309d53e1d58ed9adfb2c3cd17c3af290058c0a0478028d932c5404df3d53349d19fa364ef6bed6145a6bc21320399e
-  languageName: node
-  linkType: hard
-
-"lodash.throttle@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "lodash.throttle@npm:4.1.1"
-  checksum: 10/9be9fb2ffd686c20543167883305542f4564062a5f712a40e8c6f2f0d9fd8254a6e9d801c2470b1b24e0cdf2ae83c1277b55aa0fb4799a2db6daf545f53820e1
   languageName: node
   linkType: hard
 
