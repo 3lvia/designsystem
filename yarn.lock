@@ -18788,7 +18788,7 @@ __metadata:
     sass: "npm:1.93.3"
     typescript: "npm:5.8.2"
     vite: "npm:7.3.7"
-    vue: "npm:^3.5.43"
+    vue: "npm:^3.5.44"
     vue-router: "npm:^5.3.1"
     vue-tsc: "npm:3.3.12"
   languageName: unknown
@@ -18808,7 +18808,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:^3.5.43":
+"vue@npm:^3.5.44":
   version: 3.5.44
   resolution: "vue@npm:3.5.44"
   dependencies:
