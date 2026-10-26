@@ -3,6 +3,16 @@
   "name": "elvis-component-wrapper",
   "content": [
     {
+      "date": "26.10.26",
+      "version": "4.3.1",
+      "changelog": [
+        {
+          "type": "patch",
+          "changes": ["Replaced <code>Lodash</code> with <code>es-toolkit</code>."]
+        }
+      ]
+    },
+    {
       "date": "11.09.24",
       "version": "4.3.0",
       "changelog": [

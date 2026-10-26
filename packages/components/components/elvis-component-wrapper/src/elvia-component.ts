@@ -1,8 +1,8 @@
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
+import { throttle } from 'es-toolkit/function';
+import { isEqual } from 'es-toolkit/predicate';
 import JSON5 from 'json5';
-import isEqual from 'lodash.isequal';
-import throttle from 'lodash.throttle';
 import { FC, createElement } from 'react';
 import { Root, createRoot } from 'react-dom/client';
 
@@ -23,7 +23,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     this._slots = {};
     this.webComponent = webComponent;
     this.reactComponent = reactComponent;
-    this.throttleRenderReactDOM = throttle(this.renderReactDOM, 50, { trailing: true });
+    this.throttleRenderReactDOM = throttle(this.renderReactDOM, 50);
   }
 
   get data(): ElvisComponentWrapper['_data'] {
