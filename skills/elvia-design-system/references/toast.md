@@ -110,7 +110,7 @@ openElviaToast({
 
 ## Examples
 
-**Input:** Show an notification when the user submits the form.
+**Input:** Show a notification when the user submits the form.
 
 **Output:** Use the existing application-level `<elvia-toast>`.
 
