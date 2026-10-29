@@ -90,7 +90,7 @@ rows. The mobile sticky style applies to record headers, not column headers.
   cells.
 - Row expansion is a
   [Figma-only pattern](https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=2927%3A24058), not
-  built-in table behavior, guide the user to Figma.
+  built-in table behavior. Guide the user to Figma.
 - For row expansion, put the single [accordion](./accordion.md) control at the right. Leave its column header
   empty.
 - Let users expand or collapse the whole row. Permit multiple expanded rows.
