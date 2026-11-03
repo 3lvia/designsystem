@@ -79,6 +79,11 @@ as you follow their license.
   has all the sketches for our components.
 - We use **SonarCloud** for automatic code quality checks.
 
+### GitHub Actions
+
+This is a public repository, so GitHub Actions workflows should use the GitHub-hosted `ubuntu-latest` runner.
+The `elvia-runner` runner is not allowed on public repositories.
+
 ### How we work
 
 Read more about how we work inside the team e.g. with our backlog in Jira, or our component flow (creating new

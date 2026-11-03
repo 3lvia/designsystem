@@ -20,7 +20,7 @@ jobs:
   build_and_deploy_job:
     if:
       github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
-    runs-on: elvia-runner
+    runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
@@ -53,7 +53,7 @@ jobs:
   # Cleans up the staging environment (preview link) after the pull request is closed
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
-    runs-on: elvia-runner
+    runs-on: ubuntu-latest
     name: Close Pull Request Job
     steps:
       - name: Fetch secrets from Vault
